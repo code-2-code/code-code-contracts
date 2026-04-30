@@ -952,11 +952,11 @@ const file_platform_agent_session_v1_agent_session_proto_rawDesc = "" +
 	"\x12profile_generation\x18\b \x01(\x03R\x11profileGeneration\x12'\n" +
 	"\x0fexecution_class\x18\t \x01(\tR\x0eexecutionClass\x12T\n" +
 	"\fprepare_jobs\x18\n" +
-	" \x03(\v21.platform.agent_session.v1.AgentSessionPrepareJobR\vprepareJobs\"\xa3\x03\n" +
+	" \x03(\v21.platform.agent_session.v1.AgentSessionPrepareJobR\vprepareJobs\"\x89\x03\n" +
 	"\x19AgentSessionRuntimeConfig\x12Q\n" +
 	"\x14provider_runtime_ref\x18\x01 \x01(\v2\x1f.provider.v1.ProviderRuntimeRefR\x12providerRuntimeRef\x12]\n" +
 	"\tfallbacks\x18\x02 \x03(\v2?.platform.agent_session.v1.AgentSessionRuntimeFallbackCandidateR\tfallbacks\x12q\n" +
-	"\x16primary_model_selector\x18\x05 \x01(\v2;.platform.agent_session.v1.AgentSessionRuntimeModelSelectorR\x14primaryModelSelectorJ\x04\b\x03\x10\x04J\x04\b\x04\x10\x05R\x16provider_credential_idR\x11network_policy_idR\x18provider_surface_bindingR\x10default_model_id\"\x8f\x01\n" +
+	"\x16primary_model_selector\x18\x05 \x01(\v2;.platform.agent_session.v1.AgentSessionRuntimeModelSelectorR\x14primaryModelSelectorJ\x04\b\x03\x10\x04J\x04\b\x04\x10\x05R\x16provider_credential_idR\x11network_policy_idR\x10default_model_id\"\x8f\x01\n" +
 	" AgentSessionRuntimeModelSelector\x121\n" +
 	"\tmodel_ref\x18\x01 \x01(\v2\x12.model.v1.ModelRefH\x00R\bmodelRef\x12,\n" +
 	"\x11provider_model_id\x18\x02 \x01(\tH\x00R\x0fproviderModelIdB\n" +

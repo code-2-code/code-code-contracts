@@ -21,8 +21,6 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	SupportService_ListVendors_FullMethodName                 = "/platform.support.v1.SupportService/ListVendors"
 	SupportService_GetVendor_FullMethodName                   = "/platform.support.v1.SupportService/GetVendor"
-	SupportService_ListProviderSurfaces_FullMethodName        = "/platform.support.v1.SupportService/ListProviderSurfaces"
-	SupportService_GetProviderSurface_FullMethodName          = "/platform.support.v1.SupportService/GetProviderSurface"
 	SupportService_ListCLIs_FullMethodName                    = "/platform.support.v1.SupportService/ListCLIs"
 	SupportService_GetCLI_FullMethodName                      = "/platform.support.v1.SupportService/GetCLI"
 	SupportService_ResolveProviderCapabilities_FullMethodName = "/platform.support.v1.SupportService/ResolveProviderCapabilities"
@@ -34,8 +32,6 @@ const (
 type SupportServiceClient interface {
 	ListVendors(ctx context.Context, in *ListVendorsRequest, opts ...grpc.CallOption) (*ListVendorsResponse, error)
 	GetVendor(ctx context.Context, in *GetVendorRequest, opts ...grpc.CallOption) (*GetVendorResponse, error)
-	ListProviderSurfaces(ctx context.Context, in *ListProviderSurfacesRequest, opts ...grpc.CallOption) (*ListProviderSurfacesResponse, error)
-	GetProviderSurface(ctx context.Context, in *GetProviderSurfaceRequest, opts ...grpc.CallOption) (*GetProviderSurfaceResponse, error)
 	ListCLIs(ctx context.Context, in *ListCLIsRequest, opts ...grpc.CallOption) (*ListCLIsResponse, error)
 	GetCLI(ctx context.Context, in *GetCLIRequest, opts ...grpc.CallOption) (*GetCLIResponse, error)
 	ResolveProviderCapabilities(ctx context.Context, in *ResolveProviderCapabilitiesRequest, opts ...grpc.CallOption) (*ResolveProviderCapabilitiesResponse, error)
@@ -63,26 +59,6 @@ func (c *supportServiceClient) GetVendor(ctx context.Context, in *GetVendorReque
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetVendorResponse)
 	err := c.cc.Invoke(ctx, SupportService_GetVendor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *supportServiceClient) ListProviderSurfaces(ctx context.Context, in *ListProviderSurfacesRequest, opts ...grpc.CallOption) (*ListProviderSurfacesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListProviderSurfacesResponse)
-	err := c.cc.Invoke(ctx, SupportService_ListProviderSurfaces_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *supportServiceClient) GetProviderSurface(ctx context.Context, in *GetProviderSurfaceRequest, opts ...grpc.CallOption) (*GetProviderSurfaceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProviderSurfaceResponse)
-	err := c.cc.Invoke(ctx, SupportService_GetProviderSurface_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -125,8 +101,6 @@ func (c *supportServiceClient) ResolveProviderCapabilities(ctx context.Context, 
 type SupportServiceServer interface {
 	ListVendors(context.Context, *ListVendorsRequest) (*ListVendorsResponse, error)
 	GetVendor(context.Context, *GetVendorRequest) (*GetVendorResponse, error)
-	ListProviderSurfaces(context.Context, *ListProviderSurfacesRequest) (*ListProviderSurfacesResponse, error)
-	GetProviderSurface(context.Context, *GetProviderSurfaceRequest) (*GetProviderSurfaceResponse, error)
 	ListCLIs(context.Context, *ListCLIsRequest) (*ListCLIsResponse, error)
 	GetCLI(context.Context, *GetCLIRequest) (*GetCLIResponse, error)
 	ResolveProviderCapabilities(context.Context, *ResolveProviderCapabilitiesRequest) (*ResolveProviderCapabilitiesResponse, error)
@@ -145,12 +119,6 @@ func (UnimplementedSupportServiceServer) ListVendors(context.Context, *ListVendo
 }
 func (UnimplementedSupportServiceServer) GetVendor(context.Context, *GetVendorRequest) (*GetVendorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetVendor not implemented")
-}
-func (UnimplementedSupportServiceServer) ListProviderSurfaces(context.Context, *ListProviderSurfacesRequest) (*ListProviderSurfacesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListProviderSurfaces not implemented")
-}
-func (UnimplementedSupportServiceServer) GetProviderSurface(context.Context, *GetProviderSurfaceRequest) (*GetProviderSurfaceResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProviderSurface not implemented")
 }
 func (UnimplementedSupportServiceServer) ListCLIs(context.Context, *ListCLIsRequest) (*ListCLIsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCLIs not implemented")
@@ -214,42 +182,6 @@ func _SupportService_GetVendor_Handler(srv interface{}, ctx context.Context, dec
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SupportServiceServer).GetVendor(ctx, req.(*GetVendorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SupportService_ListProviderSurfaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListProviderSurfacesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SupportServiceServer).ListProviderSurfaces(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SupportService_ListProviderSurfaces_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupportServiceServer).ListProviderSurfaces(ctx, req.(*ListProviderSurfacesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SupportService_GetProviderSurface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProviderSurfaceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SupportServiceServer).GetProviderSurface(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SupportService_GetProviderSurface_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SupportServiceServer).GetProviderSurface(ctx, req.(*GetProviderSurfaceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -322,14 +254,6 @@ var SupportService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetVendor",
 			Handler:    _SupportService_GetVendor_Handler,
-		},
-		{
-			MethodName: "ListProviderSurfaces",
-			Handler:    _SupportService_ListProviderSurfaces_Handler,
-		},
-		{
-			MethodName: "GetProviderSurface",
-			Handler:    _SupportService_GetProviderSurface_Handler,
 		},
 		{
 			MethodName: "ListCLIs",

@@ -7,9 +7,10 @@ import "credential/v1/oauth_authorization_session.proto";
 import "egress/v1/policy.proto";
 import "api_protocol/v1/protocol.proto";
 import "provider/v1/provider.proto";
+
 import "model_catalog_discovery/v1/model_catalog_discovery.proto";
 import "observability/v1/observability.proto";
-import "provider_card/v1/provider_card.proto";
+
 import "vendor_definition/v1/vendor.proto";
 
 option go_package = "code-code.internal/go-contract/platform/support/v1;supportv1";
@@ -17,8 +18,7 @@ option go_package = "code-code.internal/go-contract/platform/support/v1;supportv
 service SupportService {
   rpc ListVendors(ListVendorsRequest) returns (ListVendorsResponse);
   rpc GetVendor(GetVendorRequest) returns (GetVendorResponse);
-  rpc ListProviderSurfaces(ListProviderSurfacesRequest) returns (ListProviderSurfacesResponse);
-  rpc GetProviderSurface(GetProviderSurfaceRequest) returns (GetProviderSurfaceResponse);
+
   rpc ListCLIs(ListCLIsRequest) returns (ListCLIsResponse);
   rpc GetCLI(GetCLIRequest) returns (GetCLIResponse);
   rpc ResolveProviderCapabilities(ResolveProviderCapabilitiesRequest) returns (ResolveProviderCapabilitiesResponse);
@@ -38,19 +38,7 @@ message GetVendorResponse {
   Vendor item = 1;
 }
 
-message ListProviderSurfacesRequest {}
 
-message ListProviderSurfacesResponse {
-  repeated provider.v1.ProviderSurface items = 1;
-}
-
-message GetProviderSurfaceRequest {
-  string surface_id = 1;
-}
-
-message GetProviderSurfaceResponse {
-  provider.v1.ProviderSurface item = 1;
-}
 
 message ListCLIsRequest {}
 
@@ -123,7 +111,7 @@ message Vendor {
   repeated VendorProviderBinding provider_bindings = 2;
 }
 
-message ProviderSurfaceBinding {
+message ProviderBinding {
   string surface_id = 1;
   string model_catalog_probe_id = 2;
   string quota_probe_id = 3;
@@ -138,11 +126,11 @@ message ProviderSurfaceRuntimeTemplate {
 }
 
 message VendorProviderBinding {
-  ProviderSurfaceBinding provider_binding = 1;
+  ProviderBinding provider_binding = 1;
   repeated ProviderSurfaceRuntimeTemplate surface_templates = 2;
   VendorModelDiscovery model_discovery = 3;
   observability.v1.ObservabilityCapability observability = 4;
-  provider_card.v1.ProviderCardCapability provider_card = 5;
+  reserved 5;
   egress.v1.EgressPolicy egress_policy = 6;
 }
 
@@ -205,9 +193,9 @@ message OAuthSupport {
   OAuthDeviceFlow device_flow = 11;
   CLIAuthMaterialization auth_materialization = 12;
   repeated CredentialSubjectSummaryField subject_summary_fields = 13;
-  provider_card.v1.ProviderCardCapability provider_card = 14;
+  reserved 14;
   OAuthClientIdentity client_identity = 15;
-  ProviderSurfaceBinding provider_binding = 16;
+  ProviderBinding provider_binding = 16;
 }
 
 message APIKeyProtocolSupport {

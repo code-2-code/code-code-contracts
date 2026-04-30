@@ -8,6 +8,7 @@ package providerservicev1
 
 import (
 	v11 "code-code.internal/go-contract/api_protocol/v1"
+	_ "code-code.internal/go-contract/product_info/v1"
 	v1 "code-code.internal/go-contract/provider/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -23,397 +24,6 @@ const (
 	// Verify that runtime/protoimpl is sufficiently up-to-date.
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
-
-type ProviderSurfaceBindingPhase int32
-
-const (
-	ProviderSurfaceBindingPhase_PROVIDER_SURFACE_BINDING_PHASE_UNSPECIFIED    ProviderSurfaceBindingPhase = 0
-	ProviderSurfaceBindingPhase_PROVIDER_SURFACE_BINDING_PHASE_READY          ProviderSurfaceBindingPhase = 1
-	ProviderSurfaceBindingPhase_PROVIDER_SURFACE_BINDING_PHASE_INVALID_CONFIG ProviderSurfaceBindingPhase = 2
-	ProviderSurfaceBindingPhase_PROVIDER_SURFACE_BINDING_PHASE_REFRESHING     ProviderSurfaceBindingPhase = 3
-	ProviderSurfaceBindingPhase_PROVIDER_SURFACE_BINDING_PHASE_STALE          ProviderSurfaceBindingPhase = 4
-	ProviderSurfaceBindingPhase_PROVIDER_SURFACE_BINDING_PHASE_ERROR          ProviderSurfaceBindingPhase = 5
-)
-
-// Enum value maps for ProviderSurfaceBindingPhase.
-var (
-	ProviderSurfaceBindingPhase_name = map[int32]string{
-		0: "PROVIDER_SURFACE_BINDING_PHASE_UNSPECIFIED",
-		1: "PROVIDER_SURFACE_BINDING_PHASE_READY",
-		2: "PROVIDER_SURFACE_BINDING_PHASE_INVALID_CONFIG",
-		3: "PROVIDER_SURFACE_BINDING_PHASE_REFRESHING",
-		4: "PROVIDER_SURFACE_BINDING_PHASE_STALE",
-		5: "PROVIDER_SURFACE_BINDING_PHASE_ERROR",
-	}
-	ProviderSurfaceBindingPhase_value = map[string]int32{
-		"PROVIDER_SURFACE_BINDING_PHASE_UNSPECIFIED":    0,
-		"PROVIDER_SURFACE_BINDING_PHASE_READY":          1,
-		"PROVIDER_SURFACE_BINDING_PHASE_INVALID_CONFIG": 2,
-		"PROVIDER_SURFACE_BINDING_PHASE_REFRESHING":     3,
-		"PROVIDER_SURFACE_BINDING_PHASE_STALE":          4,
-		"PROVIDER_SURFACE_BINDING_PHASE_ERROR":          5,
-	}
-)
-
-func (x ProviderSurfaceBindingPhase) Enum() *ProviderSurfaceBindingPhase {
-	p := new(ProviderSurfaceBindingPhase)
-	*p = x
-	return p
-}
-
-func (x ProviderSurfaceBindingPhase) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ProviderSurfaceBindingPhase) Descriptor() protoreflect.EnumDescriptor {
-	return file_platform_provider_v1_provider_service_proto_enumTypes[0].Descriptor()
-}
-
-func (ProviderSurfaceBindingPhase) Type() protoreflect.EnumType {
-	return &file_platform_provider_v1_provider_service_proto_enumTypes[0]
-}
-
-func (x ProviderSurfaceBindingPhase) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ProviderSurfaceBindingPhase.Descriptor instead.
-func (ProviderSurfaceBindingPhase) EnumDescriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{0}
-}
-
-type ProviderConnectSessionPhase int32
-
-const (
-	ProviderConnectSessionPhase_PROVIDER_CONNECT_SESSION_PHASE_UNSPECIFIED   ProviderConnectSessionPhase = 0
-	ProviderConnectSessionPhase_PROVIDER_CONNECT_SESSION_PHASE_PENDING       ProviderConnectSessionPhase = 1
-	ProviderConnectSessionPhase_PROVIDER_CONNECT_SESSION_PHASE_AWAITING_USER ProviderConnectSessionPhase = 2
-	ProviderConnectSessionPhase_PROVIDER_CONNECT_SESSION_PHASE_PROCESSING    ProviderConnectSessionPhase = 3
-	ProviderConnectSessionPhase_PROVIDER_CONNECT_SESSION_PHASE_SUCCEEDED     ProviderConnectSessionPhase = 4
-	ProviderConnectSessionPhase_PROVIDER_CONNECT_SESSION_PHASE_FAILED        ProviderConnectSessionPhase = 5
-	ProviderConnectSessionPhase_PROVIDER_CONNECT_SESSION_PHASE_EXPIRED       ProviderConnectSessionPhase = 6
-	ProviderConnectSessionPhase_PROVIDER_CONNECT_SESSION_PHASE_CANCELED      ProviderConnectSessionPhase = 7
-)
-
-// Enum value maps for ProviderConnectSessionPhase.
-var (
-	ProviderConnectSessionPhase_name = map[int32]string{
-		0: "PROVIDER_CONNECT_SESSION_PHASE_UNSPECIFIED",
-		1: "PROVIDER_CONNECT_SESSION_PHASE_PENDING",
-		2: "PROVIDER_CONNECT_SESSION_PHASE_AWAITING_USER",
-		3: "PROVIDER_CONNECT_SESSION_PHASE_PROCESSING",
-		4: "PROVIDER_CONNECT_SESSION_PHASE_SUCCEEDED",
-		5: "PROVIDER_CONNECT_SESSION_PHASE_FAILED",
-		6: "PROVIDER_CONNECT_SESSION_PHASE_EXPIRED",
-		7: "PROVIDER_CONNECT_SESSION_PHASE_CANCELED",
-	}
-	ProviderConnectSessionPhase_value = map[string]int32{
-		"PROVIDER_CONNECT_SESSION_PHASE_UNSPECIFIED":   0,
-		"PROVIDER_CONNECT_SESSION_PHASE_PENDING":       1,
-		"PROVIDER_CONNECT_SESSION_PHASE_AWAITING_USER": 2,
-		"PROVIDER_CONNECT_SESSION_PHASE_PROCESSING":    3,
-		"PROVIDER_CONNECT_SESSION_PHASE_SUCCEEDED":     4,
-		"PROVIDER_CONNECT_SESSION_PHASE_FAILED":        5,
-		"PROVIDER_CONNECT_SESSION_PHASE_EXPIRED":       6,
-		"PROVIDER_CONNECT_SESSION_PHASE_CANCELED":      7,
-	}
-)
-
-func (x ProviderConnectSessionPhase) Enum() *ProviderConnectSessionPhase {
-	p := new(ProviderConnectSessionPhase)
-	*p = x
-	return p
-}
-
-func (x ProviderConnectSessionPhase) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ProviderConnectSessionPhase) Descriptor() protoreflect.EnumDescriptor {
-	return file_platform_provider_v1_provider_service_proto_enumTypes[1].Descriptor()
-}
-
-func (ProviderConnectSessionPhase) Type() protoreflect.EnumType {
-	return &file_platform_provider_v1_provider_service_proto_enumTypes[1]
-}
-
-func (x ProviderConnectSessionPhase) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ProviderConnectSessionPhase.Descriptor instead.
-func (ProviderConnectSessionPhase) EnumDescriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{1}
-}
-
-type ProviderAddMethod int32
-
-const (
-	ProviderAddMethod_PROVIDER_ADD_METHOD_UNSPECIFIED ProviderAddMethod = 0
-	ProviderAddMethod_PROVIDER_ADD_METHOD_API_KEY     ProviderAddMethod = 1
-	ProviderAddMethod_PROVIDER_ADD_METHOD_CLI_OAUTH   ProviderAddMethod = 2
-)
-
-// Enum value maps for ProviderAddMethod.
-var (
-	ProviderAddMethod_name = map[int32]string{
-		0: "PROVIDER_ADD_METHOD_UNSPECIFIED",
-		1: "PROVIDER_ADD_METHOD_API_KEY",
-		2: "PROVIDER_ADD_METHOD_CLI_OAUTH",
-	}
-	ProviderAddMethod_value = map[string]int32{
-		"PROVIDER_ADD_METHOD_UNSPECIFIED": 0,
-		"PROVIDER_ADD_METHOD_API_KEY":     1,
-		"PROVIDER_ADD_METHOD_CLI_OAUTH":   2,
-	}
-)
-
-func (x ProviderAddMethod) Enum() *ProviderAddMethod {
-	p := new(ProviderAddMethod)
-	*p = x
-	return p
-}
-
-func (x ProviderAddMethod) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ProviderAddMethod) Descriptor() protoreflect.EnumDescriptor {
-	return file_platform_provider_v1_provider_service_proto_enumTypes[2].Descriptor()
-}
-
-func (ProviderAddMethod) Type() protoreflect.EnumType {
-	return &file_platform_provider_v1_provider_service_proto_enumTypes[2]
-}
-
-func (x ProviderAddMethod) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ProviderAddMethod.Descriptor instead.
-func (ProviderAddMethod) EnumDescriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{2}
-}
-
-type ProviderOAuthObservabilityProbeOutcome int32
-
-const (
-	ProviderOAuthObservabilityProbeOutcome_PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_UNSPECIFIED  ProviderOAuthObservabilityProbeOutcome = 0
-	ProviderOAuthObservabilityProbeOutcome_PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_EXECUTED     ProviderOAuthObservabilityProbeOutcome = 1
-	ProviderOAuthObservabilityProbeOutcome_PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_THROTTLED    ProviderOAuthObservabilityProbeOutcome = 2
-	ProviderOAuthObservabilityProbeOutcome_PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_AUTH_BLOCKED ProviderOAuthObservabilityProbeOutcome = 3
-	ProviderOAuthObservabilityProbeOutcome_PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_UNSUPPORTED  ProviderOAuthObservabilityProbeOutcome = 4
-	ProviderOAuthObservabilityProbeOutcome_PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_FAILED       ProviderOAuthObservabilityProbeOutcome = 5
-)
-
-// Enum value maps for ProviderOAuthObservabilityProbeOutcome.
-var (
-	ProviderOAuthObservabilityProbeOutcome_name = map[int32]string{
-		0: "PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_UNSPECIFIED",
-		1: "PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_EXECUTED",
-		2: "PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_THROTTLED",
-		3: "PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_AUTH_BLOCKED",
-		4: "PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_UNSUPPORTED",
-		5: "PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_FAILED",
-	}
-	ProviderOAuthObservabilityProbeOutcome_value = map[string]int32{
-		"PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_UNSPECIFIED":  0,
-		"PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_EXECUTED":     1,
-		"PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_THROTTLED":    2,
-		"PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_AUTH_BLOCKED": 3,
-		"PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_UNSUPPORTED":  4,
-		"PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_FAILED":       5,
-	}
-)
-
-func (x ProviderOAuthObservabilityProbeOutcome) Enum() *ProviderOAuthObservabilityProbeOutcome {
-	p := new(ProviderOAuthObservabilityProbeOutcome)
-	*p = x
-	return p
-}
-
-func (x ProviderOAuthObservabilityProbeOutcome) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ProviderOAuthObservabilityProbeOutcome) Descriptor() protoreflect.EnumDescriptor {
-	return file_platform_provider_v1_provider_service_proto_enumTypes[3].Descriptor()
-}
-
-func (ProviderOAuthObservabilityProbeOutcome) Type() protoreflect.EnumType {
-	return &file_platform_provider_v1_provider_service_proto_enumTypes[3]
-}
-
-func (x ProviderOAuthObservabilityProbeOutcome) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ProviderOAuthObservabilityProbeOutcome.Descriptor instead.
-func (ProviderOAuthObservabilityProbeOutcome) EnumDescriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{3}
-}
-
-type ProviderObservabilityProbeTrigger int32
-
-const (
-	ProviderObservabilityProbeTrigger_PROVIDER_OBSERVABILITY_PROBE_TRIGGER_UNSPECIFIED ProviderObservabilityProbeTrigger = 0
-	ProviderObservabilityProbeTrigger_PROVIDER_OBSERVABILITY_PROBE_TRIGGER_MANUAL      ProviderObservabilityProbeTrigger = 1
-	ProviderObservabilityProbeTrigger_PROVIDER_OBSERVABILITY_PROBE_TRIGGER_CONNECT     ProviderObservabilityProbeTrigger = 2
-	ProviderObservabilityProbeTrigger_PROVIDER_OBSERVABILITY_PROBE_TRIGGER_SCHEDULE    ProviderObservabilityProbeTrigger = 3
-)
-
-// Enum value maps for ProviderObservabilityProbeTrigger.
-var (
-	ProviderObservabilityProbeTrigger_name = map[int32]string{
-		0: "PROVIDER_OBSERVABILITY_PROBE_TRIGGER_UNSPECIFIED",
-		1: "PROVIDER_OBSERVABILITY_PROBE_TRIGGER_MANUAL",
-		2: "PROVIDER_OBSERVABILITY_PROBE_TRIGGER_CONNECT",
-		3: "PROVIDER_OBSERVABILITY_PROBE_TRIGGER_SCHEDULE",
-	}
-	ProviderObservabilityProbeTrigger_value = map[string]int32{
-		"PROVIDER_OBSERVABILITY_PROBE_TRIGGER_UNSPECIFIED": 0,
-		"PROVIDER_OBSERVABILITY_PROBE_TRIGGER_MANUAL":      1,
-		"PROVIDER_OBSERVABILITY_PROBE_TRIGGER_CONNECT":     2,
-		"PROVIDER_OBSERVABILITY_PROBE_TRIGGER_SCHEDULE":    3,
-	}
-)
-
-func (x ProviderObservabilityProbeTrigger) Enum() *ProviderObservabilityProbeTrigger {
-	p := new(ProviderObservabilityProbeTrigger)
-	*p = x
-	return p
-}
-
-func (x ProviderObservabilityProbeTrigger) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ProviderObservabilityProbeTrigger) Descriptor() protoreflect.EnumDescriptor {
-	return file_platform_provider_v1_provider_service_proto_enumTypes[4].Descriptor()
-}
-
-func (ProviderObservabilityProbeTrigger) Type() protoreflect.EnumType {
-	return &file_platform_provider_v1_provider_service_proto_enumTypes[4]
-}
-
-func (x ProviderObservabilityProbeTrigger) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ProviderObservabilityProbeTrigger.Descriptor instead.
-func (ProviderObservabilityProbeTrigger) EnumDescriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{4}
-}
-
-type ProviderStatusEventKind int32
-
-const (
-	ProviderStatusEventKind_PROVIDER_STATUS_EVENT_KIND_UNSPECIFIED            ProviderStatusEventKind = 0
-	ProviderStatusEventKind_PROVIDER_STATUS_EVENT_KIND_WORKFLOW               ProviderStatusEventKind = 1
-	ProviderStatusEventKind_PROVIDER_STATUS_EVENT_KIND_SURFACE_BINDING_STATUS ProviderStatusEventKind = 2
-)
-
-// Enum value maps for ProviderStatusEventKind.
-var (
-	ProviderStatusEventKind_name = map[int32]string{
-		0: "PROVIDER_STATUS_EVENT_KIND_UNSPECIFIED",
-		1: "PROVIDER_STATUS_EVENT_KIND_WORKFLOW",
-		2: "PROVIDER_STATUS_EVENT_KIND_SURFACE_BINDING_STATUS",
-	}
-	ProviderStatusEventKind_value = map[string]int32{
-		"PROVIDER_STATUS_EVENT_KIND_UNSPECIFIED":            0,
-		"PROVIDER_STATUS_EVENT_KIND_WORKFLOW":               1,
-		"PROVIDER_STATUS_EVENT_KIND_SURFACE_BINDING_STATUS": 2,
-	}
-)
-
-func (x ProviderStatusEventKind) Enum() *ProviderStatusEventKind {
-	p := new(ProviderStatusEventKind)
-	*p = x
-	return p
-}
-
-func (x ProviderStatusEventKind) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ProviderStatusEventKind) Descriptor() protoreflect.EnumDescriptor {
-	return file_platform_provider_v1_provider_service_proto_enumTypes[5].Descriptor()
-}
-
-func (ProviderStatusEventKind) Type() protoreflect.EnumType {
-	return &file_platform_provider_v1_provider_service_proto_enumTypes[5]
-}
-
-func (x ProviderStatusEventKind) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ProviderStatusEventKind.Descriptor instead.
-func (ProviderStatusEventKind) EnumDescriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{5}
-}
-
-type ProviderWorkflowPhase int32
-
-const (
-	ProviderWorkflowPhase_PROVIDER_WORKFLOW_PHASE_UNSPECIFIED ProviderWorkflowPhase = 0
-	ProviderWorkflowPhase_PROVIDER_WORKFLOW_PHASE_PENDING     ProviderWorkflowPhase = 1
-	ProviderWorkflowPhase_PROVIDER_WORKFLOW_PHASE_RUNNING     ProviderWorkflowPhase = 2
-	ProviderWorkflowPhase_PROVIDER_WORKFLOW_PHASE_SUCCEEDED   ProviderWorkflowPhase = 3
-	ProviderWorkflowPhase_PROVIDER_WORKFLOW_PHASE_FAILED      ProviderWorkflowPhase = 4
-	ProviderWorkflowPhase_PROVIDER_WORKFLOW_PHASE_ERROR       ProviderWorkflowPhase = 5
-	ProviderWorkflowPhase_PROVIDER_WORKFLOW_PHASE_CANCELED    ProviderWorkflowPhase = 6
-)
-
-// Enum value maps for ProviderWorkflowPhase.
-var (
-	ProviderWorkflowPhase_name = map[int32]string{
-		0: "PROVIDER_WORKFLOW_PHASE_UNSPECIFIED",
-		1: "PROVIDER_WORKFLOW_PHASE_PENDING",
-		2: "PROVIDER_WORKFLOW_PHASE_RUNNING",
-		3: "PROVIDER_WORKFLOW_PHASE_SUCCEEDED",
-		4: "PROVIDER_WORKFLOW_PHASE_FAILED",
-		5: "PROVIDER_WORKFLOW_PHASE_ERROR",
-		6: "PROVIDER_WORKFLOW_PHASE_CANCELED",
-	}
-	ProviderWorkflowPhase_value = map[string]int32{
-		"PROVIDER_WORKFLOW_PHASE_UNSPECIFIED": 0,
-		"PROVIDER_WORKFLOW_PHASE_PENDING":     1,
-		"PROVIDER_WORKFLOW_PHASE_RUNNING":     2,
-		"PROVIDER_WORKFLOW_PHASE_SUCCEEDED":   3,
-		"PROVIDER_WORKFLOW_PHASE_FAILED":      4,
-		"PROVIDER_WORKFLOW_PHASE_ERROR":       5,
-		"PROVIDER_WORKFLOW_PHASE_CANCELED":    6,
-	}
-)
-
-func (x ProviderWorkflowPhase) Enum() *ProviderWorkflowPhase {
-	p := new(ProviderWorkflowPhase)
-	*p = x
-	return p
-}
-
-func (x ProviderWorkflowPhase) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ProviderWorkflowPhase) Descriptor() protoreflect.EnumDescriptor {
-	return file_platform_provider_v1_provider_service_proto_enumTypes[6].Descriptor()
-}
-
-func (ProviderWorkflowPhase) Type() protoreflect.EnumType {
-	return &file_platform_provider_v1_provider_service_proto_enumTypes[6]
-}
-
-func (x ProviderWorkflowPhase) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ProviderWorkflowPhase.Descriptor instead.
-func (ProviderWorkflowPhase) EnumDescriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{6}
-}
 
 type ListProviderSurfacesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -576,17 +186,18 @@ func (x *ListProvidersResponse) GetItems() []*ProviderView {
 }
 
 type ProviderView struct {
-	state                    protoimpl.MessageState               `protogen:"open.v1"`
-	ProviderId               string                               `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
-	DisplayName              string                               `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
-	VendorId                 string                               `protobuf:"bytes,3,opt,name=vendor_id,json=vendorId,proto3" json:"vendor_id,omitempty"`
-	ProviderCredentialId     string                               `protobuf:"bytes,4,opt,name=provider_credential_id,json=providerCredentialId,proto3" json:"provider_credential_id,omitempty"`
-	Surfaces                 []*ProviderSurfaceBindingView        `protobuf:"bytes,5,rep,name=surfaces,proto3" json:"surfaces,omitempty"`
-	IconUrl                  string                               `protobuf:"bytes,6,opt,name=icon_url,json=iconUrl,proto3" json:"icon_url,omitempty"`
-	CredentialSubjectSummary []*CredentialSubjectSummaryFieldView `protobuf:"bytes,7,rep,name=credential_subject_summary,json=credentialSubjectSummary,proto3" json:"credential_subject_summary,omitempty"`
-	ModelCatalog             *v1.ProviderModelCatalog             `protobuf:"bytes,10,opt,name=model_catalog,json=modelCatalog,proto3" json:"model_catalog,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state                protoimpl.MessageState   `protogen:"open.v1"`
+	ProviderId           string                   `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
+	DisplayName          string                   `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
+	ProviderCredentialId string                   `protobuf:"bytes,4,opt,name=provider_credential_id,json=providerCredentialId,proto3" json:"provider_credential_id,omitempty"`
+	ModelCatalog         *v1.ProviderModelCatalog `protobuf:"bytes,10,opt,name=model_catalog,json=modelCatalog,proto3" json:"model_catalog,omitempty"`
+	// Flat surface fields (Provider 1:1 Surface).
+	SurfaceId     string                     `protobuf:"bytes,13,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
+	Runtime       *v1.ProviderSurfaceRuntime `protobuf:"bytes,14,opt,name=runtime,proto3" json:"runtime,omitempty"`
+	ProductInfoId string                     `protobuf:"bytes,15,opt,name=product_info_id,json=productInfoId,proto3" json:"product_info_id,omitempty"`
+	Status        *ProviderStatus            `protobuf:"bytes,16,opt,name=status,proto3" json:"status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ProviderView) Reset() {
@@ -633,39 +244,11 @@ func (x *ProviderView) GetDisplayName() string {
 	return ""
 }
 
-func (x *ProviderView) GetVendorId() string {
-	if x != nil {
-		return x.VendorId
-	}
-	return ""
-}
-
 func (x *ProviderView) GetProviderCredentialId() string {
 	if x != nil {
 		return x.ProviderCredentialId
 	}
 	return ""
-}
-
-func (x *ProviderView) GetSurfaces() []*ProviderSurfaceBindingView {
-	if x != nil {
-		return x.Surfaces
-	}
-	return nil
-}
-
-func (x *ProviderView) GetIconUrl() string {
-	if x != nil {
-		return x.IconUrl
-	}
-	return ""
-}
-
-func (x *ProviderView) GetCredentialSubjectSummary() []*CredentialSubjectSummaryFieldView {
-	if x != nil {
-		return x.CredentialSubjectSummary
-	}
-	return nil
 }
 
 func (x *ProviderView) GetModelCatalog() *v1.ProviderModelCatalog {
@@ -675,299 +258,87 @@ func (x *ProviderView) GetModelCatalog() *v1.ProviderModelCatalog {
 	return nil
 }
 
-type CredentialSubjectSummaryFieldView struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	FieldId       string                 `protobuf:"bytes,1,opt,name=field_id,json=fieldId,proto3" json:"field_id,omitempty"`
-	Label         string                 `protobuf:"bytes,2,opt,name=label,proto3" json:"label,omitempty"`
-	Value         string                 `protobuf:"bytes,3,opt,name=value,proto3" json:"value,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CredentialSubjectSummaryFieldView) Reset() {
-	*x = CredentialSubjectSummaryFieldView{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CredentialSubjectSummaryFieldView) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CredentialSubjectSummaryFieldView) ProtoMessage() {}
-
-func (x *CredentialSubjectSummaryFieldView) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CredentialSubjectSummaryFieldView.ProtoReflect.Descriptor instead.
-func (*CredentialSubjectSummaryFieldView) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *CredentialSubjectSummaryFieldView) GetFieldId() string {
-	if x != nil {
-		return x.FieldId
-	}
-	return ""
-}
-
-func (x *CredentialSubjectSummaryFieldView) GetLabel() string {
-	if x != nil {
-		return x.Label
-	}
-	return ""
-}
-
-func (x *CredentialSubjectSummaryFieldView) GetValue() string {
-	if x != nil {
-		return x.Value
-	}
-	return ""
-}
-
-type ListProviderSurfaceBindingsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ListProviderSurfaceBindingsRequest) Reset() {
-	*x = ListProviderSurfaceBindingsRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ListProviderSurfaceBindingsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ListProviderSurfaceBindingsRequest) ProtoMessage() {}
-
-func (x *ListProviderSurfaceBindingsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ListProviderSurfaceBindingsRequest.ProtoReflect.Descriptor instead.
-func (*ListProviderSurfaceBindingsRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{6}
-}
-
-type ListProviderSurfaceBindingsResponse struct {
-	state         protoimpl.MessageState        `protogen:"open.v1"`
-	Items         []*ProviderSurfaceBindingView `protobuf:"bytes,1,rep,name=items,proto3" json:"items,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ListProviderSurfaceBindingsResponse) Reset() {
-	*x = ListProviderSurfaceBindingsResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ListProviderSurfaceBindingsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ListProviderSurfaceBindingsResponse) ProtoMessage() {}
-
-func (x *ListProviderSurfaceBindingsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ListProviderSurfaceBindingsResponse.ProtoReflect.Descriptor instead.
-func (*ListProviderSurfaceBindingsResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *ListProviderSurfaceBindingsResponse) GetItems() []*ProviderSurfaceBindingView {
-	if x != nil {
-		return x.Items
-	}
-	return nil
-}
-
-type ProviderSurfaceBindingStatus struct {
-	state         protoimpl.MessageState      `protogen:"open.v1"`
-	Phase         ProviderSurfaceBindingPhase `protobuf:"varint,1,opt,name=phase,proto3,enum=platform.provider.v1.ProviderSurfaceBindingPhase" json:"phase,omitempty"`
-	Reason        string                      `protobuf:"bytes,2,opt,name=reason,proto3" json:"reason,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ProviderSurfaceBindingStatus) Reset() {
-	*x = ProviderSurfaceBindingStatus{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ProviderSurfaceBindingStatus) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ProviderSurfaceBindingStatus) ProtoMessage() {}
-
-func (x *ProviderSurfaceBindingStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ProviderSurfaceBindingStatus.ProtoReflect.Descriptor instead.
-func (*ProviderSurfaceBindingStatus) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *ProviderSurfaceBindingStatus) GetPhase() ProviderSurfaceBindingPhase {
-	if x != nil {
-		return x.Phase
-	}
-	return ProviderSurfaceBindingPhase_PROVIDER_SURFACE_BINDING_PHASE_UNSPECIFIED
-}
-
-func (x *ProviderSurfaceBindingStatus) GetReason() string {
-	if x != nil {
-		return x.Reason
-	}
-	return ""
-}
-
-type ProviderSurfaceBindingView struct {
-	state                protoimpl.MessageState        `protogen:"open.v1"`
-	DisplayName          string                        `protobuf:"bytes,1,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
-	SurfaceId            string                        `protobuf:"bytes,2,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
-	ProviderCredentialId string                        `protobuf:"bytes,13,opt,name=provider_credential_id,json=providerCredentialId,proto3" json:"provider_credential_id,omitempty"`
-	Runtime              *v1.ProviderSurfaceRuntime    `protobuf:"bytes,14,opt,name=runtime,proto3" json:"runtime,omitempty"`
-	Status               *ProviderSurfaceBindingStatus `protobuf:"bytes,15,opt,name=status,proto3" json:"status,omitempty"`
-	VendorId             string                        `protobuf:"bytes,16,opt,name=vendor_id,json=vendorId,proto3" json:"vendor_id,omitempty"`
-	ProviderId           string                        `protobuf:"bytes,17,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
-	ProviderDisplayName  string                        `protobuf:"bytes,18,opt,name=provider_display_name,json=providerDisplayName,proto3" json:"provider_display_name,omitempty"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
-}
-
-func (x *ProviderSurfaceBindingView) Reset() {
-	*x = ProviderSurfaceBindingView{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ProviderSurfaceBindingView) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ProviderSurfaceBindingView) ProtoMessage() {}
-
-func (x *ProviderSurfaceBindingView) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ProviderSurfaceBindingView.ProtoReflect.Descriptor instead.
-func (*ProviderSurfaceBindingView) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *ProviderSurfaceBindingView) GetDisplayName() string {
-	if x != nil {
-		return x.DisplayName
-	}
-	return ""
-}
-
-func (x *ProviderSurfaceBindingView) GetSurfaceId() string {
+func (x *ProviderView) GetSurfaceId() string {
 	if x != nil {
 		return x.SurfaceId
 	}
 	return ""
 }
 
-func (x *ProviderSurfaceBindingView) GetProviderCredentialId() string {
-	if x != nil {
-		return x.ProviderCredentialId
-	}
-	return ""
-}
-
-func (x *ProviderSurfaceBindingView) GetRuntime() *v1.ProviderSurfaceRuntime {
+func (x *ProviderView) GetRuntime() *v1.ProviderSurfaceRuntime {
 	if x != nil {
 		return x.Runtime
 	}
 	return nil
 }
 
-func (x *ProviderSurfaceBindingView) GetStatus() *ProviderSurfaceBindingStatus {
+func (x *ProviderView) GetProductInfoId() string {
+	if x != nil {
+		return x.ProductInfoId
+	}
+	return ""
+}
+
+func (x *ProviderView) GetStatus() *ProviderStatus {
 	if x != nil {
 		return x.Status
 	}
 	return nil
 }
 
-func (x *ProviderSurfaceBindingView) GetVendorId() string {
+type ProviderStatus struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Phase         ProviderPhase          `protobuf:"varint,1,opt,name=phase,proto3,enum=platform.provider.v1.ProviderPhase" json:"phase,omitempty"`
+	Reason        string                 `protobuf:"bytes,2,opt,name=reason,proto3" json:"reason,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProviderStatus) Reset() {
+	*x = ProviderStatus{}
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProviderStatus) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProviderStatus) ProtoMessage() {}
+
+func (x *ProviderStatus) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[5]
 	if x != nil {
-		return x.VendorId
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProviderStatus.ProtoReflect.Descriptor instead.
+func (*ProviderStatus) Descriptor() ([]byte, []int) {
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ProviderStatus) GetPhase() ProviderPhase {
+	if x != nil {
+		return x.Phase
+	}
+	return ProviderPhase_PROVIDER_PHASE_UNSPECIFIED
+}
+
+func (x *ProviderStatus) GetReason() string {
+	if x != nil {
+		return x.Reason
 	}
 	return ""
 }
 
-func (x *ProviderSurfaceBindingView) GetProviderId() string {
-	if x != nil {
-		return x.ProviderId
-	}
-	return ""
-}
-
-func (x *ProviderSurfaceBindingView) GetProviderDisplayName() string {
-	if x != nil {
-		return x.ProviderDisplayName
-	}
-	return ""
-}
-
-type UpsertProviderSurfaceBindingRequest struct {
+type UpsertProviderRequest struct {
 	state                protoimpl.MessageState     `protogen:"open.v1"`
 	DisplayName          string                     `protobuf:"bytes,1,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
 	SurfaceId            string                     `protobuf:"bytes,2,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
@@ -978,21 +349,21 @@ type UpsertProviderSurfaceBindingRequest struct {
 	sizeCache            protoimpl.SizeCache
 }
 
-func (x *UpsertProviderSurfaceBindingRequest) Reset() {
-	*x = UpsertProviderSurfaceBindingRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[10]
+func (x *UpsertProviderRequest) Reset() {
+	*x = UpsertProviderRequest{}
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UpsertProviderSurfaceBindingRequest) String() string {
+func (x *UpsertProviderRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpsertProviderSurfaceBindingRequest) ProtoMessage() {}
+func (*UpsertProviderRequest) ProtoMessage() {}
 
-func (x *UpsertProviderSurfaceBindingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[10]
+func (x *UpsertProviderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1003,57 +374,145 @@ func (x *UpsertProviderSurfaceBindingRequest) ProtoReflect() protoreflect.Messag
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpsertProviderSurfaceBindingRequest.ProtoReflect.Descriptor instead.
-func (*UpsertProviderSurfaceBindingRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{10}
+// Deprecated: Use UpsertProviderRequest.ProtoReflect.Descriptor instead.
+func (*UpsertProviderRequest) Descriptor() ([]byte, []int) {
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpsertProviderSurfaceBindingRequest) GetDisplayName() string {
+func (x *UpsertProviderRequest) GetDisplayName() string {
 	if x != nil {
 		return x.DisplayName
 	}
 	return ""
 }
 
-func (x *UpsertProviderSurfaceBindingRequest) GetSurfaceId() string {
+func (x *UpsertProviderRequest) GetSurfaceId() string {
 	if x != nil {
 		return x.SurfaceId
 	}
 	return ""
 }
 
-func (x *UpsertProviderSurfaceBindingRequest) GetProviderCredentialId() string {
+func (x *UpsertProviderRequest) GetProviderCredentialId() string {
 	if x != nil {
 		return x.ProviderCredentialId
 	}
 	return ""
 }
 
-func (x *UpsertProviderSurfaceBindingRequest) GetRuntime() *v1.ProviderSurfaceRuntime {
+func (x *UpsertProviderRequest) GetRuntime() *v1.ProviderSurfaceRuntime {
 	if x != nil {
 		return x.Runtime
 	}
 	return nil
 }
 
-func (x *UpsertProviderSurfaceBindingRequest) GetProviderId() string {
+func (x *UpsertProviderRequest) GetProviderId() string {
 	if x != nil {
 		return x.ProviderId
 	}
 	return ""
 }
 
+type CreateProviderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Provider      *UpsertProviderRequest `protobuf:"bytes,1,opt,name=provider,proto3" json:"provider,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateProviderRequest) Reset() {
+	*x = CreateProviderRequest{}
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateProviderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateProviderRequest) ProtoMessage() {}
+
+func (x *CreateProviderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateProviderRequest.ProtoReflect.Descriptor instead.
+func (*CreateProviderRequest) Descriptor() ([]byte, []int) {
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *CreateProviderRequest) GetProvider() *UpsertProviderRequest {
+	if x != nil {
+		return x.Provider
+	}
+	return nil
+}
+
+type CreateProviderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Provider      *ProviderView          `protobuf:"bytes,1,opt,name=provider,proto3" json:"provider,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateProviderResponse) Reset() {
+	*x = CreateProviderResponse{}
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateProviderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateProviderResponse) ProtoMessage() {}
+
+func (x *CreateProviderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateProviderResponse.ProtoReflect.Descriptor instead.
+func (*CreateProviderResponse) Descriptor() ([]byte, []int) {
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *CreateProviderResponse) GetProvider() *ProviderView {
+	if x != nil {
+		return x.Provider
+	}
+	return nil
+}
+
 type UpdateProviderRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ProviderId    string                 `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
-	DisplayName   string                 `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
+	Provider      *UpsertProviderRequest `protobuf:"bytes,2,opt,name=provider,proto3" json:"provider,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateProviderRequest) Reset() {
 	*x = UpdateProviderRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[11]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1065,7 +524,7 @@ func (x *UpdateProviderRequest) String() string {
 func (*UpdateProviderRequest) ProtoMessage() {}
 
 func (x *UpdateProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[11]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1078,7 +537,7 @@ func (x *UpdateProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateProviderRequest.ProtoReflect.Descriptor instead.
 func (*UpdateProviderRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{11}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdateProviderRequest) GetProviderId() string {
@@ -1088,11 +547,11 @@ func (x *UpdateProviderRequest) GetProviderId() string {
 	return ""
 }
 
-func (x *UpdateProviderRequest) GetDisplayName() string {
+func (x *UpdateProviderRequest) GetProvider() *UpsertProviderRequest {
 	if x != nil {
-		return x.DisplayName
+		return x.Provider
 	}
-	return ""
+	return nil
 }
 
 type UpdateProviderResponse struct {
@@ -1104,7 +563,7 @@ type UpdateProviderResponse struct {
 
 func (x *UpdateProviderResponse) Reset() {
 	*x = UpdateProviderResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[12]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1116,7 +575,7 @@ func (x *UpdateProviderResponse) String() string {
 func (*UpdateProviderResponse) ProtoMessage() {}
 
 func (x *UpdateProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[12]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1129,7 +588,7 @@ func (x *UpdateProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateProviderResponse.ProtoReflect.Descriptor instead.
 func (*UpdateProviderResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{12}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *UpdateProviderResponse) GetProvider() *ProviderView {
@@ -1148,7 +607,7 @@ type ApiKeyAuthenticationUpdateMaterial struct {
 
 func (x *ApiKeyAuthenticationUpdateMaterial) Reset() {
 	*x = ApiKeyAuthenticationUpdateMaterial{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[13]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1160,7 +619,7 @@ func (x *ApiKeyAuthenticationUpdateMaterial) String() string {
 func (*ApiKeyAuthenticationUpdateMaterial) ProtoMessage() {}
 
 func (x *ApiKeyAuthenticationUpdateMaterial) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[13]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1173,7 +632,7 @@ func (x *ApiKeyAuthenticationUpdateMaterial) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use ApiKeyAuthenticationUpdateMaterial.ProtoReflect.Descriptor instead.
 func (*ApiKeyAuthenticationUpdateMaterial) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{13}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *ApiKeyAuthenticationUpdateMaterial) GetApiKey() string {
@@ -1191,7 +650,7 @@ type CLIOAuthAuthenticationUpdateMaterial struct {
 
 func (x *CLIOAuthAuthenticationUpdateMaterial) Reset() {
 	*x = CLIOAuthAuthenticationUpdateMaterial{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[14]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1203,7 +662,7 @@ func (x *CLIOAuthAuthenticationUpdateMaterial) String() string {
 func (*CLIOAuthAuthenticationUpdateMaterial) ProtoMessage() {}
 
 func (x *CLIOAuthAuthenticationUpdateMaterial) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[14]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1216,7 +675,7 @@ func (x *CLIOAuthAuthenticationUpdateMaterial) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CLIOAuthAuthenticationUpdateMaterial.ProtoReflect.Descriptor instead.
 func (*CLIOAuthAuthenticationUpdateMaterial) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{14}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{12}
 }
 
 type UpdateProviderAuthenticationRequest struct {
@@ -1233,7 +692,7 @@ type UpdateProviderAuthenticationRequest struct {
 
 func (x *UpdateProviderAuthenticationRequest) Reset() {
 	*x = UpdateProviderAuthenticationRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[15]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1245,7 +704,7 @@ func (x *UpdateProviderAuthenticationRequest) String() string {
 func (*UpdateProviderAuthenticationRequest) ProtoMessage() {}
 
 func (x *UpdateProviderAuthenticationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[15]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1258,7 +717,7 @@ func (x *UpdateProviderAuthenticationRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use UpdateProviderAuthenticationRequest.ProtoReflect.Descriptor instead.
 func (*UpdateProviderAuthenticationRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{15}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *UpdateProviderAuthenticationRequest) GetProviderId() string {
@@ -1324,7 +783,7 @@ type UpdateProviderAuthenticationResponse struct {
 
 func (x *UpdateProviderAuthenticationResponse) Reset() {
 	*x = UpdateProviderAuthenticationResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[16]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1336,7 +795,7 @@ func (x *UpdateProviderAuthenticationResponse) String() string {
 func (*UpdateProviderAuthenticationResponse) ProtoMessage() {}
 
 func (x *UpdateProviderAuthenticationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[16]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1349,7 +808,7 @@ func (x *UpdateProviderAuthenticationResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UpdateProviderAuthenticationResponse.ProtoReflect.Descriptor instead.
 func (*UpdateProviderAuthenticationResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{16}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *UpdateProviderAuthenticationResponse) GetOutcome() isUpdateProviderAuthenticationResponse_Outcome {
@@ -1406,7 +865,7 @@ type SessionMaterial struct {
 
 func (x *SessionMaterial) Reset() {
 	*x = SessionMaterial{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[17]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1418,7 +877,7 @@ func (x *SessionMaterial) String() string {
 func (*SessionMaterial) ProtoMessage() {}
 
 func (x *SessionMaterial) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[17]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1431,7 +890,7 @@ func (x *SessionMaterial) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SessionMaterial.ProtoReflect.Descriptor instead.
 func (*SessionMaterial) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{17}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *SessionMaterial) GetSchemaId() string {
@@ -1465,7 +924,7 @@ type UpdateProviderObservabilityAuthenticationRequest struct {
 
 func (x *UpdateProviderObservabilityAuthenticationRequest) Reset() {
 	*x = UpdateProviderObservabilityAuthenticationRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[18]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1477,7 +936,7 @@ func (x *UpdateProviderObservabilityAuthenticationRequest) String() string {
 func (*UpdateProviderObservabilityAuthenticationRequest) ProtoMessage() {}
 
 func (x *UpdateProviderObservabilityAuthenticationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[18]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1490,7 +949,7 @@ func (x *UpdateProviderObservabilityAuthenticationRequest) ProtoReflect() protor
 
 // Deprecated: Use UpdateProviderObservabilityAuthenticationRequest.ProtoReflect.Descriptor instead.
 func (*UpdateProviderObservabilityAuthenticationRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{18}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *UpdateProviderObservabilityAuthenticationRequest) GetProviderId() string {
@@ -1516,7 +975,7 @@ type UpdateProviderObservabilityAuthenticationResponse struct {
 
 func (x *UpdateProviderObservabilityAuthenticationResponse) Reset() {
 	*x = UpdateProviderObservabilityAuthenticationResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[19]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1528,7 +987,7 @@ func (x *UpdateProviderObservabilityAuthenticationResponse) String() string {
 func (*UpdateProviderObservabilityAuthenticationResponse) ProtoMessage() {}
 
 func (x *UpdateProviderObservabilityAuthenticationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[19]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1541,7 +1000,7 @@ func (x *UpdateProviderObservabilityAuthenticationResponse) ProtoReflect() proto
 
 // Deprecated: Use UpdateProviderObservabilityAuthenticationResponse.ProtoReflect.Descriptor instead.
 func (*UpdateProviderObservabilityAuthenticationResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{19}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *UpdateProviderObservabilityAuthenticationResponse) GetProvider() *ProviderView {
@@ -1560,7 +1019,7 @@ type DeleteProviderRequest struct {
 
 func (x *DeleteProviderRequest) Reset() {
 	*x = DeleteProviderRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[20]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1572,7 +1031,7 @@ func (x *DeleteProviderRequest) String() string {
 func (*DeleteProviderRequest) ProtoMessage() {}
 
 func (x *DeleteProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[20]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1585,7 +1044,7 @@ func (x *DeleteProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteProviderRequest.ProtoReflect.Descriptor instead.
 func (*DeleteProviderRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{20}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *DeleteProviderRequest) GetProviderId() string {
@@ -1604,7 +1063,7 @@ type DeleteProviderResponse struct {
 
 func (x *DeleteProviderResponse) Reset() {
 	*x = DeleteProviderResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[21]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1616,7 +1075,7 @@ func (x *DeleteProviderResponse) String() string {
 func (*DeleteProviderResponse) ProtoMessage() {}
 
 func (x *DeleteProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[21]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1629,7 +1088,7 @@ func (x *DeleteProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteProviderResponse.ProtoReflect.Descriptor instead.
 func (*DeleteProviderResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{21}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *DeleteProviderResponse) GetStatus() string {
@@ -1639,281 +1098,9 @@ func (x *DeleteProviderResponse) GetStatus() string {
 	return ""
 }
 
-type CreateProviderSurfaceBindingRequest struct {
-	state         protoimpl.MessageState               `protogen:"open.v1"`
-	Surface       *UpsertProviderSurfaceBindingRequest `protobuf:"bytes,1,opt,name=surface,proto3" json:"surface,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateProviderSurfaceBindingRequest) Reset() {
-	*x = CreateProviderSurfaceBindingRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateProviderSurfaceBindingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateProviderSurfaceBindingRequest) ProtoMessage() {}
-
-func (x *CreateProviderSurfaceBindingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateProviderSurfaceBindingRequest.ProtoReflect.Descriptor instead.
-func (*CreateProviderSurfaceBindingRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{22}
-}
-
-func (x *CreateProviderSurfaceBindingRequest) GetSurface() *UpsertProviderSurfaceBindingRequest {
-	if x != nil {
-		return x.Surface
-	}
-	return nil
-}
-
-type CreateProviderSurfaceBindingResponse struct {
-	state         protoimpl.MessageState      `protogen:"open.v1"`
-	Surface       *ProviderSurfaceBindingView `protobuf:"bytes,1,opt,name=surface,proto3" json:"surface,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateProviderSurfaceBindingResponse) Reset() {
-	*x = CreateProviderSurfaceBindingResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateProviderSurfaceBindingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateProviderSurfaceBindingResponse) ProtoMessage() {}
-
-func (x *CreateProviderSurfaceBindingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateProviderSurfaceBindingResponse.ProtoReflect.Descriptor instead.
-func (*CreateProviderSurfaceBindingResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *CreateProviderSurfaceBindingResponse) GetSurface() *ProviderSurfaceBindingView {
-	if x != nil {
-		return x.Surface
-	}
-	return nil
-}
-
-type UpdateProviderSurfaceBindingRequest struct {
-	state         protoimpl.MessageState               `protogen:"open.v1"`
-	SurfaceId     string                               `protobuf:"bytes,1,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
-	Surface       *UpsertProviderSurfaceBindingRequest `protobuf:"bytes,2,opt,name=surface,proto3" json:"surface,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateProviderSurfaceBindingRequest) Reset() {
-	*x = UpdateProviderSurfaceBindingRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateProviderSurfaceBindingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateProviderSurfaceBindingRequest) ProtoMessage() {}
-
-func (x *UpdateProviderSurfaceBindingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateProviderSurfaceBindingRequest.ProtoReflect.Descriptor instead.
-func (*UpdateProviderSurfaceBindingRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{24}
-}
-
-func (x *UpdateProviderSurfaceBindingRequest) GetSurfaceId() string {
-	if x != nil {
-		return x.SurfaceId
-	}
-	return ""
-}
-
-func (x *UpdateProviderSurfaceBindingRequest) GetSurface() *UpsertProviderSurfaceBindingRequest {
-	if x != nil {
-		return x.Surface
-	}
-	return nil
-}
-
-type UpdateProviderSurfaceBindingResponse struct {
-	state         protoimpl.MessageState      `protogen:"open.v1"`
-	Surface       *ProviderSurfaceBindingView `protobuf:"bytes,1,opt,name=surface,proto3" json:"surface,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UpdateProviderSurfaceBindingResponse) Reset() {
-	*x = UpdateProviderSurfaceBindingResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UpdateProviderSurfaceBindingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UpdateProviderSurfaceBindingResponse) ProtoMessage() {}
-
-func (x *UpdateProviderSurfaceBindingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UpdateProviderSurfaceBindingResponse.ProtoReflect.Descriptor instead.
-func (*UpdateProviderSurfaceBindingResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *UpdateProviderSurfaceBindingResponse) GetSurface() *ProviderSurfaceBindingView {
-	if x != nil {
-		return x.Surface
-	}
-	return nil
-}
-
-type DeleteProviderSurfaceBindingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SurfaceId     string                 `protobuf:"bytes,1,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DeleteProviderSurfaceBindingRequest) Reset() {
-	*x = DeleteProviderSurfaceBindingRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DeleteProviderSurfaceBindingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteProviderSurfaceBindingRequest) ProtoMessage() {}
-
-func (x *DeleteProviderSurfaceBindingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteProviderSurfaceBindingRequest.ProtoReflect.Descriptor instead.
-func (*DeleteProviderSurfaceBindingRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{26}
-}
-
-func (x *DeleteProviderSurfaceBindingRequest) GetSurfaceId() string {
-	if x != nil {
-		return x.SurfaceId
-	}
-	return ""
-}
-
-type DeleteProviderSurfaceBindingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Status        string                 `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DeleteProviderSurfaceBindingResponse) Reset() {
-	*x = DeleteProviderSurfaceBindingResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DeleteProviderSurfaceBindingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteProviderSurfaceBindingResponse) ProtoMessage() {}
-
-func (x *DeleteProviderSurfaceBindingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteProviderSurfaceBindingResponse.ProtoReflect.Descriptor instead.
-func (*DeleteProviderSurfaceBindingResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *DeleteProviderSurfaceBindingResponse) GetStatus() string {
-	if x != nil {
-		return x.Status
-	}
-	return ""
-}
-
 type ApiKeyConnectMaterial struct {
 	state                protoimpl.MessageState         `protogen:"open.v1"`
-	ApiKey               string                         `protobuf:"bytes,1,opt,name=api_key,json=apiKey,proto3" json:"api_key,omitempty"`
+	CredentialId         string                         `protobuf:"bytes,1,opt,name=credential_id,json=credentialId,proto3" json:"credential_id,omitempty"`
 	BaseUrl              string                         `protobuf:"bytes,2,opt,name=base_url,json=baseUrl,proto3" json:"base_url,omitempty"`
 	Protocol             v11.Protocol                   `protobuf:"varint,3,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
 	SurfaceModelCatalogs []*ProviderSurfaceModelCatalog `protobuf:"bytes,4,rep,name=surface_model_catalogs,json=surfaceModelCatalogs,proto3" json:"surface_model_catalogs,omitempty"`
@@ -1923,7 +1110,7 @@ type ApiKeyConnectMaterial struct {
 
 func (x *ApiKeyConnectMaterial) Reset() {
 	*x = ApiKeyConnectMaterial{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[28]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1935,7 +1122,7 @@ func (x *ApiKeyConnectMaterial) String() string {
 func (*ApiKeyConnectMaterial) ProtoMessage() {}
 
 func (x *ApiKeyConnectMaterial) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[28]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1948,12 +1135,12 @@ func (x *ApiKeyConnectMaterial) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApiKeyConnectMaterial.ProtoReflect.Descriptor instead.
 func (*ApiKeyConnectMaterial) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{28}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{20}
 }
 
-func (x *ApiKeyConnectMaterial) GetApiKey() string {
+func (x *ApiKeyConnectMaterial) GetCredentialId() string {
 	if x != nil {
-		return x.ApiKey
+		return x.CredentialId
 	}
 	return ""
 }
@@ -1987,7 +1174,7 @@ type CLIOAuthConnectMaterial struct {
 
 func (x *CLIOAuthConnectMaterial) Reset() {
 	*x = CLIOAuthConnectMaterial{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[29]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1999,7 +1186,7 @@ func (x *CLIOAuthConnectMaterial) String() string {
 func (*CLIOAuthConnectMaterial) ProtoMessage() {}
 
 func (x *CLIOAuthConnectMaterial) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[29]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2012,7 +1199,7 @@ func (x *CLIOAuthConnectMaterial) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CLIOAuthConnectMaterial.ProtoReflect.Descriptor instead.
 func (*CLIOAuthConnectMaterial) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{29}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{21}
 }
 
 type ProviderSurfaceModelCatalog struct {
@@ -2025,7 +1212,7 @@ type ProviderSurfaceModelCatalog struct {
 
 func (x *ProviderSurfaceModelCatalog) Reset() {
 	*x = ProviderSurfaceModelCatalog{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[30]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2037,7 +1224,7 @@ func (x *ProviderSurfaceModelCatalog) String() string {
 func (*ProviderSurfaceModelCatalog) ProtoMessage() {}
 
 func (x *ProviderSurfaceModelCatalog) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[30]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2050,7 +1237,7 @@ func (x *ProviderSurfaceModelCatalog) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderSurfaceModelCatalog.ProtoReflect.Descriptor instead.
 func (*ProviderSurfaceModelCatalog) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{30}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *ProviderSurfaceModelCatalog) GetSurfaceId() string {
@@ -2084,7 +1271,7 @@ type ConnectProviderRequest struct {
 
 func (x *ConnectProviderRequest) Reset() {
 	*x = ConnectProviderRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[31]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2096,7 +1283,7 @@ func (x *ConnectProviderRequest) String() string {
 func (*ConnectProviderRequest) ProtoMessage() {}
 
 func (x *ConnectProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[31]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2109,7 +1296,7 @@ func (x *ConnectProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConnectProviderRequest.ProtoReflect.Descriptor instead.
 func (*ConnectProviderRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{31}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *ConnectProviderRequest) GetVendorId() string {
@@ -2201,7 +1388,7 @@ type ProviderConnectSessionView struct {
 
 func (x *ProviderConnectSessionView) Reset() {
 	*x = ProviderConnectSessionView{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[32]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2213,7 +1400,7 @@ func (x *ProviderConnectSessionView) String() string {
 func (*ProviderConnectSessionView) ProtoMessage() {}
 
 func (x *ProviderConnectSessionView) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[32]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2226,7 +1413,7 @@ func (x *ProviderConnectSessionView) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderConnectSessionView.ProtoReflect.Descriptor instead.
 func (*ProviderConnectSessionView) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{32}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *ProviderConnectSessionView) GetSessionId() string {
@@ -2326,7 +1513,7 @@ type ConnectProviderResponse struct {
 
 func (x *ConnectProviderResponse) Reset() {
 	*x = ConnectProviderResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[33]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2338,7 +1525,7 @@ func (x *ConnectProviderResponse) String() string {
 func (*ConnectProviderResponse) ProtoMessage() {}
 
 func (x *ConnectProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[33]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2351,7 +1538,7 @@ func (x *ConnectProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConnectProviderResponse.ProtoReflect.Descriptor instead.
 func (*ConnectProviderResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{33}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *ConnectProviderResponse) GetOutcome() isConnectProviderResponse_Outcome {
@@ -2404,7 +1591,7 @@ type GetProviderConnectSessionRequest struct {
 
 func (x *GetProviderConnectSessionRequest) Reset() {
 	*x = GetProviderConnectSessionRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[34]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2416,7 +1603,7 @@ func (x *GetProviderConnectSessionRequest) String() string {
 func (*GetProviderConnectSessionRequest) ProtoMessage() {}
 
 func (x *GetProviderConnectSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[34]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2429,7 +1616,7 @@ func (x *GetProviderConnectSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProviderConnectSessionRequest.ProtoReflect.Descriptor instead.
 func (*GetProviderConnectSessionRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{34}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *GetProviderConnectSessionRequest) GetSessionId() string {
@@ -2448,7 +1635,7 @@ type GetProviderConnectSessionResponse struct {
 
 func (x *GetProviderConnectSessionResponse) Reset() {
 	*x = GetProviderConnectSessionResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[35]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2460,7 +1647,7 @@ func (x *GetProviderConnectSessionResponse) String() string {
 func (*GetProviderConnectSessionResponse) ProtoMessage() {}
 
 func (x *GetProviderConnectSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[35]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2473,7 +1660,7 @@ func (x *GetProviderConnectSessionResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetProviderConnectSessionResponse.ProtoReflect.Descriptor instead.
 func (*GetProviderConnectSessionResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{35}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetProviderConnectSessionResponse) GetSession() *ProviderConnectSessionView {
@@ -2494,7 +1681,7 @@ type ProbeProviderObservabilityRequest struct {
 
 func (x *ProbeProviderObservabilityRequest) Reset() {
 	*x = ProbeProviderObservabilityRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[36]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2506,7 +1693,7 @@ func (x *ProbeProviderObservabilityRequest) String() string {
 func (*ProbeProviderObservabilityRequest) ProtoMessage() {}
 
 func (x *ProbeProviderObservabilityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[36]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2519,7 +1706,7 @@ func (x *ProbeProviderObservabilityRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ProbeProviderObservabilityRequest.ProtoReflect.Descriptor instead.
 func (*ProbeProviderObservabilityRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{36}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *ProbeProviderObservabilityRequest) GetProviderId() string {
@@ -2546,7 +1733,6 @@ func (x *ProbeProviderObservabilityRequest) GetProviderIds() []string {
 type ProbeProviderObservabilityResponse struct {
 	state         protoimpl.MessageState                 `protogen:"open.v1"`
 	ProviderId    string                                 `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
-	CliId         string                                 `protobuf:"bytes,2,opt,name=cli_id,json=cliId,proto3" json:"cli_id,omitempty"`
 	Outcome       ProviderOAuthObservabilityProbeOutcome `protobuf:"varint,3,opt,name=outcome,proto3,enum=platform.provider.v1.ProviderOAuthObservabilityProbeOutcome" json:"outcome,omitempty"`
 	Message       string                                 `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
 	NextAllowedAt string                                 `protobuf:"bytes,5,opt,name=next_allowed_at,json=nextAllowedAt,proto3" json:"next_allowed_at,omitempty"`
@@ -2559,7 +1745,7 @@ type ProbeProviderObservabilityResponse struct {
 
 func (x *ProbeProviderObservabilityResponse) Reset() {
 	*x = ProbeProviderObservabilityResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[37]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2571,7 +1757,7 @@ func (x *ProbeProviderObservabilityResponse) String() string {
 func (*ProbeProviderObservabilityResponse) ProtoMessage() {}
 
 func (x *ProbeProviderObservabilityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[37]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2584,19 +1770,12 @@ func (x *ProbeProviderObservabilityResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use ProbeProviderObservabilityResponse.ProtoReflect.Descriptor instead.
 func (*ProbeProviderObservabilityResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{37}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *ProbeProviderObservabilityResponse) GetProviderId() string {
 	if x != nil {
 		return x.ProviderId
-	}
-	return ""
-}
-
-func (x *ProbeProviderObservabilityResponse) GetCliId() string {
-	if x != nil {
-		return x.CliId
 	}
 	return ""
 }
@@ -2652,7 +1831,7 @@ type WatchProviderStatusEventsRequest struct {
 
 func (x *WatchProviderStatusEventsRequest) Reset() {
 	*x = WatchProviderStatusEventsRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[38]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2664,7 +1843,7 @@ func (x *WatchProviderStatusEventsRequest) String() string {
 func (*WatchProviderStatusEventsRequest) ProtoMessage() {}
 
 func (x *WatchProviderStatusEventsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[38]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2677,7 +1856,7 @@ func (x *WatchProviderStatusEventsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WatchProviderStatusEventsRequest.ProtoReflect.Descriptor instead.
 func (*WatchProviderStatusEventsRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{38}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *WatchProviderStatusEventsRequest) GetProviderIds() []string {
@@ -2696,7 +1875,7 @@ type WatchProviderStatusEventsResponse struct {
 
 func (x *WatchProviderStatusEventsResponse) Reset() {
 	*x = WatchProviderStatusEventsResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[39]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2708,7 +1887,7 @@ func (x *WatchProviderStatusEventsResponse) String() string {
 func (*WatchProviderStatusEventsResponse) ProtoMessage() {}
 
 func (x *WatchProviderStatusEventsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[39]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2721,7 +1900,7 @@ func (x *WatchProviderStatusEventsResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use WatchProviderStatusEventsResponse.ProtoReflect.Descriptor instead.
 func (*WatchProviderStatusEventsResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{39}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *WatchProviderStatusEventsResponse) GetEvent() *ProviderStatusEvent {
@@ -2745,7 +1924,7 @@ type ProviderWorkflowStatus struct {
 
 func (x *ProviderWorkflowStatus) Reset() {
 	*x = ProviderWorkflowStatus{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[40]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2757,7 +1936,7 @@ func (x *ProviderWorkflowStatus) String() string {
 func (*ProviderWorkflowStatus) ProtoMessage() {}
 
 func (x *ProviderWorkflowStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[40]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2770,7 +1949,7 @@ func (x *ProviderWorkflowStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderWorkflowStatus.ProtoReflect.Descriptor instead.
 func (*ProviderWorkflowStatus) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{40}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *ProviderWorkflowStatus) GetWorkflowId() string {
@@ -2816,20 +1995,20 @@ func (x *ProviderWorkflowStatus) GetFinishedAt() *timestamppb.Timestamp {
 }
 
 type ProviderStatusEvent struct {
-	state                protoimpl.MessageState        `protogen:"open.v1"`
-	ProviderId           string                        `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
-	SurfaceId            string                        `protobuf:"bytes,2,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
-	Kind                 ProviderStatusEventKind       `protobuf:"varint,3,opt,name=kind,proto3,enum=platform.provider.v1.ProviderStatusEventKind" json:"kind,omitempty"`
-	Workflow             *ProviderWorkflowStatus       `protobuf:"bytes,4,opt,name=workflow,proto3" json:"workflow,omitempty"`
-	SurfaceBindingStatus *ProviderSurfaceBindingStatus `protobuf:"bytes,5,opt,name=surface_binding_status,json=surfaceBindingStatus,proto3" json:"surface_binding_status,omitempty"`
-	OccurredAt           *timestamppb.Timestamp        `protobuf:"bytes,6,opt,name=occurred_at,json=occurredAt,proto3" json:"occurred_at,omitempty"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state         protoimpl.MessageState  `protogen:"open.v1"`
+	ProviderId    string                  `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
+	SurfaceId     string                  `protobuf:"bytes,2,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
+	Kind          ProviderStatusEventKind `protobuf:"varint,3,opt,name=kind,proto3,enum=platform.provider.v1.ProviderStatusEventKind" json:"kind,omitempty"`
+	Workflow      *ProviderWorkflowStatus `protobuf:"bytes,4,opt,name=workflow,proto3" json:"workflow,omitempty"`
+	Status        *ProviderStatus         `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`
+	OccurredAt    *timestamppb.Timestamp  `protobuf:"bytes,6,opt,name=occurred_at,json=occurredAt,proto3" json:"occurred_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ProviderStatusEvent) Reset() {
 	*x = ProviderStatusEvent{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[41]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2841,7 +2020,7 @@ func (x *ProviderStatusEvent) String() string {
 func (*ProviderStatusEvent) ProtoMessage() {}
 
 func (x *ProviderStatusEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[41]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2854,7 +2033,7 @@ func (x *ProviderStatusEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderStatusEvent.ProtoReflect.Descriptor instead.
 func (*ProviderStatusEvent) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{41}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *ProviderStatusEvent) GetProviderId() string {
@@ -2885,9 +2064,9 @@ func (x *ProviderStatusEvent) GetWorkflow() *ProviderWorkflowStatus {
 	return nil
 }
 
-func (x *ProviderStatusEvent) GetSurfaceBindingStatus() *ProviderSurfaceBindingStatus {
+func (x *ProviderStatusEvent) GetStatus() *ProviderStatus {
 	if x != nil {
-		return x.SurfaceBindingStatus
+		return x.Status
 	}
 	return nil
 }
@@ -2907,7 +2086,7 @@ type ListVendorsRequest struct {
 
 func (x *ListVendorsRequest) Reset() {
 	*x = ListVendorsRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[42]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2919,7 +2098,7 @@ func (x *ListVendorsRequest) String() string {
 func (*ListVendorsRequest) ProtoMessage() {}
 
 func (x *ListVendorsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[42]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2932,7 +2111,7 @@ func (x *ListVendorsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListVendorsRequest.ProtoReflect.Descriptor instead.
 func (*ListVendorsRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{42}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{34}
 }
 
 type ListVendorsResponse struct {
@@ -2944,7 +2123,7 @@ type ListVendorsResponse struct {
 
 func (x *ListVendorsResponse) Reset() {
 	*x = ListVendorsResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[43]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2956,7 +2135,7 @@ func (x *ListVendorsResponse) String() string {
 func (*ListVendorsResponse) ProtoMessage() {}
 
 func (x *ListVendorsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[43]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2969,7 +2148,7 @@ func (x *ListVendorsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListVendorsResponse.ProtoReflect.Descriptor instead.
 func (*ListVendorsResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{43}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *ListVendorsResponse) GetItems() []*VendorView {
@@ -2993,7 +2172,7 @@ type VendorView struct {
 
 func (x *VendorView) Reset() {
 	*x = VendorView{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[44]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3005,7 +2184,7 @@ func (x *VendorView) String() string {
 func (*VendorView) ProtoMessage() {}
 
 func (x *VendorView) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[44]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3018,7 +2197,7 @@ func (x *VendorView) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VendorView.ProtoReflect.Descriptor instead.
 func (*VendorView) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{44}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *VendorView) GetVendorId() string {
@@ -3071,7 +2250,7 @@ type ListCLIDefinitionsRequest struct {
 
 func (x *ListCLIDefinitionsRequest) Reset() {
 	*x = ListCLIDefinitionsRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[45]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3083,7 +2262,7 @@ func (x *ListCLIDefinitionsRequest) String() string {
 func (*ListCLIDefinitionsRequest) ProtoMessage() {}
 
 func (x *ListCLIDefinitionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[45]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3096,7 +2275,7 @@ func (x *ListCLIDefinitionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListCLIDefinitionsRequest.ProtoReflect.Descriptor instead.
 func (*ListCLIDefinitionsRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{45}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{37}
 }
 
 type ListCLIDefinitionsResponse struct {
@@ -3108,7 +2287,7 @@ type ListCLIDefinitionsResponse struct {
 
 func (x *ListCLIDefinitionsResponse) Reset() {
 	*x = ListCLIDefinitionsResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[46]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3120,7 +2299,7 @@ func (x *ListCLIDefinitionsResponse) String() string {
 func (*ListCLIDefinitionsResponse) ProtoMessage() {}
 
 func (x *ListCLIDefinitionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[46]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3133,7 +2312,7 @@ func (x *ListCLIDefinitionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListCLIDefinitionsResponse.ProtoReflect.Descriptor instead.
 func (*ListCLIDefinitionsResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{46}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *ListCLIDefinitionsResponse) GetItems() []*CLIDefinitionView {
@@ -3158,7 +2337,7 @@ type CLIDefinitionView struct {
 
 func (x *CLIDefinitionView) Reset() {
 	*x = CLIDefinitionView{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[47]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3170,7 +2349,7 @@ func (x *CLIDefinitionView) String() string {
 func (*CLIDefinitionView) ProtoMessage() {}
 
 func (x *CLIDefinitionView) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[47]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3183,7 +2362,7 @@ func (x *CLIDefinitionView) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CLIDefinitionView.ProtoReflect.Descriptor instead.
 func (*CLIDefinitionView) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{47}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *CLIDefinitionView) GetCliId() string {
@@ -3247,7 +2426,7 @@ type CLIContainerImageView struct {
 
 func (x *CLIContainerImageView) Reset() {
 	*x = CLIContainerImageView{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[48]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3259,7 +2438,7 @@ func (x *CLIContainerImageView) String() string {
 func (*CLIContainerImageView) ProtoMessage() {}
 
 func (x *CLIContainerImageView) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[48]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3272,7 +2451,7 @@ func (x *CLIContainerImageView) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CLIContainerImageView.ProtoReflect.Descriptor instead.
 func (*CLIContainerImageView) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{48}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *CLIContainerImageView) GetExecutionClass() string {
@@ -3314,7 +2493,7 @@ type CLIDefinitionCapabilityView struct {
 
 func (x *CLIDefinitionCapabilityView) Reset() {
 	*x = CLIDefinitionCapabilityView{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[49]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3326,7 +2505,7 @@ func (x *CLIDefinitionCapabilityView) String() string {
 func (*CLIDefinitionCapabilityView) ProtoMessage() {}
 
 func (x *CLIDefinitionCapabilityView) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[49]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3339,7 +2518,7 @@ func (x *CLIDefinitionCapabilityView) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CLIDefinitionCapabilityView.ProtoReflect.Descriptor instead.
 func (*CLIDefinitionCapabilityView) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{49}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *CLIDefinitionCapabilityView) GetSupportsStreaming() bool {
@@ -3371,7 +2550,7 @@ type ListTemplatesRequest struct {
 
 func (x *ListTemplatesRequest) Reset() {
 	*x = ListTemplatesRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[50]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3383,7 +2562,7 @@ func (x *ListTemplatesRequest) String() string {
 func (*ListTemplatesRequest) ProtoMessage() {}
 
 func (x *ListTemplatesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[50]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3396,7 +2575,7 @@ func (x *ListTemplatesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTemplatesRequest.ProtoReflect.Descriptor instead.
 func (*ListTemplatesRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{50}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{42}
 }
 
 type ListTemplatesResponse struct {
@@ -3408,7 +2587,7 @@ type ListTemplatesResponse struct {
 
 func (x *ListTemplatesResponse) Reset() {
 	*x = ListTemplatesResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[51]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3420,7 +2599,7 @@ func (x *ListTemplatesResponse) String() string {
 func (*ListTemplatesResponse) ProtoMessage() {}
 
 func (x *ListTemplatesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[51]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3433,7 +2612,7 @@ func (x *ListTemplatesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTemplatesResponse.ProtoReflect.Descriptor instead.
 func (*ListTemplatesResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{51}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *ListTemplatesResponse) GetItems() []*TemplateView {
@@ -3458,7 +2637,7 @@ type TemplateView struct {
 
 func (x *TemplateView) Reset() {
 	*x = TemplateView{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[52]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3470,7 +2649,7 @@ func (x *TemplateView) String() string {
 func (*TemplateView) ProtoMessage() {}
 
 func (x *TemplateView) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[52]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3483,7 +2662,7 @@ func (x *TemplateView) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TemplateView.ProtoReflect.Descriptor instead.
 func (*TemplateView) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{52}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *TemplateView) GetTemplateId() string {
@@ -3549,7 +2728,7 @@ type ApplyTemplateRequest struct {
 
 func (x *ApplyTemplateRequest) Reset() {
 	*x = ApplyTemplateRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[53]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3561,7 +2740,7 @@ func (x *ApplyTemplateRequest) String() string {
 func (*ApplyTemplateRequest) ProtoMessage() {}
 
 func (x *ApplyTemplateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[53]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3574,7 +2753,7 @@ func (x *ApplyTemplateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplyTemplateRequest.ProtoReflect.Descriptor instead.
 func (*ApplyTemplateRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{53}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *ApplyTemplateRequest) GetTemplateId() string {
@@ -3632,7 +2811,7 @@ type ApplyTemplateResult struct {
 
 func (x *ApplyTemplateResult) Reset() {
 	*x = ApplyTemplateResult{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[54]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3644,7 +2823,7 @@ func (x *ApplyTemplateResult) String() string {
 func (*ApplyTemplateResult) ProtoMessage() {}
 
 func (x *ApplyTemplateResult) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[54]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3657,7 +2836,7 @@ func (x *ApplyTemplateResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplyTemplateResult.ProtoReflect.Descriptor instead.
 func (*ApplyTemplateResult) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{54}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *ApplyTemplateResult) GetTemplateId() string {
@@ -3704,7 +2883,7 @@ type ApplyTemplateResponse struct {
 
 func (x *ApplyTemplateResponse) Reset() {
 	*x = ApplyTemplateResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[55]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3716,7 +2895,7 @@ func (x *ApplyTemplateResponse) String() string {
 func (*ApplyTemplateResponse) ProtoMessage() {}
 
 func (x *ApplyTemplateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[55]
+	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3729,7 +2908,7 @@ func (x *ApplyTemplateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplyTemplateResponse.ProtoReflect.Descriptor instead.
 func (*ApplyTemplateResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{55}
+	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *ApplyTemplateResponse) GetResult() *ApplyTemplateResult {
@@ -3739,142 +2918,49 @@ func (x *ApplyTemplateResponse) GetResult() *ApplyTemplateResult {
 	return nil
 }
 
-type BindProviderCatalogsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BindProviderCatalogsRequest) Reset() {
-	*x = BindProviderCatalogsRequest{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BindProviderCatalogsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BindProviderCatalogsRequest) ProtoMessage() {}
-
-func (x *BindProviderCatalogsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BindProviderCatalogsRequest.ProtoReflect.Descriptor instead.
-func (*BindProviderCatalogsRequest) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{56}
-}
-
-type BindProviderCatalogsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Status        string                 `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BindProviderCatalogsResponse) Reset() {
-	*x = BindProviderCatalogsResponse{}
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BindProviderCatalogsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BindProviderCatalogsResponse) ProtoMessage() {}
-
-func (x *BindProviderCatalogsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_provider_v1_provider_service_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BindProviderCatalogsResponse.ProtoReflect.Descriptor instead.
-func (*BindProviderCatalogsResponse) Descriptor() ([]byte, []int) {
-	return file_platform_provider_v1_provider_service_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *BindProviderCatalogsResponse) GetStatus() string {
-	if x != nil {
-		return x.Status
-	}
-	return ""
-}
-
 var File_platform_provider_v1_provider_service_proto protoreflect.FileDescriptor
 
 const file_platform_provider_v1_provider_service_proto_rawDesc = "" +
 	"\n" +
-	"+platform/provider/v1/provider_service.proto\x12\x14platform.provider.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eapi_protocol/v1/protocol.proto\x1a\x1aprovider/v1/provider.proto\"\x1d\n" +
+	"+platform/provider/v1/provider_service.proto\x12\x14platform.provider.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eapi_protocol/v1/protocol.proto\x1a\"product_info/v1/product_info.proto\x1a\x1aprovider/v1/provider.proto\x1a*platform/provider/v1/provider_shared.proto\"\x1d\n" +
 	"\x1bListProviderSurfacesRequest\"R\n" +
 	"\x1cListProviderSurfacesResponse\x122\n" +
 	"\x05items\x18\x01 \x03(\v2\x1c.provider.v1.ProviderSurfaceR\x05items\"\x16\n" +
 	"\x14ListProvidersRequest\"Q\n" +
 	"\x15ListProvidersResponse\x128\n" +
-	"\x05items\x18\x01 \x03(\v2\".platform.provider.v1.ProviderViewR\x05items\"\xe5\x03\n" +
+	"\x05items\x18\x01 \x03(\v2\".platform.provider.v1.ProviderViewR\x05items\"\xff\x03\n" +
 	"\fProviderView\x12\x1f\n" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
 	"providerId\x12!\n" +
-	"\fdisplay_name\x18\x02 \x01(\tR\vdisplayName\x12\x1b\n" +
-	"\tvendor_id\x18\x03 \x01(\tR\bvendorId\x124\n" +
-	"\x16provider_credential_id\x18\x04 \x01(\tR\x14providerCredentialId\x12L\n" +
-	"\bsurfaces\x18\x05 \x03(\v20.platform.provider.v1.ProviderSurfaceBindingViewR\bsurfaces\x12\x19\n" +
-	"\bicon_url\x18\x06 \x01(\tR\aiconUrl\x12u\n" +
-	"\x1acredential_subject_summary\x18\a \x03(\v27.platform.provider.v1.CredentialSubjectSummaryFieldViewR\x18credentialSubjectSummary\x12F\n" +
+	"\fdisplay_name\x18\x02 \x01(\tR\vdisplayName\x124\n" +
+	"\x16provider_credential_id\x18\x04 \x01(\tR\x14providerCredentialId\x12F\n" +
 	"\rmodel_catalog\x18\n" +
-	" \x01(\v2!.provider.v1.ProviderModelCatalogR\fmodelCatalogJ\x04\b\t\x10\n" +
-	"R\x10default_model_id\"j\n" +
-	"!CredentialSubjectSummaryFieldView\x12\x19\n" +
-	"\bfield_id\x18\x01 \x01(\tR\afieldId\x12\x14\n" +
-	"\x05label\x18\x02 \x01(\tR\x05label\x12\x14\n" +
-	"\x05value\x18\x03 \x01(\tR\x05value\"$\n" +
-	"\"ListProviderSurfaceBindingsRequest\"m\n" +
-	"#ListProviderSurfaceBindingsResponse\x12F\n" +
-	"\x05items\x18\x01 \x03(\v20.platform.provider.v1.ProviderSurfaceBindingViewR\x05items\"\x7f\n" +
-	"\x1cProviderSurfaceBindingStatus\x12G\n" +
-	"\x05phase\x18\x01 \x01(\x0e21.platform.provider.v1.ProviderSurfaceBindingPhaseR\x05phase\x12\x16\n" +
-	"\x06reason\x18\x02 \x01(\tR\x06reason\"\xa9\x03\n" +
-	"\x1aProviderSurfaceBindingView\x12!\n" +
-	"\fdisplay_name\x18\x01 \x01(\tR\vdisplayName\x12\x1d\n" +
+	" \x01(\v2!.provider.v1.ProviderModelCatalogR\fmodelCatalog\x12\x1d\n" +
 	"\n" +
-	"surface_id\x18\x02 \x01(\tR\tsurfaceId\x124\n" +
-	"\x16provider_credential_id\x18\r \x01(\tR\x14providerCredentialId\x12=\n" +
-	"\aruntime\x18\x0e \x01(\v2#.provider.v1.ProviderSurfaceRuntimeR\aruntime\x12J\n" +
-	"\x06status\x18\x0f \x01(\v22.platform.provider.v1.ProviderSurfaceBindingStatusR\x06status\x12\x1b\n" +
-	"\tvendor_id\x18\x10 \x01(\tR\bvendorId\x12\x1f\n" +
-	"\vprovider_id\x18\x11 \x01(\tR\n" +
-	"providerId\x122\n" +
-	"\x15provider_display_name\x18\x12 \x01(\tR\x13providerDisplayNameJ\x04\b\x06\x10\aR\x10default_model_id\"\x95\x02\n" +
-	"#UpsertProviderSurfaceBindingRequest\x12!\n" +
+	"surface_id\x18\r \x01(\tR\tsurfaceId\x12=\n" +
+	"\aruntime\x18\x0e \x01(\v2#.provider.v1.ProviderSurfaceRuntimeR\aruntime\x12&\n" +
+	"\x0fproduct_info_id\x18\x0f \x01(\tR\rproductInfoId\x12<\n" +
+	"\x06status\x18\x10 \x01(\v2$.platform.provider.v1.ProviderStatusR\x06statusJ\x04\b\x03\x10\x04J\x04\b\x05\x10\x06J\x04\b\x06\x10\aJ\x04\b\a\x10\bJ\x04\b\t\x10\n" +
+	"R\tvendor_idR\bsurfacesR\bicon_urlR\x1acredential_subject_summaryR\x10default_model_id\"c\n" +
+	"\x0eProviderStatus\x129\n" +
+	"\x05phase\x18\x01 \x01(\x0e2#.platform.provider.v1.ProviderPhaseR\x05phase\x12\x16\n" +
+	"\x06reason\x18\x02 \x01(\tR\x06reason\"\xef\x01\n" +
+	"\x15UpsertProviderRequest\x12!\n" +
 	"\fdisplay_name\x18\x01 \x01(\tR\vdisplayName\x12\x1d\n" +
 	"\n" +
 	"surface_id\x18\x02 \x01(\tR\tsurfaceId\x124\n" +
 	"\x16provider_credential_id\x18\r \x01(\tR\x14providerCredentialId\x12=\n" +
 	"\aruntime\x18\x0e \x01(\v2#.provider.v1.ProviderSurfaceRuntimeR\aruntime\x12\x1f\n" +
 	"\vprovider_id\x18\x10 \x01(\tR\n" +
-	"providerIdJ\x04\b\x06\x10\aR\x10default_model_id\"[\n" +
+	"providerId\"`\n" +
+	"\x15CreateProviderRequest\x12G\n" +
+	"\bprovider\x18\x01 \x01(\v2+.platform.provider.v1.UpsertProviderRequestR\bprovider\"X\n" +
+	"\x16CreateProviderResponse\x12>\n" +
+	"\bprovider\x18\x01 \x01(\v2\".platform.provider.v1.ProviderViewR\bprovider\"\x81\x01\n" +
 	"\x15UpdateProviderRequest\x12\x1f\n" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
-	"providerId\x12!\n" +
-	"\fdisplay_name\x18\x02 \x01(\tR\vdisplayName\"X\n" +
+	"providerId\x12G\n" +
+	"\bprovider\x18\x02 \x01(\v2+.platform.provider.v1.UpsertProviderRequestR\bprovider\"X\n" +
 	"\x16UpdateProviderResponse\x12>\n" +
 	"\bprovider\x18\x01 \x01(\v2\".platform.provider.v1.ProviderViewR\bprovider\"=\n" +
 	"\"ApiKeyAuthenticationUpdateMaterial\x12\x17\n" +
@@ -3907,24 +2993,9 @@ const file_platform_provider_v1_provider_service_proto_rawDesc = "" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
 	"providerId\"0\n" +
 	"\x16DeleteProviderResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status\"z\n" +
-	"#CreateProviderSurfaceBindingRequest\x12S\n" +
-	"\asurface\x18\x01 \x01(\v29.platform.provider.v1.UpsertProviderSurfaceBindingRequestR\asurface\"r\n" +
-	"$CreateProviderSurfaceBindingResponse\x12J\n" +
-	"\asurface\x18\x01 \x01(\v20.platform.provider.v1.ProviderSurfaceBindingViewR\asurface\"\x99\x01\n" +
-	"#UpdateProviderSurfaceBindingRequest\x12\x1d\n" +
-	"\n" +
-	"surface_id\x18\x01 \x01(\tR\tsurfaceId\x12S\n" +
-	"\asurface\x18\x02 \x01(\v29.platform.provider.v1.UpsertProviderSurfaceBindingRequestR\asurface\"r\n" +
-	"$UpdateProviderSurfaceBindingResponse\x12J\n" +
-	"\asurface\x18\x01 \x01(\v20.platform.provider.v1.ProviderSurfaceBindingViewR\asurface\"D\n" +
-	"#DeleteProviderSurfaceBindingRequest\x12\x1d\n" +
-	"\n" +
-	"surface_id\x18\x01 \x01(\tR\tsurfaceId\">\n" +
-	"$DeleteProviderSurfaceBindingResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status\"\xeb\x01\n" +
-	"\x15ApiKeyConnectMaterial\x12\x17\n" +
-	"\aapi_key\x18\x01 \x01(\tR\x06apiKey\x12\x19\n" +
+	"\x06status\x18\x01 \x01(\tR\x06status\"\xf7\x01\n" +
+	"\x15ApiKeyConnectMaterial\x12#\n" +
+	"\rcredential_id\x18\x01 \x01(\tR\fcredentialId\x12\x19\n" +
 	"\bbase_url\x18\x02 \x01(\tR\abaseUrl\x125\n" +
 	"\bprotocol\x18\x03 \x01(\x0e2\x19.api_protocol.v1.ProtocolR\bprotocol\x12g\n" +
 	"\x16surface_model_catalogs\x18\x04 \x03(\v21.platform.provider.v1.ProviderSurfaceModelCatalogR\x14surfaceModelCatalogs\"\x19\n" +
@@ -3971,18 +3042,17 @@ const file_platform_provider_v1_provider_service_proto_rawDesc = "" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
 	"providerId\x12Q\n" +
 	"\atrigger\x18\x02 \x01(\x0e27.platform.provider.v1.ProviderObservabilityProbeTriggerR\atrigger\x12!\n" +
-	"\fprovider_ids\x18\x03 \x03(\tR\vproviderIds\"\xe2\x02\n" +
+	"\fprovider_ids\x18\x03 \x03(\tR\vproviderIds\"\xd9\x02\n" +
 	"\"ProbeProviderObservabilityResponse\x12\x1f\n" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
-	"providerId\x12\x15\n" +
-	"\x06cli_id\x18\x02 \x01(\tR\x05cliId\x12V\n" +
+	"providerId\x12V\n" +
 	"\aoutcome\x18\x03 \x01(\x0e2<.platform.provider.v1.ProviderOAuthObservabilityProbeOutcomeR\aoutcome\x12\x18\n" +
 	"\amessage\x18\x04 \x01(\tR\amessage\x12&\n" +
 	"\x0fnext_allowed_at\x18\x05 \x01(\tR\rnextAllowedAt\x12&\n" +
 	"\x0flast_attempt_at\x18\x06 \x01(\tR\rlastAttemptAt\x12!\n" +
 	"\fprovider_ids\x18\a \x03(\tR\vproviderIds\x12\x1f\n" +
 	"\vworkflow_id\x18\b \x01(\tR\n" +
-	"workflowId\"E\n" +
+	"workflowIdJ\x04\b\x02\x10\x03R\x06cli_id\"E\n" +
 	" WatchProviderStatusEventsRequest\x12!\n" +
 	"\fprovider_ids\x18\x01 \x03(\tR\vproviderIds\"d\n" +
 	"!WatchProviderStatusEventsResponse\x12?\n" +
@@ -3996,15 +3066,15 @@ const file_platform_provider_v1_provider_service_proto_rawDesc = "" +
 	"\n" +
 	"started_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tstartedAt\x12;\n" +
 	"\vfinished_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"finishedAt\"\x89\x03\n" +
+	"finishedAt\"\xdd\x02\n" +
 	"\x13ProviderStatusEvent\x12\x1f\n" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
 	"providerId\x12\x1d\n" +
 	"\n" +
 	"surface_id\x18\x02 \x01(\tR\tsurfaceId\x12A\n" +
 	"\x04kind\x18\x03 \x01(\x0e2-.platform.provider.v1.ProviderStatusEventKindR\x04kind\x12H\n" +
-	"\bworkflow\x18\x04 \x01(\v2,.platform.provider.v1.ProviderWorkflowStatusR\bworkflow\x12h\n" +
-	"\x16surface_binding_status\x18\x05 \x01(\v22.platform.provider.v1.ProviderSurfaceBindingStatusR\x14surfaceBindingStatus\x12;\n" +
+	"\bworkflow\x18\x04 \x01(\v2,.platform.provider.v1.ProviderWorkflowStatusR\bworkflow\x12<\n" +
+	"\x06status\x18\x05 \x01(\v2$.platform.provider.v1.ProviderStatusR\x06status\x12;\n" +
 	"\voccurred_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"occurredAt\"\x14\n" +
 	"\x12ListVendorsRequest\"M\n" +
@@ -4071,74 +3141,20 @@ const file_platform_provider_v1_provider_service_proto_rawDesc = "" +
 	"providerId\x12#\n" +
 	"\rapplied_kinds\x18\x05 \x03(\tR\fappliedKindsJ\x04\b\x06\x10\aR\x10default_model_id\"Z\n" +
 	"\x15ApplyTemplateResponse\x12A\n" +
-	"\x06result\x18\x01 \x01(\v2).platform.provider.v1.ApplyTemplateResultR\x06result\"\x1d\n" +
-	"\x1bBindProviderCatalogsRequest\"6\n" +
-	"\x1cBindProviderCatalogsResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status*\xad\x02\n" +
-	"\x1bProviderSurfaceBindingPhase\x12.\n" +
-	"*PROVIDER_SURFACE_BINDING_PHASE_UNSPECIFIED\x10\x00\x12(\n" +
-	"$PROVIDER_SURFACE_BINDING_PHASE_READY\x10\x01\x121\n" +
-	"-PROVIDER_SURFACE_BINDING_PHASE_INVALID_CONFIG\x10\x02\x12-\n" +
-	")PROVIDER_SURFACE_BINDING_PHASE_REFRESHING\x10\x03\x12(\n" +
-	"$PROVIDER_SURFACE_BINDING_PHASE_STALE\x10\x04\x12(\n" +
-	"$PROVIDER_SURFACE_BINDING_PHASE_ERROR\x10\x05*\x8c\x03\n" +
-	"\x1bProviderConnectSessionPhase\x12.\n" +
-	"*PROVIDER_CONNECT_SESSION_PHASE_UNSPECIFIED\x10\x00\x12*\n" +
-	"&PROVIDER_CONNECT_SESSION_PHASE_PENDING\x10\x01\x120\n" +
-	",PROVIDER_CONNECT_SESSION_PHASE_AWAITING_USER\x10\x02\x12-\n" +
-	")PROVIDER_CONNECT_SESSION_PHASE_PROCESSING\x10\x03\x12,\n" +
-	"(PROVIDER_CONNECT_SESSION_PHASE_SUCCEEDED\x10\x04\x12)\n" +
-	"%PROVIDER_CONNECT_SESSION_PHASE_FAILED\x10\x05\x12*\n" +
-	"&PROVIDER_CONNECT_SESSION_PHASE_EXPIRED\x10\x06\x12+\n" +
-	"'PROVIDER_CONNECT_SESSION_PHASE_CANCELED\x10\a*|\n" +
-	"\x11ProviderAddMethod\x12#\n" +
-	"\x1fPROVIDER_ADD_METHOD_UNSPECIFIED\x10\x00\x12\x1f\n" +
-	"\x1bPROVIDER_ADD_METHOD_API_KEY\x10\x01\x12!\n" +
-	"\x1dPROVIDER_ADD_METHOD_CLI_OAUTH\x10\x02*\x8d\x03\n" +
-	"&ProviderOAuthObservabilityProbeOutcome\x12;\n" +
-	"7PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_UNSPECIFIED\x10\x00\x128\n" +
-	"4PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_EXECUTED\x10\x01\x129\n" +
-	"5PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_THROTTLED\x10\x02\x12<\n" +
-	"8PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_AUTH_BLOCKED\x10\x03\x12;\n" +
-	"7PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_UNSUPPORTED\x10\x04\x126\n" +
-	"2PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_FAILED\x10\x05*\xef\x01\n" +
-	"!ProviderObservabilityProbeTrigger\x124\n" +
-	"0PROVIDER_OBSERVABILITY_PROBE_TRIGGER_UNSPECIFIED\x10\x00\x12/\n" +
-	"+PROVIDER_OBSERVABILITY_PROBE_TRIGGER_MANUAL\x10\x01\x120\n" +
-	",PROVIDER_OBSERVABILITY_PROBE_TRIGGER_CONNECT\x10\x02\x121\n" +
-	"-PROVIDER_OBSERVABILITY_PROBE_TRIGGER_SCHEDULE\x10\x03*\xa5\x01\n" +
-	"\x17ProviderStatusEventKind\x12*\n" +
-	"&PROVIDER_STATUS_EVENT_KIND_UNSPECIFIED\x10\x00\x12'\n" +
-	"#PROVIDER_STATUS_EVENT_KIND_WORKFLOW\x10\x01\x125\n" +
-	"1PROVIDER_STATUS_EVENT_KIND_SURFACE_BINDING_STATUS\x10\x02*\x9e\x02\n" +
-	"\x15ProviderWorkflowPhase\x12'\n" +
-	"#PROVIDER_WORKFLOW_PHASE_UNSPECIFIED\x10\x00\x12#\n" +
-	"\x1fPROVIDER_WORKFLOW_PHASE_PENDING\x10\x01\x12#\n" +
-	"\x1fPROVIDER_WORKFLOW_PHASE_RUNNING\x10\x02\x12%\n" +
-	"!PROVIDER_WORKFLOW_PHASE_SUCCEEDED\x10\x03\x12\"\n" +
-	"\x1ePROVIDER_WORKFLOW_PHASE_FAILED\x10\x04\x12!\n" +
-	"\x1dPROVIDER_WORKFLOW_PHASE_ERROR\x10\x05\x12$\n" +
-	" PROVIDER_WORKFLOW_PHASE_CANCELED\x10\x062\xda\x13\n" +
+	"\x06result\x18\x01 \x01(\v2).platform.provider.v1.ApplyTemplateResultR\x06result2\x95\n" +
+	"\n" +
 	"\x0fProviderService\x12}\n" +
 	"\x14ListProviderSurfaces\x121.platform.provider.v1.ListProviderSurfacesRequest\x1a2.platform.provider.v1.ListProviderSurfacesResponse\x12h\n" +
-	"\rListProviders\x12*.platform.provider.v1.ListProvidersRequest\x1a+.platform.provider.v1.ListProvidersResponse\x12\x92\x01\n" +
-	"\x1bListProviderSurfaceBindings\x128.platform.provider.v1.ListProviderSurfaceBindingsRequest\x1a9.platform.provider.v1.ListProviderSurfaceBindingsResponse\x12k\n" +
-	"\x0eUpdateProvider\x12+.platform.provider.v1.UpdateProviderRequest\x1a,.platform.provider.v1.UpdateProviderResponse\x12\x95\x01\n" +
-	"\x1cUpdateProviderAuthentication\x129.platform.provider.v1.UpdateProviderAuthenticationRequest\x1a:.platform.provider.v1.UpdateProviderAuthenticationResponse\x12\xbc\x01\n" +
-	")UpdateProviderObservabilityAuthentication\x12F.platform.provider.v1.UpdateProviderObservabilityAuthenticationRequest\x1aG.platform.provider.v1.UpdateProviderObservabilityAuthenticationResponse\x12k\n" +
-	"\x0eDeleteProvider\x12+.platform.provider.v1.DeleteProviderRequest\x1a,.platform.provider.v1.DeleteProviderResponse\x12\x95\x01\n" +
-	"\x1cCreateProviderSurfaceBinding\x129.platform.provider.v1.CreateProviderSurfaceBindingRequest\x1a:.platform.provider.v1.CreateProviderSurfaceBindingResponse\x12\x95\x01\n" +
-	"\x1cUpdateProviderSurfaceBinding\x129.platform.provider.v1.UpdateProviderSurfaceBindingRequest\x1a:.platform.provider.v1.UpdateProviderSurfaceBindingResponse\x12\x95\x01\n" +
-	"\x1cDeleteProviderSurfaceBinding\x129.platform.provider.v1.DeleteProviderSurfaceBindingRequest\x1a:.platform.provider.v1.DeleteProviderSurfaceBindingResponse\x12n\n" +
-	"\x0fConnectProvider\x12,.platform.provider.v1.ConnectProviderRequest\x1a-.platform.provider.v1.ConnectProviderResponse\x12\x8c\x01\n" +
-	"\x19GetProviderConnectSession\x126.platform.provider.v1.GetProviderConnectSessionRequest\x1a7.platform.provider.v1.GetProviderConnectSessionResponse\x12\x8f\x01\n" +
+	"\rListProviders\x12*.platform.provider.v1.ListProvidersRequest\x1a+.platform.provider.v1.ListProvidersResponse\x12k\n" +
+	"\x0eCreateProvider\x12+.platform.provider.v1.CreateProviderRequest\x1a,.platform.provider.v1.CreateProviderResponse\x12k\n" +
+	"\x0eUpdateProvider\x12+.platform.provider.v1.UpdateProviderRequest\x1a,.platform.provider.v1.UpdateProviderResponse\x12k\n" +
+	"\x0eDeleteProvider\x12+.platform.provider.v1.DeleteProviderRequest\x1a,.platform.provider.v1.DeleteProviderResponse\x12\x8f\x01\n" +
 	"\x1aProbeProviderObservability\x127.platform.provider.v1.ProbeProviderObservabilityRequest\x1a8.platform.provider.v1.ProbeProviderObservabilityResponse\x12\x8e\x01\n" +
 	"\x19WatchProviderStatusEvents\x126.platform.provider.v1.WatchProviderStatusEventsRequest\x1a7.platform.provider.v1.WatchProviderStatusEventsResponse0\x01\x12b\n" +
 	"\vListVendors\x12(.platform.provider.v1.ListVendorsRequest\x1a).platform.provider.v1.ListVendorsResponse\x12w\n" +
 	"\x12ListCLIDefinitions\x12/.platform.provider.v1.ListCLIDefinitionsRequest\x1a0.platform.provider.v1.ListCLIDefinitionsResponse\x12h\n" +
 	"\rListTemplates\x12*.platform.provider.v1.ListTemplatesRequest\x1a+.platform.provider.v1.ListTemplatesResponse\x12h\n" +
-	"\rApplyTemplate\x12*.platform.provider.v1.ApplyTemplateRequest\x1a+.platform.provider.v1.ApplyTemplateResponse\x12}\n" +
-	"\x14BindProviderCatalogs\x121.platform.provider.v1.BindProviderCatalogsRequest\x1a2.platform.provider.v1.BindProviderCatalogsResponseBGZEcode-code.internal/go-contract/platform/provider/v1;providerservicev1b\x06proto3"
+	"\rApplyTemplate\x12*.platform.provider.v1.ApplyTemplateRequest\x1a+.platform.provider.v1.ApplyTemplateResponseBGZEcode-code.internal/go-contract/platform/provider/v1;providerservicev1b\x06proto3"
 
 var (
 	file_platform_provider_v1_provider_service_proto_rawDescOnce sync.Once
@@ -4152,176 +3168,145 @@ func file_platform_provider_v1_provider_service_proto_rawDescGZIP() []byte {
 	return file_platform_provider_v1_provider_service_proto_rawDescData
 }
 
-var file_platform_provider_v1_provider_service_proto_enumTypes = make([]protoimpl.EnumInfo, 7)
-var file_platform_provider_v1_provider_service_proto_msgTypes = make([]protoimpl.MessageInfo, 59)
+var file_platform_provider_v1_provider_service_proto_msgTypes = make([]protoimpl.MessageInfo, 49)
 var file_platform_provider_v1_provider_service_proto_goTypes = []any{
-	(ProviderSurfaceBindingPhase)(0),                          // 0: platform.provider.v1.ProviderSurfaceBindingPhase
-	(ProviderConnectSessionPhase)(0),                          // 1: platform.provider.v1.ProviderConnectSessionPhase
-	(ProviderAddMethod)(0),                                    // 2: platform.provider.v1.ProviderAddMethod
-	(ProviderOAuthObservabilityProbeOutcome)(0),               // 3: platform.provider.v1.ProviderOAuthObservabilityProbeOutcome
-	(ProviderObservabilityProbeTrigger)(0),                    // 4: platform.provider.v1.ProviderObservabilityProbeTrigger
-	(ProviderStatusEventKind)(0),                              // 5: platform.provider.v1.ProviderStatusEventKind
-	(ProviderWorkflowPhase)(0),                                // 6: platform.provider.v1.ProviderWorkflowPhase
-	(*ListProviderSurfacesRequest)(nil),                       // 7: platform.provider.v1.ListProviderSurfacesRequest
-	(*ListProviderSurfacesResponse)(nil),                      // 8: platform.provider.v1.ListProviderSurfacesResponse
-	(*ListProvidersRequest)(nil),                              // 9: platform.provider.v1.ListProvidersRequest
-	(*ListProvidersResponse)(nil),                             // 10: platform.provider.v1.ListProvidersResponse
-	(*ProviderView)(nil),                                      // 11: platform.provider.v1.ProviderView
-	(*CredentialSubjectSummaryFieldView)(nil),                 // 12: platform.provider.v1.CredentialSubjectSummaryFieldView
-	(*ListProviderSurfaceBindingsRequest)(nil),                // 13: platform.provider.v1.ListProviderSurfaceBindingsRequest
-	(*ListProviderSurfaceBindingsResponse)(nil),               // 14: platform.provider.v1.ListProviderSurfaceBindingsResponse
-	(*ProviderSurfaceBindingStatus)(nil),                      // 15: platform.provider.v1.ProviderSurfaceBindingStatus
-	(*ProviderSurfaceBindingView)(nil),                        // 16: platform.provider.v1.ProviderSurfaceBindingView
-	(*UpsertProviderSurfaceBindingRequest)(nil),               // 17: platform.provider.v1.UpsertProviderSurfaceBindingRequest
-	(*UpdateProviderRequest)(nil),                             // 18: platform.provider.v1.UpdateProviderRequest
-	(*UpdateProviderResponse)(nil),                            // 19: platform.provider.v1.UpdateProviderResponse
-	(*ApiKeyAuthenticationUpdateMaterial)(nil),                // 20: platform.provider.v1.ApiKeyAuthenticationUpdateMaterial
-	(*CLIOAuthAuthenticationUpdateMaterial)(nil),              // 21: platform.provider.v1.CLIOAuthAuthenticationUpdateMaterial
-	(*UpdateProviderAuthenticationRequest)(nil),               // 22: platform.provider.v1.UpdateProviderAuthenticationRequest
-	(*UpdateProviderAuthenticationResponse)(nil),              // 23: platform.provider.v1.UpdateProviderAuthenticationResponse
-	(*SessionMaterial)(nil),                                   // 24: platform.provider.v1.SessionMaterial
-	(*UpdateProviderObservabilityAuthenticationRequest)(nil),  // 25: platform.provider.v1.UpdateProviderObservabilityAuthenticationRequest
-	(*UpdateProviderObservabilityAuthenticationResponse)(nil), // 26: platform.provider.v1.UpdateProviderObservabilityAuthenticationResponse
-	(*DeleteProviderRequest)(nil),                             // 27: platform.provider.v1.DeleteProviderRequest
-	(*DeleteProviderResponse)(nil),                            // 28: platform.provider.v1.DeleteProviderResponse
-	(*CreateProviderSurfaceBindingRequest)(nil),               // 29: platform.provider.v1.CreateProviderSurfaceBindingRequest
-	(*CreateProviderSurfaceBindingResponse)(nil),              // 30: platform.provider.v1.CreateProviderSurfaceBindingResponse
-	(*UpdateProviderSurfaceBindingRequest)(nil),               // 31: platform.provider.v1.UpdateProviderSurfaceBindingRequest
-	(*UpdateProviderSurfaceBindingResponse)(nil),              // 32: platform.provider.v1.UpdateProviderSurfaceBindingResponse
-	(*DeleteProviderSurfaceBindingRequest)(nil),               // 33: platform.provider.v1.DeleteProviderSurfaceBindingRequest
-	(*DeleteProviderSurfaceBindingResponse)(nil),              // 34: platform.provider.v1.DeleteProviderSurfaceBindingResponse
-	(*ApiKeyConnectMaterial)(nil),                             // 35: platform.provider.v1.ApiKeyConnectMaterial
-	(*CLIOAuthConnectMaterial)(nil),                           // 36: platform.provider.v1.CLIOAuthConnectMaterial
-	(*ProviderSurfaceModelCatalog)(nil),                       // 37: platform.provider.v1.ProviderSurfaceModelCatalog
-	(*ConnectProviderRequest)(nil),                            // 38: platform.provider.v1.ConnectProviderRequest
-	(*ProviderConnectSessionView)(nil),                        // 39: platform.provider.v1.ProviderConnectSessionView
-	(*ConnectProviderResponse)(nil),                           // 40: platform.provider.v1.ConnectProviderResponse
-	(*GetProviderConnectSessionRequest)(nil),                  // 41: platform.provider.v1.GetProviderConnectSessionRequest
-	(*GetProviderConnectSessionResponse)(nil),                 // 42: platform.provider.v1.GetProviderConnectSessionResponse
-	(*ProbeProviderObservabilityRequest)(nil),                 // 43: platform.provider.v1.ProbeProviderObservabilityRequest
-	(*ProbeProviderObservabilityResponse)(nil),                // 44: platform.provider.v1.ProbeProviderObservabilityResponse
-	(*WatchProviderStatusEventsRequest)(nil),                  // 45: platform.provider.v1.WatchProviderStatusEventsRequest
-	(*WatchProviderStatusEventsResponse)(nil),                 // 46: platform.provider.v1.WatchProviderStatusEventsResponse
-	(*ProviderWorkflowStatus)(nil),                            // 47: platform.provider.v1.ProviderWorkflowStatus
-	(*ProviderStatusEvent)(nil),                               // 48: platform.provider.v1.ProviderStatusEvent
-	(*ListVendorsRequest)(nil),                                // 49: platform.provider.v1.ListVendorsRequest
-	(*ListVendorsResponse)(nil),                               // 50: platform.provider.v1.ListVendorsResponse
-	(*VendorView)(nil),                                        // 51: platform.provider.v1.VendorView
-	(*ListCLIDefinitionsRequest)(nil),                         // 52: platform.provider.v1.ListCLIDefinitionsRequest
-	(*ListCLIDefinitionsResponse)(nil),                        // 53: platform.provider.v1.ListCLIDefinitionsResponse
-	(*CLIDefinitionView)(nil),                                 // 54: platform.provider.v1.CLIDefinitionView
-	(*CLIContainerImageView)(nil),                             // 55: platform.provider.v1.CLIContainerImageView
-	(*CLIDefinitionCapabilityView)(nil),                       // 56: platform.provider.v1.CLIDefinitionCapabilityView
-	(*ListTemplatesRequest)(nil),                              // 57: platform.provider.v1.ListTemplatesRequest
-	(*ListTemplatesResponse)(nil),                             // 58: platform.provider.v1.ListTemplatesResponse
-	(*TemplateView)(nil),                                      // 59: platform.provider.v1.TemplateView
-	(*ApplyTemplateRequest)(nil),                              // 60: platform.provider.v1.ApplyTemplateRequest
-	(*ApplyTemplateResult)(nil),                               // 61: platform.provider.v1.ApplyTemplateResult
-	(*ApplyTemplateResponse)(nil),                             // 62: platform.provider.v1.ApplyTemplateResponse
-	(*BindProviderCatalogsRequest)(nil),                       // 63: platform.provider.v1.BindProviderCatalogsRequest
-	(*BindProviderCatalogsResponse)(nil),                      // 64: platform.provider.v1.BindProviderCatalogsResponse
-	nil,                                                       // 65: platform.provider.v1.SessionMaterial.ValuesEntry
-	(*v1.ProviderSurface)(nil),                                // 66: provider.v1.ProviderSurface
-	(*v1.ProviderModelCatalog)(nil),                           // 67: provider.v1.ProviderModelCatalog
-	(*v1.ProviderSurfaceRuntime)(nil),                         // 68: provider.v1.ProviderSurfaceRuntime
-	(v11.Protocol)(0),                                         // 69: api_protocol.v1.Protocol
-	(*v1.ProviderModelCatalogEntry)(nil),                      // 70: provider.v1.ProviderModelCatalogEntry
-	(*timestamppb.Timestamp)(nil),                             // 71: google.protobuf.Timestamp
+	(*ListProviderSurfacesRequest)(nil),                       // 0: platform.provider.v1.ListProviderSurfacesRequest
+	(*ListProviderSurfacesResponse)(nil),                      // 1: platform.provider.v1.ListProviderSurfacesResponse
+	(*ListProvidersRequest)(nil),                              // 2: platform.provider.v1.ListProvidersRequest
+	(*ListProvidersResponse)(nil),                             // 3: platform.provider.v1.ListProvidersResponse
+	(*ProviderView)(nil),                                      // 4: platform.provider.v1.ProviderView
+	(*ProviderStatus)(nil),                                    // 5: platform.provider.v1.ProviderStatus
+	(*UpsertProviderRequest)(nil),                             // 6: platform.provider.v1.UpsertProviderRequest
+	(*CreateProviderRequest)(nil),                             // 7: platform.provider.v1.CreateProviderRequest
+	(*CreateProviderResponse)(nil),                            // 8: platform.provider.v1.CreateProviderResponse
+	(*UpdateProviderRequest)(nil),                             // 9: platform.provider.v1.UpdateProviderRequest
+	(*UpdateProviderResponse)(nil),                            // 10: platform.provider.v1.UpdateProviderResponse
+	(*ApiKeyAuthenticationUpdateMaterial)(nil),                // 11: platform.provider.v1.ApiKeyAuthenticationUpdateMaterial
+	(*CLIOAuthAuthenticationUpdateMaterial)(nil),              // 12: platform.provider.v1.CLIOAuthAuthenticationUpdateMaterial
+	(*UpdateProviderAuthenticationRequest)(nil),               // 13: platform.provider.v1.UpdateProviderAuthenticationRequest
+	(*UpdateProviderAuthenticationResponse)(nil),              // 14: platform.provider.v1.UpdateProviderAuthenticationResponse
+	(*SessionMaterial)(nil),                                   // 15: platform.provider.v1.SessionMaterial
+	(*UpdateProviderObservabilityAuthenticationRequest)(nil),  // 16: platform.provider.v1.UpdateProviderObservabilityAuthenticationRequest
+	(*UpdateProviderObservabilityAuthenticationResponse)(nil), // 17: platform.provider.v1.UpdateProviderObservabilityAuthenticationResponse
+	(*DeleteProviderRequest)(nil),                             // 18: platform.provider.v1.DeleteProviderRequest
+	(*DeleteProviderResponse)(nil),                            // 19: platform.provider.v1.DeleteProviderResponse
+	(*ApiKeyConnectMaterial)(nil),                             // 20: platform.provider.v1.ApiKeyConnectMaterial
+	(*CLIOAuthConnectMaterial)(nil),                           // 21: platform.provider.v1.CLIOAuthConnectMaterial
+	(*ProviderSurfaceModelCatalog)(nil),                       // 22: platform.provider.v1.ProviderSurfaceModelCatalog
+	(*ConnectProviderRequest)(nil),                            // 23: platform.provider.v1.ConnectProviderRequest
+	(*ProviderConnectSessionView)(nil),                        // 24: platform.provider.v1.ProviderConnectSessionView
+	(*ConnectProviderResponse)(nil),                           // 25: platform.provider.v1.ConnectProviderResponse
+	(*GetProviderConnectSessionRequest)(nil),                  // 26: platform.provider.v1.GetProviderConnectSessionRequest
+	(*GetProviderConnectSessionResponse)(nil),                 // 27: platform.provider.v1.GetProviderConnectSessionResponse
+	(*ProbeProviderObservabilityRequest)(nil),                 // 28: platform.provider.v1.ProbeProviderObservabilityRequest
+	(*ProbeProviderObservabilityResponse)(nil),                // 29: platform.provider.v1.ProbeProviderObservabilityResponse
+	(*WatchProviderStatusEventsRequest)(nil),                  // 30: platform.provider.v1.WatchProviderStatusEventsRequest
+	(*WatchProviderStatusEventsResponse)(nil),                 // 31: platform.provider.v1.WatchProviderStatusEventsResponse
+	(*ProviderWorkflowStatus)(nil),                            // 32: platform.provider.v1.ProviderWorkflowStatus
+	(*ProviderStatusEvent)(nil),                               // 33: platform.provider.v1.ProviderStatusEvent
+	(*ListVendorsRequest)(nil),                                // 34: platform.provider.v1.ListVendorsRequest
+	(*ListVendorsResponse)(nil),                               // 35: platform.provider.v1.ListVendorsResponse
+	(*VendorView)(nil),                                        // 36: platform.provider.v1.VendorView
+	(*ListCLIDefinitionsRequest)(nil),                         // 37: platform.provider.v1.ListCLIDefinitionsRequest
+	(*ListCLIDefinitionsResponse)(nil),                        // 38: platform.provider.v1.ListCLIDefinitionsResponse
+	(*CLIDefinitionView)(nil),                                 // 39: platform.provider.v1.CLIDefinitionView
+	(*CLIContainerImageView)(nil),                             // 40: platform.provider.v1.CLIContainerImageView
+	(*CLIDefinitionCapabilityView)(nil),                       // 41: platform.provider.v1.CLIDefinitionCapabilityView
+	(*ListTemplatesRequest)(nil),                              // 42: platform.provider.v1.ListTemplatesRequest
+	(*ListTemplatesResponse)(nil),                             // 43: platform.provider.v1.ListTemplatesResponse
+	(*TemplateView)(nil),                                      // 44: platform.provider.v1.TemplateView
+	(*ApplyTemplateRequest)(nil),                              // 45: platform.provider.v1.ApplyTemplateRequest
+	(*ApplyTemplateResult)(nil),                               // 46: platform.provider.v1.ApplyTemplateResult
+	(*ApplyTemplateResponse)(nil),                             // 47: platform.provider.v1.ApplyTemplateResponse
+	nil,                                                       // 48: platform.provider.v1.SessionMaterial.ValuesEntry
+	(*v1.ProviderSurface)(nil),                                // 49: provider.v1.ProviderSurface
+	(*v1.ProviderModelCatalog)(nil),                           // 50: provider.v1.ProviderModelCatalog
+	(*v1.ProviderSurfaceRuntime)(nil),                         // 51: provider.v1.ProviderSurfaceRuntime
+	(ProviderPhase)(0),                                        // 52: platform.provider.v1.ProviderPhase
+	(v11.Protocol)(0),                                         // 53: api_protocol.v1.Protocol
+	(*v1.ProviderModelCatalogEntry)(nil),                      // 54: provider.v1.ProviderModelCatalogEntry
+	(ProviderAddMethod)(0),                                    // 55: platform.provider.v1.ProviderAddMethod
+	(ProviderConnectSessionPhase)(0),                          // 56: platform.provider.v1.ProviderConnectSessionPhase
+	(ProviderObservabilityProbeTrigger)(0),                    // 57: platform.provider.v1.ProviderObservabilityProbeTrigger
+	(ProviderOAuthObservabilityProbeOutcome)(0),               // 58: platform.provider.v1.ProviderOAuthObservabilityProbeOutcome
+	(ProviderWorkflowPhase)(0),                                // 59: platform.provider.v1.ProviderWorkflowPhase
+	(*timestamppb.Timestamp)(nil),                             // 60: google.protobuf.Timestamp
+	(ProviderStatusEventKind)(0),                              // 61: platform.provider.v1.ProviderStatusEventKind
 }
 var file_platform_provider_v1_provider_service_proto_depIdxs = []int32{
-	66, // 0: platform.provider.v1.ListProviderSurfacesResponse.items:type_name -> provider.v1.ProviderSurface
-	11, // 1: platform.provider.v1.ListProvidersResponse.items:type_name -> platform.provider.v1.ProviderView
-	16, // 2: platform.provider.v1.ProviderView.surfaces:type_name -> platform.provider.v1.ProviderSurfaceBindingView
-	12, // 3: platform.provider.v1.ProviderView.credential_subject_summary:type_name -> platform.provider.v1.CredentialSubjectSummaryFieldView
-	67, // 4: platform.provider.v1.ProviderView.model_catalog:type_name -> provider.v1.ProviderModelCatalog
-	16, // 5: platform.provider.v1.ListProviderSurfaceBindingsResponse.items:type_name -> platform.provider.v1.ProviderSurfaceBindingView
-	0,  // 6: platform.provider.v1.ProviderSurfaceBindingStatus.phase:type_name -> platform.provider.v1.ProviderSurfaceBindingPhase
-	68, // 7: platform.provider.v1.ProviderSurfaceBindingView.runtime:type_name -> provider.v1.ProviderSurfaceRuntime
-	15, // 8: platform.provider.v1.ProviderSurfaceBindingView.status:type_name -> platform.provider.v1.ProviderSurfaceBindingStatus
-	68, // 9: platform.provider.v1.UpsertProviderSurfaceBindingRequest.runtime:type_name -> provider.v1.ProviderSurfaceRuntime
-	11, // 10: platform.provider.v1.UpdateProviderResponse.provider:type_name -> platform.provider.v1.ProviderView
-	20, // 11: platform.provider.v1.UpdateProviderAuthenticationRequest.api_key:type_name -> platform.provider.v1.ApiKeyAuthenticationUpdateMaterial
-	21, // 12: platform.provider.v1.UpdateProviderAuthenticationRequest.cli_oauth:type_name -> platform.provider.v1.CLIOAuthAuthenticationUpdateMaterial
-	11, // 13: platform.provider.v1.UpdateProviderAuthenticationResponse.provider:type_name -> platform.provider.v1.ProviderView
-	39, // 14: platform.provider.v1.UpdateProviderAuthenticationResponse.session:type_name -> platform.provider.v1.ProviderConnectSessionView
-	65, // 15: platform.provider.v1.SessionMaterial.values:type_name -> platform.provider.v1.SessionMaterial.ValuesEntry
-	24, // 16: platform.provider.v1.UpdateProviderObservabilityAuthenticationRequest.session_material:type_name -> platform.provider.v1.SessionMaterial
-	11, // 17: platform.provider.v1.UpdateProviderObservabilityAuthenticationResponse.provider:type_name -> platform.provider.v1.ProviderView
-	17, // 18: platform.provider.v1.CreateProviderSurfaceBindingRequest.surface:type_name -> platform.provider.v1.UpsertProviderSurfaceBindingRequest
-	16, // 19: platform.provider.v1.CreateProviderSurfaceBindingResponse.surface:type_name -> platform.provider.v1.ProviderSurfaceBindingView
-	17, // 20: platform.provider.v1.UpdateProviderSurfaceBindingRequest.surface:type_name -> platform.provider.v1.UpsertProviderSurfaceBindingRequest
-	16, // 21: platform.provider.v1.UpdateProviderSurfaceBindingResponse.surface:type_name -> platform.provider.v1.ProviderSurfaceBindingView
-	69, // 22: platform.provider.v1.ApiKeyConnectMaterial.protocol:type_name -> api_protocol.v1.Protocol
-	37, // 23: platform.provider.v1.ApiKeyConnectMaterial.surface_model_catalogs:type_name -> platform.provider.v1.ProviderSurfaceModelCatalog
-	70, // 24: platform.provider.v1.ProviderSurfaceModelCatalog.models:type_name -> provider.v1.ProviderModelCatalogEntry
-	2,  // 25: platform.provider.v1.ConnectProviderRequest.add_method:type_name -> platform.provider.v1.ProviderAddMethod
-	35, // 26: platform.provider.v1.ConnectProviderRequest.api_key:type_name -> platform.provider.v1.ApiKeyConnectMaterial
-	36, // 27: platform.provider.v1.ConnectProviderRequest.cli_oauth:type_name -> platform.provider.v1.CLIOAuthConnectMaterial
-	1,  // 28: platform.provider.v1.ProviderConnectSessionView.phase:type_name -> platform.provider.v1.ProviderConnectSessionPhase
-	11, // 29: platform.provider.v1.ProviderConnectSessionView.provider:type_name -> platform.provider.v1.ProviderView
-	2,  // 30: platform.provider.v1.ProviderConnectSessionView.add_method:type_name -> platform.provider.v1.ProviderAddMethod
-	11, // 31: platform.provider.v1.ConnectProviderResponse.provider:type_name -> platform.provider.v1.ProviderView
-	39, // 32: platform.provider.v1.ConnectProviderResponse.session:type_name -> platform.provider.v1.ProviderConnectSessionView
-	39, // 33: platform.provider.v1.GetProviderConnectSessionResponse.session:type_name -> platform.provider.v1.ProviderConnectSessionView
-	4,  // 34: platform.provider.v1.ProbeProviderObservabilityRequest.trigger:type_name -> platform.provider.v1.ProviderObservabilityProbeTrigger
-	3,  // 35: platform.provider.v1.ProbeProviderObservabilityResponse.outcome:type_name -> platform.provider.v1.ProviderOAuthObservabilityProbeOutcome
-	48, // 36: platform.provider.v1.WatchProviderStatusEventsResponse.event:type_name -> platform.provider.v1.ProviderStatusEvent
-	6,  // 37: platform.provider.v1.ProviderWorkflowStatus.phase:type_name -> platform.provider.v1.ProviderWorkflowPhase
-	71, // 38: platform.provider.v1.ProviderWorkflowStatus.started_at:type_name -> google.protobuf.Timestamp
-	71, // 39: platform.provider.v1.ProviderWorkflowStatus.finished_at:type_name -> google.protobuf.Timestamp
-	5,  // 40: platform.provider.v1.ProviderStatusEvent.kind:type_name -> platform.provider.v1.ProviderStatusEventKind
-	47, // 41: platform.provider.v1.ProviderStatusEvent.workflow:type_name -> platform.provider.v1.ProviderWorkflowStatus
-	15, // 42: platform.provider.v1.ProviderStatusEvent.surface_binding_status:type_name -> platform.provider.v1.ProviderSurfaceBindingStatus
-	71, // 43: platform.provider.v1.ProviderStatusEvent.occurred_at:type_name -> google.protobuf.Timestamp
-	51, // 44: platform.provider.v1.ListVendorsResponse.items:type_name -> platform.provider.v1.VendorView
-	54, // 45: platform.provider.v1.ListCLIDefinitionsResponse.items:type_name -> platform.provider.v1.CLIDefinitionView
-	55, // 46: platform.provider.v1.CLIDefinitionView.container_images:type_name -> platform.provider.v1.CLIContainerImageView
-	56, // 47: platform.provider.v1.CLIDefinitionView.capabilities:type_name -> platform.provider.v1.CLIDefinitionCapabilityView
-	59, // 48: platform.provider.v1.ListTemplatesResponse.items:type_name -> platform.provider.v1.TemplateView
-	61, // 49: platform.provider.v1.ApplyTemplateResponse.result:type_name -> platform.provider.v1.ApplyTemplateResult
-	7,  // 50: platform.provider.v1.ProviderService.ListProviderSurfaces:input_type -> platform.provider.v1.ListProviderSurfacesRequest
-	9,  // 51: platform.provider.v1.ProviderService.ListProviders:input_type -> platform.provider.v1.ListProvidersRequest
-	13, // 52: platform.provider.v1.ProviderService.ListProviderSurfaceBindings:input_type -> platform.provider.v1.ListProviderSurfaceBindingsRequest
-	18, // 53: platform.provider.v1.ProviderService.UpdateProvider:input_type -> platform.provider.v1.UpdateProviderRequest
-	22, // 54: platform.provider.v1.ProviderService.UpdateProviderAuthentication:input_type -> platform.provider.v1.UpdateProviderAuthenticationRequest
-	25, // 55: platform.provider.v1.ProviderService.UpdateProviderObservabilityAuthentication:input_type -> platform.provider.v1.UpdateProviderObservabilityAuthenticationRequest
-	27, // 56: platform.provider.v1.ProviderService.DeleteProvider:input_type -> platform.provider.v1.DeleteProviderRequest
-	29, // 57: platform.provider.v1.ProviderService.CreateProviderSurfaceBinding:input_type -> platform.provider.v1.CreateProviderSurfaceBindingRequest
-	31, // 58: platform.provider.v1.ProviderService.UpdateProviderSurfaceBinding:input_type -> platform.provider.v1.UpdateProviderSurfaceBindingRequest
-	33, // 59: platform.provider.v1.ProviderService.DeleteProviderSurfaceBinding:input_type -> platform.provider.v1.DeleteProviderSurfaceBindingRequest
-	38, // 60: platform.provider.v1.ProviderService.ConnectProvider:input_type -> platform.provider.v1.ConnectProviderRequest
-	41, // 61: platform.provider.v1.ProviderService.GetProviderConnectSession:input_type -> platform.provider.v1.GetProviderConnectSessionRequest
-	43, // 62: platform.provider.v1.ProviderService.ProbeProviderObservability:input_type -> platform.provider.v1.ProbeProviderObservabilityRequest
-	45, // 63: platform.provider.v1.ProviderService.WatchProviderStatusEvents:input_type -> platform.provider.v1.WatchProviderStatusEventsRequest
-	49, // 64: platform.provider.v1.ProviderService.ListVendors:input_type -> platform.provider.v1.ListVendorsRequest
-	52, // 65: platform.provider.v1.ProviderService.ListCLIDefinitions:input_type -> platform.provider.v1.ListCLIDefinitionsRequest
-	57, // 66: platform.provider.v1.ProviderService.ListTemplates:input_type -> platform.provider.v1.ListTemplatesRequest
-	60, // 67: platform.provider.v1.ProviderService.ApplyTemplate:input_type -> platform.provider.v1.ApplyTemplateRequest
-	63, // 68: platform.provider.v1.ProviderService.BindProviderCatalogs:input_type -> platform.provider.v1.BindProviderCatalogsRequest
-	8,  // 69: platform.provider.v1.ProviderService.ListProviderSurfaces:output_type -> platform.provider.v1.ListProviderSurfacesResponse
-	10, // 70: platform.provider.v1.ProviderService.ListProviders:output_type -> platform.provider.v1.ListProvidersResponse
-	14, // 71: platform.provider.v1.ProviderService.ListProviderSurfaceBindings:output_type -> platform.provider.v1.ListProviderSurfaceBindingsResponse
-	19, // 72: platform.provider.v1.ProviderService.UpdateProvider:output_type -> platform.provider.v1.UpdateProviderResponse
-	23, // 73: platform.provider.v1.ProviderService.UpdateProviderAuthentication:output_type -> platform.provider.v1.UpdateProviderAuthenticationResponse
-	26, // 74: platform.provider.v1.ProviderService.UpdateProviderObservabilityAuthentication:output_type -> platform.provider.v1.UpdateProviderObservabilityAuthenticationResponse
-	28, // 75: platform.provider.v1.ProviderService.DeleteProvider:output_type -> platform.provider.v1.DeleteProviderResponse
-	30, // 76: platform.provider.v1.ProviderService.CreateProviderSurfaceBinding:output_type -> platform.provider.v1.CreateProviderSurfaceBindingResponse
-	32, // 77: platform.provider.v1.ProviderService.UpdateProviderSurfaceBinding:output_type -> platform.provider.v1.UpdateProviderSurfaceBindingResponse
-	34, // 78: platform.provider.v1.ProviderService.DeleteProviderSurfaceBinding:output_type -> platform.provider.v1.DeleteProviderSurfaceBindingResponse
-	40, // 79: platform.provider.v1.ProviderService.ConnectProvider:output_type -> platform.provider.v1.ConnectProviderResponse
-	42, // 80: platform.provider.v1.ProviderService.GetProviderConnectSession:output_type -> platform.provider.v1.GetProviderConnectSessionResponse
-	44, // 81: platform.provider.v1.ProviderService.ProbeProviderObservability:output_type -> platform.provider.v1.ProbeProviderObservabilityResponse
-	46, // 82: platform.provider.v1.ProviderService.WatchProviderStatusEvents:output_type -> platform.provider.v1.WatchProviderStatusEventsResponse
-	50, // 83: platform.provider.v1.ProviderService.ListVendors:output_type -> platform.provider.v1.ListVendorsResponse
-	53, // 84: platform.provider.v1.ProviderService.ListCLIDefinitions:output_type -> platform.provider.v1.ListCLIDefinitionsResponse
-	58, // 85: platform.provider.v1.ProviderService.ListTemplates:output_type -> platform.provider.v1.ListTemplatesResponse
-	62, // 86: platform.provider.v1.ProviderService.ApplyTemplate:output_type -> platform.provider.v1.ApplyTemplateResponse
-	64, // 87: platform.provider.v1.ProviderService.BindProviderCatalogs:output_type -> platform.provider.v1.BindProviderCatalogsResponse
-	69, // [69:88] is the sub-list for method output_type
-	50, // [50:69] is the sub-list for method input_type
-	50, // [50:50] is the sub-list for extension type_name
-	50, // [50:50] is the sub-list for extension extendee
-	0,  // [0:50] is the sub-list for field type_name
+	49, // 0: platform.provider.v1.ListProviderSurfacesResponse.items:type_name -> provider.v1.ProviderSurface
+	4,  // 1: platform.provider.v1.ListProvidersResponse.items:type_name -> platform.provider.v1.ProviderView
+	50, // 2: platform.provider.v1.ProviderView.model_catalog:type_name -> provider.v1.ProviderModelCatalog
+	51, // 3: platform.provider.v1.ProviderView.runtime:type_name -> provider.v1.ProviderSurfaceRuntime
+	5,  // 4: platform.provider.v1.ProviderView.status:type_name -> platform.provider.v1.ProviderStatus
+	52, // 5: platform.provider.v1.ProviderStatus.phase:type_name -> platform.provider.v1.ProviderPhase
+	51, // 6: platform.provider.v1.UpsertProviderRequest.runtime:type_name -> provider.v1.ProviderSurfaceRuntime
+	6,  // 7: platform.provider.v1.CreateProviderRequest.provider:type_name -> platform.provider.v1.UpsertProviderRequest
+	4,  // 8: platform.provider.v1.CreateProviderResponse.provider:type_name -> platform.provider.v1.ProviderView
+	6,  // 9: platform.provider.v1.UpdateProviderRequest.provider:type_name -> platform.provider.v1.UpsertProviderRequest
+	4,  // 10: platform.provider.v1.UpdateProviderResponse.provider:type_name -> platform.provider.v1.ProviderView
+	11, // 11: platform.provider.v1.UpdateProviderAuthenticationRequest.api_key:type_name -> platform.provider.v1.ApiKeyAuthenticationUpdateMaterial
+	12, // 12: platform.provider.v1.UpdateProviderAuthenticationRequest.cli_oauth:type_name -> platform.provider.v1.CLIOAuthAuthenticationUpdateMaterial
+	4,  // 13: platform.provider.v1.UpdateProviderAuthenticationResponse.provider:type_name -> platform.provider.v1.ProviderView
+	24, // 14: platform.provider.v1.UpdateProviderAuthenticationResponse.session:type_name -> platform.provider.v1.ProviderConnectSessionView
+	48, // 15: platform.provider.v1.SessionMaterial.values:type_name -> platform.provider.v1.SessionMaterial.ValuesEntry
+	15, // 16: platform.provider.v1.UpdateProviderObservabilityAuthenticationRequest.session_material:type_name -> platform.provider.v1.SessionMaterial
+	4,  // 17: platform.provider.v1.UpdateProviderObservabilityAuthenticationResponse.provider:type_name -> platform.provider.v1.ProviderView
+	53, // 18: platform.provider.v1.ApiKeyConnectMaterial.protocol:type_name -> api_protocol.v1.Protocol
+	22, // 19: platform.provider.v1.ApiKeyConnectMaterial.surface_model_catalogs:type_name -> platform.provider.v1.ProviderSurfaceModelCatalog
+	54, // 20: platform.provider.v1.ProviderSurfaceModelCatalog.models:type_name -> provider.v1.ProviderModelCatalogEntry
+	55, // 21: platform.provider.v1.ConnectProviderRequest.add_method:type_name -> platform.provider.v1.ProviderAddMethod
+	20, // 22: platform.provider.v1.ConnectProviderRequest.api_key:type_name -> platform.provider.v1.ApiKeyConnectMaterial
+	21, // 23: platform.provider.v1.ConnectProviderRequest.cli_oauth:type_name -> platform.provider.v1.CLIOAuthConnectMaterial
+	56, // 24: platform.provider.v1.ProviderConnectSessionView.phase:type_name -> platform.provider.v1.ProviderConnectSessionPhase
+	4,  // 25: platform.provider.v1.ProviderConnectSessionView.provider:type_name -> platform.provider.v1.ProviderView
+	55, // 26: platform.provider.v1.ProviderConnectSessionView.add_method:type_name -> platform.provider.v1.ProviderAddMethod
+	4,  // 27: platform.provider.v1.ConnectProviderResponse.provider:type_name -> platform.provider.v1.ProviderView
+	24, // 28: platform.provider.v1.ConnectProviderResponse.session:type_name -> platform.provider.v1.ProviderConnectSessionView
+	24, // 29: platform.provider.v1.GetProviderConnectSessionResponse.session:type_name -> platform.provider.v1.ProviderConnectSessionView
+	57, // 30: platform.provider.v1.ProbeProviderObservabilityRequest.trigger:type_name -> platform.provider.v1.ProviderObservabilityProbeTrigger
+	58, // 31: platform.provider.v1.ProbeProviderObservabilityResponse.outcome:type_name -> platform.provider.v1.ProviderOAuthObservabilityProbeOutcome
+	33, // 32: platform.provider.v1.WatchProviderStatusEventsResponse.event:type_name -> platform.provider.v1.ProviderStatusEvent
+	59, // 33: platform.provider.v1.ProviderWorkflowStatus.phase:type_name -> platform.provider.v1.ProviderWorkflowPhase
+	60, // 34: platform.provider.v1.ProviderWorkflowStatus.started_at:type_name -> google.protobuf.Timestamp
+	60, // 35: platform.provider.v1.ProviderWorkflowStatus.finished_at:type_name -> google.protobuf.Timestamp
+	61, // 36: platform.provider.v1.ProviderStatusEvent.kind:type_name -> platform.provider.v1.ProviderStatusEventKind
+	32, // 37: platform.provider.v1.ProviderStatusEvent.workflow:type_name -> platform.provider.v1.ProviderWorkflowStatus
+	5,  // 38: platform.provider.v1.ProviderStatusEvent.status:type_name -> platform.provider.v1.ProviderStatus
+	60, // 39: platform.provider.v1.ProviderStatusEvent.occurred_at:type_name -> google.protobuf.Timestamp
+	36, // 40: platform.provider.v1.ListVendorsResponse.items:type_name -> platform.provider.v1.VendorView
+	39, // 41: platform.provider.v1.ListCLIDefinitionsResponse.items:type_name -> platform.provider.v1.CLIDefinitionView
+	40, // 42: platform.provider.v1.CLIDefinitionView.container_images:type_name -> platform.provider.v1.CLIContainerImageView
+	41, // 43: platform.provider.v1.CLIDefinitionView.capabilities:type_name -> platform.provider.v1.CLIDefinitionCapabilityView
+	44, // 44: platform.provider.v1.ListTemplatesResponse.items:type_name -> platform.provider.v1.TemplateView
+	46, // 45: platform.provider.v1.ApplyTemplateResponse.result:type_name -> platform.provider.v1.ApplyTemplateResult
+	0,  // 46: platform.provider.v1.ProviderService.ListProviderSurfaces:input_type -> platform.provider.v1.ListProviderSurfacesRequest
+	2,  // 47: platform.provider.v1.ProviderService.ListProviders:input_type -> platform.provider.v1.ListProvidersRequest
+	7,  // 48: platform.provider.v1.ProviderService.CreateProvider:input_type -> platform.provider.v1.CreateProviderRequest
+	9,  // 49: platform.provider.v1.ProviderService.UpdateProvider:input_type -> platform.provider.v1.UpdateProviderRequest
+	18, // 50: platform.provider.v1.ProviderService.DeleteProvider:input_type -> platform.provider.v1.DeleteProviderRequest
+	28, // 51: platform.provider.v1.ProviderService.ProbeProviderObservability:input_type -> platform.provider.v1.ProbeProviderObservabilityRequest
+	30, // 52: platform.provider.v1.ProviderService.WatchProviderStatusEvents:input_type -> platform.provider.v1.WatchProviderStatusEventsRequest
+	34, // 53: platform.provider.v1.ProviderService.ListVendors:input_type -> platform.provider.v1.ListVendorsRequest
+	37, // 54: platform.provider.v1.ProviderService.ListCLIDefinitions:input_type -> platform.provider.v1.ListCLIDefinitionsRequest
+	42, // 55: platform.provider.v1.ProviderService.ListTemplates:input_type -> platform.provider.v1.ListTemplatesRequest
+	45, // 56: platform.provider.v1.ProviderService.ApplyTemplate:input_type -> platform.provider.v1.ApplyTemplateRequest
+	1,  // 57: platform.provider.v1.ProviderService.ListProviderSurfaces:output_type -> platform.provider.v1.ListProviderSurfacesResponse
+	3,  // 58: platform.provider.v1.ProviderService.ListProviders:output_type -> platform.provider.v1.ListProvidersResponse
+	8,  // 59: platform.provider.v1.ProviderService.CreateProvider:output_type -> platform.provider.v1.CreateProviderResponse
+	10, // 60: platform.provider.v1.ProviderService.UpdateProvider:output_type -> platform.provider.v1.UpdateProviderResponse
+	19, // 61: platform.provider.v1.ProviderService.DeleteProvider:output_type -> platform.provider.v1.DeleteProviderResponse
+	29, // 62: platform.provider.v1.ProviderService.ProbeProviderObservability:output_type -> platform.provider.v1.ProbeProviderObservabilityResponse
+	31, // 63: platform.provider.v1.ProviderService.WatchProviderStatusEvents:output_type -> platform.provider.v1.WatchProviderStatusEventsResponse
+	35, // 64: platform.provider.v1.ProviderService.ListVendors:output_type -> platform.provider.v1.ListVendorsResponse
+	38, // 65: platform.provider.v1.ProviderService.ListCLIDefinitions:output_type -> platform.provider.v1.ListCLIDefinitionsResponse
+	43, // 66: platform.provider.v1.ProviderService.ListTemplates:output_type -> platform.provider.v1.ListTemplatesResponse
+	47, // 67: platform.provider.v1.ProviderService.ApplyTemplate:output_type -> platform.provider.v1.ApplyTemplateResponse
+	57, // [57:68] is the sub-list for method output_type
+	46, // [46:57] is the sub-list for method input_type
+	46, // [46:46] is the sub-list for extension type_name
+	46, // [46:46] is the sub-list for extension extendee
+	0,  // [0:46] is the sub-list for field type_name
 }
 
 func init() { file_platform_provider_v1_provider_service_proto_init() }
@@ -4329,19 +3314,20 @@ func file_platform_provider_v1_provider_service_proto_init() {
 	if File_platform_provider_v1_provider_service_proto != nil {
 		return
 	}
-	file_platform_provider_v1_provider_service_proto_msgTypes[15].OneofWrappers = []any{
+	file_platform_provider_v1_provider_shared_proto_init()
+	file_platform_provider_v1_provider_service_proto_msgTypes[13].OneofWrappers = []any{
 		(*UpdateProviderAuthenticationRequest_ApiKey)(nil),
 		(*UpdateProviderAuthenticationRequest_CliOauth)(nil),
 	}
-	file_platform_provider_v1_provider_service_proto_msgTypes[16].OneofWrappers = []any{
+	file_platform_provider_v1_provider_service_proto_msgTypes[14].OneofWrappers = []any{
 		(*UpdateProviderAuthenticationResponse_Provider)(nil),
 		(*UpdateProviderAuthenticationResponse_Session)(nil),
 	}
-	file_platform_provider_v1_provider_service_proto_msgTypes[31].OneofWrappers = []any{
+	file_platform_provider_v1_provider_service_proto_msgTypes[23].OneofWrappers = []any{
 		(*ConnectProviderRequest_ApiKey)(nil),
 		(*ConnectProviderRequest_CliOauth)(nil),
 	}
-	file_platform_provider_v1_provider_service_proto_msgTypes[33].OneofWrappers = []any{
+	file_platform_provider_v1_provider_service_proto_msgTypes[25].OneofWrappers = []any{
 		(*ConnectProviderResponse_Provider)(nil),
 		(*ConnectProviderResponse_Session)(nil),
 	}
@@ -4350,14 +3336,13 @@ func file_platform_provider_v1_provider_service_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_platform_provider_v1_provider_service_proto_rawDesc), len(file_platform_provider_v1_provider_service_proto_rawDesc)),
-			NumEnums:      7,
-			NumMessages:   59,
+			NumEnums:      0,
+			NumMessages:   49,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_platform_provider_v1_provider_service_proto_goTypes,
 		DependencyIndexes: file_platform_provider_v1_provider_service_proto_depIdxs,
-		EnumInfos:         file_platform_provider_v1_provider_service_proto_enumTypes,
 		MessageInfos:      file_platform_provider_v1_provider_service_proto_msgTypes,
 	}.Build()
 	File_platform_provider_v1_provider_service_proto = out.File

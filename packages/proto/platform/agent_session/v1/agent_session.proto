@@ -34,7 +34,7 @@ message AgentSessionRuntimeConfig {
   repeated AgentSessionRuntimeFallbackCandidate fallbacks = 2;
   reserved 3, 4;
   AgentSessionRuntimeModelSelector primary_model_selector = 5;
-  reserved "provider_credential_id", "network_policy_id", "provider_surface_binding", "default_model_id";
+  reserved "provider_credential_id", "network_policy_id", "default_model_id";
 }
 
 // AgentSessionRuntimeModelSelector describes the model selector used for the

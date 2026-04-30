@@ -69,14 +69,18 @@ func (x *ApplyExternalAccessSetRequest) GetAccessSet() *v1.ExternalAccessSet {
 }
 
 type ApplyExternalAccessSetResponse struct {
-	state                      protoimpl.MessageState `protogen:"open.v1"`
-	Item                       *v11.EgressPolicyView  `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
-	AddedExternalRuleCount     int32                  `protobuf:"varint,2,opt,name=added_external_rule_count,json=addedExternalRuleCount,proto3" json:"added_external_rule_count,omitempty"`
-	UpdatedExternalRuleCount   int32                  `protobuf:"varint,3,opt,name=updated_external_rule_count,json=updatedExternalRuleCount,proto3" json:"updated_external_rule_count,omitempty"`
-	RemovedExternalRuleCount   int32                  `protobuf:"varint,4,opt,name=removed_external_rule_count,json=removedExternalRuleCount,proto3" json:"removed_external_rule_count,omitempty"`
-	UnchangedExternalRuleCount int32                  `protobuf:"varint,5,opt,name=unchanged_external_rule_count,json=unchangedExternalRuleCount,proto3" json:"unchanged_external_rule_count,omitempty"`
-	unknownFields              protoimpl.UnknownFields
-	sizeCache                  protoimpl.SizeCache
+	state                       protoimpl.MessageState `protogen:"open.v1"`
+	Item                        *v11.EgressPolicyView  `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
+	AddedExternalRuleCount      int32                  `protobuf:"varint,2,opt,name=added_external_rule_count,json=addedExternalRuleCount,proto3" json:"added_external_rule_count,omitempty"`
+	UpdatedExternalRuleCount    int32                  `protobuf:"varint,3,opt,name=updated_external_rule_count,json=updatedExternalRuleCount,proto3" json:"updated_external_rule_count,omitempty"`
+	RemovedExternalRuleCount    int32                  `protobuf:"varint,4,opt,name=removed_external_rule_count,json=removedExternalRuleCount,proto3" json:"removed_external_rule_count,omitempty"`
+	UnchangedExternalRuleCount  int32                  `protobuf:"varint,5,opt,name=unchanged_external_rule_count,json=unchangedExternalRuleCount,proto3" json:"unchanged_external_rule_count,omitempty"`
+	AddedProxyEndpointCount     int32                  `protobuf:"varint,6,opt,name=added_proxy_endpoint_count,json=addedProxyEndpointCount,proto3" json:"added_proxy_endpoint_count,omitempty"`
+	UpdatedProxyEndpointCount   int32                  `protobuf:"varint,7,opt,name=updated_proxy_endpoint_count,json=updatedProxyEndpointCount,proto3" json:"updated_proxy_endpoint_count,omitempty"`
+	RemovedProxyEndpointCount   int32                  `protobuf:"varint,8,opt,name=removed_proxy_endpoint_count,json=removedProxyEndpointCount,proto3" json:"removed_proxy_endpoint_count,omitempty"`
+	UnchangedProxyEndpointCount int32                  `protobuf:"varint,9,opt,name=unchanged_proxy_endpoint_count,json=unchangedProxyEndpointCount,proto3" json:"unchanged_proxy_endpoint_count,omitempty"`
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
 }
 
 func (x *ApplyExternalAccessSetResponse) Reset() {
@@ -144,6 +148,34 @@ func (x *ApplyExternalAccessSetResponse) GetUnchangedExternalRuleCount() int32 {
 	return 0
 }
 
+func (x *ApplyExternalAccessSetResponse) GetAddedProxyEndpointCount() int32 {
+	if x != nil {
+		return x.AddedProxyEndpointCount
+	}
+	return 0
+}
+
+func (x *ApplyExternalAccessSetResponse) GetUpdatedProxyEndpointCount() int32 {
+	if x != nil {
+		return x.UpdatedProxyEndpointCount
+	}
+	return 0
+}
+
+func (x *ApplyExternalAccessSetResponse) GetRemovedProxyEndpointCount() int32 {
+	if x != nil {
+		return x.RemovedProxyEndpointCount
+	}
+	return 0
+}
+
+func (x *ApplyExternalAccessSetResponse) GetUnchangedProxyEndpointCount() int32 {
+	if x != nil {
+		return x.UnchangedProxyEndpointCount
+	}
+	return 0
+}
+
 type DeleteExternalAccessSetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	PolicyId      string                 `protobuf:"bytes,1,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
@@ -197,13 +229,14 @@ func (x *DeleteExternalAccessSetRequest) GetAccessSetId() string {
 }
 
 type DeleteExternalAccessSetResponse struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	Item                     *v11.EgressPolicyView  `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
-	RemovedExternalRuleCount int32                  `protobuf:"varint,2,opt,name=removed_external_rule_count,json=removedExternalRuleCount,proto3" json:"removed_external_rule_count,omitempty"`
-	RemovedServiceRuleCount  int32                  `protobuf:"varint,3,opt,name=removed_service_rule_count,json=removedServiceRuleCount,proto3" json:"removed_service_rule_count,omitempty"`
-	RemovedHttpRouteCount    int32                  `protobuf:"varint,4,opt,name=removed_http_route_count,json=removedHttpRouteCount,proto3" json:"removed_http_route_count,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state                          protoimpl.MessageState `protogen:"open.v1"`
+	Item                           *v11.EgressPolicyView  `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
+	RemovedExternalRuleCount       int32                  `protobuf:"varint,2,opt,name=removed_external_rule_count,json=removedExternalRuleCount,proto3" json:"removed_external_rule_count,omitempty"`
+	RemovedServiceRuleCount        int32                  `protobuf:"varint,3,opt,name=removed_service_rule_count,json=removedServiceRuleCount,proto3" json:"removed_service_rule_count,omitempty"`
+	RemovedHttpInspectionRuleCount int32                  `protobuf:"varint,4,opt,name=removed_http_inspection_rule_count,json=removedHttpInspectionRuleCount,proto3" json:"removed_http_inspection_rule_count,omitempty"`
+	RemovedProxyEndpointCount      int32                  `protobuf:"varint,5,opt,name=removed_proxy_endpoint_count,json=removedProxyEndpointCount,proto3" json:"removed_proxy_endpoint_count,omitempty"`
+	unknownFields                  protoimpl.UnknownFields
+	sizeCache                      protoimpl.SizeCache
 }
 
 func (x *DeleteExternalAccessSetResponse) Reset() {
@@ -257,9 +290,16 @@ func (x *DeleteExternalAccessSetResponse) GetRemovedServiceRuleCount() int32 {
 	return 0
 }
 
-func (x *DeleteExternalAccessSetResponse) GetRemovedHttpRouteCount() int32 {
+func (x *DeleteExternalAccessSetResponse) GetRemovedHttpInspectionRuleCount() int32 {
 	if x != nil {
-		return x.RemovedHttpRouteCount
+		return x.RemovedHttpInspectionRuleCount
+	}
+	return 0
+}
+
+func (x *DeleteExternalAccessSetResponse) GetRemovedProxyEndpointCount() int32 {
+	if x != nil {
+		return x.RemovedProxyEndpointCount
 	}
 	return 0
 }
@@ -531,21 +571,26 @@ const file_platform_egress_v1_egress_service_proto_rawDesc = "" +
 	"'platform/egress/v1/egress_service.proto\x12\x12platform.egress.v1\x1a\x16egress/v1/policy.proto\x1a$observability/v1/observability.proto\x1a'platform/management/v1/management.proto\"\\\n" +
 	"\x1dApplyExternalAccessSetRequest\x12;\n" +
 	"\n" +
-	"access_set\x18\x01 \x01(\v2\x1c.egress.v1.ExternalAccessSetR\taccessSet\"\xda\x02\n" +
+	"access_set\x18\x01 \x01(\v2\x1c.egress.v1.ExternalAccessSetR\taccessSet\"\xde\x04\n" +
 	"\x1eApplyExternalAccessSetResponse\x12<\n" +
 	"\x04item\x18\x01 \x01(\v2(.platform.management.v1.EgressPolicyViewR\x04item\x129\n" +
 	"\x19added_external_rule_count\x18\x02 \x01(\x05R\x16addedExternalRuleCount\x12=\n" +
 	"\x1bupdated_external_rule_count\x18\x03 \x01(\x05R\x18updatedExternalRuleCount\x12=\n" +
 	"\x1bremoved_external_rule_count\x18\x04 \x01(\x05R\x18removedExternalRuleCount\x12A\n" +
-	"\x1dunchanged_external_rule_count\x18\x05 \x01(\x05R\x1aunchangedExternalRuleCount\"a\n" +
+	"\x1dunchanged_external_rule_count\x18\x05 \x01(\x05R\x1aunchangedExternalRuleCount\x12;\n" +
+	"\x1aadded_proxy_endpoint_count\x18\x06 \x01(\x05R\x17addedProxyEndpointCount\x12?\n" +
+	"\x1cupdated_proxy_endpoint_count\x18\a \x01(\x05R\x19updatedProxyEndpointCount\x12?\n" +
+	"\x1cremoved_proxy_endpoint_count\x18\b \x01(\x05R\x19removedProxyEndpointCount\x12C\n" +
+	"\x1eunchanged_proxy_endpoint_count\x18\t \x01(\x05R\x1bunchangedProxyEndpointCount\"a\n" +
 	"\x1eDeleteExternalAccessSetRequest\x12\x1b\n" +
 	"\tpolicy_id\x18\x01 \x01(\tR\bpolicyId\x12\"\n" +
-	"\raccess_set_id\x18\x02 \x01(\tR\vaccessSetId\"\x94\x02\n" +
+	"\raccess_set_id\x18\x02 \x01(\tR\vaccessSetId\"\xe8\x02\n" +
 	"\x1fDeleteExternalAccessSetResponse\x12<\n" +
 	"\x04item\x18\x01 \x01(\v2(.platform.management.v1.EgressPolicyViewR\x04item\x12=\n" +
 	"\x1bremoved_external_rule_count\x18\x02 \x01(\x05R\x18removedExternalRuleCount\x12;\n" +
-	"\x1aremoved_service_rule_count\x18\x03 \x01(\x05R\x17removedServiceRuleCount\x127\n" +
-	"\x18removed_http_route_count\x18\x04 \x01(\x05R\x15removedHttpRouteCount\"]\n" +
+	"\x1aremoved_service_rule_count\x18\x03 \x01(\x05R\x17removedServiceRuleCount\x12J\n" +
+	"\"removed_http_inspection_rule_count\x18\x04 \x01(\x05R\x1eremovedHttpInspectionRuleCount\x12?\n" +
+	"\x1cremoved_proxy_endpoint_count\x18\x05 \x01(\x05R\x19removedProxyEndpointCount\"]\n" +
 	"\x1dGetEgressRuntimePolicyRequest\x12\x1b\n" +
 	"\tpolicy_id\x18\x01 \x01(\tR\bpolicyId\x12\x1f\n" +
 	"\vruntime_url\x18\x02 \x01(\tR\n" +

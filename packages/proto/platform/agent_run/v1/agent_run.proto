@@ -38,12 +38,13 @@ message AgentRunSpec {
 // AgentRunAuthRequirement captures the provider auth requirement visible to
 // the session/run domain.
 message AgentRunAuthRequirement {
-  string provider_id = 1;
-  string provider_surface_binding_id = 2;
-  string auth_status = 3;
+ string provider_id = 1;
+  reserved 2;
+ string auth_status = 3;
   string runtime_url = 4;
   string materialization_key = 5;
   provider.v1.ProviderRunBinding provider_run_binding = 6;
+  string surface_id = 7;
 }
 
 // AgentRunPrepareJob captures one CLI-scoped prepare workload before execution.

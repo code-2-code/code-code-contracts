@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file egress/v1/policy.proto.
  */
 export const file_egress_v1_policy: GenFile = /*@__PURE__*/
-  fileDesc("ChZlZ3Jlc3MvdjEvcG9saWN5LnByb3RvEgllZ3Jlc3MudjEiagoMRWdyZXNzUG9saWN5EhEKCXBvbGljeV9pZBgBIAEoCRIUCgxkaXNwbGF5X25hbWUYAiABKAkSMQoLYWNjZXNzX3NldHMYAyADKAsyHC5lZ3Jlc3MudjEuRXh0ZXJuYWxBY2Nlc3NTZXQi+wEKEUV4dGVybmFsQWNjZXNzU2V0EhUKDWFjY2Vzc19zZXRfaWQYASABKAkSFAoMZGlzcGxheV9uYW1lGAIgASgJEhUKDW93bmVyX3NlcnZpY2UYAyABKAkSEQoJcG9saWN5X2lkGAQgASgJEi8KDmV4dGVybmFsX3J1bGVzGAUgAygLMhcuZWdyZXNzLnYxLkV4dGVybmFsUnVsZRItCg1zZXJ2aWNlX3J1bGVzGAYgAygLMhYuZWdyZXNzLnYxLlNlcnZpY2VSdWxlEi8KC2h0dHBfcm91dGVzGAcgAygLMhouZWdyZXNzLnYxLkh0dHBFZ3Jlc3NSb3V0ZSKCAgoMRXh0ZXJuYWxSdWxlEhgKEGV4dGVybmFsX3J1bGVfaWQYASABKAkSFgoOZGVzdGluYXRpb25faWQYAiABKAkSFAoMZGlzcGxheV9uYW1lGAMgASgJEigKCmhvc3RfbWF0Y2gYBCABKAsyFC5lZ3Jlc3MudjEuSG9zdE1hdGNoEgwKBHBvcnQYBSABKAUSKwoIcHJvdG9jb2wYBiABKA4yGS5lZ3Jlc3MudjEuRWdyZXNzUHJvdG9jb2wSLwoKcmVzb2x1dGlvbhgHIAEoDjIbLmVncmVzcy52MS5FZ3Jlc3NSZXNvbHV0aW9uEhQKDGFkZHJlc3NfY2lkchgJIAEoCSJfCgtTZXJ2aWNlUnVsZRIXCg9zZXJ2aWNlX3J1bGVfaWQYASABKAkSFgoOZGVzdGluYXRpb25faWQYAiABKAkSHwoXc291cmNlX3NlcnZpY2VfYWNjb3VudHMYAyADKAkioAIKD0h0dHBFZ3Jlc3NSb3V0ZRIQCghyb3V0ZV9pZBgBIAEoCRIUCgxkaXNwbGF5X25hbWUYAiABKAkSFgoOZGVzdGluYXRpb25faWQYAyABKAkSKgoHbWF0Y2hlcxgEIAMoCzIZLmVncmVzcy52MS5IdHRwUm91dGVNYXRjaBI0Cg9yZXF1ZXN0X2hlYWRlcnMYBSABKAsyGy5lZ3Jlc3MudjEuSHR0cEhlYWRlclBvbGljeRI1ChByZXNwb25zZV9oZWFkZXJzGAYgASgLMhsuZWdyZXNzLnYxLkh0dHBIZWFkZXJQb2xpY3kSFgoOYXV0aF9wb2xpY3lfaWQYByABKAkSHAoUZHluYW1pY19oZWFkZXJfYXV0aHoYCCABKAgiOAoOSHR0cFJvdXRlTWF0Y2gSFQoNcGF0aF9wcmVmaXhlcxgBIAMoCRIPCgdtZXRob2RzGAIgAygJInQKEEh0dHBIZWFkZXJQb2xpY3kSJwoDYWRkGAEgAygLMhouZWdyZXNzLnYxLkh0dHBIZWFkZXJWYWx1ZRInCgNzZXQYAiADKAsyGi5lZ3Jlc3MudjEuSHR0cEhlYWRlclZhbHVlEg4KBnJlbW92ZRgDIAMoCSIuCg9IdHRwSGVhZGVyVmFsdWUSDAoEbmFtZRgBIAEoCRINCgV2YWx1ZRgCIAEoCSJCCglIb3N0TWF0Y2gSFAoKaG9zdF9leGFjdBgBIAEoCUgAEhcKDWhvc3Rfd2lsZGNhcmQYAiABKAlIAEIGCgRraW5kIkIKEUVncmVzc1Jlc291cmNlUmVmEgwKBGtpbmQYASABKAkSEQoJbmFtZXNwYWNlGAIgASgJEgwKBG5hbWUYAyABKAkijQIKEEVncmVzc1N5bmNTdGF0dXMSKQoFcGhhc2UYASABKA4yGi5lZ3Jlc3MudjEuRWdyZXNzU3luY1BoYXNlEg4KBnJlYXNvbhgCIAEoCRIbChNvYnNlcnZlZF9nZW5lcmF0aW9uGAMgASgDEjQKDnRhcmdldF9nYXRld2F5GAQgASgLMhwuZWdyZXNzLnYxLkVncmVzc1Jlc291cmNlUmVmEjcKEWFwcGxpZWRfcmVzb3VyY2VzGAUgAygLMhwuZWdyZXNzLnYxLkVncmVzc1Jlc291cmNlUmVmEjIKDmxhc3Rfc3luY2VkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCqYAQoORWdyZXNzUHJvdG9jb2wSHwobRUdSRVNTX1BST1RPQ09MX1VOU1BFQ0lGSUVEEAASGAoURUdSRVNTX1BST1RPQ09MX0hUVFAQARIXChNFR1JFU1NfUFJPVE9DT0xfVExTEAISFwoTRUdSRVNTX1BST1RPQ09MX1RDUBADEhkKFUVHUkVTU19QUk9UT0NPTF9IVFRQUxAEKo8BChBFZ3Jlc3NSZXNvbHV0aW9uEiEKHUVHUkVTU19SRVNPTFVUSU9OX1VOU1BFQ0lGSUVEEAASGQoVRUdSRVNTX1JFU09MVVRJT05fRE5TEAESIQodRUdSRVNTX1JFU09MVVRJT05fRFlOQU1JQ19ETlMQAhIaChZFR1JFU1NfUkVTT0xVVElPTl9OT05FEAMqjwEKD0VncmVzc1N5bmNQaGFzZRIhCh1FR1JFU1NfU1lOQ19QSEFTRV9VTlNQRUNJRklFRBAAEh0KGUVHUkVTU19TWU5DX1BIQVNFX1BFTkRJTkcQARIcChhFR1JFU1NfU1lOQ19QSEFTRV9TWU5DRUQQAhIcChhFR1JFU1NfU1lOQ19QSEFTRV9GQUlMRUQQA0IzWjFjb2RlLWNvZGUuaW50ZXJuYWwvZ28tY29udHJhY3QvZWdyZXNzL3YxO2VncmVzc3YxYgZwcm90bzM", [file_google_protobuf_timestamp]);
+  fileDesc("ChZlZ3Jlc3MvdjEvcG9saWN5LnByb3RvEgllZ3Jlc3MudjEiagoMRWdyZXNzUG9saWN5EhEKCXBvbGljeV9pZBgBIAEoCRIUCgxkaXNwbGF5X25hbWUYAiABKAkSMQoLYWNjZXNzX3NldHMYAyADKAsyHC5lZ3Jlc3MudjEuRXh0ZXJuYWxBY2Nlc3NTZXQiuwIKEUV4dGVybmFsQWNjZXNzU2V0EhUKDWFjY2Vzc19zZXRfaWQYASABKAkSFAoMZGlzcGxheV9uYW1lGAIgASgJEhUKDW93bmVyX3NlcnZpY2UYAyABKAkSEQoJcG9saWN5X2lkGAQgASgJEi8KDmV4dGVybmFsX3J1bGVzGAUgAygLMhcuZWdyZXNzLnYxLkV4dGVybmFsUnVsZRItCg1zZXJ2aWNlX3J1bGVzGAYgAygLMhYuZWdyZXNzLnYxLlNlcnZpY2VSdWxlEjwKFWh0dHBfaW5zcGVjdGlvbl9ydWxlcxgHIAMoCzIdLmVncmVzcy52MS5IdHRwSW5zcGVjdGlvblJ1bGUSMQoPcHJveHlfZW5kcG9pbnRzGAggAygLMhguZWdyZXNzLnYxLlByb3h5RW5kcG9pbnQirgIKDEV4dGVybmFsUnVsZRIYChBleHRlcm5hbF9ydWxlX2lkGAEgASgJEhYKDmRlc3RpbmF0aW9uX2lkGAIgASgJEhQKDGRpc3BsYXlfbmFtZRgDIAEoCRIoCgpob3N0X21hdGNoGAQgASgLMhQuZWdyZXNzLnYxLkhvc3RNYXRjaBIMCgRwb3J0GAUgASgFEisKCHByb3RvY29sGAYgASgOMhkuZWdyZXNzLnYxLkVncmVzc1Byb3RvY29sEi8KCnJlc29sdXRpb24YByABKA4yGy5lZ3Jlc3MudjEuRWdyZXNzUmVzb2x1dGlvbhIUCgxhZGRyZXNzX2NpZHIYCSABKAkSKgoLZWdyZXNzX3BhdGgYCiABKAsyFS5lZ3Jlc3MudjEuRWdyZXNzUGF0aCJfCgtTZXJ2aWNlUnVsZRIXCg9zZXJ2aWNlX3J1bGVfaWQYASABKAkSFgoOZGVzdGluYXRpb25faWQYAiABKAkSHwoXc291cmNlX3NlcnZpY2VfYWNjb3VudHMYAyADKAkirQIKEkh0dHBJbnNwZWN0aW9uUnVsZRIaChJpbnNwZWN0aW9uX3J1bGVfaWQYASABKAkSFAoMZGlzcGxheV9uYW1lGAIgASgJEhYKDmRlc3RpbmF0aW9uX2lkGAMgASgJEioKB21hdGNoZXMYBCADKAsyGS5lZ3Jlc3MudjEuSHR0cFJvdXRlTWF0Y2gSNAoPcmVxdWVzdF9oZWFkZXJzGAUgASgLMhsuZWdyZXNzLnYxLkh0dHBIZWFkZXJQb2xpY3kSNQoQcmVzcG9uc2VfaGVhZGVycxgGIAEoCzIbLmVncmVzcy52MS5IdHRwSGVhZGVyUG9saWN5EhYKDmF1dGhfcG9saWN5X2lkGAcgASgJEhwKFGR5bmFtaWNfaGVhZGVyX2F1dGh6GAggASgIIusBCg1Qcm94eUVuZHBvaW50EhkKEXByb3h5X2VuZHBvaW50X2lkGAEgASgJEhQKDGRpc3BsYXlfbmFtZRgCIAEoCRIoCgpob3N0X21hdGNoGAMgASgLMhQuZWdyZXNzLnYxLkhvc3RNYXRjaBIMCgRwb3J0GAQgASgFEioKCHByb3RvY29sGAUgASgOMhguZWdyZXNzLnYxLlByb3h5UHJvdG9jb2wSLwoKcmVzb2x1dGlvbhgGIAEoDjIbLmVncmVzcy52MS5FZ3Jlc3NSZXNvbHV0aW9uEhQKDGFkZHJlc3NfY2lkchgHIAEoCSJQCgpFZ3Jlc3NQYXRoEicKBG1vZGUYASABKA4yGS5lZ3Jlc3MudjEuRWdyZXNzUGF0aE1vZGUSGQoRcHJveHlfZW5kcG9pbnRfaWQYAiABKAkiOAoOSHR0cFJvdXRlTWF0Y2gSFQoNcGF0aF9wcmVmaXhlcxgBIAMoCRIPCgdtZXRob2RzGAIgAygJInQKEEh0dHBIZWFkZXJQb2xpY3kSJwoDYWRkGAEgAygLMhouZWdyZXNzLnYxLkh0dHBIZWFkZXJWYWx1ZRInCgNzZXQYAiADKAsyGi5lZ3Jlc3MudjEuSHR0cEhlYWRlclZhbHVlEg4KBnJlbW92ZRgDIAMoCSIuCg9IdHRwSGVhZGVyVmFsdWUSDAoEbmFtZRgBIAEoCRINCgV2YWx1ZRgCIAEoCSJCCglIb3N0TWF0Y2gSFAoKaG9zdF9leGFjdBgBIAEoCUgAEhcKDWhvc3Rfd2lsZGNhcmQYAiABKAlIAEIGCgRraW5kIkIKEUVncmVzc1Jlc291cmNlUmVmEgwKBGtpbmQYASABKAkSEQoJbmFtZXNwYWNlGAIgASgJEgwKBG5hbWUYAyABKAkijQIKEEVncmVzc1N5bmNTdGF0dXMSKQoFcGhhc2UYASABKA4yGi5lZ3Jlc3MudjEuRWdyZXNzU3luY1BoYXNlEg4KBnJlYXNvbhgCIAEoCRIbChNvYnNlcnZlZF9nZW5lcmF0aW9uGAMgASgDEjQKDnRhcmdldF9nYXRld2F5GAQgASgLMhwuZWdyZXNzLnYxLkVncmVzc1Jlc291cmNlUmVmEjcKEWFwcGxpZWRfcmVzb3VyY2VzGAUgAygLMhwuZWdyZXNzLnYxLkVncmVzc1Jlc291cmNlUmVmEjIKDmxhc3Rfc3luY2VkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCqYAQoORWdyZXNzUHJvdG9jb2wSHwobRUdSRVNTX1BST1RPQ09MX1VOU1BFQ0lGSUVEEAASGAoURUdSRVNTX1BST1RPQ09MX0hUVFAQARIXChNFR1JFU1NfUFJPVE9DT0xfVExTEAISFwoTRUdSRVNTX1BST1RPQ09MX1RDUBADEhkKFUVHUkVTU19QUk9UT0NPTF9IVFRQUxAEKo8BChBFZ3Jlc3NSZXNvbHV0aW9uEiEKHUVHUkVTU19SRVNPTFVUSU9OX1VOU1BFQ0lGSUVEEAASGQoVRUdSRVNTX1JFU09MVVRJT05fRE5TEAESIQodRUdSRVNTX1JFU09MVVRJT05fRFlOQU1JQ19ETlMQAhIaChZFR1JFU1NfUkVTT0xVVElPTl9OT05FEAMqawoNUHJveHlQcm90b2NvbBIeChpQUk9YWV9QUk9UT0NPTF9VTlNQRUNJRklFRBAAEh8KG1BST1hZX1BST1RPQ09MX0hUVFBfQ09OTkVDVBABEhkKFVBST1hZX1BST1RPQ09MX1NPQ0tTNRACKmsKDkVncmVzc1BhdGhNb2RlEiAKHEVHUkVTU19QQVRIX01PREVfVU5TUEVDSUZJRUQQABIbChdFR1JFU1NfUEFUSF9NT0RFX0RJUkVDVBABEhoKFkVHUkVTU19QQVRIX01PREVfUFJPWFkQAiqPAQoPRWdyZXNzU3luY1BoYXNlEiEKHUVHUkVTU19TWU5DX1BIQVNFX1VOU1BFQ0lGSUVEEAASHQoZRUdSRVNTX1NZTkNfUEhBU0VfUEVORElORxABEhwKGEVHUkVTU19TWU5DX1BIQVNFX1NZTkNFRBACEhwKGEVHUkVTU19TWU5DX1BIQVNFX0ZBSUxFRBADQjNaMWNvZGUtY29kZS5pbnRlcm5hbC9nby1jb250cmFjdC9lZ3Jlc3MvdjE7ZWdyZXNzdjFiBnByb3RvMw", [file_google_protobuf_timestamp]);
 
 /**
  * @generated from message egress.v1.EgressPolicy
@@ -76,9 +76,14 @@ export type ExternalAccessSet = Message<"egress.v1.ExternalAccessSet"> & {
   serviceRules: ServiceRule[];
 
   /**
-   * @generated from field: repeated egress.v1.HttpEgressRoute http_routes = 7;
+   * @generated from field: repeated egress.v1.HttpInspectionRule http_inspection_rules = 7;
    */
-  httpRoutes: HttpEgressRoute[];
+  httpInspectionRules: HttpInspectionRule[];
+
+  /**
+   * @generated from field: repeated egress.v1.ProxyEndpoint proxy_endpoints = 8;
+   */
+  proxyEndpoints: ProxyEndpoint[];
 };
 
 /**
@@ -131,6 +136,11 @@ export type ExternalRule = Message<"egress.v1.ExternalRule"> & {
    * @generated from field: string address_cidr = 9;
    */
   addressCidr: string;
+
+  /**
+   * @generated from field: egress.v1.EgressPath egress_path = 10;
+   */
+  egressPath?: EgressPath;
 };
 
 /**
@@ -168,13 +178,13 @@ export const ServiceRuleSchema: GenMessage<ServiceRule> = /*@__PURE__*/
   messageDesc(file_egress_v1_policy, 3);
 
 /**
- * @generated from message egress.v1.HttpEgressRoute
+ * @generated from message egress.v1.HttpInspectionRule
  */
-export type HttpEgressRoute = Message<"egress.v1.HttpEgressRoute"> & {
+export type HttpInspectionRule = Message<"egress.v1.HttpInspectionRule"> & {
   /**
-   * @generated from field: string route_id = 1;
+   * @generated from field: string inspection_rule_id = 1;
    */
-  routeId: string;
+  inspectionRuleId: string;
 
   /**
    * @generated from field: string display_name = 2;
@@ -213,11 +223,80 @@ export type HttpEgressRoute = Message<"egress.v1.HttpEgressRoute"> & {
 };
 
 /**
- * Describes the message egress.v1.HttpEgressRoute.
- * Use `create(HttpEgressRouteSchema)` to create a new message.
+ * Describes the message egress.v1.HttpInspectionRule.
+ * Use `create(HttpInspectionRuleSchema)` to create a new message.
  */
-export const HttpEgressRouteSchema: GenMessage<HttpEgressRoute> = /*@__PURE__*/
+export const HttpInspectionRuleSchema: GenMessage<HttpInspectionRule> = /*@__PURE__*/
   messageDesc(file_egress_v1_policy, 4);
+
+/**
+ * @generated from message egress.v1.ProxyEndpoint
+ */
+export type ProxyEndpoint = Message<"egress.v1.ProxyEndpoint"> & {
+  /**
+   * @generated from field: string proxy_endpoint_id = 1;
+   */
+  proxyEndpointId: string;
+
+  /**
+   * @generated from field: string display_name = 2;
+   */
+  displayName: string;
+
+  /**
+   * @generated from field: egress.v1.HostMatch host_match = 3;
+   */
+  hostMatch?: HostMatch;
+
+  /**
+   * @generated from field: int32 port = 4;
+   */
+  port: number;
+
+  /**
+   * @generated from field: egress.v1.ProxyProtocol protocol = 5;
+   */
+  protocol: ProxyProtocol;
+
+  /**
+   * @generated from field: egress.v1.EgressResolution resolution = 6;
+   */
+  resolution: EgressResolution;
+
+  /**
+   * @generated from field: string address_cidr = 7;
+   */
+  addressCidr: string;
+};
+
+/**
+ * Describes the message egress.v1.ProxyEndpoint.
+ * Use `create(ProxyEndpointSchema)` to create a new message.
+ */
+export const ProxyEndpointSchema: GenMessage<ProxyEndpoint> = /*@__PURE__*/
+  messageDesc(file_egress_v1_policy, 5);
+
+/**
+ * @generated from message egress.v1.EgressPath
+ */
+export type EgressPath = Message<"egress.v1.EgressPath"> & {
+  /**
+   * @generated from field: egress.v1.EgressPathMode mode = 1;
+   */
+  mode: EgressPathMode;
+
+  /**
+   * @generated from field: string proxy_endpoint_id = 2;
+   */
+  proxyEndpointId: string;
+};
+
+/**
+ * Describes the message egress.v1.EgressPath.
+ * Use `create(EgressPathSchema)` to create a new message.
+ */
+export const EgressPathSchema: GenMessage<EgressPath> = /*@__PURE__*/
+  messageDesc(file_egress_v1_policy, 6);
 
 /**
  * @generated from message egress.v1.HttpRouteMatch
@@ -239,7 +318,7 @@ export type HttpRouteMatch = Message<"egress.v1.HttpRouteMatch"> & {
  * Use `create(HttpRouteMatchSchema)` to create a new message.
  */
 export const HttpRouteMatchSchema: GenMessage<HttpRouteMatch> = /*@__PURE__*/
-  messageDesc(file_egress_v1_policy, 5);
+  messageDesc(file_egress_v1_policy, 7);
 
 /**
  * @generated from message egress.v1.HttpHeaderPolicy
@@ -266,7 +345,7 @@ export type HttpHeaderPolicy = Message<"egress.v1.HttpHeaderPolicy"> & {
  * Use `create(HttpHeaderPolicySchema)` to create a new message.
  */
 export const HttpHeaderPolicySchema: GenMessage<HttpHeaderPolicy> = /*@__PURE__*/
-  messageDesc(file_egress_v1_policy, 6);
+  messageDesc(file_egress_v1_policy, 8);
 
 /**
  * @generated from message egress.v1.HttpHeaderValue
@@ -288,7 +367,7 @@ export type HttpHeaderValue = Message<"egress.v1.HttpHeaderValue"> & {
  * Use `create(HttpHeaderValueSchema)` to create a new message.
  */
 export const HttpHeaderValueSchema: GenMessage<HttpHeaderValue> = /*@__PURE__*/
-  messageDesc(file_egress_v1_policy, 7);
+  messageDesc(file_egress_v1_policy, 9);
 
 /**
  * @generated from message egress.v1.HostMatch
@@ -317,7 +396,7 @@ export type HostMatch = Message<"egress.v1.HostMatch"> & {
  * Use `create(HostMatchSchema)` to create a new message.
  */
 export const HostMatchSchema: GenMessage<HostMatch> = /*@__PURE__*/
-  messageDesc(file_egress_v1_policy, 8);
+  messageDesc(file_egress_v1_policy, 10);
 
 /**
  * @generated from message egress.v1.EgressResourceRef
@@ -344,7 +423,7 @@ export type EgressResourceRef = Message<"egress.v1.EgressResourceRef"> & {
  * Use `create(EgressResourceRefSchema)` to create a new message.
  */
 export const EgressResourceRefSchema: GenMessage<EgressResourceRef> = /*@__PURE__*/
-  messageDesc(file_egress_v1_policy, 9);
+  messageDesc(file_egress_v1_policy, 11);
 
 /**
  * @generated from message egress.v1.EgressSyncStatus
@@ -386,7 +465,7 @@ export type EgressSyncStatus = Message<"egress.v1.EgressSyncStatus"> & {
  * Use `create(EgressSyncStatusSchema)` to create a new message.
  */
 export const EgressSyncStatusSchema: GenMessage<EgressSyncStatus> = /*@__PURE__*/
-  messageDesc(file_egress_v1_policy, 10);
+  messageDesc(file_egress_v1_policy, 12);
 
 /**
  * @generated from enum egress.v1.EgressProtocol
@@ -456,6 +535,58 @@ export const EgressResolutionSchema: GenEnum<EgressResolution> = /*@__PURE__*/
   enumDesc(file_egress_v1_policy, 1);
 
 /**
+ * @generated from enum egress.v1.ProxyProtocol
+ */
+export enum ProxyProtocol {
+  /**
+   * @generated from enum value: PROXY_PROTOCOL_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: PROXY_PROTOCOL_HTTP_CONNECT = 1;
+   */
+  HTTP_CONNECT = 1,
+
+  /**
+   * @generated from enum value: PROXY_PROTOCOL_SOCKS5 = 2;
+   */
+  SOCKS5 = 2,
+}
+
+/**
+ * Describes the enum egress.v1.ProxyProtocol.
+ */
+export const ProxyProtocolSchema: GenEnum<ProxyProtocol> = /*@__PURE__*/
+  enumDesc(file_egress_v1_policy, 2);
+
+/**
+ * @generated from enum egress.v1.EgressPathMode
+ */
+export enum EgressPathMode {
+  /**
+   * @generated from enum value: EGRESS_PATH_MODE_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: EGRESS_PATH_MODE_DIRECT = 1;
+   */
+  DIRECT = 1,
+
+  /**
+   * @generated from enum value: EGRESS_PATH_MODE_PROXY = 2;
+   */
+  PROXY = 2,
+}
+
+/**
+ * Describes the enum egress.v1.EgressPathMode.
+ */
+export const EgressPathModeSchema: GenEnum<EgressPathMode> = /*@__PURE__*/
+  enumDesc(file_egress_v1_policy, 3);
+
+/**
  * @generated from enum egress.v1.EgressSyncPhase
  */
 export enum EgressSyncPhase {
@@ -484,5 +615,5 @@ export enum EgressSyncPhase {
  * Describes the enum egress.v1.EgressSyncPhase.
  */
 export const EgressSyncPhaseSchema: GenEnum<EgressSyncPhase> = /*@__PURE__*/
-  enumDesc(file_egress_v1_policy, 2);
+  enumDesc(file_egress_v1_policy, 4);
 

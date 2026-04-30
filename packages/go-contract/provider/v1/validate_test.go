@@ -14,13 +14,11 @@ func TestValidateProviderAcceptsSurfaceOwnedCredentialAndCatalog(t *testing.T) {
 	provider := &Provider{
 		ProviderId:  "provider-1",
 		DisplayName: "Provider 1",
-		Surfaces: []*ProviderSurfaceBinding{{
-			SurfaceId: "openai-compatible",
-			ProviderCredentialRef: &ProviderCredentialRef{
-				ProviderCredentialId: "credential-1",
-			},
-			Runtime: testAPISurfaceRuntime(),
-		}},
+		SurfaceId:   "openai-compatible",
+		ProviderCredentialRef: &ProviderCredentialRef{
+			ProviderCredentialId: "credential-1",
+		},
+		Runtime: testAPISurfaceRuntime(),
 	}
 
 	if err := ValidateProvider(provider); err != nil {
@@ -28,11 +26,13 @@ func TestValidateProviderAcceptsSurfaceOwnedCredentialAndCatalog(t *testing.T) {
 	}
 }
 
-func TestValidateProviderSurfaceBindingRejectsMissingBaseURL(t *testing.T) {
+func TestValidateProviderRejectsMissingBaseURL(t *testing.T) {
 	t.Parallel()
 
-	surface := &ProviderSurfaceBinding{
-		SurfaceId: "openai-compatible",
+	provider := &Provider{
+		ProviderId:  "provider-1",
+		DisplayName: "Provider 1",
+		SurfaceId:   "openai-compatible",
 		Runtime: &ProviderSurfaceRuntime{
 			DisplayName: "OpenAI Compatible",
 			Origin:      ProviderSurfaceOrigin_PROVIDER_SURFACE_ORIGIN_DERIVED,
@@ -42,33 +42,33 @@ func TestValidateProviderSurfaceBindingRejectsMissingBaseURL(t *testing.T) {
 		},
 	}
 
-	if err := ValidateProviderSurfaceBinding(surface); err == nil {
-		t.Fatal("ValidateProviderSurfaceBinding() expected error, got nil")
+	if err := ValidateProvider(provider); err == nil {
+		t.Fatal("ValidateProvider() expected error, got nil")
 	}
 }
 
-func TestValidateProviderSurfaceBindingRejectsInvalidProviderCredentialRef(t *testing.T) {
+func TestValidateProviderRejectsInvalidProviderCredentialRef(t *testing.T) {
 	t.Parallel()
 
-	surface := testCompatibleSurface()
-	surface.ProviderCredentialRef = &ProviderCredentialRef{}
+	provider := testCompatibleProvider()
+	provider.ProviderCredentialRef = &ProviderCredentialRef{}
 
-	if err := ValidateProviderSurfaceBinding(surface); err == nil {
-		t.Fatal("ValidateProviderSurfaceBinding() expected error, got nil")
+	if err := ValidateProvider(provider); err == nil {
+		t.Fatal("ValidateProvider() expected error, got nil")
 	}
 }
 
-func TestValidateProviderSurfaceBindingRejectsSourceRefWithoutSurfaceID(t *testing.T) {
+func TestValidateProviderRejectsSourceRefWithoutSurfaceID(t *testing.T) {
 	t.Parallel()
 
-	surface := testCompatibleSurface()
-	surface.SourceRef = &ProviderSurfaceSourceRef{
+	provider := testCompatibleProvider()
+	provider.SourceRef = &ProviderSurfaceSourceRef{
 		Kind: ProviderSurfaceSourceKind_PROVIDER_SURFACE_SOURCE_KIND_VENDOR,
 		Id:   "openai",
 	}
 
-	if err := ValidateProviderSurfaceBinding(surface); err == nil {
-		t.Fatal("ValidateProviderSurfaceBinding() expected error, got nil")
+	if err := ValidateProvider(provider); err == nil {
+		t.Fatal("ValidateProvider() expected error, got nil")
 	}
 }
 
@@ -115,7 +115,7 @@ func TestValidateResolvedProviderModelAcceptsResolvedCatalogSource(t *testing.T)
 		ProviderModelId: "gpt-4o-mini",
 		Protocol:        apiprotocolv1.Protocol_PROTOCOL_OPENAI_COMPATIBLE,
 		BaseUrl:         "https://example.com/v1",
-		Source:          CatalogSource_CATALOG_SOURCE_MODEL_SERVICE,
+		Source:          CatalogSource_CATALOG_SOURCE_PROVIDER_DISCOVERY,
 		Surface:         &ResolvedProviderSurface{Surface: testAPISurfaceRuntime()},
 		Model: &modelv1.ResolvedModel{
 			ModelId: "gpt-4o-mini",
@@ -127,7 +127,7 @@ func TestValidateResolvedProviderModelAcceptsResolvedCatalogSource(t *testing.T)
 		},
 	}
 
-	if err := ValidateResolvedProviderModel(testCompatibleProviderSurface(), testCompatibleSurface(), resolved); err != nil {
+	if err := ValidateResolvedProviderModel(testCompatibleProviderSurface(), testCompatibleProvider(), resolved); err != nil {
 		t.Fatalf("ValidateResolvedProviderModel() error = %v", err)
 	}
 }
@@ -145,10 +145,12 @@ func testCompatibleProviderSurface() *ProviderSurface {
 	}
 }
 
-func testCompatibleSurface() *ProviderSurfaceBinding {
-	return &ProviderSurfaceBinding{
-		SurfaceId: "openai-compatible",
-		Runtime:   testAPISurfaceRuntime(),
+func testCompatibleProvider() *Provider {
+	return &Provider{
+		ProviderId:  "provider-1",
+		DisplayName: "Provider 1",
+		SurfaceId:   "openai-compatible",
+		Runtime:     testAPISurfaceRuntime(),
 	}
 }
 

@@ -52,49 +52,21 @@ func ValidateProvider(provider *Provider) error {
 	if strings.TrimSpace(provider.GetDisplayName()) == "" {
 		return fmt.Errorf("providerv1: provider display name is empty")
 	}
-	if len(provider.GetSurfaces()) == 0 {
-		return fmt.Errorf("providerv1: provider surfaces are required")
+	if strings.TrimSpace(provider.GetSurfaceId()) == "" {
+		return fmt.Errorf("providerv1: provider surface id is empty")
 	}
-	seen := map[string]struct{}{}
-	for _, surface := range provider.GetSurfaces() {
-		if err := ValidateProviderSurfaceBinding(surface); err != nil {
-			return fmt.Errorf("providerv1: invalid provider surface: %w", err)
+	if err := ValidateProviderSurfaceRuntime(provider.GetRuntime()); err != nil {
+		return fmt.Errorf("providerv1: invalid provider runtime: %w", err)
+	}
+	if provider.GetProviderCredentialRef() != nil {
+		if err := ValidateProviderCredentialRef(provider.GetProviderCredentialRef()); err != nil {
+			return err
 		}
-		surfaceID := strings.TrimSpace(surface.GetSurfaceId())
-		if _, ok := seen[surfaceID]; ok {
-			return fmt.Errorf("providerv1: duplicate provider surface id %q", surfaceID)
-		}
-		seen[surfaceID] = struct{}{}
 	}
 	return nil
 }
 
-// ValidateProviderSurfaceBinding validates one provider-owned surface entity.
-func ValidateProviderSurfaceBinding(surface *ProviderSurfaceBinding) error {
-	if surface == nil {
-		return fmt.Errorf("providerv1: provider surface is nil")
-	}
-	if strings.TrimSpace(surface.GetSurfaceId()) == "" {
-		return fmt.Errorf("providerv1: provider surface id is empty")
-	}
-	if surface.GetProviderCredentialRef() != nil {
-		if err := ValidateProviderCredentialRef(surface.GetProviderCredentialRef()); err != nil {
-			return err
-		}
-	}
-	if surface.GetSourceRef() != nil {
-		if err := ValidateProviderSurfaceSourceRef(surface.GetSourceRef()); err != nil {
-			return err
-		}
-		if sourceSurfaceID := strings.TrimSpace(surface.GetSourceRef().GetSurfaceId()); sourceSurfaceID != "" && sourceSurfaceID != surface.GetSurfaceId() {
-			return fmt.Errorf("providerv1: source surface id %q does not match provider surface id %q", sourceSurfaceID, surface.GetSurfaceId())
-		}
-	}
-	if err := ValidateProviderSurfaceRuntime(surface.GetRuntime()); err != nil {
-		return fmt.Errorf("providerv1: invalid callable provider surface: %w", err)
-	}
-	return nil
-}
+
 
 // ValidateCredentialCompatibility validates that one credential definition is compatible with one provider surface.
 func ValidateCredentialCompatibility(surface *ProviderSurface, credential *credentialv1.CredentialDefinition) error {
@@ -121,22 +93,7 @@ func ValidateProviderCredentialRef(ref *ProviderCredentialRef) error {
 	return nil
 }
 
-// ValidateProviderSurfaceSourceRef validates one provider surface source reference.
-func ValidateProviderSurfaceSourceRef(ref *ProviderSurfaceSourceRef) error {
-	if ref == nil {
-		return fmt.Errorf("providerv1: provider surface source ref is nil")
-	}
-	if ref.GetKind() == ProviderSurfaceSourceKind_PROVIDER_SURFACE_SOURCE_KIND_UNSPECIFIED {
-		return fmt.Errorf("providerv1: provider surface source kind is unspecified")
-	}
-	if strings.TrimSpace(ref.GetId()) == "" {
-		return fmt.Errorf("providerv1: provider surface source id is empty")
-	}
-	if strings.TrimSpace(ref.GetSurfaceId()) == "" {
-		return fmt.Errorf("providerv1: provider surface source surface id is empty")
-	}
-	return nil
-}
+
 
 // ValidateProviderModelCatalog validates one provider-level model catalog.
 func ValidateProviderModelCatalog(catalog *ProviderModelCatalog) error {
@@ -161,14 +118,16 @@ func ValidateProviderModelCatalog(catalog *ProviderModelCatalog) error {
 }
 
 // ValidateResolvedProviderModel validates the final provider-routed model.
-func ValidateResolvedProviderModel(surfaceMeta *ProviderSurface, surface *ProviderSurfaceBinding, resolved *ResolvedProviderModel) error {
+func ValidateResolvedProviderModel(surfaceMeta *ProviderSurface, provider *Provider, resolved *ResolvedProviderModel) error {
 	if surfaceMeta != nil {
 		if err := ValidateProviderSurface(surfaceMeta); err != nil {
 			return err
 		}
 	}
-	if err := ValidateProviderSurfaceBinding(surface); err != nil {
-		return err
+	if provider != nil {
+		if err := ValidateProvider(provider); err != nil {
+			return err
+		}
 	}
 	if resolved == nil {
 		return fmt.Errorf("providerv1: resolved provider model is nil")
@@ -176,8 +135,8 @@ func ValidateResolvedProviderModel(surfaceMeta *ProviderSurface, surface *Provid
 	if strings.TrimSpace(resolved.GetSurfaceId()) == "" {
 		return fmt.Errorf("providerv1: resolved provider model surface id is empty")
 	}
-	if resolved.GetSurfaceId() != surface.GetSurfaceId() {
-		return fmt.Errorf("providerv1: resolved provider model surface id %q does not match surface id %q", resolved.GetSurfaceId(), surface.GetSurfaceId())
+	if provider != nil && resolved.GetSurfaceId() != provider.GetSurfaceId() {
+		return fmt.Errorf("providerv1: resolved provider model surface id %q does not match provider surface id %q", resolved.GetSurfaceId(), provider.GetSurfaceId())
 	}
 	if strings.TrimSpace(resolved.GetProviderModelId()) == "" {
 		return fmt.Errorf("providerv1: resolved provider model id is empty")
@@ -185,12 +144,14 @@ func ValidateResolvedProviderModel(surfaceMeta *ProviderSurface, surface *Provid
 	if resolved.GetProtocol() == apiprotocolv1.Protocol_PROTOCOL_UNSPECIFIED {
 		return fmt.Errorf("providerv1: resolved provider model protocol is unspecified")
 	}
-	if api := surface.GetRuntime().GetApi(); api != nil {
-		if resolved.GetProtocol() != api.GetProtocol() {
-			return fmt.Errorf("providerv1: resolved provider model protocol %s does not match surface protocol %s", resolved.GetProtocol().String(), api.GetProtocol().String())
-		}
-		if strings.TrimSpace(resolved.GetBaseUrl()) == "" {
-			return fmt.Errorf("providerv1: resolved provider model requires base_url for api surface")
+	if provider != nil {
+		if api := provider.GetRuntime().GetApi(); api != nil {
+			if resolved.GetProtocol() != api.GetProtocol() {
+				return fmt.Errorf("providerv1: resolved provider model protocol %s does not match surface protocol %s", resolved.GetProtocol().String(), api.GetProtocol().String())
+			}
+			if strings.TrimSpace(resolved.GetBaseUrl()) == "" {
+				return fmt.Errorf("providerv1: resolved provider model requires base_url for api surface")
+			}
 		}
 	}
 	if err := ValidateResolvedProviderSurface(resolved.GetSurface()); err != nil {

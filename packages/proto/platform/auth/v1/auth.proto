@@ -290,4 +290,18 @@ message GetEgressAuthPolicyResponse {
   repeated string headers_to_upstream_on_allow = 10;
   repeated string headers_to_downstream_on_allow = 11;
   repeated string headers_to_downstream_on_deny = 12;
+  string credential_id = 13;
+  EgressAuthPolicySource source = 14;
+  EgressAuthPolicyTarget target = 15;
+}
+
+message EgressAuthPolicySource {
+  repeated string principals = 1;
+  repeated string service_accounts = 2;
+}
+
+message EgressAuthPolicyTarget {
+  repeated string hosts = 1;
+  repeated string path_prefixes = 2;
+  repeated string methods = 3;
 }

@@ -18,9 +18,9 @@ message ResolveEgressRequestHeadersRequest {
   EgressRequestSource runtime_source = 11;
   string target_path = 12;
   string source_principal = 13;
-  string provider_surface_binding_id = 14;
-  string egress_policy_id = 15;
-  string auth_policy_id = 16;
+  string egress_policy_id = 14;
+  string auth_policy_id = 15;
+  string target_method = 16;
 }
 
 message ResolveEgressResponseHeadersRequest {
@@ -39,9 +39,9 @@ message ResolveEgressResponseHeadersRequest {
   uint32 status_code = 13;
   string header_value_prefix = 14;
   string source_principal = 15;
-  string provider_surface_binding_id = 16;
-  string egress_policy_id = 17;
-  string auth_policy_id = 18;
+  string egress_policy_id = 16;
+  string auth_policy_id = 17;
+  string target_method = 18;
 }
 
 message EgressHeaderReplacementItem {

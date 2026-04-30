@@ -386,27 +386,13 @@ func validateCredentialBackfills(rules []*CredentialBackfillRule) error {
 		}
 		ruleIDs[ruleID] = struct{}{}
 
-		source := rule.GetSource()
-		if source == CredentialBackfillSource_CREDENTIAL_BACKFILL_SOURCE_UNSPECIFIED {
-			return fmt.Errorf("observabilityv1: credential backfill %q source is unspecified", ruleID)
+		outputFieldID := strings.TrimSpace(rule.GetOutputFieldId())
+		if outputFieldID == "" {
+			return fmt.Errorf("observabilityv1: credential backfill %q output_field_id is empty", ruleID)
 		}
-		sourceName := strings.TrimSpace(rule.GetSourceName())
-		if sourceName == "" {
-			return fmt.Errorf("observabilityv1: credential backfill %q source_name is empty", ruleID)
+		if !credentialMaterialKeyPattern.MatchString(outputFieldID) {
+			return fmt.Errorf("observabilityv1: credential backfill %q output_field_id %q is invalid", ruleID, outputFieldID)
 		}
-		if strings.ContainsAny(sourceName, " \t\r\n") {
-			return fmt.Errorf("observabilityv1: credential backfill %q source_name contains whitespace", ruleID)
-		}
-		if source == CredentialBackfillSource_CREDENTIAL_BACKFILL_SOURCE_HTTP_RESPONSE_HEADER {
-			headerName := strings.ToLower(sourceName)
-			if headerName != sourceName {
-				return fmt.Errorf("observabilityv1: credential backfill %q response header source_name must be lower-case", ruleID)
-			}
-			if err := validateHTTPHeaderName(headerName); err != nil {
-				return fmt.Errorf("observabilityv1: credential backfill %q response header: %w", ruleID, err)
-			}
-		}
-
 		targetKey := strings.TrimSpace(rule.GetTargetMaterialKey())
 		if targetKey == "" {
 			return fmt.Errorf("observabilityv1: credential backfill %q target_material_key is empty", ruleID)

@@ -19,7 +19,8 @@ message ExternalAccessSet {
   string policy_id = 4;
   repeated ExternalRule external_rules = 5;
   repeated ServiceRule service_rules = 6;
-  repeated HttpEgressRoute http_routes = 7;
+  repeated HttpInspectionRule http_inspection_rules = 7;
+  repeated ProxyEndpoint proxy_endpoints = 8;
 }
 
 message ExternalRule {
@@ -31,6 +32,7 @@ message ExternalRule {
   EgressProtocol protocol = 6;
   EgressResolution resolution = 7;
   string address_cidr = 9;
+  EgressPath egress_path = 10;
 }
 
 message ServiceRule {
@@ -39,8 +41,8 @@ message ServiceRule {
   repeated string source_service_accounts = 3;
 }
 
-message HttpEgressRoute {
-  string route_id = 1;
+message HttpInspectionRule {
+  string inspection_rule_id = 1;
   string display_name = 2;
   string destination_id = 3;
   repeated HttpRouteMatch matches = 4;
@@ -48,6 +50,21 @@ message HttpEgressRoute {
   HttpHeaderPolicy response_headers = 6;
   string auth_policy_id = 7;
   bool dynamic_header_authz = 8;
+}
+
+message ProxyEndpoint {
+  string proxy_endpoint_id = 1;
+  string display_name = 2;
+  HostMatch host_match = 3;
+  int32 port = 4;
+  ProxyProtocol protocol = 5;
+  EgressResolution resolution = 6;
+  string address_cidr = 7;
+}
+
+message EgressPath {
+  EgressPathMode mode = 1;
+  string proxy_endpoint_id = 2;
 }
 
 message HttpRouteMatch {
@@ -101,6 +118,18 @@ enum EgressResolution {
   EGRESS_RESOLUTION_DNS = 1;
   EGRESS_RESOLUTION_DYNAMIC_DNS = 2;
   EGRESS_RESOLUTION_NONE = 3;
+}
+
+enum ProxyProtocol {
+  PROXY_PROTOCOL_UNSPECIFIED = 0;
+  PROXY_PROTOCOL_HTTP_CONNECT = 1;
+  PROXY_PROTOCOL_SOCKS5 = 2;
+}
+
+enum EgressPathMode {
+  EGRESS_PATH_MODE_UNSPECIFIED = 0;
+  EGRESS_PATH_MODE_DIRECT = 1;
+  EGRESS_PATH_MODE_PROXY = 2;
 }
 
 enum EgressSyncPhase {

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package platform.orchestration.v1;
+
+import "platform/management/v1/management.proto";
+
+option go_package = "code-code.internal/go-contract/platform/orchestration/v1;orchestrationv1";
+
+// ProviderOrchestrationService owns cross-domain provider onboarding and
+// credential update flows. Secret material is accepted only at this API
+// boundary and is never passed into Temporal workflow payloads.
+service ProviderOrchestrationService {
+  rpc ConnectProvider(platform.management.v1.ConnectProviderRequest) returns (platform.management.v1.ConnectProviderResponse);
+  rpc GetProviderConnectSession(platform.management.v1.GetProviderConnectSessionRequest) returns (platform.management.v1.GetProviderConnectSessionResponse);
+  rpc UpdateProviderAuthentication(platform.management.v1.UpdateProviderAuthenticationRequest) returns (platform.management.v1.UpdateProviderAuthenticationResponse);
+  rpc UpdateProviderObservabilityAuthentication(platform.management.v1.UpdateProviderObservabilityAuthenticationRequest) returns (platform.management.v1.UpdateProviderObservabilityAuthenticationResponse);
+}

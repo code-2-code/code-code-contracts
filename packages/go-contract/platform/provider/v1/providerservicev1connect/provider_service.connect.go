@@ -39,36 +39,15 @@ const (
 	// ProviderServiceListProvidersProcedure is the fully-qualified name of the ProviderService's
 	// ListProviders RPC.
 	ProviderServiceListProvidersProcedure = "/platform.provider.v1.ProviderService/ListProviders"
-	// ProviderServiceListProviderSurfaceBindingsProcedure is the fully-qualified name of the
-	// ProviderService's ListProviderSurfaceBindings RPC.
-	ProviderServiceListProviderSurfaceBindingsProcedure = "/platform.provider.v1.ProviderService/ListProviderSurfaceBindings"
+	// ProviderServiceCreateProviderProcedure is the fully-qualified name of the ProviderService's
+	// CreateProvider RPC.
+	ProviderServiceCreateProviderProcedure = "/platform.provider.v1.ProviderService/CreateProvider"
 	// ProviderServiceUpdateProviderProcedure is the fully-qualified name of the ProviderService's
 	// UpdateProvider RPC.
 	ProviderServiceUpdateProviderProcedure = "/platform.provider.v1.ProviderService/UpdateProvider"
-	// ProviderServiceUpdateProviderAuthenticationProcedure is the fully-qualified name of the
-	// ProviderService's UpdateProviderAuthentication RPC.
-	ProviderServiceUpdateProviderAuthenticationProcedure = "/platform.provider.v1.ProviderService/UpdateProviderAuthentication"
-	// ProviderServiceUpdateProviderObservabilityAuthenticationProcedure is the fully-qualified name of
-	// the ProviderService's UpdateProviderObservabilityAuthentication RPC.
-	ProviderServiceUpdateProviderObservabilityAuthenticationProcedure = "/platform.provider.v1.ProviderService/UpdateProviderObservabilityAuthentication"
 	// ProviderServiceDeleteProviderProcedure is the fully-qualified name of the ProviderService's
 	// DeleteProvider RPC.
 	ProviderServiceDeleteProviderProcedure = "/platform.provider.v1.ProviderService/DeleteProvider"
-	// ProviderServiceCreateProviderSurfaceBindingProcedure is the fully-qualified name of the
-	// ProviderService's CreateProviderSurfaceBinding RPC.
-	ProviderServiceCreateProviderSurfaceBindingProcedure = "/platform.provider.v1.ProviderService/CreateProviderSurfaceBinding"
-	// ProviderServiceUpdateProviderSurfaceBindingProcedure is the fully-qualified name of the
-	// ProviderService's UpdateProviderSurfaceBinding RPC.
-	ProviderServiceUpdateProviderSurfaceBindingProcedure = "/platform.provider.v1.ProviderService/UpdateProviderSurfaceBinding"
-	// ProviderServiceDeleteProviderSurfaceBindingProcedure is the fully-qualified name of the
-	// ProviderService's DeleteProviderSurfaceBinding RPC.
-	ProviderServiceDeleteProviderSurfaceBindingProcedure = "/platform.provider.v1.ProviderService/DeleteProviderSurfaceBinding"
-	// ProviderServiceConnectProviderProcedure is the fully-qualified name of the ProviderService's
-	// ConnectProvider RPC.
-	ProviderServiceConnectProviderProcedure = "/platform.provider.v1.ProviderService/ConnectProvider"
-	// ProviderServiceGetProviderConnectSessionProcedure is the fully-qualified name of the
-	// ProviderService's GetProviderConnectSession RPC.
-	ProviderServiceGetProviderConnectSessionProcedure = "/platform.provider.v1.ProviderService/GetProviderConnectSession"
 	// ProviderServiceProbeProviderObservabilityProcedure is the fully-qualified name of the
 	// ProviderService's ProbeProviderObservability RPC.
 	ProviderServiceProbeProviderObservabilityProcedure = "/platform.provider.v1.ProviderService/ProbeProviderObservability"
@@ -87,32 +66,21 @@ const (
 	// ProviderServiceApplyTemplateProcedure is the fully-qualified name of the ProviderService's
 	// ApplyTemplate RPC.
 	ProviderServiceApplyTemplateProcedure = "/platform.provider.v1.ProviderService/ApplyTemplate"
-	// ProviderServiceBindProviderCatalogsProcedure is the fully-qualified name of the ProviderService's
-	// BindProviderCatalogs RPC.
-	ProviderServiceBindProviderCatalogsProcedure = "/platform.provider.v1.ProviderService/BindProviderCatalogs"
 )
 
 // ProviderServiceClient is a client for the platform.provider.v1.ProviderService service.
 type ProviderServiceClient interface {
 	ListProviderSurfaces(context.Context, *v1.ListProviderSurfacesRequest) (*v1.ListProviderSurfacesResponse, error)
 	ListProviders(context.Context, *v1.ListProvidersRequest) (*v1.ListProvidersResponse, error)
-	ListProviderSurfaceBindings(context.Context, *v1.ListProviderSurfaceBindingsRequest) (*v1.ListProviderSurfaceBindingsResponse, error)
+	CreateProvider(context.Context, *v1.CreateProviderRequest) (*v1.CreateProviderResponse, error)
 	UpdateProvider(context.Context, *v1.UpdateProviderRequest) (*v1.UpdateProviderResponse, error)
-	UpdateProviderAuthentication(context.Context, *v1.UpdateProviderAuthenticationRequest) (*v1.UpdateProviderAuthenticationResponse, error)
-	UpdateProviderObservabilityAuthentication(context.Context, *v1.UpdateProviderObservabilityAuthenticationRequest) (*v1.UpdateProviderObservabilityAuthenticationResponse, error)
 	DeleteProvider(context.Context, *v1.DeleteProviderRequest) (*v1.DeleteProviderResponse, error)
-	CreateProviderSurfaceBinding(context.Context, *v1.CreateProviderSurfaceBindingRequest) (*v1.CreateProviderSurfaceBindingResponse, error)
-	UpdateProviderSurfaceBinding(context.Context, *v1.UpdateProviderSurfaceBindingRequest) (*v1.UpdateProviderSurfaceBindingResponse, error)
-	DeleteProviderSurfaceBinding(context.Context, *v1.DeleteProviderSurfaceBindingRequest) (*v1.DeleteProviderSurfaceBindingResponse, error)
-	ConnectProvider(context.Context, *v1.ConnectProviderRequest) (*v1.ConnectProviderResponse, error)
-	GetProviderConnectSession(context.Context, *v1.GetProviderConnectSessionRequest) (*v1.GetProviderConnectSessionResponse, error)
 	ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error)
 	WatchProviderStatusEvents(context.Context, *v1.WatchProviderStatusEventsRequest) (*connect.ServerStreamForClient[v1.WatchProviderStatusEventsResponse], error)
 	ListVendors(context.Context, *v1.ListVendorsRequest) (*v1.ListVendorsResponse, error)
 	ListCLIDefinitions(context.Context, *v1.ListCLIDefinitionsRequest) (*v1.ListCLIDefinitionsResponse, error)
 	ListTemplates(context.Context, *v1.ListTemplatesRequest) (*v1.ListTemplatesResponse, error)
 	ApplyTemplate(context.Context, *v1.ApplyTemplateRequest) (*v1.ApplyTemplateResponse, error)
-	BindProviderCatalogs(context.Context, *v1.BindProviderCatalogsRequest) (*v1.BindProviderCatalogsResponse, error)
 }
 
 // NewProviderServiceClient constructs a client for the platform.provider.v1.ProviderService
@@ -138,10 +106,10 @@ func NewProviderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 			connect.WithSchema(providerServiceMethods.ByName("ListProviders")),
 			connect.WithClientOptions(opts...),
 		),
-		listProviderSurfaceBindings: connect.NewClient[v1.ListProviderSurfaceBindingsRequest, v1.ListProviderSurfaceBindingsResponse](
+		createProvider: connect.NewClient[v1.CreateProviderRequest, v1.CreateProviderResponse](
 			httpClient,
-			baseURL+ProviderServiceListProviderSurfaceBindingsProcedure,
-			connect.WithSchema(providerServiceMethods.ByName("ListProviderSurfaceBindings")),
+			baseURL+ProviderServiceCreateProviderProcedure,
+			connect.WithSchema(providerServiceMethods.ByName("CreateProvider")),
 			connect.WithClientOptions(opts...),
 		),
 		updateProvider: connect.NewClient[v1.UpdateProviderRequest, v1.UpdateProviderResponse](
@@ -150,52 +118,10 @@ func NewProviderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 			connect.WithSchema(providerServiceMethods.ByName("UpdateProvider")),
 			connect.WithClientOptions(opts...),
 		),
-		updateProviderAuthentication: connect.NewClient[v1.UpdateProviderAuthenticationRequest, v1.UpdateProviderAuthenticationResponse](
-			httpClient,
-			baseURL+ProviderServiceUpdateProviderAuthenticationProcedure,
-			connect.WithSchema(providerServiceMethods.ByName("UpdateProviderAuthentication")),
-			connect.WithClientOptions(opts...),
-		),
-		updateProviderObservabilityAuthentication: connect.NewClient[v1.UpdateProviderObservabilityAuthenticationRequest, v1.UpdateProviderObservabilityAuthenticationResponse](
-			httpClient,
-			baseURL+ProviderServiceUpdateProviderObservabilityAuthenticationProcedure,
-			connect.WithSchema(providerServiceMethods.ByName("UpdateProviderObservabilityAuthentication")),
-			connect.WithClientOptions(opts...),
-		),
 		deleteProvider: connect.NewClient[v1.DeleteProviderRequest, v1.DeleteProviderResponse](
 			httpClient,
 			baseURL+ProviderServiceDeleteProviderProcedure,
 			connect.WithSchema(providerServiceMethods.ByName("DeleteProvider")),
-			connect.WithClientOptions(opts...),
-		),
-		createProviderSurfaceBinding: connect.NewClient[v1.CreateProviderSurfaceBindingRequest, v1.CreateProviderSurfaceBindingResponse](
-			httpClient,
-			baseURL+ProviderServiceCreateProviderSurfaceBindingProcedure,
-			connect.WithSchema(providerServiceMethods.ByName("CreateProviderSurfaceBinding")),
-			connect.WithClientOptions(opts...),
-		),
-		updateProviderSurfaceBinding: connect.NewClient[v1.UpdateProviderSurfaceBindingRequest, v1.UpdateProviderSurfaceBindingResponse](
-			httpClient,
-			baseURL+ProviderServiceUpdateProviderSurfaceBindingProcedure,
-			connect.WithSchema(providerServiceMethods.ByName("UpdateProviderSurfaceBinding")),
-			connect.WithClientOptions(opts...),
-		),
-		deleteProviderSurfaceBinding: connect.NewClient[v1.DeleteProviderSurfaceBindingRequest, v1.DeleteProviderSurfaceBindingResponse](
-			httpClient,
-			baseURL+ProviderServiceDeleteProviderSurfaceBindingProcedure,
-			connect.WithSchema(providerServiceMethods.ByName("DeleteProviderSurfaceBinding")),
-			connect.WithClientOptions(opts...),
-		),
-		connectProvider: connect.NewClient[v1.ConnectProviderRequest, v1.ConnectProviderResponse](
-			httpClient,
-			baseURL+ProviderServiceConnectProviderProcedure,
-			connect.WithSchema(providerServiceMethods.ByName("ConnectProvider")),
-			connect.WithClientOptions(opts...),
-		),
-		getProviderConnectSession: connect.NewClient[v1.GetProviderConnectSessionRequest, v1.GetProviderConnectSessionResponse](
-			httpClient,
-			baseURL+ProviderServiceGetProviderConnectSessionProcedure,
-			connect.WithSchema(providerServiceMethods.ByName("GetProviderConnectSession")),
 			connect.WithClientOptions(opts...),
 		),
 		probeProviderObservability: connect.NewClient[v1.ProbeProviderObservabilityRequest, v1.ProbeProviderObservabilityResponse](
@@ -234,36 +160,22 @@ func NewProviderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 			connect.WithSchema(providerServiceMethods.ByName("ApplyTemplate")),
 			connect.WithClientOptions(opts...),
 		),
-		bindProviderCatalogs: connect.NewClient[v1.BindProviderCatalogsRequest, v1.BindProviderCatalogsResponse](
-			httpClient,
-			baseURL+ProviderServiceBindProviderCatalogsProcedure,
-			connect.WithSchema(providerServiceMethods.ByName("BindProviderCatalogs")),
-			connect.WithClientOptions(opts...),
-		),
 	}
 }
 
 // providerServiceClient implements ProviderServiceClient.
 type providerServiceClient struct {
-	listProviderSurfaces                      *connect.Client[v1.ListProviderSurfacesRequest, v1.ListProviderSurfacesResponse]
-	listProviders                             *connect.Client[v1.ListProvidersRequest, v1.ListProvidersResponse]
-	listProviderSurfaceBindings               *connect.Client[v1.ListProviderSurfaceBindingsRequest, v1.ListProviderSurfaceBindingsResponse]
-	updateProvider                            *connect.Client[v1.UpdateProviderRequest, v1.UpdateProviderResponse]
-	updateProviderAuthentication              *connect.Client[v1.UpdateProviderAuthenticationRequest, v1.UpdateProviderAuthenticationResponse]
-	updateProviderObservabilityAuthentication *connect.Client[v1.UpdateProviderObservabilityAuthenticationRequest, v1.UpdateProviderObservabilityAuthenticationResponse]
-	deleteProvider                            *connect.Client[v1.DeleteProviderRequest, v1.DeleteProviderResponse]
-	createProviderSurfaceBinding              *connect.Client[v1.CreateProviderSurfaceBindingRequest, v1.CreateProviderSurfaceBindingResponse]
-	updateProviderSurfaceBinding              *connect.Client[v1.UpdateProviderSurfaceBindingRequest, v1.UpdateProviderSurfaceBindingResponse]
-	deleteProviderSurfaceBinding              *connect.Client[v1.DeleteProviderSurfaceBindingRequest, v1.DeleteProviderSurfaceBindingResponse]
-	connectProvider                           *connect.Client[v1.ConnectProviderRequest, v1.ConnectProviderResponse]
-	getProviderConnectSession                 *connect.Client[v1.GetProviderConnectSessionRequest, v1.GetProviderConnectSessionResponse]
-	probeProviderObservability                *connect.Client[v1.ProbeProviderObservabilityRequest, v1.ProbeProviderObservabilityResponse]
-	watchProviderStatusEvents                 *connect.Client[v1.WatchProviderStatusEventsRequest, v1.WatchProviderStatusEventsResponse]
-	listVendors                               *connect.Client[v1.ListVendorsRequest, v1.ListVendorsResponse]
-	listCLIDefinitions                        *connect.Client[v1.ListCLIDefinitionsRequest, v1.ListCLIDefinitionsResponse]
-	listTemplates                             *connect.Client[v1.ListTemplatesRequest, v1.ListTemplatesResponse]
-	applyTemplate                             *connect.Client[v1.ApplyTemplateRequest, v1.ApplyTemplateResponse]
-	bindProviderCatalogs                      *connect.Client[v1.BindProviderCatalogsRequest, v1.BindProviderCatalogsResponse]
+	listProviderSurfaces       *connect.Client[v1.ListProviderSurfacesRequest, v1.ListProviderSurfacesResponse]
+	listProviders              *connect.Client[v1.ListProvidersRequest, v1.ListProvidersResponse]
+	createProvider             *connect.Client[v1.CreateProviderRequest, v1.CreateProviderResponse]
+	updateProvider             *connect.Client[v1.UpdateProviderRequest, v1.UpdateProviderResponse]
+	deleteProvider             *connect.Client[v1.DeleteProviderRequest, v1.DeleteProviderResponse]
+	probeProviderObservability *connect.Client[v1.ProbeProviderObservabilityRequest, v1.ProbeProviderObservabilityResponse]
+	watchProviderStatusEvents  *connect.Client[v1.WatchProviderStatusEventsRequest, v1.WatchProviderStatusEventsResponse]
+	listVendors                *connect.Client[v1.ListVendorsRequest, v1.ListVendorsResponse]
+	listCLIDefinitions         *connect.Client[v1.ListCLIDefinitionsRequest, v1.ListCLIDefinitionsResponse]
+	listTemplates              *connect.Client[v1.ListTemplatesRequest, v1.ListTemplatesResponse]
+	applyTemplate              *connect.Client[v1.ApplyTemplateRequest, v1.ApplyTemplateResponse]
 }
 
 // ListProviderSurfaces calls platform.provider.v1.ProviderService.ListProviderSurfaces.
@@ -284,10 +196,9 @@ func (c *providerServiceClient) ListProviders(ctx context.Context, req *v1.ListP
 	return nil, err
 }
 
-// ListProviderSurfaceBindings calls
-// platform.provider.v1.ProviderService.ListProviderSurfaceBindings.
-func (c *providerServiceClient) ListProviderSurfaceBindings(ctx context.Context, req *v1.ListProviderSurfaceBindingsRequest) (*v1.ListProviderSurfaceBindingsResponse, error) {
-	response, err := c.listProviderSurfaceBindings.CallUnary(ctx, connect.NewRequest(req))
+// CreateProvider calls platform.provider.v1.ProviderService.CreateProvider.
+func (c *providerServiceClient) CreateProvider(ctx context.Context, req *v1.CreateProviderRequest) (*v1.CreateProviderResponse, error) {
+	response, err := c.createProvider.CallUnary(ctx, connect.NewRequest(req))
 	if response != nil {
 		return response.Msg, err
 	}
@@ -303,77 +214,9 @@ func (c *providerServiceClient) UpdateProvider(ctx context.Context, req *v1.Upda
 	return nil, err
 }
 
-// UpdateProviderAuthentication calls
-// platform.provider.v1.ProviderService.UpdateProviderAuthentication.
-func (c *providerServiceClient) UpdateProviderAuthentication(ctx context.Context, req *v1.UpdateProviderAuthenticationRequest) (*v1.UpdateProviderAuthenticationResponse, error) {
-	response, err := c.updateProviderAuthentication.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// UpdateProviderObservabilityAuthentication calls
-// platform.provider.v1.ProviderService.UpdateProviderObservabilityAuthentication.
-func (c *providerServiceClient) UpdateProviderObservabilityAuthentication(ctx context.Context, req *v1.UpdateProviderObservabilityAuthenticationRequest) (*v1.UpdateProviderObservabilityAuthenticationResponse, error) {
-	response, err := c.updateProviderObservabilityAuthentication.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
 // DeleteProvider calls platform.provider.v1.ProviderService.DeleteProvider.
 func (c *providerServiceClient) DeleteProvider(ctx context.Context, req *v1.DeleteProviderRequest) (*v1.DeleteProviderResponse, error) {
 	response, err := c.deleteProvider.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// CreateProviderSurfaceBinding calls
-// platform.provider.v1.ProviderService.CreateProviderSurfaceBinding.
-func (c *providerServiceClient) CreateProviderSurfaceBinding(ctx context.Context, req *v1.CreateProviderSurfaceBindingRequest) (*v1.CreateProviderSurfaceBindingResponse, error) {
-	response, err := c.createProviderSurfaceBinding.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// UpdateProviderSurfaceBinding calls
-// platform.provider.v1.ProviderService.UpdateProviderSurfaceBinding.
-func (c *providerServiceClient) UpdateProviderSurfaceBinding(ctx context.Context, req *v1.UpdateProviderSurfaceBindingRequest) (*v1.UpdateProviderSurfaceBindingResponse, error) {
-	response, err := c.updateProviderSurfaceBinding.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// DeleteProviderSurfaceBinding calls
-// platform.provider.v1.ProviderService.DeleteProviderSurfaceBinding.
-func (c *providerServiceClient) DeleteProviderSurfaceBinding(ctx context.Context, req *v1.DeleteProviderSurfaceBindingRequest) (*v1.DeleteProviderSurfaceBindingResponse, error) {
-	response, err := c.deleteProviderSurfaceBinding.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// ConnectProvider calls platform.provider.v1.ProviderService.ConnectProvider.
-func (c *providerServiceClient) ConnectProvider(ctx context.Context, req *v1.ConnectProviderRequest) (*v1.ConnectProviderResponse, error) {
-	response, err := c.connectProvider.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// GetProviderConnectSession calls platform.provider.v1.ProviderService.GetProviderConnectSession.
-func (c *providerServiceClient) GetProviderConnectSession(ctx context.Context, req *v1.GetProviderConnectSessionRequest) (*v1.GetProviderConnectSessionResponse, error) {
-	response, err := c.getProviderConnectSession.CallUnary(ctx, connect.NewRequest(req))
 	if response != nil {
 		return response.Msg, err
 	}
@@ -430,36 +273,19 @@ func (c *providerServiceClient) ApplyTemplate(ctx context.Context, req *v1.Apply
 	return nil, err
 }
 
-// BindProviderCatalogs calls platform.provider.v1.ProviderService.BindProviderCatalogs.
-func (c *providerServiceClient) BindProviderCatalogs(ctx context.Context, req *v1.BindProviderCatalogsRequest) (*v1.BindProviderCatalogsResponse, error) {
-	response, err := c.bindProviderCatalogs.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
 // ProviderServiceHandler is an implementation of the platform.provider.v1.ProviderService service.
 type ProviderServiceHandler interface {
 	ListProviderSurfaces(context.Context, *v1.ListProviderSurfacesRequest) (*v1.ListProviderSurfacesResponse, error)
 	ListProviders(context.Context, *v1.ListProvidersRequest) (*v1.ListProvidersResponse, error)
-	ListProviderSurfaceBindings(context.Context, *v1.ListProviderSurfaceBindingsRequest) (*v1.ListProviderSurfaceBindingsResponse, error)
+	CreateProvider(context.Context, *v1.CreateProviderRequest) (*v1.CreateProviderResponse, error)
 	UpdateProvider(context.Context, *v1.UpdateProviderRequest) (*v1.UpdateProviderResponse, error)
-	UpdateProviderAuthentication(context.Context, *v1.UpdateProviderAuthenticationRequest) (*v1.UpdateProviderAuthenticationResponse, error)
-	UpdateProviderObservabilityAuthentication(context.Context, *v1.UpdateProviderObservabilityAuthenticationRequest) (*v1.UpdateProviderObservabilityAuthenticationResponse, error)
 	DeleteProvider(context.Context, *v1.DeleteProviderRequest) (*v1.DeleteProviderResponse, error)
-	CreateProviderSurfaceBinding(context.Context, *v1.CreateProviderSurfaceBindingRequest) (*v1.CreateProviderSurfaceBindingResponse, error)
-	UpdateProviderSurfaceBinding(context.Context, *v1.UpdateProviderSurfaceBindingRequest) (*v1.UpdateProviderSurfaceBindingResponse, error)
-	DeleteProviderSurfaceBinding(context.Context, *v1.DeleteProviderSurfaceBindingRequest) (*v1.DeleteProviderSurfaceBindingResponse, error)
-	ConnectProvider(context.Context, *v1.ConnectProviderRequest) (*v1.ConnectProviderResponse, error)
-	GetProviderConnectSession(context.Context, *v1.GetProviderConnectSessionRequest) (*v1.GetProviderConnectSessionResponse, error)
 	ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error)
 	WatchProviderStatusEvents(context.Context, *v1.WatchProviderStatusEventsRequest, *connect.ServerStream[v1.WatchProviderStatusEventsResponse]) error
 	ListVendors(context.Context, *v1.ListVendorsRequest) (*v1.ListVendorsResponse, error)
 	ListCLIDefinitions(context.Context, *v1.ListCLIDefinitionsRequest) (*v1.ListCLIDefinitionsResponse, error)
 	ListTemplates(context.Context, *v1.ListTemplatesRequest) (*v1.ListTemplatesResponse, error)
 	ApplyTemplate(context.Context, *v1.ApplyTemplateRequest) (*v1.ApplyTemplateResponse, error)
-	BindProviderCatalogs(context.Context, *v1.BindProviderCatalogsRequest) (*v1.BindProviderCatalogsResponse, error)
 }
 
 // NewProviderServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -481,10 +307,10 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 		connect.WithSchema(providerServiceMethods.ByName("ListProviders")),
 		connect.WithHandlerOptions(opts...),
 	)
-	providerServiceListProviderSurfaceBindingsHandler := connect.NewUnaryHandlerSimple(
-		ProviderServiceListProviderSurfaceBindingsProcedure,
-		svc.ListProviderSurfaceBindings,
-		connect.WithSchema(providerServiceMethods.ByName("ListProviderSurfaceBindings")),
+	providerServiceCreateProviderHandler := connect.NewUnaryHandlerSimple(
+		ProviderServiceCreateProviderProcedure,
+		svc.CreateProvider,
+		connect.WithSchema(providerServiceMethods.ByName("CreateProvider")),
 		connect.WithHandlerOptions(opts...),
 	)
 	providerServiceUpdateProviderHandler := connect.NewUnaryHandlerSimple(
@@ -493,52 +319,10 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 		connect.WithSchema(providerServiceMethods.ByName("UpdateProvider")),
 		connect.WithHandlerOptions(opts...),
 	)
-	providerServiceUpdateProviderAuthenticationHandler := connect.NewUnaryHandlerSimple(
-		ProviderServiceUpdateProviderAuthenticationProcedure,
-		svc.UpdateProviderAuthentication,
-		connect.WithSchema(providerServiceMethods.ByName("UpdateProviderAuthentication")),
-		connect.WithHandlerOptions(opts...),
-	)
-	providerServiceUpdateProviderObservabilityAuthenticationHandler := connect.NewUnaryHandlerSimple(
-		ProviderServiceUpdateProviderObservabilityAuthenticationProcedure,
-		svc.UpdateProviderObservabilityAuthentication,
-		connect.WithSchema(providerServiceMethods.ByName("UpdateProviderObservabilityAuthentication")),
-		connect.WithHandlerOptions(opts...),
-	)
 	providerServiceDeleteProviderHandler := connect.NewUnaryHandlerSimple(
 		ProviderServiceDeleteProviderProcedure,
 		svc.DeleteProvider,
 		connect.WithSchema(providerServiceMethods.ByName("DeleteProvider")),
-		connect.WithHandlerOptions(opts...),
-	)
-	providerServiceCreateProviderSurfaceBindingHandler := connect.NewUnaryHandlerSimple(
-		ProviderServiceCreateProviderSurfaceBindingProcedure,
-		svc.CreateProviderSurfaceBinding,
-		connect.WithSchema(providerServiceMethods.ByName("CreateProviderSurfaceBinding")),
-		connect.WithHandlerOptions(opts...),
-	)
-	providerServiceUpdateProviderSurfaceBindingHandler := connect.NewUnaryHandlerSimple(
-		ProviderServiceUpdateProviderSurfaceBindingProcedure,
-		svc.UpdateProviderSurfaceBinding,
-		connect.WithSchema(providerServiceMethods.ByName("UpdateProviderSurfaceBinding")),
-		connect.WithHandlerOptions(opts...),
-	)
-	providerServiceDeleteProviderSurfaceBindingHandler := connect.NewUnaryHandlerSimple(
-		ProviderServiceDeleteProviderSurfaceBindingProcedure,
-		svc.DeleteProviderSurfaceBinding,
-		connect.WithSchema(providerServiceMethods.ByName("DeleteProviderSurfaceBinding")),
-		connect.WithHandlerOptions(opts...),
-	)
-	providerServiceConnectProviderHandler := connect.NewUnaryHandlerSimple(
-		ProviderServiceConnectProviderProcedure,
-		svc.ConnectProvider,
-		connect.WithSchema(providerServiceMethods.ByName("ConnectProvider")),
-		connect.WithHandlerOptions(opts...),
-	)
-	providerServiceGetProviderConnectSessionHandler := connect.NewUnaryHandlerSimple(
-		ProviderServiceGetProviderConnectSessionProcedure,
-		svc.GetProviderConnectSession,
-		connect.WithSchema(providerServiceMethods.ByName("GetProviderConnectSession")),
 		connect.WithHandlerOptions(opts...),
 	)
 	providerServiceProbeProviderObservabilityHandler := connect.NewUnaryHandlerSimple(
@@ -577,38 +361,18 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 		connect.WithSchema(providerServiceMethods.ByName("ApplyTemplate")),
 		connect.WithHandlerOptions(opts...),
 	)
-	providerServiceBindProviderCatalogsHandler := connect.NewUnaryHandlerSimple(
-		ProviderServiceBindProviderCatalogsProcedure,
-		svc.BindProviderCatalogs,
-		connect.WithSchema(providerServiceMethods.ByName("BindProviderCatalogs")),
-		connect.WithHandlerOptions(opts...),
-	)
 	return "/platform.provider.v1.ProviderService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case ProviderServiceListProviderSurfacesProcedure:
 			providerServiceListProviderSurfacesHandler.ServeHTTP(w, r)
 		case ProviderServiceListProvidersProcedure:
 			providerServiceListProvidersHandler.ServeHTTP(w, r)
-		case ProviderServiceListProviderSurfaceBindingsProcedure:
-			providerServiceListProviderSurfaceBindingsHandler.ServeHTTP(w, r)
+		case ProviderServiceCreateProviderProcedure:
+			providerServiceCreateProviderHandler.ServeHTTP(w, r)
 		case ProviderServiceUpdateProviderProcedure:
 			providerServiceUpdateProviderHandler.ServeHTTP(w, r)
-		case ProviderServiceUpdateProviderAuthenticationProcedure:
-			providerServiceUpdateProviderAuthenticationHandler.ServeHTTP(w, r)
-		case ProviderServiceUpdateProviderObservabilityAuthenticationProcedure:
-			providerServiceUpdateProviderObservabilityAuthenticationHandler.ServeHTTP(w, r)
 		case ProviderServiceDeleteProviderProcedure:
 			providerServiceDeleteProviderHandler.ServeHTTP(w, r)
-		case ProviderServiceCreateProviderSurfaceBindingProcedure:
-			providerServiceCreateProviderSurfaceBindingHandler.ServeHTTP(w, r)
-		case ProviderServiceUpdateProviderSurfaceBindingProcedure:
-			providerServiceUpdateProviderSurfaceBindingHandler.ServeHTTP(w, r)
-		case ProviderServiceDeleteProviderSurfaceBindingProcedure:
-			providerServiceDeleteProviderSurfaceBindingHandler.ServeHTTP(w, r)
-		case ProviderServiceConnectProviderProcedure:
-			providerServiceConnectProviderHandler.ServeHTTP(w, r)
-		case ProviderServiceGetProviderConnectSessionProcedure:
-			providerServiceGetProviderConnectSessionHandler.ServeHTTP(w, r)
 		case ProviderServiceProbeProviderObservabilityProcedure:
 			providerServiceProbeProviderObservabilityHandler.ServeHTTP(w, r)
 		case ProviderServiceWatchProviderStatusEventsProcedure:
@@ -621,8 +385,6 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 			providerServiceListTemplatesHandler.ServeHTTP(w, r)
 		case ProviderServiceApplyTemplateProcedure:
 			providerServiceApplyTemplateHandler.ServeHTTP(w, r)
-		case ProviderServiceBindProviderCatalogsProcedure:
-			providerServiceBindProviderCatalogsHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -640,44 +402,16 @@ func (UnimplementedProviderServiceHandler) ListProviders(context.Context, *v1.Li
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.ListProviders is not implemented"))
 }
 
-func (UnimplementedProviderServiceHandler) ListProviderSurfaceBindings(context.Context, *v1.ListProviderSurfaceBindingsRequest) (*v1.ListProviderSurfaceBindingsResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.ListProviderSurfaceBindings is not implemented"))
+func (UnimplementedProviderServiceHandler) CreateProvider(context.Context, *v1.CreateProviderRequest) (*v1.CreateProviderResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.CreateProvider is not implemented"))
 }
 
 func (UnimplementedProviderServiceHandler) UpdateProvider(context.Context, *v1.UpdateProviderRequest) (*v1.UpdateProviderResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.UpdateProvider is not implemented"))
 }
 
-func (UnimplementedProviderServiceHandler) UpdateProviderAuthentication(context.Context, *v1.UpdateProviderAuthenticationRequest) (*v1.UpdateProviderAuthenticationResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.UpdateProviderAuthentication is not implemented"))
-}
-
-func (UnimplementedProviderServiceHandler) UpdateProviderObservabilityAuthentication(context.Context, *v1.UpdateProviderObservabilityAuthenticationRequest) (*v1.UpdateProviderObservabilityAuthenticationResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.UpdateProviderObservabilityAuthentication is not implemented"))
-}
-
 func (UnimplementedProviderServiceHandler) DeleteProvider(context.Context, *v1.DeleteProviderRequest) (*v1.DeleteProviderResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.DeleteProvider is not implemented"))
-}
-
-func (UnimplementedProviderServiceHandler) CreateProviderSurfaceBinding(context.Context, *v1.CreateProviderSurfaceBindingRequest) (*v1.CreateProviderSurfaceBindingResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.CreateProviderSurfaceBinding is not implemented"))
-}
-
-func (UnimplementedProviderServiceHandler) UpdateProviderSurfaceBinding(context.Context, *v1.UpdateProviderSurfaceBindingRequest) (*v1.UpdateProviderSurfaceBindingResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.UpdateProviderSurfaceBinding is not implemented"))
-}
-
-func (UnimplementedProviderServiceHandler) DeleteProviderSurfaceBinding(context.Context, *v1.DeleteProviderSurfaceBindingRequest) (*v1.DeleteProviderSurfaceBindingResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.DeleteProviderSurfaceBinding is not implemented"))
-}
-
-func (UnimplementedProviderServiceHandler) ConnectProvider(context.Context, *v1.ConnectProviderRequest) (*v1.ConnectProviderResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.ConnectProvider is not implemented"))
-}
-
-func (UnimplementedProviderServiceHandler) GetProviderConnectSession(context.Context, *v1.GetProviderConnectSessionRequest) (*v1.GetProviderConnectSessionResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.GetProviderConnectSession is not implemented"))
 }
 
 func (UnimplementedProviderServiceHandler) ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error) {
@@ -702,8 +436,4 @@ func (UnimplementedProviderServiceHandler) ListTemplates(context.Context, *v1.Li
 
 func (UnimplementedProviderServiceHandler) ApplyTemplate(context.Context, *v1.ApplyTemplateRequest) (*v1.ApplyTemplateResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.ApplyTemplate is not implemented"))
-}
-
-func (UnimplementedProviderServiceHandler) BindProviderCatalogs(context.Context, *v1.BindProviderCatalogsRequest) (*v1.BindProviderCatalogsResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.BindProviderCatalogs is not implemented"))
 }

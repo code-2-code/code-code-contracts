@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package product_info.v1;
+
+option go_package = "code-code.internal/go-contract/product_info/v1;productinfov1";
+
+// ProductInfo carries display resources for one product.
+// Kind-agnostic — consumers should not branch on source type.
+message ProductInfo {
+  // Stable identifier (e.g. "google", "anthropic", "claude-code").
+  string id = 1;
+
+  // Human-readable display name.
+  string display_name = 2;
+
+  // Public logo/icon URL.
+  string icon_url = 3;
+
+  // Official website URL.
+  string website_url = 4;
+}

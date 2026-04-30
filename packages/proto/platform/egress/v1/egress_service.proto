@@ -27,6 +27,10 @@ message ApplyExternalAccessSetResponse {
   int32 updated_external_rule_count = 3;
   int32 removed_external_rule_count = 4;
   int32 unchanged_external_rule_count = 5;
+  int32 added_proxy_endpoint_count = 6;
+  int32 updated_proxy_endpoint_count = 7;
+  int32 removed_proxy_endpoint_count = 8;
+  int32 unchanged_proxy_endpoint_count = 9;
 }
 
 message DeleteExternalAccessSetRequest {
@@ -38,7 +42,8 @@ message DeleteExternalAccessSetResponse {
   platform.management.v1.EgressPolicyView item = 1;
   int32 removed_external_rule_count = 2;
   int32 removed_service_rule_count = 3;
-  int32 removed_http_route_count = 4;
+  int32 removed_http_inspection_rule_count = 4;
+  int32 removed_proxy_endpoint_count = 5;
 }
 
 message GetEgressRuntimePolicyRequest {

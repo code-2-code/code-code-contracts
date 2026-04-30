@@ -32,7 +32,7 @@ func TestValidateCapabilityAcceptsPrometheusCompatibleMetrics(t *testing.T) {
 					Kind:        ObservabilityMetricKind_OBSERVABILITY_METRIC_KIND_GAUGE,
 					Category:    ObservabilityMetricCategory_OBSERVABILITY_METRIC_CATEGORY_USAGE,
 					Attributes: []*ObservabilityMetricAttribute{{
-						Name:             "provider_surface_binding_id",
+						Name:             "surface_id",
 						Description:      "Stable provider endpoint id.",
 						RequirementLevel: ObservabilityAttributeRequirementLevel_OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_REQUIRED,
 					}},
@@ -96,7 +96,7 @@ func TestValidateCapabilityAcceptsResponseHeaderLabels(t *testing.T) {
 				Attributes: []*ObservabilityMetricAttribute{
 					{Name: "vendor_id", Description: "Vendor.", RequirementLevel: ObservabilityAttributeRequirementLevel_OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_REQUIRED},
 					{Name: "provider_account_id", Description: "Account.", RequirementLevel: ObservabilityAttributeRequirementLevel_OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_REQUIRED},
-					{Name: "provider_surface_binding_id", Description: "Endpoint.", RequirementLevel: ObservabilityAttributeRequirementLevel_OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_REQUIRED},
+					{Name: "surface_id", Description: "Endpoint.", RequirementLevel: ObservabilityAttributeRequirementLevel_OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_REQUIRED},
 					{Name: "resource", Description: "Resource.", RequirementLevel: ObservabilityAttributeRequirementLevel_OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_REQUIRED},
 				},
 			}},
@@ -289,8 +289,7 @@ func TestValidateCapabilityAcceptsActiveQueryCredentialBackfills(t *testing.T) {
 					CollectorId:         "gemini-cli",
 					CredentialBackfills: []*CredentialBackfillRule{{
 						RuleId:            "project-id",
-						Source:            CredentialBackfillSource_CREDENTIAL_BACKFILL_SOURCE_COLLECTOR_OUTPUT,
-						SourceName:        "project_id",
+						OutputFieldId:     "project_id",
 						TargetMaterialKey: "project_id",
 					}},
 				},
@@ -407,14 +406,12 @@ func TestValidateCapabilityRejectsDuplicateCredentialBackfillTargets(t *testing.
 					CredentialBackfills: []*CredentialBackfillRule{
 						{
 							RuleId:            "project-id",
-							Source:            CredentialBackfillSource_CREDENTIAL_BACKFILL_SOURCE_COLLECTOR_OUTPUT,
-							SourceName:        "project_id",
+							OutputFieldId:     "project_id",
 							TargetMaterialKey: "project_id",
 						},
 						{
 							RuleId:            "project-id-alt",
-							Source:            CredentialBackfillSource_CREDENTIAL_BACKFILL_SOURCE_COLLECTOR_OUTPUT,
-							SourceName:        "project",
+							OutputFieldId:     "project",
 							TargetMaterialKey: "project_id",
 						},
 					},

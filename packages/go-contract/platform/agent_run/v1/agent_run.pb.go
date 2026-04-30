@@ -397,15 +397,15 @@ func (x *AgentRunSpec) GetAgentRuntimeId() string {
 // AgentRunAuthRequirement captures the provider auth requirement visible to
 // the session/run domain.
 type AgentRunAuthRequirement struct {
-	state                    protoimpl.MessageState  `protogen:"open.v1"`
-	ProviderId               string                  `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
-	ProviderSurfaceBindingId string                  `protobuf:"bytes,2,opt,name=provider_surface_binding_id,json=providerSurfaceBindingId,proto3" json:"provider_surface_binding_id,omitempty"`
-	AuthStatus               string                  `protobuf:"bytes,3,opt,name=auth_status,json=authStatus,proto3" json:"auth_status,omitempty"`
-	RuntimeUrl               string                  `protobuf:"bytes,4,opt,name=runtime_url,json=runtimeUrl,proto3" json:"runtime_url,omitempty"`
-	MaterializationKey       string                  `protobuf:"bytes,5,opt,name=materialization_key,json=materializationKey,proto3" json:"materialization_key,omitempty"`
-	ProviderRunBinding       *v11.ProviderRunBinding `protobuf:"bytes,6,opt,name=provider_run_binding,json=providerRunBinding,proto3" json:"provider_run_binding,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state              protoimpl.MessageState  `protogen:"open.v1"`
+	ProviderId         string                  `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
+	AuthStatus         string                  `protobuf:"bytes,3,opt,name=auth_status,json=authStatus,proto3" json:"auth_status,omitempty"`
+	RuntimeUrl         string                  `protobuf:"bytes,4,opt,name=runtime_url,json=runtimeUrl,proto3" json:"runtime_url,omitempty"`
+	MaterializationKey string                  `protobuf:"bytes,5,opt,name=materialization_key,json=materializationKey,proto3" json:"materialization_key,omitempty"`
+	ProviderRunBinding *v11.ProviderRunBinding `protobuf:"bytes,6,opt,name=provider_run_binding,json=providerRunBinding,proto3" json:"provider_run_binding,omitempty"`
+	SurfaceId          string                  `protobuf:"bytes,7,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *AgentRunAuthRequirement) Reset() {
@@ -445,13 +445,6 @@ func (x *AgentRunAuthRequirement) GetProviderId() string {
 	return ""
 }
 
-func (x *AgentRunAuthRequirement) GetProviderSurfaceBindingId() string {
-	if x != nil {
-		return x.ProviderSurfaceBindingId
-	}
-	return ""
-}
-
 func (x *AgentRunAuthRequirement) GetAuthStatus() string {
 	if x != nil {
 		return x.AuthStatus
@@ -478,6 +471,13 @@ func (x *AgentRunAuthRequirement) GetProviderRunBinding() *v11.ProviderRunBindin
 		return x.ProviderRunBinding
 	}
 	return nil
+}
+
+func (x *AgentRunAuthRequirement) GetSurfaceId() string {
+	if x != nil {
+		return x.SurfaceId
+	}
+	return ""
 }
 
 // AgentRunPrepareJob captures one CLI-scoped prepare workload before execution.
@@ -941,17 +941,18 @@ const file_platform_agent_run_v1_agent_run_proto_rawDesc = "" +
 	"\fworkspace_id\x18\x10 \x01(\tR\vworkspaceId\x12\"\n" +
 	"\rhome_state_id\x18\x11 \x01(\tR\vhomeStateId\x12L\n" +
 	"\fprepare_jobs\x18\x12 \x03(\v2).platform.agent_run.v1.AgentRunPrepareJobR\vprepareJobs\x12(\n" +
-	"\x10agent_runtime_id\x18\x13 \x01(\tR\x0eagentRuntimeId\"\xbf\x02\n" +
+	"\x10agent_runtime_id\x18\x13 \x01(\tR\x0eagentRuntimeId\"\xa5\x02\n" +
 	"\x17AgentRunAuthRequirement\x12\x1f\n" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
-	"providerId\x12=\n" +
-	"\x1bprovider_surface_binding_id\x18\x02 \x01(\tR\x18providerSurfaceBindingId\x12\x1f\n" +
+	"providerId\x12\x1f\n" +
 	"\vauth_status\x18\x03 \x01(\tR\n" +
 	"authStatus\x12\x1f\n" +
 	"\vruntime_url\x18\x04 \x01(\tR\n" +
 	"runtimeUrl\x12/\n" +
 	"\x13materialization_key\x18\x05 \x01(\tR\x12materializationKey\x12Q\n" +
-	"\x14provider_run_binding\x18\x06 \x01(\v2\x1f.provider.v1.ProviderRunBindingR\x12providerRunBinding\"\x8c\x02\n" +
+	"\x14provider_run_binding\x18\x06 \x01(\v2\x1f.provider.v1.ProviderRunBindingR\x12providerRunBinding\x12\x1d\n" +
+	"\n" +
+	"surface_id\x18\a \x01(\tR\tsurfaceIdJ\x04\b\x02\x10\x03\"\x8c\x02\n" +
 	"\x12AgentRunPrepareJob\x12\x15\n" +
 	"\x06job_id\x18\x01 \x01(\tR\x05jobId\x12\x19\n" +
 	"\bjob_type\x18\x02 \x01(\tR\ajobType\x12K\n" +

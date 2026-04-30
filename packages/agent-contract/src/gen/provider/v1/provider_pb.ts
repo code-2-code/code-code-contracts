@@ -18,7 +18,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file provider/v1/provider.proto.
  */
 export const file_provider_v1_provider: GenFile = /*@__PURE__*/
-  fileDesc("Chpwcm92aWRlci92MS9wcm92aWRlci5wcm90bxILcHJvdmlkZXIudjEi9AIKD1Byb3ZpZGVyU3VyZmFjZRISCgpzdXJmYWNlX2lkGAEgASgJEhQKDGRpc3BsYXlfbmFtZRgCIAEoCRJBChpzdXBwb3J0ZWRfY3JlZGVudGlhbF9raW5kcxgDIAMoDjIdLmNyZWRlbnRpYWwudjEuQ3JlZGVudGlhbEtpbmQSNwoMY2FwYWJpbGl0aWVzGAUgASgLMiEucHJvdmlkZXIudjEuUHJvdmlkZXJDYXBhYmlsaXRpZXMSLgoEa2luZBgGIAEoDjIgLnByb3ZpZGVyLnYxLlByb3ZpZGVyU3VyZmFjZUtpbmQSMAoDYXBpGAggASgLMiMucHJvdmlkZXIudjEuUHJvdmlkZXJTdXJmYWNlQVBJU3BlYxIyCgZwcm9iZXMYCSABKAsyIi5wcm92aWRlci52MS5Qcm92aWRlclN1cmZhY2VQcm9iZXNKBAgEEAVKBAgHEAhSE3N1cHBvcnRlZF9wcm90b2NvbHNSBG1ldGEiUAoWUHJvdmlkZXJTdXJmYWNlQVBJU3BlYxI2ChNzdXBwb3J0ZWRfcHJvdG9jb2xzGAEgAygOMhkuYXBpX3Byb3RvY29sLnYxLlByb3RvY29sIpQBChVQcm92aWRlclN1cmZhY2VQcm9iZXMSRAoNbW9kZWxfY2F0YWxvZxgBIAEoCzItLnByb3ZpZGVyLnYxLlByb3ZpZGVyU3VyZmFjZU1vZGVsQ2F0YWxvZ1Byb2JlEjUKBXF1b3RhGAIgASgLMiYucHJvdmlkZXIudjEuUHJvdmlkZXJTdXJmYWNlUXVvdGFQcm9iZSJnCiBQcm92aWRlclN1cmZhY2VNb2RlbENhdGFsb2dQcm9iZRJDCgZtZXRob2QYASABKA4yMy5wcm92aWRlci52MS5Qcm92aWRlclN1cmZhY2VNb2RlbENhdGFsb2dQcm9iZU1ldGhvZCKNAQoZUHJvdmlkZXJTdXJmYWNlUXVvdGFQcm9iZRIRCglzY2hlbWFfaWQYASABKAkSMgoEYXJncxgCIAMoCzIkLnByb3ZpZGVyLnYxLlByb3ZpZGVyU3VyZmFjZVByb2JlQXJnEhQKDGRpc3BsYXlfbmFtZRgDIAEoCRITCgtkZXNjcmlwdGlvbhgEIAEoCSKhAQoXUHJvdmlkZXJTdXJmYWNlUHJvYmVBcmcSDgoGYXJnX2lkGAEgASgJEhQKDGRpc3BsYXlfbmFtZRgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEoCRIQCghyZXF1aXJlZBgEIAEoCBIRCglzZW5zaXRpdmUYBSABKAgSEQoJbXVsdGlsaW5lGAYgASgIEhMKC3BsYWNlaG9sZGVyGAcgASgJIsgBCghQcm92aWRlchITCgtwcm92aWRlcl9pZBgBIAEoCRIUCgxkaXNwbGF5X25hbWUYAiABKAkSNQoIc3VyZmFjZXMYByADKAsyIy5wcm92aWRlci52MS5Qcm92aWRlclN1cmZhY2VCaW5kaW5nSgQIBBAFSgQIBRAGSgQIBhAHSgQICBAJUgl2ZW5kb3JfaWRSFnByb3ZpZGVyX2NyZWRlbnRpYWxfaWRSEGRlZmF1bHRfbW9kZWxfaWRSDW1vZGVsX2NhdGFsb2cipQEKFFByb3ZpZGVyQ2FwYWJpbGl0aWVzEh8KF3N1cHBvcnRzX21vZGVsX292ZXJyaWRlGAEgASgIEiQKHHN1cHBvcnRzX21vZGVsX2NhdGFsb2dfcHJvYmUYAyABKAgSHAoUc3VwcG9ydHNfcXVvdGFfcHJvYmUYBCABKAhKBAgCEANSInN1cHBvcnRzX2F2YWlsYWJsZV9tb2RlbF9kaXNjb3Zlcnki7wMKFlByb3ZpZGVyU3VyZmFjZUJpbmRpbmcSEgoKc3VyZmFjZV9pZBgBIAEoCRJDChdwcm92aWRlcl9jcmVkZW50aWFsX3JlZhgMIAEoCzIiLnByb3ZpZGVyLnYxLlByb3ZpZGVyQ3JlZGVudGlhbFJlZhI0CgdydW50aW1lGA0gASgLMiMucHJvdmlkZXIudjEuUHJvdmlkZXJTdXJmYWNlUnVudGltZRI5Cgpzb3VyY2VfcmVmGBEgASgLMiUucHJvdmlkZXIudjEuUHJvdmlkZXJTdXJmYWNlU291cmNlUmVmSgQIAxAESgQIBBAFSgQIBRAGSgQIBhAHSgQIBxAISgQICBAJSgQICRAKSgQIChALSgQICxAMSgQIDhAPSgQIDxAQSgQIEBARUg5jcmVkZW50aWFsX3JlZlISbmV0d29ya19wb2xpY3lfcmVmUghwcm90b2NvbFIIYmFzZV91cmxSD2ZhbGxiYWNrX21vZGVsc1IRYWxsb3dlZF9tb2RlbF9pZHNSEGRlZmF1bHRfbW9kZWxfaWRSEnNlbGVjdGlvbl9wcmlvcml0eVISdmVuZG9yX2FjY291bnRfcmVmUgl2ZW5kb3JfaWRSC3Byb3ZpZGVyX2lkUhVwcm92aWRlcl9kaXNwbGF5X25hbWUicAoYUHJvdmlkZXJTdXJmYWNlU291cmNlUmVmEjQKBGtpbmQYASABKA4yJi5wcm92aWRlci52MS5Qcm92aWRlclN1cmZhY2VTb3VyY2VLaW5kEgoKAmlkGAIgASgJEhIKCnN1cmZhY2VfaWQYAyABKAkiNwoVUHJvdmlkZXJDcmVkZW50aWFsUmVmEh4KFnByb3ZpZGVyX2NyZWRlbnRpYWxfaWQYASABKAkirQEKElByb3ZpZGVyUnVudGltZVJlZhITCgtwcm92aWRlcl9pZBgBIAEoCRISCgpzdXJmYWNlX2lkGAIgASgJEjEKA2FwaRgDIAEoCzIiLnByb3ZpZGVyLnYxLlByb3ZpZGVyUnVudGltZUFQSVJlZkgAEjEKA2NsaRgEIAEoCzIiLnByb3ZpZGVyLnYxLlByb3ZpZGVyUnVudGltZUNMSVJlZkgAQggKBmFjY2VzcyJEChVQcm92aWRlclJ1bnRpbWVBUElSZWYSKwoIcHJvdG9jb2wYASABKA4yGS5hcGlfcHJvdG9jb2wudjEuUHJvdG9jb2wiFwoVUHJvdmlkZXJSdW50aW1lQ0xJUmVmIvICChJQcm92aWRlclJ1bkJpbmRpbmcSEwoLcHJvdmlkZXJfaWQYASABKAkSPwoUY3JlZGVudGlhbF9ncmFudF9yZWYYAiABKAsyIS5jcmVkZW50aWFsLnYxLkNyZWRlbnRpYWxHcmFudFJlZhITCgtydW50aW1lX3VybBgDIAEoCRIbChNtYXRlcmlhbGl6YXRpb25fa2V5GAQgASgJEhYKDnJ1bnRpbWVfY2xpX2lkGAUgASgJEhkKEXByb3ZpZGVyX21vZGVsX2lkGAYgASgJEhoKEmNhbm9uaWNhbF9tb2RlbF9pZBgHIAEoCRIXCg9zb3VyY2VfbW9kZWxfaWQYCCABKAkSMAoDYXBpGAkgASgLMiEucHJvdmlkZXIudjEuUHJvdmlkZXJSdW5BUElBY2Nlc3NIABIwCgNjbGkYCiABKAsyIS5wcm92aWRlci52MS5Qcm92aWRlclJ1bkNMSUFjY2Vzc0gAQggKBmFjY2VzcyJDChRQcm92aWRlclJ1bkFQSUFjY2VzcxIrCghwcm90b2NvbBgBIAEoDjIZLmFwaV9wcm90b2NvbC52MS5Qcm90b2NvbCIWChRQcm92aWRlclJ1bkNMSUFjY2VzcyKaAwoWUHJvdmlkZXJTdXJmYWNlUnVudGltZRIUCgxkaXNwbGF5X25hbWUYASABKAkSMgoGb3JpZ2luGAIgASgOMiIucHJvdmlkZXIudjEuUHJvdmlkZXJTdXJmYWNlT3JpZ2luEjIKB2NhdGFsb2cYBCABKAsyIS5wcm92aWRlci52MS5Qcm92aWRlck1vZGVsQ2F0YWxvZxI1CgNhcGkYBSABKAsyJi5wcm92aWRlci52MS5Qcm92aWRlckFQSVN1cmZhY2VSdW50aW1lSAASNQoDY2xpGAYgASgLMiYucHJvdmlkZXIudjEuUHJvdmlkZXJDTElTdXJmYWNlUnVudGltZUgAEh4KFm1vZGVsX2NhdGFsb2dfcHJvYmVfaWQYCiABKAkSFgoOcXVvdGFfcHJvYmVfaWQYCyABKAkSGQoRZWdyZXNzX3J1bGVzZXRfaWQYDCABKAkSDwoHbWl0bV9pZBgNIAEoCUIICgZhY2Nlc3NKBAgDEARSIHN1cHBvcnRzX2R5bmFtaWNfbW9kZWxfZGlzY292ZXJ5IloKGVByb3ZpZGVyQVBJU3VyZmFjZVJ1bnRpbWUSKwoIcHJvdG9jb2wYASABKA4yGS5hcGlfcHJvdG9jb2wudjEuUHJvdG9jb2wSEAoIYmFzZV91cmwYAiABKAkiKwoZUHJvdmlkZXJDTElTdXJmYWNlUnVudGltZRIOCgZjbGlfaWQYASABKAkiXQoZUHJvdmlkZXJNb2RlbENhdGFsb2dFbnRyeRIZChFwcm92aWRlcl9tb2RlbF9pZBgBIAEoCRIlCgltb2RlbF9yZWYYAiABKAsyEi5tb2RlbC52MS5Nb2RlbFJlZiLcAQoUUHJvdmlkZXJNb2RlbENhdGFsb2cSNgoGbW9kZWxzGAEgAygLMiYucHJvdmlkZXIudjEuUHJvdmlkZXJNb2RlbENhdGFsb2dFbnRyeRIqCgZzb3VyY2UYAiABKA4yGi5wcm92aWRlci52MS5DYXRhbG9nU291cmNlEi4KCnVwZGF0ZWRfYXQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjAKDXJlZnJlc2hfYWZ0ZXIYBCABKAsyGS5nb29nbGUucHJvdG9idWYuRHVyYXRpb24igAEKF1Jlc29sdmVkUHJvdmlkZXJTdXJmYWNlEjQKB3N1cmZhY2UYASABKAsyIy5wcm92aWRlci52MS5Qcm92aWRlclN1cmZhY2VSdW50aW1lEi8KBGF1dGgYAiABKAsyIS5jcmVkZW50aWFsLnYxLlJlc29sdmVkQ3JlZGVudGlhbCKpAgoVUmVzb2x2ZWRQcm92aWRlck1vZGVsEhIKCnN1cmZhY2VfaWQYASABKAkSGQoRcHJvdmlkZXJfbW9kZWxfaWQYAyABKAkSKwoIcHJvdG9jb2wYBCABKA4yGS5hcGlfcHJvdG9jb2wudjEuUHJvdG9jb2wSEAoIYmFzZV91cmwYBSABKAkSJgoFbW9kZWwYBiABKAsyFy5tb2RlbC52MS5SZXNvbHZlZE1vZGVsEioKBnNvdXJjZRgIIAEoDjIaLnByb3ZpZGVyLnYxLkNhdGFsb2dTb3VyY2USNQoHc3VyZmFjZRgJIAEoCzIkLnByb3ZpZGVyLnYxLlJlc29sdmVkUHJvdmlkZXJTdXJmYWNlSgQIBxAIUhFwcm92aWRlcl9tZXRhZGF0YSqcAgomUHJvdmlkZXJTdXJmYWNlTW9kZWxDYXRhbG9nUHJvYmVNZXRob2QSOwo3UFJPVklERVJfU1VSRkFDRV9NT0RFTF9DQVRBTE9HX1BST0JFX01FVEhPRF9VTlNQRUNJRklFRBAAEkQKQFBST1ZJREVSX1NVUkZBQ0VfTU9ERUxfQ0FUQUxPR19QUk9CRV9NRVRIT0RfUFJPVE9DT0xfQkVTVF9FRkZPUlQQARI2CjJQUk9WSURFUl9TVVJGQUNFX01PREVMX0NBVEFMT0dfUFJPQkVfTUVUSE9EX1NUQVRJQxACEjcKM1BST1ZJREVSX1NVUkZBQ0VfTU9ERUxfQ0FUQUxPR19QUk9CRV9NRVRIT0RfQURBUFRFUhADKpkBChNQcm92aWRlclN1cmZhY2VLaW5kEiUKIVBST1ZJREVSX1NVUkZBQ0VfS0lORF9VTlNQRUNJRklFRBAAEh0KGVBST1ZJREVSX1NVUkZBQ0VfS0lORF9BUEkQARIdChlQUk9WSURFUl9TVVJGQUNFX0tJTkRfQ0xJEAISHQoZUFJPVklERVJfU1VSRkFDRV9LSU5EX1dFQhADKpgBChlQcm92aWRlclN1cmZhY2VTb3VyY2VLaW5kEiwKKFBST1ZJREVSX1NVUkZBQ0VfU09VUkNFX0tJTkRfVU5TUEVDSUZJRUQQABInCiNQUk9WSURFUl9TVVJGQUNFX1NPVVJDRV9LSU5EX1ZFTkRPUhABEiQKIFBST1ZJREVSX1NVUkZBQ0VfU09VUkNFX0tJTkRfQ0xJEAIqiQEKFVByb3ZpZGVyU3VyZmFjZU9yaWdpbhInCiNQUk9WSURFUl9TVVJGQUNFX09SSUdJTl9VTlNQRUNJRklFRBAAEiMKH1BST1ZJREVSX1NVUkZBQ0VfT1JJR0lOX0RFUklWRUQQARIiCh5QUk9WSURFUl9TVVJGQUNFX09SSUdJTl9NQU5VQUwQAiq6AQoNQ2F0YWxvZ1NvdXJjZRIeChpDQVRBTE9HX1NPVVJDRV9VTlNQRUNJRklFRBAAEiAKHENBVEFMT0dfU09VUkNFX01PREVMX1NFUlZJQ0UQARIhCh1DQVRBTE9HX1NPVVJDRV9QUk9UT0NPTF9RVUVSWRACEiIKHkNBVEFMT0dfU09VUkNFX0ZBTExCQUNLX0NPTkZJRxADEiAKHENBVEFMT0dfU09VUkNFX1ZFTkRPUl9QUkVTRVQQBEI3WjVjb2RlLWNvZGUuaW50ZXJuYWwvZ28tY29udHJhY3QvcHJvdmlkZXIvdjE7cHJvdmlkZXJ2MWIGcHJvdG8z", [file_credential_v1_credential, file_google_protobuf_duration, file_google_protobuf_timestamp, file_api_protocol_v1_protocol, file_model_v1_model]);
+  fileDesc("Chpwcm92aWRlci92MS9wcm92aWRlci5wcm90bxILcHJvdmlkZXIudjEi3AMKD1Byb3ZpZGVyU3VyZmFjZRISCgpzdXJmYWNlX2lkGAEgASgJEhQKDGRpc3BsYXlfbmFtZRgCIAEoCRJBChpzdXBwb3J0ZWRfY3JlZGVudGlhbF9raW5kcxgDIAMoDjIdLmNyZWRlbnRpYWwudjEuQ3JlZGVudGlhbEtpbmQSNwoMY2FwYWJpbGl0aWVzGAUgASgLMiEucHJvdmlkZXIudjEuUHJvdmlkZXJDYXBhYmlsaXRpZXMSLgoEa2luZBgGIAEoDjIgLnByb3ZpZGVyLnYxLlByb3ZpZGVyU3VyZmFjZUtpbmQSMgoDYXBpGAggASgLMiMucHJvdmlkZXIudjEuUHJvdmlkZXJTdXJmYWNlQVBJU3BlY0gAEjIKA2NsaRgKIAEoCzIjLnByb3ZpZGVyLnYxLlByb3ZpZGVyU3VyZmFjZUNMSVNwZWNIABIyCgN3ZWIYCyABKAsyIy5wcm92aWRlci52MS5Qcm92aWRlclN1cmZhY2VXZWJTcGVjSAASMgoGcHJvYmVzGAkgASgLMiIucHJvdmlkZXIudjEuUHJvdmlkZXJTdXJmYWNlUHJvYmVzQgYKBHNwZWNKBAgEEAVKBAgHEAhSCXZlbmRvcl9pZFIEbWV0YSJpChZQcm92aWRlclN1cmZhY2VBUElTcGVjEjYKE3N1cHBvcnRlZF9wcm90b2NvbHMYASADKA4yGS5hcGlfcHJvdG9jb2wudjEuUHJvdG9jb2wSFwoPcHJvZHVjdF9pbmZvX2lkGAIgASgJIkEKFlByb3ZpZGVyU3VyZmFjZUNMSVNwZWMSDgoGY2xpX2lkGAEgASgJEhcKD3Byb2R1Y3RfaW5mb19pZBgCIAEoCSIxChZQcm92aWRlclN1cmZhY2VXZWJTcGVjEhcKD3Byb2R1Y3RfaW5mb19pZBgBIAEoCSKUAQoVUHJvdmlkZXJTdXJmYWNlUHJvYmVzEkQKDW1vZGVsX2NhdGFsb2cYASABKAsyLS5wcm92aWRlci52MS5Qcm92aWRlclN1cmZhY2VNb2RlbENhdGFsb2dQcm9iZRI1CgVxdW90YRgCIAEoCzImLnByb3ZpZGVyLnYxLlByb3ZpZGVyU3VyZmFjZVF1b3RhUHJvYmUiZwogUHJvdmlkZXJTdXJmYWNlTW9kZWxDYXRhbG9nUHJvYmUSQwoGbWV0aG9kGAEgASgOMjMucHJvdmlkZXIudjEuUHJvdmlkZXJTdXJmYWNlTW9kZWxDYXRhbG9nUHJvYmVNZXRob2QijQEKGVByb3ZpZGVyU3VyZmFjZVF1b3RhUHJvYmUSEQoJc2NoZW1hX2lkGAEgASgJEjIKBGFyZ3MYAiADKAsyJC5wcm92aWRlci52MS5Qcm92aWRlclN1cmZhY2VQcm9iZUFyZxIUCgxkaXNwbGF5X25hbWUYAyABKAkSEwoLZGVzY3JpcHRpb24YBCABKAkioQEKF1Byb3ZpZGVyU3VyZmFjZVByb2JlQXJnEg4KBmFyZ19pZBgBIAEoCRIUCgxkaXNwbGF5X25hbWUYAiABKAkSEwoLZGVzY3JpcHRpb24YAyABKAkSEAoIcmVxdWlyZWQYBCABKAgSEQoJc2Vuc2l0aXZlGAUgASgIEhEKCW11bHRpbGluZRgGIAEoCBITCgtwbGFjZWhvbGRlchgHIAEoCSLCAgoIUHJvdmlkZXISEwoLcHJvdmlkZXJfaWQYASABKAkSFAoMZGlzcGxheV9uYW1lGAIgASgJEhIKCnN1cmZhY2VfaWQYCSABKAkSQwoXcHJvdmlkZXJfY3JlZGVudGlhbF9yZWYYCiABKAsyIi5wcm92aWRlci52MS5Qcm92aWRlckNyZWRlbnRpYWxSZWYSNAoHcnVudGltZRgLIAEoCzIjLnByb3ZpZGVyLnYxLlByb3ZpZGVyU3VyZmFjZVJ1bnRpbWVKBAgEEAVKBAgFEAZKBAgGEAdKBAgIEAlKBAgHEAhKBAgMEA1SCXZlbmRvcl9pZFIWcHJvdmlkZXJfY3JlZGVudGlhbF9pZFIQZGVmYXVsdF9tb2RlbF9pZFINbW9kZWxfY2F0YWxvZ1IIc3VyZmFjZXNSCnNvdXJjZV9yZWYipQEKFFByb3ZpZGVyQ2FwYWJpbGl0aWVzEh8KF3N1cHBvcnRzX21vZGVsX292ZXJyaWRlGAEgASgIEiQKHHN1cHBvcnRzX21vZGVsX2NhdGFsb2dfcHJvYmUYAyABKAgSHAoUc3VwcG9ydHNfcXVvdGFfcHJvYmUYBCABKAhKBAgCEANSInN1cHBvcnRzX2F2YWlsYWJsZV9tb2RlbF9kaXNjb3ZlcnkiNwoVUHJvdmlkZXJDcmVkZW50aWFsUmVmEh4KFnByb3ZpZGVyX2NyZWRlbnRpYWxfaWQYASABKAkirQEKElByb3ZpZGVyUnVudGltZVJlZhITCgtwcm92aWRlcl9pZBgBIAEoCRISCgpzdXJmYWNlX2lkGAIgASgJEjEKA2FwaRgDIAEoCzIiLnByb3ZpZGVyLnYxLlByb3ZpZGVyUnVudGltZUFQSVJlZkgAEjEKA2NsaRgEIAEoCzIiLnByb3ZpZGVyLnYxLlByb3ZpZGVyUnVudGltZUNMSVJlZkgAQggKBmFjY2VzcyJEChVQcm92aWRlclJ1bnRpbWVBUElSZWYSKwoIcHJvdG9jb2wYASABKA4yGS5hcGlfcHJvdG9jb2wudjEuUHJvdG9jb2wiFwoVUHJvdmlkZXJSdW50aW1lQ0xJUmVmIvICChJQcm92aWRlclJ1bkJpbmRpbmcSEwoLcHJvdmlkZXJfaWQYASABKAkSPwoUY3JlZGVudGlhbF9ncmFudF9yZWYYAiABKAsyIS5jcmVkZW50aWFsLnYxLkNyZWRlbnRpYWxHcmFudFJlZhITCgtydW50aW1lX3VybBgDIAEoCRIbChNtYXRlcmlhbGl6YXRpb25fa2V5GAQgASgJEhYKDnJ1bnRpbWVfY2xpX2lkGAUgASgJEhkKEXByb3ZpZGVyX21vZGVsX2lkGAYgASgJEhoKEmNhbm9uaWNhbF9tb2RlbF9pZBgHIAEoCRIXCg9zb3VyY2VfbW9kZWxfaWQYCCABKAkSMAoDYXBpGAkgASgLMiEucHJvdmlkZXIudjEuUHJvdmlkZXJSdW5BUElBY2Nlc3NIABIwCgNjbGkYCiABKAsyIS5wcm92aWRlci52MS5Qcm92aWRlclJ1bkNMSUFjY2Vzc0gAQggKBmFjY2VzcyJDChRQcm92aWRlclJ1bkFQSUFjY2VzcxIrCghwcm90b2NvbBgBIAEoDjIZLmFwaV9wcm90b2NvbC52MS5Qcm90b2NvbCIWChRQcm92aWRlclJ1bkNMSUFjY2VzcyKJAwoWUHJvdmlkZXJTdXJmYWNlUnVudGltZRIUCgxkaXNwbGF5X25hbWUYASABKAkSMgoGb3JpZ2luGAIgASgOMiIucHJvdmlkZXIudjEuUHJvdmlkZXJTdXJmYWNlT3JpZ2luEjIKB2NhdGFsb2cYBCABKAsyIS5wcm92aWRlci52MS5Qcm92aWRlck1vZGVsQ2F0YWxvZxI1CgNhcGkYBSABKAsyJi5wcm92aWRlci52MS5Qcm92aWRlckFQSVN1cmZhY2VSdW50aW1lSAASNQoDY2xpGAYgASgLMiYucHJvdmlkZXIudjEuUHJvdmlkZXJDTElTdXJmYWNlUnVudGltZUgAEh4KFm1vZGVsX2NhdGFsb2dfcHJvYmVfaWQYCiABKAkSFgoOcXVvdGFfcHJvYmVfaWQYCyABKAkSGQoRZWdyZXNzX3J1bGVzZXRfaWQYDCABKAlCCAoGYWNjZXNzSgQIAxAEUiBzdXBwb3J0c19keW5hbWljX21vZGVsX2Rpc2NvdmVyeSJaChlQcm92aWRlckFQSVN1cmZhY2VSdW50aW1lEisKCHByb3RvY29sGAEgASgOMhkuYXBpX3Byb3RvY29sLnYxLlByb3RvY29sEhAKCGJhc2VfdXJsGAIgASgJIisKGVByb3ZpZGVyQ0xJU3VyZmFjZVJ1bnRpbWUSDgoGY2xpX2lkGAEgASgJIl0KGVByb3ZpZGVyTW9kZWxDYXRhbG9nRW50cnkSGQoRcHJvdmlkZXJfbW9kZWxfaWQYASABKAkSJQoJbW9kZWxfcmVmGAIgASgLMhIubW9kZWwudjEuTW9kZWxSZWYi3AEKFFByb3ZpZGVyTW9kZWxDYXRhbG9nEjYKBm1vZGVscxgBIAMoCzImLnByb3ZpZGVyLnYxLlByb3ZpZGVyTW9kZWxDYXRhbG9nRW50cnkSKgoGc291cmNlGAIgASgOMhoucHJvdmlkZXIudjEuQ2F0YWxvZ1NvdXJjZRIuCgp1cGRhdGVkX2F0GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIwCg1yZWZyZXNoX2FmdGVyGAQgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uIoABChdSZXNvbHZlZFByb3ZpZGVyU3VyZmFjZRI0CgdzdXJmYWNlGAEgASgLMiMucHJvdmlkZXIudjEuUHJvdmlkZXJTdXJmYWNlUnVudGltZRIvCgRhdXRoGAIgASgLMiEuY3JlZGVudGlhbC52MS5SZXNvbHZlZENyZWRlbnRpYWwiqQIKFVJlc29sdmVkUHJvdmlkZXJNb2RlbBISCgpzdXJmYWNlX2lkGAEgASgJEhkKEXByb3ZpZGVyX21vZGVsX2lkGAMgASgJEisKCHByb3RvY29sGAQgASgOMhkuYXBpX3Byb3RvY29sLnYxLlByb3RvY29sEhAKCGJhc2VfdXJsGAUgASgJEiYKBW1vZGVsGAYgASgLMhcubW9kZWwudjEuUmVzb2x2ZWRNb2RlbBIqCgZzb3VyY2UYCCABKA4yGi5wcm92aWRlci52MS5DYXRhbG9nU291cmNlEjUKB3N1cmZhY2UYCSABKAsyJC5wcm92aWRlci52MS5SZXNvbHZlZFByb3ZpZGVyU3VyZmFjZUoECAcQCFIRcHJvdmlkZXJfbWV0YWRhdGEqnAIKJlByb3ZpZGVyU3VyZmFjZU1vZGVsQ2F0YWxvZ1Byb2JlTWV0aG9kEjsKN1BST1ZJREVSX1NVUkZBQ0VfTU9ERUxfQ0FUQUxPR19QUk9CRV9NRVRIT0RfVU5TUEVDSUZJRUQQABJECkBQUk9WSURFUl9TVVJGQUNFX01PREVMX0NBVEFMT0dfUFJPQkVfTUVUSE9EX1BST1RPQ09MX0JFU1RfRUZGT1JUEAESNgoyUFJPVklERVJfU1VSRkFDRV9NT0RFTF9DQVRBTE9HX1BST0JFX01FVEhPRF9TVEFUSUMQAhI3CjNQUk9WSURFUl9TVVJGQUNFX01PREVMX0NBVEFMT0dfUFJPQkVfTUVUSE9EX0FEQVBURVIQAyqZAQoTUHJvdmlkZXJTdXJmYWNlS2luZBIlCiFQUk9WSURFUl9TVVJGQUNFX0tJTkRfVU5TUEVDSUZJRUQQABIdChlQUk9WSURFUl9TVVJGQUNFX0tJTkRfQVBJEAESHQoZUFJPVklERVJfU1VSRkFDRV9LSU5EX0NMSRACEh0KGVBST1ZJREVSX1NVUkZBQ0VfS0lORF9XRUIQAyqJAQoVUHJvdmlkZXJTdXJmYWNlT3JpZ2luEicKI1BST1ZJREVSX1NVUkZBQ0VfT1JJR0lOX1VOU1BFQ0lGSUVEEAASIwofUFJPVklERVJfU1VSRkFDRV9PUklHSU5fREVSSVZFRBABEiIKHlBST1ZJREVSX1NVUkZBQ0VfT1JJR0lOX01BTlVBTBACKr8BCg1DYXRhbG9nU291cmNlEh4KGkNBVEFMT0dfU09VUkNFX1VOU1BFQ0lGSUVEEAASJQohQ0FUQUxPR19TT1VSQ0VfUFJPVklERVJfRElTQ09WRVJZEAESIQodQ0FUQUxPR19TT1VSQ0VfUFJPVE9DT0xfUVVFUlkQAhIiCh5DQVRBTE9HX1NPVVJDRV9GQUxMQkFDS19DT05GSUcQAxIgChxDQVRBTE9HX1NPVVJDRV9WRU5ET1JfUFJFU0VUEARCN1o1Y29kZS1jb2RlLmludGVybmFsL2dvLWNvbnRyYWN0L3Byb3ZpZGVyL3YxO3Byb3ZpZGVydjFiBnByb3RvMw", [file_credential_v1_credential, file_google_protobuf_duration, file_google_protobuf_timestamp, file_api_protocol_v1_protocol, file_model_v1_model]);
 
 /**
  * ProviderSurface describes one stable provider integration surface.
@@ -52,9 +52,27 @@ export type ProviderSurface = Message<"provider.v1.ProviderSurface"> & {
   kind: ProviderSurfaceKind;
 
   /**
-   * @generated from field: provider.v1.ProviderSurfaceAPISpec api = 8;
+   * @generated from oneof provider.v1.ProviderSurface.spec
    */
-  api?: ProviderSurfaceAPISpec;
+  spec: {
+    /**
+     * @generated from field: provider.v1.ProviderSurfaceAPISpec api = 8;
+     */
+    value: ProviderSurfaceAPISpec;
+    case: "api";
+  } | {
+    /**
+     * @generated from field: provider.v1.ProviderSurfaceCLISpec cli = 10;
+     */
+    value: ProviderSurfaceCLISpec;
+    case: "cli";
+  } | {
+    /**
+     * @generated from field: provider.v1.ProviderSurfaceWebSpec web = 11;
+     */
+    value: ProviderSurfaceWebSpec;
+    case: "web";
+  } | { case: undefined; value?: undefined };
 
   /**
    * @generated from field: provider.v1.ProviderSurfaceProbes probes = 9;
@@ -77,6 +95,11 @@ export type ProviderSurfaceAPISpec = Message<"provider.v1.ProviderSurfaceAPISpec
    * @generated from field: repeated api_protocol.v1.Protocol supported_protocols = 1;
    */
   supportedProtocols: Protocol[];
+
+  /**
+   * @generated from field: string product_info_id = 2;
+   */
+  productInfoId: string;
 };
 
 /**
@@ -85,6 +108,45 @@ export type ProviderSurfaceAPISpec = Message<"provider.v1.ProviderSurfaceAPISpec
  */
 export const ProviderSurfaceAPISpecSchema: GenMessage<ProviderSurfaceAPISpec> = /*@__PURE__*/
   messageDesc(file_provider_v1_provider, 1);
+
+/**
+ * @generated from message provider.v1.ProviderSurfaceCLISpec
+ */
+export type ProviderSurfaceCLISpec = Message<"provider.v1.ProviderSurfaceCLISpec"> & {
+  /**
+   * @generated from field: string cli_id = 1;
+   */
+  cliId: string;
+
+  /**
+   * @generated from field: string product_info_id = 2;
+   */
+  productInfoId: string;
+};
+
+/**
+ * Describes the message provider.v1.ProviderSurfaceCLISpec.
+ * Use `create(ProviderSurfaceCLISpecSchema)` to create a new message.
+ */
+export const ProviderSurfaceCLISpecSchema: GenMessage<ProviderSurfaceCLISpec> = /*@__PURE__*/
+  messageDesc(file_provider_v1_provider, 2);
+
+/**
+ * @generated from message provider.v1.ProviderSurfaceWebSpec
+ */
+export type ProviderSurfaceWebSpec = Message<"provider.v1.ProviderSurfaceWebSpec"> & {
+  /**
+   * @generated from field: string product_info_id = 1;
+   */
+  productInfoId: string;
+};
+
+/**
+ * Describes the message provider.v1.ProviderSurfaceWebSpec.
+ * Use `create(ProviderSurfaceWebSpecSchema)` to create a new message.
+ */
+export const ProviderSurfaceWebSpecSchema: GenMessage<ProviderSurfaceWebSpec> = /*@__PURE__*/
+  messageDesc(file_provider_v1_provider, 3);
 
 /**
  * @generated from message provider.v1.ProviderSurfaceProbes
@@ -106,7 +168,7 @@ export type ProviderSurfaceProbes = Message<"provider.v1.ProviderSurfaceProbes">
  * Use `create(ProviderSurfaceProbesSchema)` to create a new message.
  */
 export const ProviderSurfaceProbesSchema: GenMessage<ProviderSurfaceProbes> = /*@__PURE__*/
-  messageDesc(file_provider_v1_provider, 2);
+  messageDesc(file_provider_v1_provider, 4);
 
 /**
  * @generated from message provider.v1.ProviderSurfaceModelCatalogProbe
@@ -123,7 +185,7 @@ export type ProviderSurfaceModelCatalogProbe = Message<"provider.v1.ProviderSurf
  * Use `create(ProviderSurfaceModelCatalogProbeSchema)` to create a new message.
  */
 export const ProviderSurfaceModelCatalogProbeSchema: GenMessage<ProviderSurfaceModelCatalogProbe> = /*@__PURE__*/
-  messageDesc(file_provider_v1_provider, 3);
+  messageDesc(file_provider_v1_provider, 5);
 
 /**
  * @generated from message provider.v1.ProviderSurfaceQuotaProbe
@@ -155,7 +217,7 @@ export type ProviderSurfaceQuotaProbe = Message<"provider.v1.ProviderSurfaceQuot
  * Use `create(ProviderSurfaceQuotaProbeSchema)` to create a new message.
  */
 export const ProviderSurfaceQuotaProbeSchema: GenMessage<ProviderSurfaceQuotaProbe> = /*@__PURE__*/
-  messageDesc(file_provider_v1_provider, 4);
+  messageDesc(file_provider_v1_provider, 6);
 
 /**
  * @generated from message provider.v1.ProviderSurfaceProbeArg
@@ -202,10 +264,10 @@ export type ProviderSurfaceProbeArg = Message<"provider.v1.ProviderSurfaceProbeA
  * Use `create(ProviderSurfaceProbeArgSchema)` to create a new message.
  */
 export const ProviderSurfaceProbeArgSchema: GenMessage<ProviderSurfaceProbeArg> = /*@__PURE__*/
-  messageDesc(file_provider_v1_provider, 5);
+  messageDesc(file_provider_v1_provider, 7);
 
 /**
- * Provider describes one user-configured provider aggregate.
+ * Provider describes one user-configured provider bound to exactly one surface.
  *
  * @generated from message provider.v1.Provider
  */
@@ -221,9 +283,25 @@ export type Provider = Message<"provider.v1.Provider"> & {
   displayName: string;
 
   /**
-   * @generated from field: repeated provider.v1.ProviderSurfaceBinding surfaces = 7;
+   * The surface this provider is bound to.
+   *
+   * @generated from field: string surface_id = 9;
    */
-  surfaces: ProviderSurfaceBinding[];
+  surfaceId: string;
+
+  /**
+   * Credential reference.
+   *
+   * @generated from field: provider.v1.ProviderCredentialRef provider_credential_ref = 10;
+   */
+  providerCredentialRef?: ProviderCredentialRef;
+
+  /**
+   * Concrete callable runtime.
+   *
+   * @generated from field: provider.v1.ProviderSurfaceRuntime runtime = 11;
+   */
+  runtime?: ProviderSurfaceRuntime;
 };
 
 /**
@@ -231,7 +309,7 @@ export type Provider = Message<"provider.v1.Provider"> & {
  * Use `create(ProviderSchema)` to create a new message.
  */
 export const ProviderSchema: GenMessage<Provider> = /*@__PURE__*/
-  messageDesc(file_provider_v1_provider, 6);
+  messageDesc(file_provider_v1_provider, 8);
 
 /**
  * ProviderCapabilities describes which capabilities one provider exposes natively.
@@ -260,76 +338,6 @@ export type ProviderCapabilities = Message<"provider.v1.ProviderCapabilities"> &
  * Use `create(ProviderCapabilitiesSchema)` to create a new message.
  */
 export const ProviderCapabilitiesSchema: GenMessage<ProviderCapabilities> = /*@__PURE__*/
-  messageDesc(file_provider_v1_provider, 7);
-
-/**
- * ProviderSurfaceBinding describes one configured provider surface.
- *
- * @generated from message provider.v1.ProviderSurfaceBinding
- */
-export type ProviderSurfaceBinding = Message<"provider.v1.ProviderSurfaceBinding"> & {
-  /**
-   * @generated from field: string surface_id = 1;
-   */
-  surfaceId: string;
-
-  /**
-   * @generated from field: provider.v1.ProviderCredentialRef provider_credential_ref = 12;
-   */
-  providerCredentialRef?: ProviderCredentialRef;
-
-  /**
-   * Concrete callable runtime bound to this surface.
-   *
-   * @generated from field: provider.v1.ProviderSurfaceRuntime runtime = 13;
-   */
-  runtime?: ProviderSurfaceRuntime;
-
-  /**
-   * @generated from field: provider.v1.ProviderSurfaceSourceRef source_ref = 17;
-   */
-  sourceRef?: ProviderSurfaceSourceRef;
-};
-
-/**
- * Describes the message provider.v1.ProviderSurfaceBinding.
- * Use `create(ProviderSurfaceBindingSchema)` to create a new message.
- */
-export const ProviderSurfaceBindingSchema: GenMessage<ProviderSurfaceBinding> = /*@__PURE__*/
-  messageDesc(file_provider_v1_provider, 8);
-
-/**
- * ProviderSurfaceSourceRef identifies the package/source that owns surface
- * metadata and model catalog capability.
- *
- * @generated from message provider.v1.ProviderSurfaceSourceRef
- */
-export type ProviderSurfaceSourceRef = Message<"provider.v1.ProviderSurfaceSourceRef"> & {
-  /**
-   * @generated from field: provider.v1.ProviderSurfaceSourceKind kind = 1;
-   */
-  kind: ProviderSurfaceSourceKind;
-
-  /**
-   * Package owner id, for example vendor_id or cli_id.
-   *
-   * @generated from field: string id = 2;
-   */
-  id: string;
-
-  /**
-   * Package-local surface id.
-   *
-   * @generated from field: string surface_id = 3;
-   */
-  surfaceId: string;
-};
-
-/**
- * Describes the message provider.v1.ProviderSurfaceSourceRef.
- * Use `create(ProviderSurfaceSourceRefSchema)` to create a new message.
- */
-export const ProviderSurfaceSourceRefSchema: GenMessage<ProviderSurfaceSourceRef> = /*@__PURE__*/
   messageDesc(file_provider_v1_provider, 9);
 
 /**
@@ -573,11 +581,6 @@ export type ProviderSurfaceRuntime = Message<"provider.v1.ProviderSurfaceRuntime
    * @generated from field: string egress_ruleset_id = 12;
    */
   egressRulesetId: string;
-
-  /**
-   * @generated from field: string mitm_id = 13;
-   */
-  mitmId: string;
 };
 
 /**
@@ -825,32 +828,6 @@ export const ProviderSurfaceKindSchema: GenEnum<ProviderSurfaceKind> = /*@__PURE
   enumDesc(file_provider_v1_provider, 1);
 
 /**
- * @generated from enum provider.v1.ProviderSurfaceSourceKind
- */
-export enum ProviderSurfaceSourceKind {
-  /**
-   * @generated from enum value: PROVIDER_SURFACE_SOURCE_KIND_UNSPECIFIED = 0;
-   */
-  UNSPECIFIED = 0,
-
-  /**
-   * @generated from enum value: PROVIDER_SURFACE_SOURCE_KIND_VENDOR = 1;
-   */
-  VENDOR = 1,
-
-  /**
-   * @generated from enum value: PROVIDER_SURFACE_SOURCE_KIND_CLI = 2;
-   */
-  CLI = 2,
-}
-
-/**
- * Describes the enum provider.v1.ProviderSurfaceSourceKind.
- */
-export const ProviderSurfaceSourceKindSchema: GenEnum<ProviderSurfaceSourceKind> = /*@__PURE__*/
-  enumDesc(file_provider_v1_provider, 2);
-
-/**
  * ProviderSurfaceOrigin identifies whether a surface is derived from
  * platform metadata or defined manually by the user.
  *
@@ -877,7 +854,7 @@ export enum ProviderSurfaceOrigin {
  * Describes the enum provider.v1.ProviderSurfaceOrigin.
  */
 export const ProviderSurfaceOriginSchema: GenEnum<ProviderSurfaceOrigin> = /*@__PURE__*/
-  enumDesc(file_provider_v1_provider, 3);
+  enumDesc(file_provider_v1_provider, 2);
 
 /**
  * CatalogSource identifies where one model catalog comes from.
@@ -891,9 +868,9 @@ export enum CatalogSource {
   UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: CATALOG_SOURCE_MODEL_SERVICE = 1;
+   * @generated from enum value: CATALOG_SOURCE_PROVIDER_DISCOVERY = 1;
    */
-  MODEL_SERVICE = 1,
+  PROVIDER_DISCOVERY = 1,
 
   /**
    * @generated from enum value: CATALOG_SOURCE_PROTOCOL_QUERY = 2;
@@ -915,5 +892,5 @@ export enum CatalogSource {
  * Describes the enum provider.v1.CatalogSource.
  */
 export const CatalogSourceSchema: GenEnum<CatalogSource> = /*@__PURE__*/
-  enumDesc(file_provider_v1_provider, 4);
+  enumDesc(file_provider_v1_provider, 3);
 

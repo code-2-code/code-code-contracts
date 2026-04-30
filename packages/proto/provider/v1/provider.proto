@@ -16,17 +16,33 @@ message ProviderSurface {
   string display_name = 2;
   repeated credential.v1.CredentialKind supported_credential_kinds = 3;
   reserved 4;
-  reserved "supported_protocols";
+  reserved "vendor_id";
   ProviderCapabilities capabilities = 5;
   ProviderSurfaceKind kind = 6;
   reserved 7;
   reserved "meta";
-  ProviderSurfaceAPISpec api = 8;
+
+  oneof spec {
+    ProviderSurfaceAPISpec api = 8;
+    ProviderSurfaceCLISpec cli = 10;
+    ProviderSurfaceWebSpec web = 11;
+  }
+
   ProviderSurfaceProbes probes = 9;
 }
 
 message ProviderSurfaceAPISpec {
   repeated api_protocol.v1.Protocol supported_protocols = 1;
+  string product_info_id = 2;
+}
+
+message ProviderSurfaceCLISpec {
+  string cli_id = 1;
+  string product_info_id = 2;
+}
+
+message ProviderSurfaceWebSpec {
+  string product_info_id = 1;
 }
 
 message ProviderSurfaceProbes {
@@ -70,7 +86,7 @@ enum ProviderSurfaceKind {
   PROVIDER_SURFACE_KIND_WEB = 3;
 }
 
-// Provider describes one user-configured provider aggregate.
+// Provider describes one user-configured provider bound to exactly one surface.
 message Provider {
   string provider_id = 1;
   string display_name = 2;
@@ -78,7 +94,20 @@ message Provider {
   reserved "vendor_id";
   reserved 5, 6, 8;
   reserved "provider_credential_id", "default_model_id", "model_catalog";
-  repeated ProviderSurfaceBinding surfaces = 7;
+  reserved 7;
+  reserved "surfaces";
+
+  // The surface this provider is bound to.
+  string surface_id = 9;
+
+  // Credential reference.
+  ProviderCredentialRef provider_credential_ref = 10;
+
+  // Concrete callable runtime.
+  ProviderSurfaceRuntime runtime = 11;
+
+  reserved 12;
+  reserved "source_ref";
 }
 
 // ProviderCapabilities describes which capabilities one provider exposes natively.
@@ -90,52 +119,7 @@ message ProviderCapabilities {
   bool supports_quota_probe = 4;
 }
 
-// ProviderSurfaceBinding describes one configured provider surface.
-message ProviderSurfaceBinding {
-  string surface_id = 1;
-  reserved 3;
-  reserved "credential_ref";
 
-  reserved 4;
-  reserved "network_policy_ref";
-  reserved 5, 6;
-  reserved "protocol", "base_url";
-  reserved 7, 8;
-  reserved "fallback_models", "allowed_model_ids";
-  reserved 9;
-  reserved "default_model_id";
-  reserved 10;
-  reserved "selection_priority";
-
-  reserved 11;
-  reserved "vendor_account_ref";
-
-  ProviderCredentialRef provider_credential_ref = 12;
-
-  // Concrete callable runtime bound to this surface.
-  ProviderSurfaceRuntime runtime = 13;
-
-  reserved 14, 15, 16;
-  reserved "vendor_id", "provider_id", "provider_display_name";
-
-  ProviderSurfaceSourceRef source_ref = 17;
-}
-
-// ProviderSurfaceSourceRef identifies the package/source that owns surface
-// metadata and model catalog capability.
-message ProviderSurfaceSourceRef {
-  ProviderSurfaceSourceKind kind = 1;
-  // Package owner id, for example vendor_id or cli_id.
-  string id = 2;
-  // Package-local surface id.
-  string surface_id = 3;
-}
-
-enum ProviderSurfaceSourceKind {
-  PROVIDER_SURFACE_SOURCE_KIND_UNSPECIFIED = 0;
-  PROVIDER_SURFACE_SOURCE_KIND_VENDOR = 1;
-  PROVIDER_SURFACE_SOURCE_KIND_CLI = 2;
-}
 
 // ProviderCredentialRef references a provider credential by stable identity.
 message ProviderCredentialRef {
@@ -194,7 +178,6 @@ message ProviderSurfaceRuntime {
   string model_catalog_probe_id = 10;
   string quota_probe_id = 11;
   string egress_ruleset_id = 12;
-  string mitm_id = 13;
 }
 
 message ProviderAPISurfaceRuntime {
@@ -239,7 +222,7 @@ enum ProviderSurfaceOrigin {
 // CatalogSource identifies where one model catalog comes from.
 enum CatalogSource {
   CATALOG_SOURCE_UNSPECIFIED = 0;
-  CATALOG_SOURCE_MODEL_SERVICE = 1;
+  CATALOG_SOURCE_PROVIDER_DISCOVERY = 1;
   CATALOG_SOURCE_PROTOCOL_QUERY = 2;
   CATALOG_SOURCE_FALLBACK_CONFIG = 3;
   CATALOG_SOURCE_VENDOR_PRESET = 4;

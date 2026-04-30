@@ -89,7 +89,8 @@ message ActiveQueryCollection {
   string collector_id = 3;
 
   // Explicit credential values that the collector may persist after a
-  // successful query. The collector must ignore all undeclared values.
+  // successful management-plane query. These values come only from structured
+  // collector output, not raw HTTP response headers.
   repeated CredentialBackfillRule credential_backfills = 4;
 
   // Optional schema-driven form used to collect management-plane credential
@@ -162,26 +163,17 @@ enum ActiveQueryInputValueTransform {
 }
 
 // CredentialBackfillRule declares one credential value that may be persisted
-// from an active query result.
+// from structured active query output.
 message CredentialBackfillRule {
   string rule_id = 1;
-  CredentialBackfillSource source = 2;
-  string source_name = 3;
-  string target_material_key = 4;
-  bool required = 5;
+  // Structured collector output field to persist.
+  string output_field_id = 2;
+  string target_material_key = 3;
+  bool required = 4;
   // If true, this persisted value may be read back by the same active query
   // collector on later runs. Leave false for token/cookie/session material that
   // should remain write-only outside authservice.
-  bool readable = 6;
-}
-
-// CredentialBackfillSource identifies where a credential backfill value comes
-// from. Collectors remain responsible for parsing provider-specific formats.
-enum CredentialBackfillSource {
-  CREDENTIAL_BACKFILL_SOURCE_UNSPECIFIED = 0;
-  CREDENTIAL_BACKFILL_SOURCE_COLLECTOR_OUTPUT = 1;
-  CREDENTIAL_BACKFILL_SOURCE_HTTP_RESPONSE_HEADER = 2;
-  CREDENTIAL_BACKFILL_SOURCE_HTTP_RESPONSE_COOKIE = 3;
+  bool readable = 5;
 }
 
 // PassiveHttpTelemetryCollection declares how an official HTTP telemetry stream

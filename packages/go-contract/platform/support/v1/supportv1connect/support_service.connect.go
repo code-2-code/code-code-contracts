@@ -39,12 +39,6 @@ const (
 	// SupportServiceGetVendorProcedure is the fully-qualified name of the SupportService's GetVendor
 	// RPC.
 	SupportServiceGetVendorProcedure = "/platform.support.v1.SupportService/GetVendor"
-	// SupportServiceListProviderSurfacesProcedure is the fully-qualified name of the SupportService's
-	// ListProviderSurfaces RPC.
-	SupportServiceListProviderSurfacesProcedure = "/platform.support.v1.SupportService/ListProviderSurfaces"
-	// SupportServiceGetProviderSurfaceProcedure is the fully-qualified name of the SupportService's
-	// GetProviderSurface RPC.
-	SupportServiceGetProviderSurfaceProcedure = "/platform.support.v1.SupportService/GetProviderSurface"
 	// SupportServiceListCLIsProcedure is the fully-qualified name of the SupportService's ListCLIs RPC.
 	SupportServiceListCLIsProcedure = "/platform.support.v1.SupportService/ListCLIs"
 	// SupportServiceGetCLIProcedure is the fully-qualified name of the SupportService's GetCLI RPC.
@@ -58,8 +52,6 @@ const (
 type SupportServiceClient interface {
 	ListVendors(context.Context, *v1.ListVendorsRequest) (*v1.ListVendorsResponse, error)
 	GetVendor(context.Context, *v1.GetVendorRequest) (*v1.GetVendorResponse, error)
-	ListProviderSurfaces(context.Context, *v1.ListProviderSurfacesRequest) (*v1.ListProviderSurfacesResponse, error)
-	GetProviderSurface(context.Context, *v1.GetProviderSurfaceRequest) (*v1.GetProviderSurfaceResponse, error)
 	ListCLIs(context.Context, *v1.ListCLIsRequest) (*v1.ListCLIsResponse, error)
 	GetCLI(context.Context, *v1.GetCLIRequest) (*v1.GetCLIResponse, error)
 	ResolveProviderCapabilities(context.Context, *v1.ResolveProviderCapabilitiesRequest) (*v1.ResolveProviderCapabilitiesResponse, error)
@@ -88,18 +80,6 @@ func NewSupportServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			connect.WithSchema(supportServiceMethods.ByName("GetVendor")),
 			connect.WithClientOptions(opts...),
 		),
-		listProviderSurfaces: connect.NewClient[v1.ListProviderSurfacesRequest, v1.ListProviderSurfacesResponse](
-			httpClient,
-			baseURL+SupportServiceListProviderSurfacesProcedure,
-			connect.WithSchema(supportServiceMethods.ByName("ListProviderSurfaces")),
-			connect.WithClientOptions(opts...),
-		),
-		getProviderSurface: connect.NewClient[v1.GetProviderSurfaceRequest, v1.GetProviderSurfaceResponse](
-			httpClient,
-			baseURL+SupportServiceGetProviderSurfaceProcedure,
-			connect.WithSchema(supportServiceMethods.ByName("GetProviderSurface")),
-			connect.WithClientOptions(opts...),
-		),
 		listCLIs: connect.NewClient[v1.ListCLIsRequest, v1.ListCLIsResponse](
 			httpClient,
 			baseURL+SupportServiceListCLIsProcedure,
@@ -125,8 +105,6 @@ func NewSupportServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 type supportServiceClient struct {
 	listVendors                 *connect.Client[v1.ListVendorsRequest, v1.ListVendorsResponse]
 	getVendor                   *connect.Client[v1.GetVendorRequest, v1.GetVendorResponse]
-	listProviderSurfaces        *connect.Client[v1.ListProviderSurfacesRequest, v1.ListProviderSurfacesResponse]
-	getProviderSurface          *connect.Client[v1.GetProviderSurfaceRequest, v1.GetProviderSurfaceResponse]
 	listCLIs                    *connect.Client[v1.ListCLIsRequest, v1.ListCLIsResponse]
 	getCLI                      *connect.Client[v1.GetCLIRequest, v1.GetCLIResponse]
 	resolveProviderCapabilities *connect.Client[v1.ResolveProviderCapabilitiesRequest, v1.ResolveProviderCapabilitiesResponse]
@@ -144,24 +122,6 @@ func (c *supportServiceClient) ListVendors(ctx context.Context, req *v1.ListVend
 // GetVendor calls platform.support.v1.SupportService.GetVendor.
 func (c *supportServiceClient) GetVendor(ctx context.Context, req *v1.GetVendorRequest) (*v1.GetVendorResponse, error) {
 	response, err := c.getVendor.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// ListProviderSurfaces calls platform.support.v1.SupportService.ListProviderSurfaces.
-func (c *supportServiceClient) ListProviderSurfaces(ctx context.Context, req *v1.ListProviderSurfacesRequest) (*v1.ListProviderSurfacesResponse, error) {
-	response, err := c.listProviderSurfaces.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// GetProviderSurface calls platform.support.v1.SupportService.GetProviderSurface.
-func (c *supportServiceClient) GetProviderSurface(ctx context.Context, req *v1.GetProviderSurfaceRequest) (*v1.GetProviderSurfaceResponse, error) {
-	response, err := c.getProviderSurface.CallUnary(ctx, connect.NewRequest(req))
 	if response != nil {
 		return response.Msg, err
 	}
@@ -199,8 +159,6 @@ func (c *supportServiceClient) ResolveProviderCapabilities(ctx context.Context, 
 type SupportServiceHandler interface {
 	ListVendors(context.Context, *v1.ListVendorsRequest) (*v1.ListVendorsResponse, error)
 	GetVendor(context.Context, *v1.GetVendorRequest) (*v1.GetVendorResponse, error)
-	ListProviderSurfaces(context.Context, *v1.ListProviderSurfacesRequest) (*v1.ListProviderSurfacesResponse, error)
-	GetProviderSurface(context.Context, *v1.GetProviderSurfaceRequest) (*v1.GetProviderSurfaceResponse, error)
 	ListCLIs(context.Context, *v1.ListCLIsRequest) (*v1.ListCLIsResponse, error)
 	GetCLI(context.Context, *v1.GetCLIRequest) (*v1.GetCLIResponse, error)
 	ResolveProviderCapabilities(context.Context, *v1.ResolveProviderCapabilitiesRequest) (*v1.ResolveProviderCapabilitiesResponse, error)
@@ -223,18 +181,6 @@ func NewSupportServiceHandler(svc SupportServiceHandler, opts ...connect.Handler
 		SupportServiceGetVendorProcedure,
 		svc.GetVendor,
 		connect.WithSchema(supportServiceMethods.ByName("GetVendor")),
-		connect.WithHandlerOptions(opts...),
-	)
-	supportServiceListProviderSurfacesHandler := connect.NewUnaryHandlerSimple(
-		SupportServiceListProviderSurfacesProcedure,
-		svc.ListProviderSurfaces,
-		connect.WithSchema(supportServiceMethods.ByName("ListProviderSurfaces")),
-		connect.WithHandlerOptions(opts...),
-	)
-	supportServiceGetProviderSurfaceHandler := connect.NewUnaryHandlerSimple(
-		SupportServiceGetProviderSurfaceProcedure,
-		svc.GetProviderSurface,
-		connect.WithSchema(supportServiceMethods.ByName("GetProviderSurface")),
 		connect.WithHandlerOptions(opts...),
 	)
 	supportServiceListCLIsHandler := connect.NewUnaryHandlerSimple(
@@ -261,10 +207,6 @@ func NewSupportServiceHandler(svc SupportServiceHandler, opts ...connect.Handler
 			supportServiceListVendorsHandler.ServeHTTP(w, r)
 		case SupportServiceGetVendorProcedure:
 			supportServiceGetVendorHandler.ServeHTTP(w, r)
-		case SupportServiceListProviderSurfacesProcedure:
-			supportServiceListProviderSurfacesHandler.ServeHTTP(w, r)
-		case SupportServiceGetProviderSurfaceProcedure:
-			supportServiceGetProviderSurfaceHandler.ServeHTTP(w, r)
 		case SupportServiceListCLIsProcedure:
 			supportServiceListCLIsHandler.ServeHTTP(w, r)
 		case SupportServiceGetCLIProcedure:
@@ -286,14 +228,6 @@ func (UnimplementedSupportServiceHandler) ListVendors(context.Context, *v1.ListV
 
 func (UnimplementedSupportServiceHandler) GetVendor(context.Context, *v1.GetVendorRequest) (*v1.GetVendorResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.support.v1.SupportService.GetVendor is not implemented"))
-}
-
-func (UnimplementedSupportServiceHandler) ListProviderSurfaces(context.Context, *v1.ListProviderSurfacesRequest) (*v1.ListProviderSurfacesResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.support.v1.SupportService.ListProviderSurfaces is not implemented"))
-}
-
-func (UnimplementedSupportServiceHandler) GetProviderSurface(context.Context, *v1.GetProviderSurfaceRequest) (*v1.GetProviderSurfaceResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.support.v1.SupportService.GetProviderSurface is not implemented"))
 }
 
 func (UnimplementedSupportServiceHandler) ListCLIs(context.Context, *v1.ListCLIsRequest) (*v1.ListCLIsResponse, error) {

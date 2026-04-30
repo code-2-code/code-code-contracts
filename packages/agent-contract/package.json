@@ -40,6 +40,7 @@
     "./platform/skill/v1": "./dist/gen/platform/skill/v1/skill_pb.js",
     "./platform/rule/v1": "./dist/gen/platform/rule/v1/rule_pb.js",
     "./platform/provider/v1": "./dist/gen/platform/provider/v1/provider_service_pb.js",
+    "./platform/provider/v1/shared": "./dist/gen/platform/provider/v1/provider_shared_pb.js",
     "./platform/support/v1": "./dist/gen/platform/support/v1/support_service_pb.js",
     "./platform/management/v1": "./dist/gen/platform/management/v1/management_pb.js",
     "./platform/workload-profile/v1": "./dist/gen/platform/workload_profile/v1/workload_profile_pb.js",

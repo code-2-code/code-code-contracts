@@ -19,25 +19,17 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ProviderService_ListProviderSurfaces_FullMethodName                      = "/platform.provider.v1.ProviderService/ListProviderSurfaces"
-	ProviderService_ListProviders_FullMethodName                             = "/platform.provider.v1.ProviderService/ListProviders"
-	ProviderService_ListProviderSurfaceBindings_FullMethodName               = "/platform.provider.v1.ProviderService/ListProviderSurfaceBindings"
-	ProviderService_UpdateProvider_FullMethodName                            = "/platform.provider.v1.ProviderService/UpdateProvider"
-	ProviderService_UpdateProviderAuthentication_FullMethodName              = "/platform.provider.v1.ProviderService/UpdateProviderAuthentication"
-	ProviderService_UpdateProviderObservabilityAuthentication_FullMethodName = "/platform.provider.v1.ProviderService/UpdateProviderObservabilityAuthentication"
-	ProviderService_DeleteProvider_FullMethodName                            = "/platform.provider.v1.ProviderService/DeleteProvider"
-	ProviderService_CreateProviderSurfaceBinding_FullMethodName              = "/platform.provider.v1.ProviderService/CreateProviderSurfaceBinding"
-	ProviderService_UpdateProviderSurfaceBinding_FullMethodName              = "/platform.provider.v1.ProviderService/UpdateProviderSurfaceBinding"
-	ProviderService_DeleteProviderSurfaceBinding_FullMethodName              = "/platform.provider.v1.ProviderService/DeleteProviderSurfaceBinding"
-	ProviderService_ConnectProvider_FullMethodName                           = "/platform.provider.v1.ProviderService/ConnectProvider"
-	ProviderService_GetProviderConnectSession_FullMethodName                 = "/platform.provider.v1.ProviderService/GetProviderConnectSession"
-	ProviderService_ProbeProviderObservability_FullMethodName                = "/platform.provider.v1.ProviderService/ProbeProviderObservability"
-	ProviderService_WatchProviderStatusEvents_FullMethodName                 = "/platform.provider.v1.ProviderService/WatchProviderStatusEvents"
-	ProviderService_ListVendors_FullMethodName                               = "/platform.provider.v1.ProviderService/ListVendors"
-	ProviderService_ListCLIDefinitions_FullMethodName                        = "/platform.provider.v1.ProviderService/ListCLIDefinitions"
-	ProviderService_ListTemplates_FullMethodName                             = "/platform.provider.v1.ProviderService/ListTemplates"
-	ProviderService_ApplyTemplate_FullMethodName                             = "/platform.provider.v1.ProviderService/ApplyTemplate"
-	ProviderService_BindProviderCatalogs_FullMethodName                      = "/platform.provider.v1.ProviderService/BindProviderCatalogs"
+	ProviderService_ListProviderSurfaces_FullMethodName       = "/platform.provider.v1.ProviderService/ListProviderSurfaces"
+	ProviderService_ListProviders_FullMethodName              = "/platform.provider.v1.ProviderService/ListProviders"
+	ProviderService_CreateProvider_FullMethodName             = "/platform.provider.v1.ProviderService/CreateProvider"
+	ProviderService_UpdateProvider_FullMethodName             = "/platform.provider.v1.ProviderService/UpdateProvider"
+	ProviderService_DeleteProvider_FullMethodName             = "/platform.provider.v1.ProviderService/DeleteProvider"
+	ProviderService_ProbeProviderObservability_FullMethodName = "/platform.provider.v1.ProviderService/ProbeProviderObservability"
+	ProviderService_WatchProviderStatusEvents_FullMethodName  = "/platform.provider.v1.ProviderService/WatchProviderStatusEvents"
+	ProviderService_ListVendors_FullMethodName                = "/platform.provider.v1.ProviderService/ListVendors"
+	ProviderService_ListCLIDefinitions_FullMethodName         = "/platform.provider.v1.ProviderService/ListCLIDefinitions"
+	ProviderService_ListTemplates_FullMethodName              = "/platform.provider.v1.ProviderService/ListTemplates"
+	ProviderService_ApplyTemplate_FullMethodName              = "/platform.provider.v1.ProviderService/ApplyTemplate"
 )
 
 // ProviderServiceClient is the client API for ProviderService service.
@@ -46,23 +38,15 @@ const (
 type ProviderServiceClient interface {
 	ListProviderSurfaces(ctx context.Context, in *ListProviderSurfacesRequest, opts ...grpc.CallOption) (*ListProviderSurfacesResponse, error)
 	ListProviders(ctx context.Context, in *ListProvidersRequest, opts ...grpc.CallOption) (*ListProvidersResponse, error)
-	ListProviderSurfaceBindings(ctx context.Context, in *ListProviderSurfaceBindingsRequest, opts ...grpc.CallOption) (*ListProviderSurfaceBindingsResponse, error)
+	CreateProvider(ctx context.Context, in *CreateProviderRequest, opts ...grpc.CallOption) (*CreateProviderResponse, error)
 	UpdateProvider(ctx context.Context, in *UpdateProviderRequest, opts ...grpc.CallOption) (*UpdateProviderResponse, error)
-	UpdateProviderAuthentication(ctx context.Context, in *UpdateProviderAuthenticationRequest, opts ...grpc.CallOption) (*UpdateProviderAuthenticationResponse, error)
-	UpdateProviderObservabilityAuthentication(ctx context.Context, in *UpdateProviderObservabilityAuthenticationRequest, opts ...grpc.CallOption) (*UpdateProviderObservabilityAuthenticationResponse, error)
 	DeleteProvider(ctx context.Context, in *DeleteProviderRequest, opts ...grpc.CallOption) (*DeleteProviderResponse, error)
-	CreateProviderSurfaceBinding(ctx context.Context, in *CreateProviderSurfaceBindingRequest, opts ...grpc.CallOption) (*CreateProviderSurfaceBindingResponse, error)
-	UpdateProviderSurfaceBinding(ctx context.Context, in *UpdateProviderSurfaceBindingRequest, opts ...grpc.CallOption) (*UpdateProviderSurfaceBindingResponse, error)
-	DeleteProviderSurfaceBinding(ctx context.Context, in *DeleteProviderSurfaceBindingRequest, opts ...grpc.CallOption) (*DeleteProviderSurfaceBindingResponse, error)
-	ConnectProvider(ctx context.Context, in *ConnectProviderRequest, opts ...grpc.CallOption) (*ConnectProviderResponse, error)
-	GetProviderConnectSession(ctx context.Context, in *GetProviderConnectSessionRequest, opts ...grpc.CallOption) (*GetProviderConnectSessionResponse, error)
 	ProbeProviderObservability(ctx context.Context, in *ProbeProviderObservabilityRequest, opts ...grpc.CallOption) (*ProbeProviderObservabilityResponse, error)
 	WatchProviderStatusEvents(ctx context.Context, in *WatchProviderStatusEventsRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchProviderStatusEventsResponse], error)
 	ListVendors(ctx context.Context, in *ListVendorsRequest, opts ...grpc.CallOption) (*ListVendorsResponse, error)
 	ListCLIDefinitions(ctx context.Context, in *ListCLIDefinitionsRequest, opts ...grpc.CallOption) (*ListCLIDefinitionsResponse, error)
 	ListTemplates(ctx context.Context, in *ListTemplatesRequest, opts ...grpc.CallOption) (*ListTemplatesResponse, error)
 	ApplyTemplate(ctx context.Context, in *ApplyTemplateRequest, opts ...grpc.CallOption) (*ApplyTemplateResponse, error)
-	BindProviderCatalogs(ctx context.Context, in *BindProviderCatalogsRequest, opts ...grpc.CallOption) (*BindProviderCatalogsResponse, error)
 }
 
 type providerServiceClient struct {
@@ -93,10 +77,10 @@ func (c *providerServiceClient) ListProviders(ctx context.Context, in *ListProvi
 	return out, nil
 }
 
-func (c *providerServiceClient) ListProviderSurfaceBindings(ctx context.Context, in *ListProviderSurfaceBindingsRequest, opts ...grpc.CallOption) (*ListProviderSurfaceBindingsResponse, error) {
+func (c *providerServiceClient) CreateProvider(ctx context.Context, in *CreateProviderRequest, opts ...grpc.CallOption) (*CreateProviderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListProviderSurfaceBindingsResponse)
-	err := c.cc.Invoke(ctx, ProviderService_ListProviderSurfaceBindings_FullMethodName, in, out, cOpts...)
+	out := new(CreateProviderResponse)
+	err := c.cc.Invoke(ctx, ProviderService_CreateProvider_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,80 +97,10 @@ func (c *providerServiceClient) UpdateProvider(ctx context.Context, in *UpdatePr
 	return out, nil
 }
 
-func (c *providerServiceClient) UpdateProviderAuthentication(ctx context.Context, in *UpdateProviderAuthenticationRequest, opts ...grpc.CallOption) (*UpdateProviderAuthenticationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateProviderAuthenticationResponse)
-	err := c.cc.Invoke(ctx, ProviderService_UpdateProviderAuthentication_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) UpdateProviderObservabilityAuthentication(ctx context.Context, in *UpdateProviderObservabilityAuthenticationRequest, opts ...grpc.CallOption) (*UpdateProviderObservabilityAuthenticationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateProviderObservabilityAuthenticationResponse)
-	err := c.cc.Invoke(ctx, ProviderService_UpdateProviderObservabilityAuthentication_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *providerServiceClient) DeleteProvider(ctx context.Context, in *DeleteProviderRequest, opts ...grpc.CallOption) (*DeleteProviderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DeleteProviderResponse)
 	err := c.cc.Invoke(ctx, ProviderService_DeleteProvider_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) CreateProviderSurfaceBinding(ctx context.Context, in *CreateProviderSurfaceBindingRequest, opts ...grpc.CallOption) (*CreateProviderSurfaceBindingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateProviderSurfaceBindingResponse)
-	err := c.cc.Invoke(ctx, ProviderService_CreateProviderSurfaceBinding_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) UpdateProviderSurfaceBinding(ctx context.Context, in *UpdateProviderSurfaceBindingRequest, opts ...grpc.CallOption) (*UpdateProviderSurfaceBindingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateProviderSurfaceBindingResponse)
-	err := c.cc.Invoke(ctx, ProviderService_UpdateProviderSurfaceBinding_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) DeleteProviderSurfaceBinding(ctx context.Context, in *DeleteProviderSurfaceBindingRequest, opts ...grpc.CallOption) (*DeleteProviderSurfaceBindingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteProviderSurfaceBindingResponse)
-	err := c.cc.Invoke(ctx, ProviderService_DeleteProviderSurfaceBinding_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) ConnectProvider(ctx context.Context, in *ConnectProviderRequest, opts ...grpc.CallOption) (*ConnectProviderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ConnectProviderResponse)
-	err := c.cc.Invoke(ctx, ProviderService_ConnectProvider_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) GetProviderConnectSession(ctx context.Context, in *GetProviderConnectSessionRequest, opts ...grpc.CallOption) (*GetProviderConnectSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProviderConnectSessionResponse)
-	err := c.cc.Invoke(ctx, ProviderService_GetProviderConnectSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -262,39 +176,21 @@ func (c *providerServiceClient) ApplyTemplate(ctx context.Context, in *ApplyTemp
 	return out, nil
 }
 
-func (c *providerServiceClient) BindProviderCatalogs(ctx context.Context, in *BindProviderCatalogsRequest, opts ...grpc.CallOption) (*BindProviderCatalogsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindProviderCatalogsResponse)
-	err := c.cc.Invoke(ctx, ProviderService_BindProviderCatalogs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // ProviderServiceServer is the server API for ProviderService service.
 // All implementations must embed UnimplementedProviderServiceServer
 // for forward compatibility.
 type ProviderServiceServer interface {
 	ListProviderSurfaces(context.Context, *ListProviderSurfacesRequest) (*ListProviderSurfacesResponse, error)
 	ListProviders(context.Context, *ListProvidersRequest) (*ListProvidersResponse, error)
-	ListProviderSurfaceBindings(context.Context, *ListProviderSurfaceBindingsRequest) (*ListProviderSurfaceBindingsResponse, error)
+	CreateProvider(context.Context, *CreateProviderRequest) (*CreateProviderResponse, error)
 	UpdateProvider(context.Context, *UpdateProviderRequest) (*UpdateProviderResponse, error)
-	UpdateProviderAuthentication(context.Context, *UpdateProviderAuthenticationRequest) (*UpdateProviderAuthenticationResponse, error)
-	UpdateProviderObservabilityAuthentication(context.Context, *UpdateProviderObservabilityAuthenticationRequest) (*UpdateProviderObservabilityAuthenticationResponse, error)
 	DeleteProvider(context.Context, *DeleteProviderRequest) (*DeleteProviderResponse, error)
-	CreateProviderSurfaceBinding(context.Context, *CreateProviderSurfaceBindingRequest) (*CreateProviderSurfaceBindingResponse, error)
-	UpdateProviderSurfaceBinding(context.Context, *UpdateProviderSurfaceBindingRequest) (*UpdateProviderSurfaceBindingResponse, error)
-	DeleteProviderSurfaceBinding(context.Context, *DeleteProviderSurfaceBindingRequest) (*DeleteProviderSurfaceBindingResponse, error)
-	ConnectProvider(context.Context, *ConnectProviderRequest) (*ConnectProviderResponse, error)
-	GetProviderConnectSession(context.Context, *GetProviderConnectSessionRequest) (*GetProviderConnectSessionResponse, error)
 	ProbeProviderObservability(context.Context, *ProbeProviderObservabilityRequest) (*ProbeProviderObservabilityResponse, error)
 	WatchProviderStatusEvents(*WatchProviderStatusEventsRequest, grpc.ServerStreamingServer[WatchProviderStatusEventsResponse]) error
 	ListVendors(context.Context, *ListVendorsRequest) (*ListVendorsResponse, error)
 	ListCLIDefinitions(context.Context, *ListCLIDefinitionsRequest) (*ListCLIDefinitionsResponse, error)
 	ListTemplates(context.Context, *ListTemplatesRequest) (*ListTemplatesResponse, error)
 	ApplyTemplate(context.Context, *ApplyTemplateRequest) (*ApplyTemplateResponse, error)
-	BindProviderCatalogs(context.Context, *BindProviderCatalogsRequest) (*BindProviderCatalogsResponse, error)
 	mustEmbedUnimplementedProviderServiceServer()
 }
 
@@ -311,35 +207,14 @@ func (UnimplementedProviderServiceServer) ListProviderSurfaces(context.Context, 
 func (UnimplementedProviderServiceServer) ListProviders(context.Context, *ListProvidersRequest) (*ListProvidersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListProviders not implemented")
 }
-func (UnimplementedProviderServiceServer) ListProviderSurfaceBindings(context.Context, *ListProviderSurfaceBindingsRequest) (*ListProviderSurfaceBindingsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListProviderSurfaceBindings not implemented")
+func (UnimplementedProviderServiceServer) CreateProvider(context.Context, *CreateProviderRequest) (*CreateProviderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateProvider not implemented")
 }
 func (UnimplementedProviderServiceServer) UpdateProvider(context.Context, *UpdateProviderRequest) (*UpdateProviderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateProvider not implemented")
 }
-func (UnimplementedProviderServiceServer) UpdateProviderAuthentication(context.Context, *UpdateProviderAuthenticationRequest) (*UpdateProviderAuthenticationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateProviderAuthentication not implemented")
-}
-func (UnimplementedProviderServiceServer) UpdateProviderObservabilityAuthentication(context.Context, *UpdateProviderObservabilityAuthenticationRequest) (*UpdateProviderObservabilityAuthenticationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateProviderObservabilityAuthentication not implemented")
-}
 func (UnimplementedProviderServiceServer) DeleteProvider(context.Context, *DeleteProviderRequest) (*DeleteProviderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteProvider not implemented")
-}
-func (UnimplementedProviderServiceServer) CreateProviderSurfaceBinding(context.Context, *CreateProviderSurfaceBindingRequest) (*CreateProviderSurfaceBindingResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateProviderSurfaceBinding not implemented")
-}
-func (UnimplementedProviderServiceServer) UpdateProviderSurfaceBinding(context.Context, *UpdateProviderSurfaceBindingRequest) (*UpdateProviderSurfaceBindingResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateProviderSurfaceBinding not implemented")
-}
-func (UnimplementedProviderServiceServer) DeleteProviderSurfaceBinding(context.Context, *DeleteProviderSurfaceBindingRequest) (*DeleteProviderSurfaceBindingResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteProviderSurfaceBinding not implemented")
-}
-func (UnimplementedProviderServiceServer) ConnectProvider(context.Context, *ConnectProviderRequest) (*ConnectProviderResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ConnectProvider not implemented")
-}
-func (UnimplementedProviderServiceServer) GetProviderConnectSession(context.Context, *GetProviderConnectSessionRequest) (*GetProviderConnectSessionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProviderConnectSession not implemented")
 }
 func (UnimplementedProviderServiceServer) ProbeProviderObservability(context.Context, *ProbeProviderObservabilityRequest) (*ProbeProviderObservabilityResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProbeProviderObservability not implemented")
@@ -358,9 +233,6 @@ func (UnimplementedProviderServiceServer) ListTemplates(context.Context, *ListTe
 }
 func (UnimplementedProviderServiceServer) ApplyTemplate(context.Context, *ApplyTemplateRequest) (*ApplyTemplateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApplyTemplate not implemented")
-}
-func (UnimplementedProviderServiceServer) BindProviderCatalogs(context.Context, *BindProviderCatalogsRequest) (*BindProviderCatalogsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BindProviderCatalogs not implemented")
 }
 func (UnimplementedProviderServiceServer) mustEmbedUnimplementedProviderServiceServer() {}
 func (UnimplementedProviderServiceServer) testEmbeddedByValue()                         {}
@@ -419,20 +291,20 @@ func _ProviderService_ListProviders_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ProviderService_ListProviderSurfaceBindings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListProviderSurfaceBindingsRequest)
+func _ProviderService_CreateProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateProviderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProviderServiceServer).ListProviderSurfaceBindings(ctx, in)
+		return srv.(ProviderServiceServer).CreateProvider(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ProviderService_ListProviderSurfaceBindings_FullMethodName,
+		FullMethod: ProviderService_CreateProvider_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).ListProviderSurfaceBindings(ctx, req.(*ListProviderSurfaceBindingsRequest))
+		return srv.(ProviderServiceServer).CreateProvider(ctx, req.(*CreateProviderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -455,42 +327,6 @@ func _ProviderService_UpdateProvider_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ProviderService_UpdateProviderAuthentication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateProviderAuthenticationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).UpdateProviderAuthentication(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_UpdateProviderAuthentication_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).UpdateProviderAuthentication(ctx, req.(*UpdateProviderAuthenticationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_UpdateProviderObservabilityAuthentication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateProviderObservabilityAuthenticationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).UpdateProviderObservabilityAuthentication(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_UpdateProviderObservabilityAuthentication_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).UpdateProviderObservabilityAuthentication(ctx, req.(*UpdateProviderObservabilityAuthenticationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ProviderService_DeleteProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteProviderRequest)
 	if err := dec(in); err != nil {
@@ -505,96 +341,6 @@ func _ProviderService_DeleteProvider_Handler(srv interface{}, ctx context.Contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ProviderServiceServer).DeleteProvider(ctx, req.(*DeleteProviderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_CreateProviderSurfaceBinding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateProviderSurfaceBindingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).CreateProviderSurfaceBinding(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_CreateProviderSurfaceBinding_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).CreateProviderSurfaceBinding(ctx, req.(*CreateProviderSurfaceBindingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_UpdateProviderSurfaceBinding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateProviderSurfaceBindingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).UpdateProviderSurfaceBinding(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_UpdateProviderSurfaceBinding_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).UpdateProviderSurfaceBinding(ctx, req.(*UpdateProviderSurfaceBindingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_DeleteProviderSurfaceBinding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteProviderSurfaceBindingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).DeleteProviderSurfaceBinding(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_DeleteProviderSurfaceBinding_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).DeleteProviderSurfaceBinding(ctx, req.(*DeleteProviderSurfaceBindingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_ConnectProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ConnectProviderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).ConnectProvider(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_ConnectProvider_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).ConnectProvider(ctx, req.(*ConnectProviderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_GetProviderConnectSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProviderConnectSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).GetProviderConnectSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_GetProviderConnectSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).GetProviderConnectSession(ctx, req.(*GetProviderConnectSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -700,24 +446,6 @@ func _ProviderService_ApplyTemplate_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ProviderService_BindProviderCatalogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindProviderCatalogsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).BindProviderCatalogs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_BindProviderCatalogs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).BindProviderCatalogs(ctx, req.(*BindProviderCatalogsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // ProviderService_ServiceDesc is the grpc.ServiceDesc for ProviderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -734,44 +462,16 @@ var ProviderService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ProviderService_ListProviders_Handler,
 		},
 		{
-			MethodName: "ListProviderSurfaceBindings",
-			Handler:    _ProviderService_ListProviderSurfaceBindings_Handler,
+			MethodName: "CreateProvider",
+			Handler:    _ProviderService_CreateProvider_Handler,
 		},
 		{
 			MethodName: "UpdateProvider",
 			Handler:    _ProviderService_UpdateProvider_Handler,
 		},
 		{
-			MethodName: "UpdateProviderAuthentication",
-			Handler:    _ProviderService_UpdateProviderAuthentication_Handler,
-		},
-		{
-			MethodName: "UpdateProviderObservabilityAuthentication",
-			Handler:    _ProviderService_UpdateProviderObservabilityAuthentication_Handler,
-		},
-		{
 			MethodName: "DeleteProvider",
 			Handler:    _ProviderService_DeleteProvider_Handler,
-		},
-		{
-			MethodName: "CreateProviderSurfaceBinding",
-			Handler:    _ProviderService_CreateProviderSurfaceBinding_Handler,
-		},
-		{
-			MethodName: "UpdateProviderSurfaceBinding",
-			Handler:    _ProviderService_UpdateProviderSurfaceBinding_Handler,
-		},
-		{
-			MethodName: "DeleteProviderSurfaceBinding",
-			Handler:    _ProviderService_DeleteProviderSurfaceBinding_Handler,
-		},
-		{
-			MethodName: "ConnectProvider",
-			Handler:    _ProviderService_ConnectProvider_Handler,
-		},
-		{
-			MethodName: "GetProviderConnectSession",
-			Handler:    _ProviderService_GetProviderConnectSession_Handler,
 		},
 		{
 			MethodName: "ProbeProviderObservability",
@@ -792,10 +492,6 @@ var ProviderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ApplyTemplate",
 			Handler:    _ProviderService_ApplyTemplate_Handler,
-		},
-		{
-			MethodName: "BindProviderCatalogs",
-			Handler:    _ProviderService_BindProviderCatalogs_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

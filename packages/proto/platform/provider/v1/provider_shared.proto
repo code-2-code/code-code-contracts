@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+package platform.provider.v1;
+
+option go_package = "code-code.internal/go-contract/platform/provider/v1;providerservicev1";
+
+// ProviderPhase describes the lifecycle phase of a provider
+// derived from provider config validation.
+enum ProviderPhase {
+  PROVIDER_PHASE_UNSPECIFIED = 0;
+  PROVIDER_PHASE_READY = 1;
+  PROVIDER_PHASE_INVALID_CONFIG = 2;
+  PROVIDER_PHASE_REFRESHING = 3;
+  PROVIDER_PHASE_STALE = 4;
+  PROVIDER_PHASE_ERROR = 5;
+}
+
+// ProviderConnectSessionPhase describes the lifecycle phase of a provider
+// connect session used for CLI OAuth flows.
+enum ProviderConnectSessionPhase {
+  PROVIDER_CONNECT_SESSION_PHASE_UNSPECIFIED = 0;
+  PROVIDER_CONNECT_SESSION_PHASE_PENDING = 1;
+  PROVIDER_CONNECT_SESSION_PHASE_AWAITING_USER = 2;
+  PROVIDER_CONNECT_SESSION_PHASE_PROCESSING = 3;
+  PROVIDER_CONNECT_SESSION_PHASE_SUCCEEDED = 4;
+  PROVIDER_CONNECT_SESSION_PHASE_FAILED = 5;
+  PROVIDER_CONNECT_SESSION_PHASE_EXPIRED = 6;
+  PROVIDER_CONNECT_SESSION_PHASE_CANCELED = 7;
+}
+
+// ProviderAddMethod identifies the credential add method for a provider.
+enum ProviderAddMethod {
+  PROVIDER_ADD_METHOD_UNSPECIFIED = 0;
+  PROVIDER_ADD_METHOD_API_KEY = 1;
+  PROVIDER_ADD_METHOD_CLI_OAUTH = 2;
+}
+
+// ProviderOAuthObservabilityProbeOutcome describes the result of an
+// observability probe triggered via CLI OAuth.
+enum ProviderOAuthObservabilityProbeOutcome {
+  PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_UNSPECIFIED = 0;
+  PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_EXECUTED = 1;
+  PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_THROTTLED = 2;
+  PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_AUTH_BLOCKED = 3;
+  PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_UNSUPPORTED = 4;
+  PROVIDER_O_AUTH_OBSERVABILITY_PROBE_OUTCOME_FAILED = 5;
+}
+
+// ProviderObservabilityProbeTrigger identifies what triggered a provider
+// observability probe.
+enum ProviderObservabilityProbeTrigger {
+  PROVIDER_OBSERVABILITY_PROBE_TRIGGER_UNSPECIFIED = 0;
+  PROVIDER_OBSERVABILITY_PROBE_TRIGGER_MANUAL = 1;
+  PROVIDER_OBSERVABILITY_PROBE_TRIGGER_CONNECT = 2;
+  PROVIDER_OBSERVABILITY_PROBE_TRIGGER_SCHEDULE = 3;
+}
+
+// ProviderObservabilityProbeReason identifies the machine-readable reason for
+// a decisive observability probe outcome.
+enum ProviderObservabilityProbeReason {
+  PROVIDER_OBSERVABILITY_PROBE_REASON_UNSPECIFIED = 0;
+  PROVIDER_OBSERVABILITY_PROBE_REASON_PLATFORM_UNAVAILABLE = 1;
+  PROVIDER_OBSERVABILITY_PROBE_REASON_UPSTREAM_UNREACHABLE = 2;
+  PROVIDER_OBSERVABILITY_PROBE_REASON_UPSTREAM_TIMEOUT = 3;
+  PROVIDER_OBSERVABILITY_PROBE_REASON_AUTH_BLOCKED = 4;
+  PROVIDER_OBSERVABILITY_PROBE_REASON_CREDENTIALS_MISSING = 5;
+  PROVIDER_OBSERVABILITY_PROBE_REASON_PROBE_FAILED = 6;
+}
+
+// ProviderStatusEventKind identifies the kind of a provider status event.
+enum ProviderStatusEventKind {
+  PROVIDER_STATUS_EVENT_KIND_UNSPECIFIED = 0;
+  PROVIDER_STATUS_EVENT_KIND_WORKFLOW = 1;
+  PROVIDER_STATUS_EVENT_KIND_STATUS = 2;
+}
+
+// ProviderWorkflowPhase describes the lifecycle phase of a provider workflow.
+enum ProviderWorkflowPhase {
+  PROVIDER_WORKFLOW_PHASE_UNSPECIFIED = 0;
+  PROVIDER_WORKFLOW_PHASE_PENDING = 1;
+  PROVIDER_WORKFLOW_PHASE_RUNNING = 2;
+  PROVIDER_WORKFLOW_PHASE_SUCCEEDED = 3;
+  PROVIDER_WORKFLOW_PHASE_FAILED = 4;
+  PROVIDER_WORKFLOW_PHASE_ERROR = 5;
+  PROVIDER_WORKFLOW_PHASE_CANCELED = 6;
+}

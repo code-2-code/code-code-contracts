@@ -74,25 +74,25 @@ func (EgressHeaderAppendAction) EnumDescriptor() ([]byte, []int) {
 }
 
 type ResolveEgressRequestHeadersRequest struct {
-	state                    protoimpl.MessageState         `protogen:"open.v1"`
-	PolicyId                 string                         `protobuf:"bytes,1,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
-	CredentialId             string                         `protobuf:"bytes,2,opt,name=credential_id,json=credentialId,proto3" json:"credential_id,omitempty"`
-	AdapterId                string                         `protobuf:"bytes,3,opt,name=adapter_id,json=adapterId,proto3" json:"adapter_id,omitempty"`
-	TargetHost               string                         `protobuf:"bytes,4,opt,name=target_host,json=targetHost,proto3" json:"target_host,omitempty"`
-	HeaderValuePrefix        string                         `protobuf:"bytes,5,opt,name=header_value_prefix,json=headerValuePrefix,proto3" json:"header_value_prefix,omitempty"`
-	Origin                   string                         `protobuf:"bytes,6,opt,name=origin,proto3" json:"origin,omitempty"`
-	RequestHeaders           map[string]string              `protobuf:"bytes,7,rep,name=request_headers,json=requestHeaders,proto3" json:"request_headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	SimpleReplacementRules   []*EgressSimpleReplacementRule `protobuf:"bytes,8,rep,name=simple_replacement_rules,json=simpleReplacementRules,proto3" json:"simple_replacement_rules,omitempty"`
-	Headers                  []*EgressHeaderReplacementItem `protobuf:"bytes,9,rep,name=headers,proto3" json:"headers,omitempty"`
-	AllowedHeaderNames       []string                       `protobuf:"bytes,10,rep,name=allowed_header_names,json=allowedHeaderNames,proto3" json:"allowed_header_names,omitempty"`
-	RuntimeSource            *EgressRequestSource           `protobuf:"bytes,11,opt,name=runtime_source,json=runtimeSource,proto3" json:"runtime_source,omitempty"`
-	TargetPath               string                         `protobuf:"bytes,12,opt,name=target_path,json=targetPath,proto3" json:"target_path,omitempty"`
-	SourcePrincipal          string                         `protobuf:"bytes,13,opt,name=source_principal,json=sourcePrincipal,proto3" json:"source_principal,omitempty"`
-	ProviderSurfaceBindingId string                         `protobuf:"bytes,14,opt,name=provider_surface_binding_id,json=providerSurfaceBindingId,proto3" json:"provider_surface_binding_id,omitempty"`
-	EgressPolicyId           string                         `protobuf:"bytes,15,opt,name=egress_policy_id,json=egressPolicyId,proto3" json:"egress_policy_id,omitempty"`
-	AuthPolicyId             string                         `protobuf:"bytes,16,opt,name=auth_policy_id,json=authPolicyId,proto3" json:"auth_policy_id,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state                  protoimpl.MessageState         `protogen:"open.v1"`
+	PolicyId               string                         `protobuf:"bytes,1,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
+	CredentialId           string                         `protobuf:"bytes,2,opt,name=credential_id,json=credentialId,proto3" json:"credential_id,omitempty"`
+	AdapterId              string                         `protobuf:"bytes,3,opt,name=adapter_id,json=adapterId,proto3" json:"adapter_id,omitempty"`
+	TargetHost             string                         `protobuf:"bytes,4,opt,name=target_host,json=targetHost,proto3" json:"target_host,omitempty"`
+	HeaderValuePrefix      string                         `protobuf:"bytes,5,opt,name=header_value_prefix,json=headerValuePrefix,proto3" json:"header_value_prefix,omitempty"`
+	Origin                 string                         `protobuf:"bytes,6,opt,name=origin,proto3" json:"origin,omitempty"`
+	RequestHeaders         map[string]string              `protobuf:"bytes,7,rep,name=request_headers,json=requestHeaders,proto3" json:"request_headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	SimpleReplacementRules []*EgressSimpleReplacementRule `protobuf:"bytes,8,rep,name=simple_replacement_rules,json=simpleReplacementRules,proto3" json:"simple_replacement_rules,omitempty"`
+	Headers                []*EgressHeaderReplacementItem `protobuf:"bytes,9,rep,name=headers,proto3" json:"headers,omitempty"`
+	AllowedHeaderNames     []string                       `protobuf:"bytes,10,rep,name=allowed_header_names,json=allowedHeaderNames,proto3" json:"allowed_header_names,omitempty"`
+	RuntimeSource          *EgressRequestSource           `protobuf:"bytes,11,opt,name=runtime_source,json=runtimeSource,proto3" json:"runtime_source,omitempty"`
+	TargetPath             string                         `protobuf:"bytes,12,opt,name=target_path,json=targetPath,proto3" json:"target_path,omitempty"`
+	SourcePrincipal        string                         `protobuf:"bytes,13,opt,name=source_principal,json=sourcePrincipal,proto3" json:"source_principal,omitempty"`
+	EgressPolicyId         string                         `protobuf:"bytes,14,opt,name=egress_policy_id,json=egressPolicyId,proto3" json:"egress_policy_id,omitempty"`
+	AuthPolicyId           string                         `protobuf:"bytes,15,opt,name=auth_policy_id,json=authPolicyId,proto3" json:"auth_policy_id,omitempty"`
+	TargetMethod           string                         `protobuf:"bytes,16,opt,name=target_method,json=targetMethod,proto3" json:"target_method,omitempty"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *ResolveEgressRequestHeadersRequest) Reset() {
@@ -216,13 +216,6 @@ func (x *ResolveEgressRequestHeadersRequest) GetSourcePrincipal() string {
 	return ""
 }
 
-func (x *ResolveEgressRequestHeadersRequest) GetProviderSurfaceBindingId() string {
-	if x != nil {
-		return x.ProviderSurfaceBindingId
-	}
-	return ""
-}
-
 func (x *ResolveEgressRequestHeadersRequest) GetEgressPolicyId() string {
 	if x != nil {
 		return x.EgressPolicyId
@@ -237,28 +230,35 @@ func (x *ResolveEgressRequestHeadersRequest) GetAuthPolicyId() string {
 	return ""
 }
 
+func (x *ResolveEgressRequestHeadersRequest) GetTargetMethod() string {
+	if x != nil {
+		return x.TargetMethod
+	}
+	return ""
+}
+
 type ResolveEgressResponseHeadersRequest struct {
-	state                    protoimpl.MessageState         `protogen:"open.v1"`
-	PolicyId                 string                         `protobuf:"bytes,1,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
-	CredentialId             string                         `protobuf:"bytes,2,opt,name=credential_id,json=credentialId,proto3" json:"credential_id,omitempty"`
-	AdapterId                string                         `protobuf:"bytes,3,opt,name=adapter_id,json=adapterId,proto3" json:"adapter_id,omitempty"`
-	TargetHost               string                         `protobuf:"bytes,4,opt,name=target_host,json=targetHost,proto3" json:"target_host,omitempty"`
-	Origin                   string                         `protobuf:"bytes,5,opt,name=origin,proto3" json:"origin,omitempty"`
-	RequestHeaders           map[string]string              `protobuf:"bytes,6,rep,name=request_headers,json=requestHeaders,proto3" json:"request_headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	ResponseHeaders          map[string]string              `protobuf:"bytes,7,rep,name=response_headers,json=responseHeaders,proto3" json:"response_headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	SimpleReplacementRules   []*EgressSimpleReplacementRule `protobuf:"bytes,8,rep,name=simple_replacement_rules,json=simpleReplacementRules,proto3" json:"simple_replacement_rules,omitempty"`
-	Headers                  []*EgressHeaderReplacementItem `protobuf:"bytes,9,rep,name=headers,proto3" json:"headers,omitempty"`
-	AllowedHeaderNames       []string                       `protobuf:"bytes,10,rep,name=allowed_header_names,json=allowedHeaderNames,proto3" json:"allowed_header_names,omitempty"`
-	RuntimeSource            *EgressRequestSource           `protobuf:"bytes,11,opt,name=runtime_source,json=runtimeSource,proto3" json:"runtime_source,omitempty"`
-	TargetPath               string                         `protobuf:"bytes,12,opt,name=target_path,json=targetPath,proto3" json:"target_path,omitempty"`
-	StatusCode               uint32                         `protobuf:"varint,13,opt,name=status_code,json=statusCode,proto3" json:"status_code,omitempty"`
-	HeaderValuePrefix        string                         `protobuf:"bytes,14,opt,name=header_value_prefix,json=headerValuePrefix,proto3" json:"header_value_prefix,omitempty"`
-	SourcePrincipal          string                         `protobuf:"bytes,15,opt,name=source_principal,json=sourcePrincipal,proto3" json:"source_principal,omitempty"`
-	ProviderSurfaceBindingId string                         `protobuf:"bytes,16,opt,name=provider_surface_binding_id,json=providerSurfaceBindingId,proto3" json:"provider_surface_binding_id,omitempty"`
-	EgressPolicyId           string                         `protobuf:"bytes,17,opt,name=egress_policy_id,json=egressPolicyId,proto3" json:"egress_policy_id,omitempty"`
-	AuthPolicyId             string                         `protobuf:"bytes,18,opt,name=auth_policy_id,json=authPolicyId,proto3" json:"auth_policy_id,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state                  protoimpl.MessageState         `protogen:"open.v1"`
+	PolicyId               string                         `protobuf:"bytes,1,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
+	CredentialId           string                         `protobuf:"bytes,2,opt,name=credential_id,json=credentialId,proto3" json:"credential_id,omitempty"`
+	AdapterId              string                         `protobuf:"bytes,3,opt,name=adapter_id,json=adapterId,proto3" json:"adapter_id,omitempty"`
+	TargetHost             string                         `protobuf:"bytes,4,opt,name=target_host,json=targetHost,proto3" json:"target_host,omitempty"`
+	Origin                 string                         `protobuf:"bytes,5,opt,name=origin,proto3" json:"origin,omitempty"`
+	RequestHeaders         map[string]string              `protobuf:"bytes,6,rep,name=request_headers,json=requestHeaders,proto3" json:"request_headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	ResponseHeaders        map[string]string              `protobuf:"bytes,7,rep,name=response_headers,json=responseHeaders,proto3" json:"response_headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	SimpleReplacementRules []*EgressSimpleReplacementRule `protobuf:"bytes,8,rep,name=simple_replacement_rules,json=simpleReplacementRules,proto3" json:"simple_replacement_rules,omitempty"`
+	Headers                []*EgressHeaderReplacementItem `protobuf:"bytes,9,rep,name=headers,proto3" json:"headers,omitempty"`
+	AllowedHeaderNames     []string                       `protobuf:"bytes,10,rep,name=allowed_header_names,json=allowedHeaderNames,proto3" json:"allowed_header_names,omitempty"`
+	RuntimeSource          *EgressRequestSource           `protobuf:"bytes,11,opt,name=runtime_source,json=runtimeSource,proto3" json:"runtime_source,omitempty"`
+	TargetPath             string                         `protobuf:"bytes,12,opt,name=target_path,json=targetPath,proto3" json:"target_path,omitempty"`
+	StatusCode             uint32                         `protobuf:"varint,13,opt,name=status_code,json=statusCode,proto3" json:"status_code,omitempty"`
+	HeaderValuePrefix      string                         `protobuf:"bytes,14,opt,name=header_value_prefix,json=headerValuePrefix,proto3" json:"header_value_prefix,omitempty"`
+	SourcePrincipal        string                         `protobuf:"bytes,15,opt,name=source_principal,json=sourcePrincipal,proto3" json:"source_principal,omitempty"`
+	EgressPolicyId         string                         `protobuf:"bytes,16,opt,name=egress_policy_id,json=egressPolicyId,proto3" json:"egress_policy_id,omitempty"`
+	AuthPolicyId           string                         `protobuf:"bytes,17,opt,name=auth_policy_id,json=authPolicyId,proto3" json:"auth_policy_id,omitempty"`
+	TargetMethod           string                         `protobuf:"bytes,18,opt,name=target_method,json=targetMethod,proto3" json:"target_method,omitempty"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *ResolveEgressResponseHeadersRequest) Reset() {
@@ -396,13 +396,6 @@ func (x *ResolveEgressResponseHeadersRequest) GetSourcePrincipal() string {
 	return ""
 }
 
-func (x *ResolveEgressResponseHeadersRequest) GetProviderSurfaceBindingId() string {
-	if x != nil {
-		return x.ProviderSurfaceBindingId
-	}
-	return ""
-}
-
 func (x *ResolveEgressResponseHeadersRequest) GetEgressPolicyId() string {
 	if x != nil {
 		return x.EgressPolicyId
@@ -413,6 +406,13 @@ func (x *ResolveEgressResponseHeadersRequest) GetEgressPolicyId() string {
 func (x *ResolveEgressResponseHeadersRequest) GetAuthPolicyId() string {
 	if x != nil {
 		return x.AuthPolicyId
+	}
+	return ""
+}
+
+func (x *ResolveEgressResponseHeadersRequest) GetTargetMethod() string {
+	if x != nil {
+		return x.TargetMethod
 	}
 	return ""
 }
@@ -911,7 +911,7 @@ var File_platform_auth_v1_egress_auth_proto protoreflect.FileDescriptor
 
 const file_platform_auth_v1_egress_auth_proto_rawDesc = "" +
 	"\n" +
-	"\"platform/auth/v1/egress_auth.proto\x12\x10platform.auth.v1\"\xb1\a\n" +
+	"\"platform/auth/v1/egress_auth.proto\x12\x10platform.auth.v1\"\x97\a\n" +
 	"\"ResolveEgressRequestHeadersRequest\x12\x1b\n" +
 	"\tpolicy_id\x18\x01 \x01(\tR\bpolicyId\x12#\n" +
 	"\rcredential_id\x18\x02 \x01(\tR\fcredentialId\x12\x1d\n" +
@@ -929,13 +929,13 @@ const file_platform_auth_v1_egress_auth_proto_rawDesc = "" +
 	"\x0eruntime_source\x18\v \x01(\v2%.platform.auth.v1.EgressRequestSourceR\rruntimeSource\x12\x1f\n" +
 	"\vtarget_path\x18\f \x01(\tR\n" +
 	"targetPath\x12)\n" +
-	"\x10source_principal\x18\r \x01(\tR\x0fsourcePrincipal\x12=\n" +
-	"\x1bprovider_surface_binding_id\x18\x0e \x01(\tR\x18providerSurfaceBindingId\x12(\n" +
-	"\x10egress_policy_id\x18\x0f \x01(\tR\x0eegressPolicyId\x12$\n" +
-	"\x0eauth_policy_id\x18\x10 \x01(\tR\fauthPolicyId\x1aA\n" +
+	"\x10source_principal\x18\r \x01(\tR\x0fsourcePrincipal\x12(\n" +
+	"\x10egress_policy_id\x18\x0e \x01(\tR\x0eegressPolicyId\x12$\n" +
+	"\x0eauth_policy_id\x18\x0f \x01(\tR\fauthPolicyId\x12#\n" +
+	"\rtarget_method\x18\x10 \x01(\tR\ftargetMethod\x1aA\n" +
 	"\x13RequestHeadersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x8f\t\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xf5\b\n" +
 	"#ResolveEgressResponseHeadersRequest\x12\x1b\n" +
 	"\tpolicy_id\x18\x01 \x01(\tR\bpolicyId\x12#\n" +
 	"\rcredential_id\x18\x02 \x01(\tR\fcredentialId\x12\x1d\n" +
@@ -956,10 +956,10 @@ const file_platform_auth_v1_egress_auth_proto_rawDesc = "" +
 	"\vstatus_code\x18\r \x01(\rR\n" +
 	"statusCode\x12.\n" +
 	"\x13header_value_prefix\x18\x0e \x01(\tR\x11headerValuePrefix\x12)\n" +
-	"\x10source_principal\x18\x0f \x01(\tR\x0fsourcePrincipal\x12=\n" +
-	"\x1bprovider_surface_binding_id\x18\x10 \x01(\tR\x18providerSurfaceBindingId\x12(\n" +
-	"\x10egress_policy_id\x18\x11 \x01(\tR\x0eegressPolicyId\x12$\n" +
-	"\x0eauth_policy_id\x18\x12 \x01(\tR\fauthPolicyId\x1aA\n" +
+	"\x10source_principal\x18\x0f \x01(\tR\x0fsourcePrincipal\x12(\n" +
+	"\x10egress_policy_id\x18\x10 \x01(\tR\x0eegressPolicyId\x12$\n" +
+	"\x0eauth_policy_id\x18\x11 \x01(\tR\fauthPolicyId\x12#\n" +
+	"\rtarget_method\x18\x12 \x01(\tR\ftargetMethod\x1aA\n" +
 	"\x13RequestHeadersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1aB\n" +

@@ -1,56 +1,65 @@
 #!/usr/bin/env bash
-# check_api_shape.sh — Cross-check management.proto RPC methods against docs.
+# check_api_shape.sh — Ensure proto public services and RPCs are indexed in docs.
 #
 # Usage:
 #   cd packages/proto
 #   ./scripts/check_api_shape.sh
 #
-# Exits 0 if consistent, 1 if mismatches are found.
+# Exits 0 if all proto services and RPCs are listed in docs/README.md.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROTO_DIR="${SCRIPT_DIR}/.."
-DOCS_DIR="${SCRIPT_DIR}/../../../docs/platform/management-api.md"
-PROTO_FILE="${PROTO_DIR}/platform/management/v1/management.proto"
-
-if [ ! -f "$PROTO_FILE" ]; then
-  echo "ERROR: proto file not found: $PROTO_FILE"
+DOCS_FILE="${SCRIPT_DIR}/../../../docs/README.md"
+if [ ! -f "$DOCS_FILE" ]; then
+  echo "ERROR: docs index not found: $DOCS_FILE"
   exit 1
 fi
 
-# Extract RPC method names from proto file.
-proto_methods=$(grep '^\s*rpc ' "$PROTO_FILE" | sed 's/.*rpc \([A-Za-z]*\).*/\1/' | sort)
+service_count=0
+rpc_count=0
+missing_items=""
 
-if [ ! -f "$DOCS_DIR" ]; then
-  echo "WARN: docs file not found: $DOCS_DIR"
-  echo "Skipping docs comparison. Proto methods:"
-  echo "$proto_methods"
-  exit 0
+for proto_file in $(find "$PROTO_DIR" -name '*.proto' -print | sort); do
+  package_name=$(sed -n 's/^package[[:space:]]\{1,\}\([^;]*\);/\1/p' "$proto_file" | head -n 1)
+  rel_path=${proto_file#"$PROTO_DIR"/}
+
+  while IFS= read -r line; do
+    if [[ "$line" =~ ^[[:space:]]*service[[:space:]]+([A-Za-z0-9_]+) ]]; then
+      service_count=$((service_count + 1))
+      service_name="${BASH_REMATCH[1]}"
+      fq_service="$service_name"
+      if [ -n "$package_name" ]; then
+        fq_service="${package_name}.${service_name}"
+      fi
+
+      if ! grep -Fq "\`$fq_service\`" "$DOCS_FILE"; then
+        missing_items="${missing_items}service ${fq_service} (${rel_path})
+"
+      fi
+    fi
+
+    if [[ "$line" =~ ^[[:space:]]*rpc[[:space:]]+([A-Za-z0-9_]+) ]]; then
+      rpc_count=$((rpc_count + 1))
+      rpc_name="${BASH_REMATCH[1]}"
+
+      if ! grep -Fq "\`$rpc_name\`" "$DOCS_FILE"; then
+        missing_items="${missing_items}rpc ${rpc_name} (${rel_path})
+"
+      fi
+    fi
+  done < "$proto_file"
+done
+
+if [ "$service_count" -eq 0 ]; then
+  echo "ERROR: no proto services found under $PROTO_DIR"
+  exit 1
 fi
 
-# Extract method names from docs (assumes lines like "- `MethodName`" or "| MethodName |").
-docs_methods=$(grep -oE '\b(List|Get|Create|Update|Delete|Apply|Sync|Start|Complete|Poll|Resolve|Discover)[A-Za-z]+' "$DOCS_DIR" | sort -u)
-
-# Compare.
-only_in_proto=$(comm -23 <(echo "$proto_methods") <(echo "$docs_methods"))
-only_in_docs=$(comm -13 <(echo "$proto_methods") <(echo "$docs_methods"))
-
-exit_code=0
-
-if [ -n "$only_in_proto" ]; then
-  echo "Methods in proto but NOT in docs:"
-  echo "$only_in_proto" | sed 's/^/  - /'
-  exit_code=1
+if [ -n "$missing_items" ]; then
+  echo "Proto services or RPCs missing from docs/README.md:"
+  printf "%s" "$missing_items" | sed '/^$/d; s/^/  - /'
+  exit 1
 fi
 
-if [ -n "$only_in_docs" ]; then
-  echo "Methods in docs but NOT in proto:"
-  echo "$only_in_docs" | sed 's/^/  - /'
-  exit_code=1
-fi
-
-if [ "$exit_code" -eq 0 ]; then
-  echo "OK: proto and docs are consistent ($(echo "$proto_methods" | wc -l | tr -d ' ') methods)"
-fi
-
-exit $exit_code
+echo "OK: docs/README.md indexes $service_count proto services and $rpc_count RPCs"

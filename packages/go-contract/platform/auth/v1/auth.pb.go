@@ -2399,6 +2399,9 @@ type GetEgressAuthPolicyResponse struct {
 	HeadersToUpstreamOnAllow   []string                       `protobuf:"bytes,10,rep,name=headers_to_upstream_on_allow,json=headersToUpstreamOnAllow,proto3" json:"headers_to_upstream_on_allow,omitempty"`
 	HeadersToDownstreamOnAllow []string                       `protobuf:"bytes,11,rep,name=headers_to_downstream_on_allow,json=headersToDownstreamOnAllow,proto3" json:"headers_to_downstream_on_allow,omitempty"`
 	HeadersToDownstreamOnDeny  []string                       `protobuf:"bytes,12,rep,name=headers_to_downstream_on_deny,json=headersToDownstreamOnDeny,proto3" json:"headers_to_downstream_on_deny,omitempty"`
+	CredentialId               string                         `protobuf:"bytes,13,opt,name=credential_id,json=credentialId,proto3" json:"credential_id,omitempty"`
+	Source                     *EgressAuthPolicySource        `protobuf:"bytes,14,opt,name=source,proto3" json:"source,omitempty"`
+	Target                     *EgressAuthPolicyTarget        `protobuf:"bytes,15,opt,name=target,proto3" json:"target,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -2513,6 +2516,139 @@ func (x *GetEgressAuthPolicyResponse) GetHeadersToDownstreamOnAllow() []string {
 func (x *GetEgressAuthPolicyResponse) GetHeadersToDownstreamOnDeny() []string {
 	if x != nil {
 		return x.HeadersToDownstreamOnDeny
+	}
+	return nil
+}
+
+func (x *GetEgressAuthPolicyResponse) GetCredentialId() string {
+	if x != nil {
+		return x.CredentialId
+	}
+	return ""
+}
+
+func (x *GetEgressAuthPolicyResponse) GetSource() *EgressAuthPolicySource {
+	if x != nil {
+		return x.Source
+	}
+	return nil
+}
+
+func (x *GetEgressAuthPolicyResponse) GetTarget() *EgressAuthPolicyTarget {
+	if x != nil {
+		return x.Target
+	}
+	return nil
+}
+
+type EgressAuthPolicySource struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Principals      []string               `protobuf:"bytes,1,rep,name=principals,proto3" json:"principals,omitempty"`
+	ServiceAccounts []string               `protobuf:"bytes,2,rep,name=service_accounts,json=serviceAccounts,proto3" json:"service_accounts,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *EgressAuthPolicySource) Reset() {
+	*x = EgressAuthPolicySource{}
+	mi := &file_platform_auth_v1_auth_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EgressAuthPolicySource) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EgressAuthPolicySource) ProtoMessage() {}
+
+func (x *EgressAuthPolicySource) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_auth_v1_auth_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EgressAuthPolicySource.ProtoReflect.Descriptor instead.
+func (*EgressAuthPolicySource) Descriptor() ([]byte, []int) {
+	return file_platform_auth_v1_auth_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *EgressAuthPolicySource) GetPrincipals() []string {
+	if x != nil {
+		return x.Principals
+	}
+	return nil
+}
+
+func (x *EgressAuthPolicySource) GetServiceAccounts() []string {
+	if x != nil {
+		return x.ServiceAccounts
+	}
+	return nil
+}
+
+type EgressAuthPolicyTarget struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Hosts         []string               `protobuf:"bytes,1,rep,name=hosts,proto3" json:"hosts,omitempty"`
+	PathPrefixes  []string               `protobuf:"bytes,2,rep,name=path_prefixes,json=pathPrefixes,proto3" json:"path_prefixes,omitempty"`
+	Methods       []string               `protobuf:"bytes,3,rep,name=methods,proto3" json:"methods,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EgressAuthPolicyTarget) Reset() {
+	*x = EgressAuthPolicyTarget{}
+	mi := &file_platform_auth_v1_auth_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EgressAuthPolicyTarget) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EgressAuthPolicyTarget) ProtoMessage() {}
+
+func (x *EgressAuthPolicyTarget) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_auth_v1_auth_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EgressAuthPolicyTarget.ProtoReflect.Descriptor instead.
+func (*EgressAuthPolicyTarget) Descriptor() ([]byte, []int) {
+	return file_platform_auth_v1_auth_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *EgressAuthPolicyTarget) GetHosts() []string {
+	if x != nil {
+		return x.Hosts
+	}
+	return nil
+}
+
+func (x *EgressAuthPolicyTarget) GetPathPrefixes() []string {
+	if x != nil {
+		return x.PathPrefixes
+	}
+	return nil
+}
+
+func (x *EgressAuthPolicyTarget) GetMethods() []string {
+	if x != nil {
+		return x.Methods
 	}
 	return nil
 }
@@ -2722,7 +2858,7 @@ const file_platform_auth_v1_auth_proto_rawDesc = "" +
 	"\tpolicy_id\x18\x01 \x01(\tR\bpolicyId\x12/\n" +
 	"\x13materialization_key\x18\x02 \x01(\tR\x12materializationKey\x12F\n" +
 	"\x0fcredential_kind\x18\x03 \x01(\x0e2\x1d.credential.v1.CredentialKindR\x0ecredentialKind\x125\n" +
-	"\bprotocol\x18\x04 \x01(\x0e2\x19.api_protocol.v1.ProtocolR\bprotocol\"\xf6\x05\n" +
+	"\bprotocol\x18\x04 \x01(\x0e2\x19.api_protocol.v1.ProtocolR\bprotocol\"\x9f\a\n" +
 	"\x1bGetEgressAuthPolicyResponse\x12\x1b\n" +
 	"\tpolicy_id\x18\x01 \x01(\tR\bpolicyId\x12/\n" +
 	"\x13materialization_key\x18\x02 \x01(\tR\x12materializationKey\x12\x1d\n" +
@@ -2737,7 +2873,19 @@ const file_platform_auth_v1_auth_proto_rawDesc = "" +
 	"\x1cheaders_to_upstream_on_allow\x18\n" +
 	" \x03(\tR\x18headersToUpstreamOnAllow\x12B\n" +
 	"\x1eheaders_to_downstream_on_allow\x18\v \x03(\tR\x1aheadersToDownstreamOnAllow\x12@\n" +
-	"\x1dheaders_to_downstream_on_deny\x18\f \x03(\tR\x19headersToDownstreamOnDeny*\xd7\x01\n" +
+	"\x1dheaders_to_downstream_on_deny\x18\f \x03(\tR\x19headersToDownstreamOnDeny\x12#\n" +
+	"\rcredential_id\x18\r \x01(\tR\fcredentialId\x12@\n" +
+	"\x06source\x18\x0e \x01(\v2(.platform.auth.v1.EgressAuthPolicySourceR\x06source\x12@\n" +
+	"\x06target\x18\x0f \x01(\v2(.platform.auth.v1.EgressAuthPolicyTargetR\x06target\"c\n" +
+	"\x16EgressAuthPolicySource\x12\x1e\n" +
+	"\n" +
+	"principals\x18\x01 \x03(\tR\n" +
+	"principals\x12)\n" +
+	"\x10service_accounts\x18\x02 \x03(\tR\x0fserviceAccounts\"m\n" +
+	"\x16EgressAuthPolicyTarget\x12\x14\n" +
+	"\x05hosts\x18\x01 \x03(\tR\x05hosts\x12#\n" +
+	"\rpath_prefixes\x18\x02 \x03(\tR\fpathPrefixes\x12\x18\n" +
+	"\amethods\x18\x03 \x03(\tR\amethods*\xd7\x01\n" +
 	" CredentialMaterialReadPolicyKind\x124\n" +
 	"0CREDENTIAL_MATERIAL_READ_POLICY_KIND_UNSPECIFIED\x10\x00\x12?\n" +
 	";CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_ACTIVE_QUERY\x10\x01\x12<\n" +
@@ -2777,7 +2925,7 @@ func file_platform_auth_v1_auth_proto_rawDescGZIP() []byte {
 }
 
 var file_platform_auth_v1_auth_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_platform_auth_v1_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 43)
+var file_platform_auth_v1_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 45)
 var file_platform_auth_v1_auth_proto_goTypes = []any{
 	(CredentialMaterialReadPolicyKind)(0),          // 0: platform.auth.v1.CredentialMaterialReadPolicyKind
 	(*ListCredentialsRequest)(nil),                 // 1: platform.auth.v1.ListCredentialsRequest
@@ -2819,98 +2967,102 @@ var file_platform_auth_v1_auth_proto_goTypes = []any{
 	(*GetCredentialRuntimeProjectionResponse)(nil), // 37: platform.auth.v1.GetCredentialRuntimeProjectionResponse
 	(*GetEgressAuthPolicyRequest)(nil),             // 38: platform.auth.v1.GetEgressAuthPolicyRequest
 	(*GetEgressAuthPolicyResponse)(nil),            // 39: platform.auth.v1.GetEgressAuthPolicyResponse
-	nil,                                            // 40: platform.auth.v1.CreateSessionCredentialRequest.ValuesEntry
-	nil,                                            // 41: platform.auth.v1.UpdateSessionCredentialRequest.ValuesEntry
-	nil,                                            // 42: platform.auth.v1.MergeCredentialMaterialValuesRequest.ValuesEntry
-	nil,                                            // 43: platform.auth.v1.ReadCredentialMaterialFieldsResponse.ValuesEntry
-	(*v1.CredentialView)(nil),                      // 44: platform.management.v1.CredentialView
-	(*timestamppb.Timestamp)(nil),                  // 45: google.protobuf.Timestamp
-	(*v11.CredentialDefinition)(nil),               // 46: credential.v1.CredentialDefinition
-	(*v1.CredentialSubjectSummaryFieldView)(nil),   // 47: platform.management.v1.CredentialSubjectSummaryFieldView
-	(v11.CredentialKind)(0),                        // 48: credential.v1.CredentialKind
-	(v12.Protocol)(0),                              // 49: api_protocol.v1.Protocol
-	(*EgressSimpleReplacementRule)(nil),            // 50: platform.auth.v1.EgressSimpleReplacementRule
-	(*ResolveEgressRequestHeadersRequest)(nil),     // 51: platform.auth.v1.ResolveEgressRequestHeadersRequest
-	(*ResolveEgressResponseHeadersRequest)(nil),    // 52: platform.auth.v1.ResolveEgressResponseHeadersRequest
-	(*ResolveEgressRequestHeadersResponse)(nil),    // 53: platform.auth.v1.ResolveEgressRequestHeadersResponse
-	(*ResolveEgressResponseHeadersResponse)(nil),   // 54: platform.auth.v1.ResolveEgressResponseHeadersResponse
+	(*EgressAuthPolicySource)(nil),                 // 40: platform.auth.v1.EgressAuthPolicySource
+	(*EgressAuthPolicyTarget)(nil),                 // 41: platform.auth.v1.EgressAuthPolicyTarget
+	nil,                                            // 42: platform.auth.v1.CreateSessionCredentialRequest.ValuesEntry
+	nil,                                            // 43: platform.auth.v1.UpdateSessionCredentialRequest.ValuesEntry
+	nil,                                            // 44: platform.auth.v1.MergeCredentialMaterialValuesRequest.ValuesEntry
+	nil,                                            // 45: platform.auth.v1.ReadCredentialMaterialFieldsResponse.ValuesEntry
+	(*v1.CredentialView)(nil),                      // 46: platform.management.v1.CredentialView
+	(*timestamppb.Timestamp)(nil),                  // 47: google.protobuf.Timestamp
+	(*v11.CredentialDefinition)(nil),               // 48: credential.v1.CredentialDefinition
+	(*v1.CredentialSubjectSummaryFieldView)(nil),   // 49: platform.management.v1.CredentialSubjectSummaryFieldView
+	(v11.CredentialKind)(0),                        // 50: credential.v1.CredentialKind
+	(v12.Protocol)(0),                              // 51: api_protocol.v1.Protocol
+	(*EgressSimpleReplacementRule)(nil),            // 52: platform.auth.v1.EgressSimpleReplacementRule
+	(*ResolveEgressRequestHeadersRequest)(nil),     // 53: platform.auth.v1.ResolveEgressRequestHeadersRequest
+	(*ResolveEgressResponseHeadersRequest)(nil),    // 54: platform.auth.v1.ResolveEgressResponseHeadersRequest
+	(*ResolveEgressRequestHeadersResponse)(nil),    // 55: platform.auth.v1.ResolveEgressRequestHeadersResponse
+	(*ResolveEgressResponseHeadersResponse)(nil),   // 56: platform.auth.v1.ResolveEgressResponseHeadersResponse
 }
 var file_platform_auth_v1_auth_proto_depIdxs = []int32{
-	44, // 0: platform.auth.v1.ListCredentialsResponse.items:type_name -> platform.management.v1.CredentialView
-	44, // 1: platform.auth.v1.CreateAPIKeyCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
-	44, // 2: platform.auth.v1.UpdateAPIKeyCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
-	40, // 3: platform.auth.v1.CreateSessionCredentialRequest.values:type_name -> platform.auth.v1.CreateSessionCredentialRequest.ValuesEntry
-	44, // 4: platform.auth.v1.CreateSessionCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
-	41, // 5: platform.auth.v1.UpdateSessionCredentialRequest.values:type_name -> platform.auth.v1.UpdateSessionCredentialRequest.ValuesEntry
-	44, // 6: platform.auth.v1.UpdateSessionCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
-	42, // 7: platform.auth.v1.MergeCredentialMaterialValuesRequest.values:type_name -> platform.auth.v1.MergeCredentialMaterialValuesRequest.ValuesEntry
+	46, // 0: platform.auth.v1.ListCredentialsResponse.items:type_name -> platform.management.v1.CredentialView
+	46, // 1: platform.auth.v1.CreateAPIKeyCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
+	46, // 2: platform.auth.v1.UpdateAPIKeyCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
+	42, // 3: platform.auth.v1.CreateSessionCredentialRequest.values:type_name -> platform.auth.v1.CreateSessionCredentialRequest.ValuesEntry
+	46, // 4: platform.auth.v1.CreateSessionCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
+	43, // 5: platform.auth.v1.UpdateSessionCredentialRequest.values:type_name -> platform.auth.v1.UpdateSessionCredentialRequest.ValuesEntry
+	46, // 6: platform.auth.v1.UpdateSessionCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
+	44, // 7: platform.auth.v1.MergeCredentialMaterialValuesRequest.values:type_name -> platform.auth.v1.MergeCredentialMaterialValuesRequest.ValuesEntry
 	15, // 8: platform.auth.v1.ReadCredentialMaterialFieldsRequest.policy_ref:type_name -> platform.auth.v1.CredentialMaterialReadPolicyRef
-	43, // 9: platform.auth.v1.ReadCredentialMaterialFieldsResponse.values:type_name -> platform.auth.v1.ReadCredentialMaterialFieldsResponse.ValuesEntry
+	45, // 9: platform.auth.v1.ReadCredentialMaterialFieldsResponse.values:type_name -> platform.auth.v1.ReadCredentialMaterialFieldsResponse.ValuesEntry
 	0,  // 10: platform.auth.v1.CredentialMaterialReadPolicyRef.kind:type_name -> platform.auth.v1.CredentialMaterialReadPolicyKind
-	45, // 11: platform.auth.v1.CreateOAuthCredentialRequest.expires_at:type_name -> google.protobuf.Timestamp
-	44, // 12: platform.auth.v1.CreateOAuthCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
-	45, // 13: platform.auth.v1.UpdateOAuthCredentialRequest.expires_at:type_name -> google.protobuf.Timestamp
-	44, // 14: platform.auth.v1.UpdateOAuthCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
-	44, // 15: platform.auth.v1.RenameCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
-	44, // 16: platform.auth.v1.DeleteCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
-	45, // 17: platform.auth.v1.OAuthArtifact.expires_at:type_name -> google.protobuf.Timestamp
+	47, // 11: platform.auth.v1.CreateOAuthCredentialRequest.expires_at:type_name -> google.protobuf.Timestamp
+	46, // 12: platform.auth.v1.CreateOAuthCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
+	47, // 13: platform.auth.v1.UpdateOAuthCredentialRequest.expires_at:type_name -> google.protobuf.Timestamp
+	46, // 14: platform.auth.v1.UpdateOAuthCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
+	46, // 15: platform.auth.v1.RenameCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
+	46, // 16: platform.auth.v1.DeleteCredentialResponse.credential:type_name -> platform.management.v1.CredentialView
+	47, // 17: platform.auth.v1.OAuthArtifact.expires_at:type_name -> google.protobuf.Timestamp
 	24, // 18: platform.auth.v1.ImportOAuthCredentialRequest.artifact:type_name -> platform.auth.v1.OAuthArtifact
-	46, // 19: platform.auth.v1.ImportOAuthCredentialResponse.definition:type_name -> credential.v1.CredentialDefinition
-	45, // 20: platform.auth.v1.EnsureFreshResponse.expires_at:type_name -> google.protobuf.Timestamp
-	45, // 21: platform.auth.v1.EnsureFreshResponse.next_refresh_after:type_name -> google.protobuf.Timestamp
-	45, // 22: platform.auth.v1.EnsureFreshResponse.last_refreshed_at:type_name -> google.protobuf.Timestamp
-	47, // 23: platform.auth.v1.GetCredentialSubjectSummaryResponse.fields:type_name -> platform.management.v1.CredentialSubjectSummaryFieldView
-	48, // 24: platform.auth.v1.CredentialRuntimeProjection.credential_kind:type_name -> credential.v1.CredentialKind
+	48, // 19: platform.auth.v1.ImportOAuthCredentialResponse.definition:type_name -> credential.v1.CredentialDefinition
+	47, // 20: platform.auth.v1.EnsureFreshResponse.expires_at:type_name -> google.protobuf.Timestamp
+	47, // 21: platform.auth.v1.EnsureFreshResponse.next_refresh_after:type_name -> google.protobuf.Timestamp
+	47, // 22: platform.auth.v1.EnsureFreshResponse.last_refreshed_at:type_name -> google.protobuf.Timestamp
+	49, // 23: platform.auth.v1.GetCredentialSubjectSummaryResponse.fields:type_name -> platform.management.v1.CredentialSubjectSummaryFieldView
+	50, // 24: platform.auth.v1.CredentialRuntimeProjection.credential_kind:type_name -> credential.v1.CredentialKind
 	36, // 25: platform.auth.v1.GetCredentialRuntimeProjectionResponse.credential:type_name -> platform.auth.v1.CredentialRuntimeProjection
-	48, // 26: platform.auth.v1.GetEgressAuthPolicyRequest.credential_kind:type_name -> credential.v1.CredentialKind
-	49, // 27: platform.auth.v1.GetEgressAuthPolicyRequest.protocol:type_name -> api_protocol.v1.Protocol
-	50, // 28: platform.auth.v1.GetEgressAuthPolicyResponse.request_replacement_rules:type_name -> platform.auth.v1.EgressSimpleReplacementRule
-	50, // 29: platform.auth.v1.GetEgressAuthPolicyResponse.response_replacement_rules:type_name -> platform.auth.v1.EgressSimpleReplacementRule
-	1,  // 30: platform.auth.v1.AuthService.ListCredentials:input_type -> platform.auth.v1.ListCredentialsRequest
-	3,  // 31: platform.auth.v1.AuthService.CreateAPIKeyCredential:input_type -> platform.auth.v1.CreateAPIKeyCredentialRequest
-	5,  // 32: platform.auth.v1.AuthService.UpdateAPIKeyCredential:input_type -> platform.auth.v1.UpdateAPIKeyCredentialRequest
-	7,  // 33: platform.auth.v1.AuthService.CreateSessionCredential:input_type -> platform.auth.v1.CreateSessionCredentialRequest
-	9,  // 34: platform.auth.v1.AuthService.UpdateSessionCredential:input_type -> platform.auth.v1.UpdateSessionCredentialRequest
-	11, // 35: platform.auth.v1.AuthService.MergeCredentialMaterialValues:input_type -> platform.auth.v1.MergeCredentialMaterialValuesRequest
-	13, // 36: platform.auth.v1.AuthService.ReadCredentialMaterialFields:input_type -> platform.auth.v1.ReadCredentialMaterialFieldsRequest
-	16, // 37: platform.auth.v1.AuthService.CreateOAuthCredential:input_type -> platform.auth.v1.CreateOAuthCredentialRequest
-	18, // 38: platform.auth.v1.AuthService.UpdateOAuthCredential:input_type -> platform.auth.v1.UpdateOAuthCredentialRequest
-	20, // 39: platform.auth.v1.AuthService.RenameCredential:input_type -> platform.auth.v1.RenameCredentialRequest
-	22, // 40: platform.auth.v1.AuthService.DeleteCredential:input_type -> platform.auth.v1.DeleteCredentialRequest
-	25, // 41: platform.auth.v1.AuthService.ImportOAuthCredential:input_type -> platform.auth.v1.ImportOAuthCredentialRequest
-	27, // 42: platform.auth.v1.AuthService.EnsureFresh:input_type -> platform.auth.v1.EnsureFreshRequest
-	29, // 43: platform.auth.v1.AuthService.RefreshOAuthDue:input_type -> platform.auth.v1.RefreshOAuthDueRequest
-	30, // 44: platform.auth.v1.AuthService.ScanOAuthSessions:input_type -> platform.auth.v1.ScanOAuthSessionsRequest
-	33, // 45: platform.auth.v1.AuthService.GetCredentialSubjectSummary:input_type -> platform.auth.v1.GetCredentialSubjectSummaryRequest
-	35, // 46: platform.auth.v1.AuthService.GetCredentialRuntimeProjection:input_type -> platform.auth.v1.GetCredentialRuntimeProjectionRequest
-	38, // 47: platform.auth.v1.AuthService.GetEgressAuthPolicy:input_type -> platform.auth.v1.GetEgressAuthPolicyRequest
-	51, // 48: platform.auth.v1.AuthService.ResolveEgressRequestHeaders:input_type -> platform.auth.v1.ResolveEgressRequestHeadersRequest
-	52, // 49: platform.auth.v1.AuthService.ResolveEgressResponseHeaders:input_type -> platform.auth.v1.ResolveEgressResponseHeadersRequest
-	2,  // 50: platform.auth.v1.AuthService.ListCredentials:output_type -> platform.auth.v1.ListCredentialsResponse
-	4,  // 51: platform.auth.v1.AuthService.CreateAPIKeyCredential:output_type -> platform.auth.v1.CreateAPIKeyCredentialResponse
-	6,  // 52: platform.auth.v1.AuthService.UpdateAPIKeyCredential:output_type -> platform.auth.v1.UpdateAPIKeyCredentialResponse
-	8,  // 53: platform.auth.v1.AuthService.CreateSessionCredential:output_type -> platform.auth.v1.CreateSessionCredentialResponse
-	10, // 54: platform.auth.v1.AuthService.UpdateSessionCredential:output_type -> platform.auth.v1.UpdateSessionCredentialResponse
-	12, // 55: platform.auth.v1.AuthService.MergeCredentialMaterialValues:output_type -> platform.auth.v1.MergeCredentialMaterialValuesResponse
-	14, // 56: platform.auth.v1.AuthService.ReadCredentialMaterialFields:output_type -> platform.auth.v1.ReadCredentialMaterialFieldsResponse
-	17, // 57: platform.auth.v1.AuthService.CreateOAuthCredential:output_type -> platform.auth.v1.CreateOAuthCredentialResponse
-	19, // 58: platform.auth.v1.AuthService.UpdateOAuthCredential:output_type -> platform.auth.v1.UpdateOAuthCredentialResponse
-	21, // 59: platform.auth.v1.AuthService.RenameCredential:output_type -> platform.auth.v1.RenameCredentialResponse
-	23, // 60: platform.auth.v1.AuthService.DeleteCredential:output_type -> platform.auth.v1.DeleteCredentialResponse
-	26, // 61: platform.auth.v1.AuthService.ImportOAuthCredential:output_type -> platform.auth.v1.ImportOAuthCredentialResponse
-	28, // 62: platform.auth.v1.AuthService.EnsureFresh:output_type -> platform.auth.v1.EnsureFreshResponse
-	31, // 63: platform.auth.v1.AuthService.RefreshOAuthDue:output_type -> platform.auth.v1.RefreshOAuthDueResponse
-	32, // 64: platform.auth.v1.AuthService.ScanOAuthSessions:output_type -> platform.auth.v1.ScanOAuthSessionsResponse
-	34, // 65: platform.auth.v1.AuthService.GetCredentialSubjectSummary:output_type -> platform.auth.v1.GetCredentialSubjectSummaryResponse
-	37, // 66: platform.auth.v1.AuthService.GetCredentialRuntimeProjection:output_type -> platform.auth.v1.GetCredentialRuntimeProjectionResponse
-	39, // 67: platform.auth.v1.AuthService.GetEgressAuthPolicy:output_type -> platform.auth.v1.GetEgressAuthPolicyResponse
-	53, // 68: platform.auth.v1.AuthService.ResolveEgressRequestHeaders:output_type -> platform.auth.v1.ResolveEgressRequestHeadersResponse
-	54, // 69: platform.auth.v1.AuthService.ResolveEgressResponseHeaders:output_type -> platform.auth.v1.ResolveEgressResponseHeadersResponse
-	50, // [50:70] is the sub-list for method output_type
-	30, // [30:50] is the sub-list for method input_type
-	30, // [30:30] is the sub-list for extension type_name
-	30, // [30:30] is the sub-list for extension extendee
-	0,  // [0:30] is the sub-list for field type_name
+	50, // 26: platform.auth.v1.GetEgressAuthPolicyRequest.credential_kind:type_name -> credential.v1.CredentialKind
+	51, // 27: platform.auth.v1.GetEgressAuthPolicyRequest.protocol:type_name -> api_protocol.v1.Protocol
+	52, // 28: platform.auth.v1.GetEgressAuthPolicyResponse.request_replacement_rules:type_name -> platform.auth.v1.EgressSimpleReplacementRule
+	52, // 29: platform.auth.v1.GetEgressAuthPolicyResponse.response_replacement_rules:type_name -> platform.auth.v1.EgressSimpleReplacementRule
+	40, // 30: platform.auth.v1.GetEgressAuthPolicyResponse.source:type_name -> platform.auth.v1.EgressAuthPolicySource
+	41, // 31: platform.auth.v1.GetEgressAuthPolicyResponse.target:type_name -> platform.auth.v1.EgressAuthPolicyTarget
+	1,  // 32: platform.auth.v1.AuthService.ListCredentials:input_type -> platform.auth.v1.ListCredentialsRequest
+	3,  // 33: platform.auth.v1.AuthService.CreateAPIKeyCredential:input_type -> platform.auth.v1.CreateAPIKeyCredentialRequest
+	5,  // 34: platform.auth.v1.AuthService.UpdateAPIKeyCredential:input_type -> platform.auth.v1.UpdateAPIKeyCredentialRequest
+	7,  // 35: platform.auth.v1.AuthService.CreateSessionCredential:input_type -> platform.auth.v1.CreateSessionCredentialRequest
+	9,  // 36: platform.auth.v1.AuthService.UpdateSessionCredential:input_type -> platform.auth.v1.UpdateSessionCredentialRequest
+	11, // 37: platform.auth.v1.AuthService.MergeCredentialMaterialValues:input_type -> platform.auth.v1.MergeCredentialMaterialValuesRequest
+	13, // 38: platform.auth.v1.AuthService.ReadCredentialMaterialFields:input_type -> platform.auth.v1.ReadCredentialMaterialFieldsRequest
+	16, // 39: platform.auth.v1.AuthService.CreateOAuthCredential:input_type -> platform.auth.v1.CreateOAuthCredentialRequest
+	18, // 40: platform.auth.v1.AuthService.UpdateOAuthCredential:input_type -> platform.auth.v1.UpdateOAuthCredentialRequest
+	20, // 41: platform.auth.v1.AuthService.RenameCredential:input_type -> platform.auth.v1.RenameCredentialRequest
+	22, // 42: platform.auth.v1.AuthService.DeleteCredential:input_type -> platform.auth.v1.DeleteCredentialRequest
+	25, // 43: platform.auth.v1.AuthService.ImportOAuthCredential:input_type -> platform.auth.v1.ImportOAuthCredentialRequest
+	27, // 44: platform.auth.v1.AuthService.EnsureFresh:input_type -> platform.auth.v1.EnsureFreshRequest
+	29, // 45: platform.auth.v1.AuthService.RefreshOAuthDue:input_type -> platform.auth.v1.RefreshOAuthDueRequest
+	30, // 46: platform.auth.v1.AuthService.ScanOAuthSessions:input_type -> platform.auth.v1.ScanOAuthSessionsRequest
+	33, // 47: platform.auth.v1.AuthService.GetCredentialSubjectSummary:input_type -> platform.auth.v1.GetCredentialSubjectSummaryRequest
+	35, // 48: platform.auth.v1.AuthService.GetCredentialRuntimeProjection:input_type -> platform.auth.v1.GetCredentialRuntimeProjectionRequest
+	38, // 49: platform.auth.v1.AuthService.GetEgressAuthPolicy:input_type -> platform.auth.v1.GetEgressAuthPolicyRequest
+	53, // 50: platform.auth.v1.AuthService.ResolveEgressRequestHeaders:input_type -> platform.auth.v1.ResolveEgressRequestHeadersRequest
+	54, // 51: platform.auth.v1.AuthService.ResolveEgressResponseHeaders:input_type -> platform.auth.v1.ResolveEgressResponseHeadersRequest
+	2,  // 52: platform.auth.v1.AuthService.ListCredentials:output_type -> platform.auth.v1.ListCredentialsResponse
+	4,  // 53: platform.auth.v1.AuthService.CreateAPIKeyCredential:output_type -> platform.auth.v1.CreateAPIKeyCredentialResponse
+	6,  // 54: platform.auth.v1.AuthService.UpdateAPIKeyCredential:output_type -> platform.auth.v1.UpdateAPIKeyCredentialResponse
+	8,  // 55: platform.auth.v1.AuthService.CreateSessionCredential:output_type -> platform.auth.v1.CreateSessionCredentialResponse
+	10, // 56: platform.auth.v1.AuthService.UpdateSessionCredential:output_type -> platform.auth.v1.UpdateSessionCredentialResponse
+	12, // 57: platform.auth.v1.AuthService.MergeCredentialMaterialValues:output_type -> platform.auth.v1.MergeCredentialMaterialValuesResponse
+	14, // 58: platform.auth.v1.AuthService.ReadCredentialMaterialFields:output_type -> platform.auth.v1.ReadCredentialMaterialFieldsResponse
+	17, // 59: platform.auth.v1.AuthService.CreateOAuthCredential:output_type -> platform.auth.v1.CreateOAuthCredentialResponse
+	19, // 60: platform.auth.v1.AuthService.UpdateOAuthCredential:output_type -> platform.auth.v1.UpdateOAuthCredentialResponse
+	21, // 61: platform.auth.v1.AuthService.RenameCredential:output_type -> platform.auth.v1.RenameCredentialResponse
+	23, // 62: platform.auth.v1.AuthService.DeleteCredential:output_type -> platform.auth.v1.DeleteCredentialResponse
+	26, // 63: platform.auth.v1.AuthService.ImportOAuthCredential:output_type -> platform.auth.v1.ImportOAuthCredentialResponse
+	28, // 64: platform.auth.v1.AuthService.EnsureFresh:output_type -> platform.auth.v1.EnsureFreshResponse
+	31, // 65: platform.auth.v1.AuthService.RefreshOAuthDue:output_type -> platform.auth.v1.RefreshOAuthDueResponse
+	32, // 66: platform.auth.v1.AuthService.ScanOAuthSessions:output_type -> platform.auth.v1.ScanOAuthSessionsResponse
+	34, // 67: platform.auth.v1.AuthService.GetCredentialSubjectSummary:output_type -> platform.auth.v1.GetCredentialSubjectSummaryResponse
+	37, // 68: platform.auth.v1.AuthService.GetCredentialRuntimeProjection:output_type -> platform.auth.v1.GetCredentialRuntimeProjectionResponse
+	39, // 69: platform.auth.v1.AuthService.GetEgressAuthPolicy:output_type -> platform.auth.v1.GetEgressAuthPolicyResponse
+	55, // 70: platform.auth.v1.AuthService.ResolveEgressRequestHeaders:output_type -> platform.auth.v1.ResolveEgressRequestHeadersResponse
+	56, // 71: platform.auth.v1.AuthService.ResolveEgressResponseHeaders:output_type -> platform.auth.v1.ResolveEgressResponseHeadersResponse
+	52, // [52:72] is the sub-list for method output_type
+	32, // [32:52] is the sub-list for method input_type
+	32, // [32:32] is the sub-list for extension type_name
+	32, // [32:32] is the sub-list for extension extendee
+	0,  // [0:32] is the sub-list for field type_name
 }
 
 func init() { file_platform_auth_v1_auth_proto_init() }
@@ -2925,7 +3077,7 @@ func file_platform_auth_v1_auth_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_platform_auth_v1_auth_proto_rawDesc), len(file_platform_auth_v1_auth_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   43,
+			NumMessages:   45,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
