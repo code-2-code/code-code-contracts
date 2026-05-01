@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify:
     name: Verify contracts
@@ -71,5 +75,6 @@ jobs:
       - name: Build TypeScript contracts
         working-directory: packages/agent-contract
         run: |
-          pnpm install --frozen-lockfile
+          pnpm config set store-dir "${PNPM_HOME:-$HOME/.local/share/pnpm}/store"
+          pnpm install --frozen-lockfile --prefer-offline
           pnpm build
