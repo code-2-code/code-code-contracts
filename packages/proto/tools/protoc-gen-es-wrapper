@@ -1,3 +1,9 @@
 #!/bin/sh
+set -eu
+
 LOCALSTORAGE_FILE="${TMPDIR:-/tmp}/code-code-protoc-gen-es.localstorage"
-exec /opt/homebrew/bin/node --localstorage-file="$LOCALSTORAGE_FILE" /opt/homebrew/lib/node_modules/@bufbuild/protoc-gen-es/bin/protoc-gen-es "$@"
+if [ -z "${PROTOC_GEN_ES_BIN:-}" ]; then
+  PROTOC_GEN_ES_BIN="$(command -v protoc-gen-es)"
+fi
+
+exec node --localstorage-file="$LOCALSTORAGE_FILE" "$PROTOC_GEN_ES_BIN" "$@"

@@ -134,9 +134,9 @@ func testCompatibleProviderSurface() *ProviderSurface {
 		DisplayName:              "OpenAI Compatible",
 		SupportedCredentialKinds: []credentialv1.CredentialKind{credentialv1.CredentialKind_CREDENTIAL_KIND_API_KEY},
 		Kind:                     ProviderSurfaceKind_PROVIDER_SURFACE_KIND_API,
-		Api: &ProviderSurfaceAPISpec{
+		Spec: &ProviderSurface_Api{Api: &ProviderSurfaceAPISpec{
 			SupportedProtocols: []apiprotocolv1.Protocol{apiprotocolv1.Protocol_PROTOCOL_OPENAI_COMPATIBLE},
-		},
+		}},
 		Capabilities: &ProviderCapabilities{},
 	}
 }
