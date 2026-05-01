@@ -76,5 +76,6 @@ jobs:
         working-directory: packages/agent-contract
         run: |
           pnpm config set store-dir "${PNPM_HOME:-$HOME/.local/share/pnpm}/store"
-          pnpm install --frozen-lockfile --prefer-offline
+          pnpm fetch --frozen-lockfile
+          pnpm install --frozen-lockfile --offline
           pnpm build
