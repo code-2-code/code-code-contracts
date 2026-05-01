@@ -18,7 +18,7 @@ func TestValidateProviderAcceptsSurfaceOwnedCredentialAndCatalog(t *testing.T) {
 		ProviderCredentialRef: &ProviderCredentialRef{
 			ProviderCredentialId: "credential-1",
 		},
-		Runtime: testAPISurfaceRuntime(),
+		Models: []*ProviderModel{{ProviderModelId: "gpt-4o-mini"}},
 	}
 
 	if err := ValidateProvider(provider); err != nil {
@@ -26,19 +26,15 @@ func TestValidateProviderAcceptsSurfaceOwnedCredentialAndCatalog(t *testing.T) {
 	}
 }
 
-func TestValidateProviderRejectsMissingBaseURL(t *testing.T) {
+func TestValidateProviderRejectsInvalidCustomAPIKeySurface(t *testing.T) {
 	t.Parallel()
 
 	provider := &Provider{
 		ProviderId:  "provider-1",
 		DisplayName: "Provider 1",
-		SurfaceId:   "openai-compatible",
-		Runtime: &ProviderSurfaceRuntime{
-			DisplayName: "OpenAI Compatible",
-			Origin:      ProviderSurfaceOrigin_PROVIDER_SURFACE_ORIGIN_DERIVED,
-			Access: &ProviderSurfaceRuntime_Api{Api: &ProviderAPISurfaceRuntime{
-				Protocol: apiprotocolv1.Protocol_PROTOCOL_OPENAI_COMPATIBLE,
-			}},
+		SurfaceId:   "custom.api",
+		CustomApiKeySurface: &CustomAPIKeySurface{
+			Protocol: apiprotocolv1.Protocol_PROTOCOL_OPENAI_COMPATIBLE,
 		},
 	}
 
@@ -58,13 +54,13 @@ func TestValidateProviderRejectsInvalidProviderCredentialRef(t *testing.T) {
 	}
 }
 
-func TestValidateProviderRejectsSourceRefWithoutSurfaceID(t *testing.T) {
+func TestValidateProviderRejectsDuplicateModels(t *testing.T) {
 	t.Parallel()
 
 	provider := testCompatibleProvider()
-	provider.SourceRef = &ProviderSurfaceSourceRef{
-		Kind: ProviderSurfaceSourceKind_PROVIDER_SURFACE_SOURCE_KIND_VENDOR,
-		Id:   "openai",
+	provider.Models = []*ProviderModel{
+		{ProviderModelId: "gpt-4o-mini"},
+		{ProviderModelId: "gpt-4o-mini"},
 	}
 
 	if err := ValidateProvider(provider); err == nil {

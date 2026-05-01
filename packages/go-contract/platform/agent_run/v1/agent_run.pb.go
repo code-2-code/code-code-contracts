@@ -8,9 +8,10 @@ package agentrunv1
 
 import (
 	v1 "code-code.internal/go-contract/agent/core/v1"
-	v13 "code-code.internal/go-contract/agent/result/v1"
-	v12 "code-code.internal/go-contract/platform/condition/v1"
-	v11 "code-code.internal/go-contract/provider/v1"
+	v14 "code-code.internal/go-contract/agent/result/v1"
+	v11 "code-code.internal/go-contract/credential/v1"
+	v13 "code-code.internal/go-contract/platform/condition/v1"
+	v12 "code-code.internal/go-contract/provider/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -397,13 +398,13 @@ func (x *AgentRunSpec) GetAgentRuntimeId() string {
 // AgentRunAuthRequirement captures the provider auth requirement visible to
 // the session/run domain.
 type AgentRunAuthRequirement struct {
-	state              protoimpl.MessageState  `protogen:"open.v1"`
-	ProviderId         string                  `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
-	AuthStatus         string                  `protobuf:"bytes,3,opt,name=auth_status,json=authStatus,proto3" json:"auth_status,omitempty"`
-	RuntimeUrl         string                  `protobuf:"bytes,4,opt,name=runtime_url,json=runtimeUrl,proto3" json:"runtime_url,omitempty"`
-	MaterializationKey string                  `protobuf:"bytes,5,opt,name=materialization_key,json=materializationKey,proto3" json:"materialization_key,omitempty"`
-	ProviderRunBinding *v11.ProviderRunBinding `protobuf:"bytes,6,opt,name=provider_run_binding,json=providerRunBinding,proto3" json:"provider_run_binding,omitempty"`
-	SurfaceId          string                  `protobuf:"bytes,7,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
+	state              protoimpl.MessageState   `protogen:"open.v1"`
+	ProviderId         string                   `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
+	AuthStatus         string                   `protobuf:"bytes,3,opt,name=auth_status,json=authStatus,proto3" json:"auth_status,omitempty"`
+	RuntimeUrl         string                   `protobuf:"bytes,4,opt,name=runtime_url,json=runtimeUrl,proto3" json:"runtime_url,omitempty"`
+	MaterializationKey string                   `protobuf:"bytes,5,opt,name=materialization_key,json=materializationKey,proto3" json:"materialization_key,omitempty"`
+	ProviderBinding    *AgentRunProviderBinding `protobuf:"bytes,6,opt,name=provider_binding,json=providerBinding,proto3" json:"provider_binding,omitempty"`
+	SurfaceId          string                   `protobuf:"bytes,7,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -466,9 +467,9 @@ func (x *AgentRunAuthRequirement) GetMaterializationKey() string {
 	return ""
 }
 
-func (x *AgentRunAuthRequirement) GetProviderRunBinding() *v11.ProviderRunBinding {
+func (x *AgentRunAuthRequirement) GetProviderBinding() *AgentRunProviderBinding {
 	if x != nil {
-		return x.ProviderRunBinding
+		return x.ProviderBinding
 	}
 	return nil
 }
@@ -476,6 +477,98 @@ func (x *AgentRunAuthRequirement) GetProviderRunBinding() *v11.ProviderRunBindin
 func (x *AgentRunAuthRequirement) GetSurfaceId() string {
 	if x != nil {
 		return x.SurfaceId
+	}
+	return ""
+}
+
+type AgentRunProviderBinding struct {
+	state              protoimpl.MessageState  `protogen:"open.v1"`
+	ProviderId         string                  `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
+	CredentialGrantRef *v11.CredentialGrantRef `protobuf:"bytes,2,opt,name=credential_grant_ref,json=credentialGrantRef,proto3" json:"credential_grant_ref,omitempty"`
+	Endpoint           *v12.ProviderEndpoint   `protobuf:"bytes,3,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
+	MaterializationKey string                  `protobuf:"bytes,4,opt,name=materialization_key,json=materializationKey,proto3" json:"materialization_key,omitempty"`
+	ProviderModelId    string                  `protobuf:"bytes,5,opt,name=provider_model_id,json=providerModelId,proto3" json:"provider_model_id,omitempty"`
+	CanonicalModelId   string                  `protobuf:"bytes,6,opt,name=canonical_model_id,json=canonicalModelId,proto3" json:"canonical_model_id,omitempty"`
+	SourceModelId      string                  `protobuf:"bytes,7,opt,name=source_model_id,json=sourceModelId,proto3" json:"source_model_id,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *AgentRunProviderBinding) Reset() {
+	*x = AgentRunProviderBinding{}
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AgentRunProviderBinding) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AgentRunProviderBinding) ProtoMessage() {}
+
+func (x *AgentRunProviderBinding) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AgentRunProviderBinding.ProtoReflect.Descriptor instead.
+func (*AgentRunProviderBinding) Descriptor() ([]byte, []int) {
+	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AgentRunProviderBinding) GetProviderId() string {
+	if x != nil {
+		return x.ProviderId
+	}
+	return ""
+}
+
+func (x *AgentRunProviderBinding) GetCredentialGrantRef() *v11.CredentialGrantRef {
+	if x != nil {
+		return x.CredentialGrantRef
+	}
+	return nil
+}
+
+func (x *AgentRunProviderBinding) GetEndpoint() *v12.ProviderEndpoint {
+	if x != nil {
+		return x.Endpoint
+	}
+	return nil
+}
+
+func (x *AgentRunProviderBinding) GetMaterializationKey() string {
+	if x != nil {
+		return x.MaterializationKey
+	}
+	return ""
+}
+
+func (x *AgentRunProviderBinding) GetProviderModelId() string {
+	if x != nil {
+		return x.ProviderModelId
+	}
+	return ""
+}
+
+func (x *AgentRunProviderBinding) GetCanonicalModelId() string {
+	if x != nil {
+		return x.CanonicalModelId
+	}
+	return ""
+}
+
+func (x *AgentRunProviderBinding) GetSourceModelId() string {
+	if x != nil {
+		return x.SourceModelId
 	}
 	return ""
 }
@@ -496,7 +589,7 @@ type AgentRunPrepareJob struct {
 
 func (x *AgentRunPrepareJob) Reset() {
 	*x = AgentRunPrepareJob{}
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[2]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -508,7 +601,7 @@ func (x *AgentRunPrepareJob) String() string {
 func (*AgentRunPrepareJob) ProtoMessage() {}
 
 func (x *AgentRunPrepareJob) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[2]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -521,7 +614,7 @@ func (x *AgentRunPrepareJob) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentRunPrepareJob.ProtoReflect.Descriptor instead.
 func (*AgentRunPrepareJob) Descriptor() ([]byte, []int) {
-	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{2}
+	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *AgentRunPrepareJob) GetJobId() string {
@@ -587,7 +680,7 @@ type AgentRunPrepareJobStatus struct {
 
 func (x *AgentRunPrepareJobStatus) Reset() {
 	*x = AgentRunPrepareJobStatus{}
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[3]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -599,7 +692,7 @@ func (x *AgentRunPrepareJobStatus) String() string {
 func (*AgentRunPrepareJobStatus) ProtoMessage() {}
 
 func (x *AgentRunPrepareJobStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[3]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -612,7 +705,7 @@ func (x *AgentRunPrepareJobStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentRunPrepareJobStatus.ProtoReflect.Descriptor instead.
 func (*AgentRunPrepareJobStatus) Descriptor() ([]byte, []int) {
-	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{3}
+	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AgentRunPrepareJobStatus) GetJobId() string {
@@ -660,7 +753,7 @@ type AgentRunRef struct {
 
 func (x *AgentRunRef) Reset() {
 	*x = AgentRunRef{}
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[4]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -672,7 +765,7 @@ func (x *AgentRunRef) String() string {
 func (*AgentRunRef) ProtoMessage() {}
 
 func (x *AgentRunRef) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[4]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -685,7 +778,7 @@ func (x *AgentRunRef) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentRunRef.ProtoReflect.Descriptor instead.
 func (*AgentRunRef) Descriptor() ([]byte, []int) {
-	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{4}
+	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *AgentRunRef) GetRunId() string {
@@ -705,7 +798,7 @@ type WorkloadRef struct {
 
 func (x *WorkloadRef) Reset() {
 	*x = WorkloadRef{}
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[5]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -717,7 +810,7 @@ func (x *WorkloadRef) String() string {
 func (*WorkloadRef) ProtoMessage() {}
 
 func (x *WorkloadRef) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[5]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -730,7 +823,7 @@ func (x *WorkloadRef) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkloadRef.ProtoReflect.Descriptor instead.
 func (*WorkloadRef) Descriptor() ([]byte, []int) {
-	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{5}
+	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *WorkloadRef) GetWorkloadId() string {
@@ -750,8 +843,8 @@ type AgentRunStatus struct {
 	ObservedGeneration int64                       `protobuf:"varint,3,opt,name=observed_generation,json=observedGeneration,proto3" json:"observed_generation,omitempty"`
 	Message            string                      `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
 	Workload           *WorkloadRef                `protobuf:"bytes,5,opt,name=workload,proto3" json:"workload,omitempty"`
-	Conditions         []*v12.Condition            `protobuf:"bytes,6,rep,name=conditions,proto3" json:"conditions,omitempty"`
-	Result             *v13.RunResult              `protobuf:"bytes,7,opt,name=result,proto3" json:"result,omitempty"`
+	Conditions         []*v13.Condition            `protobuf:"bytes,6,rep,name=conditions,proto3" json:"conditions,omitempty"`
+	Result             *v14.RunResult              `protobuf:"bytes,7,opt,name=result,proto3" json:"result,omitempty"`
 	UpdatedAt          *timestamppb.Timestamp      `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	PrepareJobs        []*AgentRunPrepareJobStatus `protobuf:"bytes,9,rep,name=prepare_jobs,json=prepareJobs,proto3" json:"prepare_jobs,omitempty"`
 	unknownFields      protoimpl.UnknownFields
@@ -760,7 +853,7 @@ type AgentRunStatus struct {
 
 func (x *AgentRunStatus) Reset() {
 	*x = AgentRunStatus{}
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[6]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -772,7 +865,7 @@ func (x *AgentRunStatus) String() string {
 func (*AgentRunStatus) ProtoMessage() {}
 
 func (x *AgentRunStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[6]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -785,7 +878,7 @@ func (x *AgentRunStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentRunStatus.ProtoReflect.Descriptor instead.
 func (*AgentRunStatus) Descriptor() ([]byte, []int) {
-	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{6}
+	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *AgentRunStatus) GetRunId() string {
@@ -823,14 +916,14 @@ func (x *AgentRunStatus) GetWorkload() *WorkloadRef {
 	return nil
 }
 
-func (x *AgentRunStatus) GetConditions() []*v12.Condition {
+func (x *AgentRunStatus) GetConditions() []*v13.Condition {
 	if x != nil {
 		return x.Conditions
 	}
 	return nil
 }
 
-func (x *AgentRunStatus) GetResult() *v13.RunResult {
+func (x *AgentRunStatus) GetResult() *v14.RunResult {
 	if x != nil {
 		return x.Result
 	}
@@ -864,7 +957,7 @@ type AgentRunState struct {
 
 func (x *AgentRunState) Reset() {
 	*x = AgentRunState{}
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[7]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -876,7 +969,7 @@ func (x *AgentRunState) String() string {
 func (*AgentRunState) ProtoMessage() {}
 
 func (x *AgentRunState) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[7]
+	mi := &file_platform_agent_run_v1_agent_run_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -889,7 +982,7 @@ func (x *AgentRunState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentRunState.ProtoReflect.Descriptor instead.
 func (*AgentRunState) Descriptor() ([]byte, []int) {
-	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{7}
+	return file_platform_agent_run_v1_agent_run_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *AgentRunState) GetGeneration() int64 {
@@ -917,7 +1010,7 @@ var File_platform_agent_run_v1_agent_run_proto protoreflect.FileDescriptor
 
 const file_platform_agent_run_v1_agent_run_proto_rawDesc = "" +
 	"\n" +
-	"%platform/agent_run/v1/agent_run.proto\x12\x15platform.agent_run.v1\x1a\x19agent/core/v1/agent.proto\x1a\x1cagent/result/v1/result.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1aprovider/v1/provider.proto\x1a%platform/condition/v1/condition.proto\"\xa1\a\n" +
+	"%platform/agent_run/v1/agent_run.proto\x12\x15platform.agent_run.v1\x1a\x19agent/core/v1/agent.proto\x1a\x1cagent/result/v1/result.proto\x1a\x1ecredential/v1/credential.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1aprovider/v1/provider.proto\x1a%platform/condition/v1/condition.proto\"\xa1\a\n" +
 	"\fAgentRunSpec\x12\x15\n" +
 	"\x06run_id\x18\x01 \x01(\tR\x05runId\x12\x1d\n" +
 	"\n" +
@@ -941,7 +1034,7 @@ const file_platform_agent_run_v1_agent_run_proto_rawDesc = "" +
 	"\fworkspace_id\x18\x10 \x01(\tR\vworkspaceId\x12\"\n" +
 	"\rhome_state_id\x18\x11 \x01(\tR\vhomeStateId\x12L\n" +
 	"\fprepare_jobs\x18\x12 \x03(\v2).platform.agent_run.v1.AgentRunPrepareJobR\vprepareJobs\x12(\n" +
-	"\x10agent_runtime_id\x18\x13 \x01(\tR\x0eagentRuntimeId\"\xa5\x02\n" +
+	"\x10agent_runtime_id\x18\x13 \x01(\tR\x0eagentRuntimeId\"\xad\x02\n" +
 	"\x17AgentRunAuthRequirement\x12\x1f\n" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
 	"providerId\x12\x1f\n" +
@@ -949,10 +1042,19 @@ const file_platform_agent_run_v1_agent_run_proto_rawDesc = "" +
 	"authStatus\x12\x1f\n" +
 	"\vruntime_url\x18\x04 \x01(\tR\n" +
 	"runtimeUrl\x12/\n" +
-	"\x13materialization_key\x18\x05 \x01(\tR\x12materializationKey\x12Q\n" +
-	"\x14provider_run_binding\x18\x06 \x01(\v2\x1f.provider.v1.ProviderRunBindingR\x12providerRunBinding\x12\x1d\n" +
+	"\x13materialization_key\x18\x05 \x01(\tR\x12materializationKey\x12Y\n" +
+	"\x10provider_binding\x18\x06 \x01(\v2..platform.agent_run.v1.AgentRunProviderBindingR\x0fproviderBinding\x12\x1d\n" +
 	"\n" +
-	"surface_id\x18\a \x01(\tR\tsurfaceIdJ\x04\b\x02\x10\x03\"\x8c\x02\n" +
+	"surface_id\x18\a \x01(\tR\tsurfaceIdJ\x04\b\x02\x10\x03\"\xfd\x02\n" +
+	"\x17AgentRunProviderBinding\x12\x1f\n" +
+	"\vprovider_id\x18\x01 \x01(\tR\n" +
+	"providerId\x12S\n" +
+	"\x14credential_grant_ref\x18\x02 \x01(\v2!.credential.v1.CredentialGrantRefR\x12credentialGrantRef\x129\n" +
+	"\bendpoint\x18\x03 \x01(\v2\x1d.provider.v1.ProviderEndpointR\bendpoint\x12/\n" +
+	"\x13materialization_key\x18\x04 \x01(\tR\x12materializationKey\x12*\n" +
+	"\x11provider_model_id\x18\x05 \x01(\tR\x0fproviderModelId\x12,\n" +
+	"\x12canonical_model_id\x18\x06 \x01(\tR\x10canonicalModelId\x12&\n" +
+	"\x0fsource_model_id\x18\a \x01(\tR\rsourceModelId\"\x8c\x02\n" +
 	"\x12AgentRunPrepareJob\x12\x15\n" +
 	"\x06job_id\x18\x01 \x01(\tR\x05jobId\x12\x19\n" +
 	"\bjob_type\x18\x02 \x01(\tR\ajobType\x12K\n" +
@@ -1029,49 +1131,53 @@ func file_platform_agent_run_v1_agent_run_proto_rawDescGZIP() []byte {
 }
 
 var file_platform_agent_run_v1_agent_run_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_platform_agent_run_v1_agent_run_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_platform_agent_run_v1_agent_run_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_platform_agent_run_v1_agent_run_proto_goTypes = []any{
 	(AgentRunPrepareJobRunType)(0),   // 0: platform.agent_run.v1.AgentRunPrepareJobRunType
 	(AgentRunPrepareJobPhase)(0),     // 1: platform.agent_run.v1.AgentRunPrepareJobPhase
 	(AgentRunPhase)(0),               // 2: platform.agent_run.v1.AgentRunPhase
 	(*AgentRunSpec)(nil),             // 3: platform.agent_run.v1.AgentRunSpec
 	(*AgentRunAuthRequirement)(nil),  // 4: platform.agent_run.v1.AgentRunAuthRequirement
-	(*AgentRunPrepareJob)(nil),       // 5: platform.agent_run.v1.AgentRunPrepareJob
-	(*AgentRunPrepareJobStatus)(nil), // 6: platform.agent_run.v1.AgentRunPrepareJobStatus
-	(*AgentRunRef)(nil),              // 7: platform.agent_run.v1.AgentRunRef
-	(*WorkloadRef)(nil),              // 8: platform.agent_run.v1.WorkloadRef
-	(*AgentRunStatus)(nil),           // 9: platform.agent_run.v1.AgentRunStatus
-	(*AgentRunState)(nil),            // 10: platform.agent_run.v1.AgentRunState
-	(*v1.RunRequest)(nil),            // 11: agent.core.v1.RunRequest
-	(*v1.RuntimeEnvironment)(nil),    // 12: agent.core.v1.RuntimeEnvironment
-	(*v11.ProviderRunBinding)(nil),   // 13: provider.v1.ProviderRunBinding
-	(*timestamppb.Timestamp)(nil),    // 14: google.protobuf.Timestamp
-	(*v12.Condition)(nil),            // 15: platform.condition.v1.Condition
-	(*v13.RunResult)(nil),            // 16: agent.result.v1.RunResult
+	(*AgentRunProviderBinding)(nil),  // 5: platform.agent_run.v1.AgentRunProviderBinding
+	(*AgentRunPrepareJob)(nil),       // 6: platform.agent_run.v1.AgentRunPrepareJob
+	(*AgentRunPrepareJobStatus)(nil), // 7: platform.agent_run.v1.AgentRunPrepareJobStatus
+	(*AgentRunRef)(nil),              // 8: platform.agent_run.v1.AgentRunRef
+	(*WorkloadRef)(nil),              // 9: platform.agent_run.v1.WorkloadRef
+	(*AgentRunStatus)(nil),           // 10: platform.agent_run.v1.AgentRunStatus
+	(*AgentRunState)(nil),            // 11: platform.agent_run.v1.AgentRunState
+	(*v1.RunRequest)(nil),            // 12: agent.core.v1.RunRequest
+	(*v1.RuntimeEnvironment)(nil),    // 13: agent.core.v1.RuntimeEnvironment
+	(*v11.CredentialGrantRef)(nil),   // 14: credential.v1.CredentialGrantRef
+	(*v12.ProviderEndpoint)(nil),     // 15: provider.v1.ProviderEndpoint
+	(*timestamppb.Timestamp)(nil),    // 16: google.protobuf.Timestamp
+	(*v13.Condition)(nil),            // 17: platform.condition.v1.Condition
+	(*v14.RunResult)(nil),            // 18: agent.result.v1.RunResult
 }
 var file_platform_agent_run_v1_agent_run_proto_depIdxs = []int32{
-	11, // 0: platform.agent_run.v1.AgentRunSpec.request:type_name -> agent.core.v1.RunRequest
+	12, // 0: platform.agent_run.v1.AgentRunSpec.request:type_name -> agent.core.v1.RunRequest
 	4,  // 1: platform.agent_run.v1.AgentRunSpec.auth_requirement:type_name -> platform.agent_run.v1.AgentRunAuthRequirement
-	12, // 2: platform.agent_run.v1.AgentRunSpec.runtime_environment:type_name -> agent.core.v1.RuntimeEnvironment
-	5,  // 3: platform.agent_run.v1.AgentRunSpec.prepare_jobs:type_name -> platform.agent_run.v1.AgentRunPrepareJob
-	13, // 4: platform.agent_run.v1.AgentRunAuthRequirement.provider_run_binding:type_name -> provider.v1.ProviderRunBinding
-	0,  // 5: platform.agent_run.v1.AgentRunPrepareJob.run_type:type_name -> platform.agent_run.v1.AgentRunPrepareJobRunType
-	1,  // 6: platform.agent_run.v1.AgentRunPrepareJobStatus.phase:type_name -> platform.agent_run.v1.AgentRunPrepareJobPhase
-	14, // 7: platform.agent_run.v1.AgentRunPrepareJobStatus.started_at:type_name -> google.protobuf.Timestamp
-	14, // 8: platform.agent_run.v1.AgentRunPrepareJobStatus.finished_at:type_name -> google.protobuf.Timestamp
-	2,  // 9: platform.agent_run.v1.AgentRunStatus.phase:type_name -> platform.agent_run.v1.AgentRunPhase
-	8,  // 10: platform.agent_run.v1.AgentRunStatus.workload:type_name -> platform.agent_run.v1.WorkloadRef
-	15, // 11: platform.agent_run.v1.AgentRunStatus.conditions:type_name -> platform.condition.v1.Condition
-	16, // 12: platform.agent_run.v1.AgentRunStatus.result:type_name -> agent.result.v1.RunResult
-	14, // 13: platform.agent_run.v1.AgentRunStatus.updated_at:type_name -> google.protobuf.Timestamp
-	6,  // 14: platform.agent_run.v1.AgentRunStatus.prepare_jobs:type_name -> platform.agent_run.v1.AgentRunPrepareJobStatus
-	3,  // 15: platform.agent_run.v1.AgentRunState.spec:type_name -> platform.agent_run.v1.AgentRunSpec
-	9,  // 16: platform.agent_run.v1.AgentRunState.status:type_name -> platform.agent_run.v1.AgentRunStatus
-	17, // [17:17] is the sub-list for method output_type
-	17, // [17:17] is the sub-list for method input_type
-	17, // [17:17] is the sub-list for extension type_name
-	17, // [17:17] is the sub-list for extension extendee
-	0,  // [0:17] is the sub-list for field type_name
+	13, // 2: platform.agent_run.v1.AgentRunSpec.runtime_environment:type_name -> agent.core.v1.RuntimeEnvironment
+	6,  // 3: platform.agent_run.v1.AgentRunSpec.prepare_jobs:type_name -> platform.agent_run.v1.AgentRunPrepareJob
+	5,  // 4: platform.agent_run.v1.AgentRunAuthRequirement.provider_binding:type_name -> platform.agent_run.v1.AgentRunProviderBinding
+	14, // 5: platform.agent_run.v1.AgentRunProviderBinding.credential_grant_ref:type_name -> credential.v1.CredentialGrantRef
+	15, // 6: platform.agent_run.v1.AgentRunProviderBinding.endpoint:type_name -> provider.v1.ProviderEndpoint
+	0,  // 7: platform.agent_run.v1.AgentRunPrepareJob.run_type:type_name -> platform.agent_run.v1.AgentRunPrepareJobRunType
+	1,  // 8: platform.agent_run.v1.AgentRunPrepareJobStatus.phase:type_name -> platform.agent_run.v1.AgentRunPrepareJobPhase
+	16, // 9: platform.agent_run.v1.AgentRunPrepareJobStatus.started_at:type_name -> google.protobuf.Timestamp
+	16, // 10: platform.agent_run.v1.AgentRunPrepareJobStatus.finished_at:type_name -> google.protobuf.Timestamp
+	2,  // 11: platform.agent_run.v1.AgentRunStatus.phase:type_name -> platform.agent_run.v1.AgentRunPhase
+	9,  // 12: platform.agent_run.v1.AgentRunStatus.workload:type_name -> platform.agent_run.v1.WorkloadRef
+	17, // 13: platform.agent_run.v1.AgentRunStatus.conditions:type_name -> platform.condition.v1.Condition
+	18, // 14: platform.agent_run.v1.AgentRunStatus.result:type_name -> agent.result.v1.RunResult
+	16, // 15: platform.agent_run.v1.AgentRunStatus.updated_at:type_name -> google.protobuf.Timestamp
+	7,  // 16: platform.agent_run.v1.AgentRunStatus.prepare_jobs:type_name -> platform.agent_run.v1.AgentRunPrepareJobStatus
+	3,  // 17: platform.agent_run.v1.AgentRunState.spec:type_name -> platform.agent_run.v1.AgentRunSpec
+	10, // 18: platform.agent_run.v1.AgentRunState.status:type_name -> platform.agent_run.v1.AgentRunStatus
+	19, // [19:19] is the sub-list for method output_type
+	19, // [19:19] is the sub-list for method input_type
+	19, // [19:19] is the sub-list for extension type_name
+	19, // [19:19] is the sub-list for extension extendee
+	0,  // [0:19] is the sub-list for field type_name
 }
 
 func init() { file_platform_agent_run_v1_agent_run_proto_init() }
@@ -1085,7 +1191,7 @@ func file_platform_agent_run_v1_agent_run_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_platform_agent_run_v1_agent_run_proto_rawDesc), len(file_platform_agent_run_v1_agent_run_proto_rawDesc)),
 			NumEnums:      3,
-			NumMessages:   8,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -48,6 +48,12 @@ const (
 	// fully-qualified name of the ProviderOrchestrationService's
 	// UpdateProviderObservabilityAuthentication RPC.
 	ProviderOrchestrationServiceUpdateProviderObservabilityAuthenticationProcedure = "/platform.orchestration.v1.ProviderOrchestrationService/UpdateProviderObservabilityAuthentication"
+	// ProviderOrchestrationServiceProbeProviderObservabilityProcedure is the fully-qualified name of
+	// the ProviderOrchestrationService's ProbeProviderObservability RPC.
+	ProviderOrchestrationServiceProbeProviderObservabilityProcedure = "/platform.orchestration.v1.ProviderOrchestrationService/ProbeProviderObservability"
+	// ProviderOrchestrationServiceProbeProviderModelCatalogProcedure is the fully-qualified name of the
+	// ProviderOrchestrationService's ProbeProviderModelCatalog RPC.
+	ProviderOrchestrationServiceProbeProviderModelCatalogProcedure = "/platform.orchestration.v1.ProviderOrchestrationService/ProbeProviderModelCatalog"
 )
 
 // ProviderOrchestrationServiceClient is a client for the
@@ -57,6 +63,8 @@ type ProviderOrchestrationServiceClient interface {
 	GetProviderConnectSession(context.Context, *v1.GetProviderConnectSessionRequest) (*v1.GetProviderConnectSessionResponse, error)
 	UpdateProviderAuthentication(context.Context, *v1.UpdateProviderAuthenticationRequest) (*v1.UpdateProviderAuthenticationResponse, error)
 	UpdateProviderObservabilityAuthentication(context.Context, *v1.UpdateProviderObservabilityAuthenticationRequest) (*v1.UpdateProviderObservabilityAuthenticationResponse, error)
+	ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error)
+	ProbeProviderModelCatalog(context.Context, *v1.ProbeProviderModelCatalogRequest) (*v1.ProbeProviderModelCatalogResponse, error)
 }
 
 // NewProviderOrchestrationServiceClient constructs a client for the
@@ -95,6 +103,18 @@ func NewProviderOrchestrationServiceClient(httpClient connect.HTTPClient, baseUR
 			connect.WithSchema(providerOrchestrationServiceMethods.ByName("UpdateProviderObservabilityAuthentication")),
 			connect.WithClientOptions(opts...),
 		),
+		probeProviderObservability: connect.NewClient[v1.ProbeProviderObservabilityRequest, v1.ProbeProviderObservabilityResponse](
+			httpClient,
+			baseURL+ProviderOrchestrationServiceProbeProviderObservabilityProcedure,
+			connect.WithSchema(providerOrchestrationServiceMethods.ByName("ProbeProviderObservability")),
+			connect.WithClientOptions(opts...),
+		),
+		probeProviderModelCatalog: connect.NewClient[v1.ProbeProviderModelCatalogRequest, v1.ProbeProviderModelCatalogResponse](
+			httpClient,
+			baseURL+ProviderOrchestrationServiceProbeProviderModelCatalogProcedure,
+			connect.WithSchema(providerOrchestrationServiceMethods.ByName("ProbeProviderModelCatalog")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
@@ -104,6 +124,8 @@ type providerOrchestrationServiceClient struct {
 	getProviderConnectSession                 *connect.Client[v1.GetProviderConnectSessionRequest, v1.GetProviderConnectSessionResponse]
 	updateProviderAuthentication              *connect.Client[v1.UpdateProviderAuthenticationRequest, v1.UpdateProviderAuthenticationResponse]
 	updateProviderObservabilityAuthentication *connect.Client[v1.UpdateProviderObservabilityAuthenticationRequest, v1.UpdateProviderObservabilityAuthenticationResponse]
+	probeProviderObservability                *connect.Client[v1.ProbeProviderObservabilityRequest, v1.ProbeProviderObservabilityResponse]
+	probeProviderModelCatalog                 *connect.Client[v1.ProbeProviderModelCatalogRequest, v1.ProbeProviderModelCatalogResponse]
 }
 
 // ConnectProvider calls platform.orchestration.v1.ProviderOrchestrationService.ConnectProvider.
@@ -145,6 +167,26 @@ func (c *providerOrchestrationServiceClient) UpdateProviderObservabilityAuthenti
 	return nil, err
 }
 
+// ProbeProviderObservability calls
+// platform.orchestration.v1.ProviderOrchestrationService.ProbeProviderObservability.
+func (c *providerOrchestrationServiceClient) ProbeProviderObservability(ctx context.Context, req *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error) {
+	response, err := c.probeProviderObservability.CallUnary(ctx, connect.NewRequest(req))
+	if response != nil {
+		return response.Msg, err
+	}
+	return nil, err
+}
+
+// ProbeProviderModelCatalog calls
+// platform.orchestration.v1.ProviderOrchestrationService.ProbeProviderModelCatalog.
+func (c *providerOrchestrationServiceClient) ProbeProviderModelCatalog(ctx context.Context, req *v1.ProbeProviderModelCatalogRequest) (*v1.ProbeProviderModelCatalogResponse, error) {
+	response, err := c.probeProviderModelCatalog.CallUnary(ctx, connect.NewRequest(req))
+	if response != nil {
+		return response.Msg, err
+	}
+	return nil, err
+}
+
 // ProviderOrchestrationServiceHandler is an implementation of the
 // platform.orchestration.v1.ProviderOrchestrationService service.
 type ProviderOrchestrationServiceHandler interface {
@@ -152,6 +194,8 @@ type ProviderOrchestrationServiceHandler interface {
 	GetProviderConnectSession(context.Context, *v1.GetProviderConnectSessionRequest) (*v1.GetProviderConnectSessionResponse, error)
 	UpdateProviderAuthentication(context.Context, *v1.UpdateProviderAuthenticationRequest) (*v1.UpdateProviderAuthenticationResponse, error)
 	UpdateProviderObservabilityAuthentication(context.Context, *v1.UpdateProviderObservabilityAuthenticationRequest) (*v1.UpdateProviderObservabilityAuthenticationResponse, error)
+	ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error)
+	ProbeProviderModelCatalog(context.Context, *v1.ProbeProviderModelCatalogRequest) (*v1.ProbeProviderModelCatalogResponse, error)
 }
 
 // NewProviderOrchestrationServiceHandler builds an HTTP handler from the service implementation. It
@@ -185,6 +229,18 @@ func NewProviderOrchestrationServiceHandler(svc ProviderOrchestrationServiceHand
 		connect.WithSchema(providerOrchestrationServiceMethods.ByName("UpdateProviderObservabilityAuthentication")),
 		connect.WithHandlerOptions(opts...),
 	)
+	providerOrchestrationServiceProbeProviderObservabilityHandler := connect.NewUnaryHandlerSimple(
+		ProviderOrchestrationServiceProbeProviderObservabilityProcedure,
+		svc.ProbeProviderObservability,
+		connect.WithSchema(providerOrchestrationServiceMethods.ByName("ProbeProviderObservability")),
+		connect.WithHandlerOptions(opts...),
+	)
+	providerOrchestrationServiceProbeProviderModelCatalogHandler := connect.NewUnaryHandlerSimple(
+		ProviderOrchestrationServiceProbeProviderModelCatalogProcedure,
+		svc.ProbeProviderModelCatalog,
+		connect.WithSchema(providerOrchestrationServiceMethods.ByName("ProbeProviderModelCatalog")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/platform.orchestration.v1.ProviderOrchestrationService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case ProviderOrchestrationServiceConnectProviderProcedure:
@@ -195,6 +251,10 @@ func NewProviderOrchestrationServiceHandler(svc ProviderOrchestrationServiceHand
 			providerOrchestrationServiceUpdateProviderAuthenticationHandler.ServeHTTP(w, r)
 		case ProviderOrchestrationServiceUpdateProviderObservabilityAuthenticationProcedure:
 			providerOrchestrationServiceUpdateProviderObservabilityAuthenticationHandler.ServeHTTP(w, r)
+		case ProviderOrchestrationServiceProbeProviderObservabilityProcedure:
+			providerOrchestrationServiceProbeProviderObservabilityHandler.ServeHTTP(w, r)
+		case ProviderOrchestrationServiceProbeProviderModelCatalogProcedure:
+			providerOrchestrationServiceProbeProviderModelCatalogHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -218,4 +278,12 @@ func (UnimplementedProviderOrchestrationServiceHandler) UpdateProviderAuthentica
 
 func (UnimplementedProviderOrchestrationServiceHandler) UpdateProviderObservabilityAuthentication(context.Context, *v1.UpdateProviderObservabilityAuthenticationRequest) (*v1.UpdateProviderObservabilityAuthenticationResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.orchestration.v1.ProviderOrchestrationService.UpdateProviderObservabilityAuthentication is not implemented"))
+}
+
+func (UnimplementedProviderOrchestrationServiceHandler) ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.orchestration.v1.ProviderOrchestrationService.ProbeProviderObservability is not implemented"))
+}
+
+func (UnimplementedProviderOrchestrationServiceHandler) ProbeProviderModelCatalog(context.Context, *v1.ProbeProviderModelCatalogRequest) (*v1.ProbeProviderModelCatalogResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.orchestration.v1.ProviderOrchestrationService.ProbeProviderModelCatalog is not implemented"))
 }

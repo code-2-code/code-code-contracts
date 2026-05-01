@@ -7,15 +7,17 @@
 package supportv1
 
 import (
-	v1 "code-code.internal/go-contract/api_protocol/v1"
-	v11 "code-code.internal/go-contract/credential/v1"
-	v15 "code-code.internal/go-contract/egress/v1"
-	v16 "code-code.internal/go-contract/model_catalog_discovery/v1"
-	v12 "code-code.internal/go-contract/observability/v1"
-	v14 "code-code.internal/go-contract/provider/v1"
-	v13 "code-code.internal/go-contract/vendor_definition/v1"
+	v11 "code-code.internal/go-contract/api_protocol/v1"
+	v12 "code-code.internal/go-contract/credential/v1"
+	v16 "code-code.internal/go-contract/egress/v1"
+	v17 "code-code.internal/go-contract/model_catalog_discovery/v1"
+	v14 "code-code.internal/go-contract/observability/v1"
+	v1 "code-code.internal/go-contract/product_info/v1"
+	v13 "code-code.internal/go-contract/provider/v1"
+	v15 "code-code.internal/go-contract/vendor_definition/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -768,6 +770,86 @@ func (x *GetCLIResponse) GetItem() *CLI {
 	return nil
 }
 
+type ListProductInfosRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListProductInfosRequest) Reset() {
+	*x = ListProductInfosRequest{}
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListProductInfosRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListProductInfosRequest) ProtoMessage() {}
+
+func (x *ListProductInfosRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListProductInfosRequest.ProtoReflect.Descriptor instead.
+func (*ListProductInfosRequest) Descriptor() ([]byte, []int) {
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{8}
+}
+
+type ListProductInfosResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Items         []*v1.ProductInfo      `protobuf:"bytes,1,rep,name=items,proto3" json:"items,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListProductInfosResponse) Reset() {
+	*x = ListProductInfosResponse{}
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListProductInfosResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListProductInfosResponse) ProtoMessage() {}
+
+func (x *ListProductInfosResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListProductInfosResponse.ProtoReflect.Descriptor instead.
+func (*ListProductInfosResponse) Descriptor() ([]byte, []int) {
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ListProductInfosResponse) GetItems() []*v1.ProductInfo {
+	if x != nil {
+		return x.Items
+	}
+	return nil
+}
+
 type ResolveProviderCapabilitiesRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Types that are valid to be assigned to Subject:
@@ -782,7 +864,7 @@ type ResolveProviderCapabilitiesRequest struct {
 
 func (x *ResolveProviderCapabilitiesRequest) Reset() {
 	*x = ResolveProviderCapabilitiesRequest{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[8]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -794,7 +876,7 @@ func (x *ResolveProviderCapabilitiesRequest) String() string {
 func (*ResolveProviderCapabilitiesRequest) ProtoMessage() {}
 
 func (x *ResolveProviderCapabilitiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[8]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -807,7 +889,7 @@ func (x *ResolveProviderCapabilitiesRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use ResolveProviderCapabilitiesRequest.ProtoReflect.Descriptor instead.
 func (*ResolveProviderCapabilitiesRequest) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{8}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ResolveProviderCapabilitiesRequest) GetSubject() isResolveProviderCapabilitiesRequest_Subject {
@@ -870,18 +952,19 @@ type ProviderCapabilitySubject struct {
 	state            protoimpl.MessageState     `protogen:"open.v1"`
 	ProviderId       string                     `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
 	SurfaceId        string                     `protobuf:"bytes,2,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
-	Protocol         v1.Protocol                `protobuf:"varint,3,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
+	Protocol         v11.Protocol               `protobuf:"varint,3,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
 	Model            string                     `protobuf:"bytes,4,opt,name=model,proto3" json:"model,omitempty"`
-	CredentialKind   v11.CredentialKind         `protobuf:"varint,5,opt,name=credential_kind,json=credentialKind,proto3,enum=credential.v1.CredentialKind" json:"credential_kind,omitempty"`
+	CredentialKind   v12.CredentialKind         `protobuf:"varint,5,opt,name=credential_kind,json=credentialKind,proto3,enum=credential.v1.CredentialKind" json:"credential_kind,omitempty"`
 	RuntimeUrl       string                     `protobuf:"bytes,6,opt,name=runtime_url,json=runtimeUrl,proto3" json:"runtime_url,omitempty"`
 	ExecutionContext CapabilityExecutionContext `protobuf:"varint,7,opt,name=execution_context,json=executionContext,proto3,enum=platform.support.v1.CapabilityExecutionContext" json:"execution_context,omitempty"`
+	Endpoint         *v13.ProviderEndpoint      `protobuf:"bytes,8,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
 
 func (x *ProviderCapabilitySubject) Reset() {
 	*x = ProviderCapabilitySubject{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[9]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -893,7 +976,7 @@ func (x *ProviderCapabilitySubject) String() string {
 func (*ProviderCapabilitySubject) ProtoMessage() {}
 
 func (x *ProviderCapabilitySubject) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[9]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -906,7 +989,7 @@ func (x *ProviderCapabilitySubject) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderCapabilitySubject.ProtoReflect.Descriptor instead.
 func (*ProviderCapabilitySubject) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{9}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *ProviderCapabilitySubject) GetProviderId() string {
@@ -923,11 +1006,11 @@ func (x *ProviderCapabilitySubject) GetSurfaceId() string {
 	return ""
 }
 
-func (x *ProviderCapabilitySubject) GetProtocol() v1.Protocol {
+func (x *ProviderCapabilitySubject) GetProtocol() v11.Protocol {
 	if x != nil {
 		return x.Protocol
 	}
-	return v1.Protocol(0)
+	return v11.Protocol(0)
 }
 
 func (x *ProviderCapabilitySubject) GetModel() string {
@@ -937,11 +1020,11 @@ func (x *ProviderCapabilitySubject) GetModel() string {
 	return ""
 }
 
-func (x *ProviderCapabilitySubject) GetCredentialKind() v11.CredentialKind {
+func (x *ProviderCapabilitySubject) GetCredentialKind() v12.CredentialKind {
 	if x != nil {
 		return x.CredentialKind
 	}
-	return v11.CredentialKind(0)
+	return v12.CredentialKind(0)
 }
 
 func (x *ProviderCapabilitySubject) GetRuntimeUrl() string {
@@ -958,11 +1041,18 @@ func (x *ProviderCapabilitySubject) GetExecutionContext() CapabilityExecutionCon
 	return CapabilityExecutionContext_CAPABILITY_EXECUTION_CONTEXT_UNSPECIFIED
 }
 
+func (x *ProviderCapabilitySubject) GetEndpoint() *v13.ProviderEndpoint {
+	if x != nil {
+		return x.Endpoint
+	}
+	return nil
+}
+
 type CustomAPICapabilitySubject struct {
 	state            protoimpl.MessageState     `protogen:"open.v1"`
 	BaseUrl          string                     `protobuf:"bytes,1,opt,name=base_url,json=baseUrl,proto3" json:"base_url,omitempty"`
-	Protocol         v1.Protocol                `protobuf:"varint,2,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
-	CredentialKind   v11.CredentialKind         `protobuf:"varint,3,opt,name=credential_kind,json=credentialKind,proto3,enum=credential.v1.CredentialKind" json:"credential_kind,omitempty"`
+	Protocol         v11.Protocol               `protobuf:"varint,2,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
+	CredentialKind   v12.CredentialKind         `protobuf:"varint,3,opt,name=credential_kind,json=credentialKind,proto3,enum=credential.v1.CredentialKind" json:"credential_kind,omitempty"`
 	ExecutionContext CapabilityExecutionContext `protobuf:"varint,4,opt,name=execution_context,json=executionContext,proto3,enum=platform.support.v1.CapabilityExecutionContext" json:"execution_context,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
@@ -970,7 +1060,7 @@ type CustomAPICapabilitySubject struct {
 
 func (x *CustomAPICapabilitySubject) Reset() {
 	*x = CustomAPICapabilitySubject{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[10]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -982,7 +1072,7 @@ func (x *CustomAPICapabilitySubject) String() string {
 func (*CustomAPICapabilitySubject) ProtoMessage() {}
 
 func (x *CustomAPICapabilitySubject) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[10]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -995,7 +1085,7 @@ func (x *CustomAPICapabilitySubject) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CustomAPICapabilitySubject.ProtoReflect.Descriptor instead.
 func (*CustomAPICapabilitySubject) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{10}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CustomAPICapabilitySubject) GetBaseUrl() string {
@@ -1005,18 +1095,18 @@ func (x *CustomAPICapabilitySubject) GetBaseUrl() string {
 	return ""
 }
 
-func (x *CustomAPICapabilitySubject) GetProtocol() v1.Protocol {
+func (x *CustomAPICapabilitySubject) GetProtocol() v11.Protocol {
 	if x != nil {
 		return x.Protocol
 	}
-	return v1.Protocol(0)
+	return v11.Protocol(0)
 }
 
-func (x *CustomAPICapabilitySubject) GetCredentialKind() v11.CredentialKind {
+func (x *CustomAPICapabilitySubject) GetCredentialKind() v12.CredentialKind {
 	if x != nil {
 		return x.CredentialKind
 	}
-	return v11.CredentialKind(0)
+	return v12.CredentialKind(0)
 }
 
 func (x *CustomAPICapabilitySubject) GetExecutionContext() CapabilityExecutionContext {
@@ -1030,9 +1120,9 @@ type RuntimeCapabilitySubject struct {
 	state                  protoimpl.MessageState     `protogen:"open.v1"`
 	ProviderId             string                     `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
 	SurfaceId              string                     `protobuf:"bytes,2,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
-	Protocol               v1.Protocol                `protobuf:"varint,3,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
+	Protocol               v11.Protocol               `protobuf:"varint,3,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
 	Model                  string                     `protobuf:"bytes,4,opt,name=model,proto3" json:"model,omitempty"`
-	CredentialKind         v11.CredentialKind         `protobuf:"varint,5,opt,name=credential_kind,json=credentialKind,proto3,enum=credential.v1.CredentialKind" json:"credential_kind,omitempty"`
+	CredentialKind         v12.CredentialKind         `protobuf:"varint,5,opt,name=credential_kind,json=credentialKind,proto3,enum=credential.v1.CredentialKind" json:"credential_kind,omitempty"`
 	RuntimeUrl             string                     `protobuf:"bytes,6,opt,name=runtime_url,json=runtimeUrl,proto3" json:"runtime_url,omitempty"`
 	AuthMaterializationKey string                     `protobuf:"bytes,7,opt,name=auth_materialization_key,json=authMaterializationKey,proto3" json:"auth_materialization_key,omitempty"`
 	ExecutionContext       CapabilityExecutionContext `protobuf:"varint,8,opt,name=execution_context,json=executionContext,proto3,enum=platform.support.v1.CapabilityExecutionContext" json:"execution_context,omitempty"`
@@ -1042,7 +1132,7 @@ type RuntimeCapabilitySubject struct {
 
 func (x *RuntimeCapabilitySubject) Reset() {
 	*x = RuntimeCapabilitySubject{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[11]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1054,7 +1144,7 @@ func (x *RuntimeCapabilitySubject) String() string {
 func (*RuntimeCapabilitySubject) ProtoMessage() {}
 
 func (x *RuntimeCapabilitySubject) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[11]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1067,7 +1157,7 @@ func (x *RuntimeCapabilitySubject) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RuntimeCapabilitySubject.ProtoReflect.Descriptor instead.
 func (*RuntimeCapabilitySubject) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{11}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *RuntimeCapabilitySubject) GetProviderId() string {
@@ -1084,11 +1174,11 @@ func (x *RuntimeCapabilitySubject) GetSurfaceId() string {
 	return ""
 }
 
-func (x *RuntimeCapabilitySubject) GetProtocol() v1.Protocol {
+func (x *RuntimeCapabilitySubject) GetProtocol() v11.Protocol {
 	if x != nil {
 		return x.Protocol
 	}
-	return v1.Protocol(0)
+	return v11.Protocol(0)
 }
 
 func (x *RuntimeCapabilitySubject) GetModel() string {
@@ -1098,11 +1188,11 @@ func (x *RuntimeCapabilitySubject) GetModel() string {
 	return ""
 }
 
-func (x *RuntimeCapabilitySubject) GetCredentialKind() v11.CredentialKind {
+func (x *RuntimeCapabilitySubject) GetCredentialKind() v12.CredentialKind {
 	if x != nil {
 		return x.CredentialKind
 	}
-	return v11.CredentialKind(0)
+	return v12.CredentialKind(0)
 }
 
 func (x *RuntimeCapabilitySubject) GetRuntimeUrl() string {
@@ -1130,18 +1220,20 @@ type ResolveProviderCapabilitiesResponse struct {
 	state                  protoimpl.MessageState       `protogen:"open.v1"`
 	EgressPolicyId         string                       `protobuf:"bytes,1,opt,name=egress_policy_id,json=egressPolicyId,proto3" json:"egress_policy_id,omitempty"`
 	AuthPolicyId           string                       `protobuf:"bytes,2,opt,name=auth_policy_id,json=authPolicyId,proto3" json:"auth_policy_id,omitempty"`
-	Observability          *v12.ObservabilityCapability `protobuf:"bytes,3,opt,name=observability,proto3" json:"observability,omitempty"`
+	Observability          *v14.ObservabilityCapability `protobuf:"bytes,3,opt,name=observability,proto3" json:"observability,omitempty"`
 	ModelCatalogProbeId    string                       `protobuf:"bytes,4,opt,name=model_catalog_probe_id,json=modelCatalogProbeId,proto3" json:"model_catalog_probe_id,omitempty"`
 	QuotaProbeId           string                       `protobuf:"bytes,5,opt,name=quota_probe_id,json=quotaProbeId,proto3" json:"quota_probe_id,omitempty"`
 	AuthMaterializationKey string                       `protobuf:"bytes,6,opt,name=auth_materialization_key,json=authMaterializationKey,proto3" json:"auth_materialization_key,omitempty"`
 	ResourceRef            string                       `protobuf:"bytes,7,opt,name=resource_ref,json=resourceRef,proto3" json:"resource_ref,omitempty"`
+	ObservabilityPolicyId  string                       `protobuf:"bytes,8,opt,name=observability_policy_id,json=observabilityPolicyId,proto3" json:"observability_policy_id,omitempty"`
+	SurfaceId              string                       `protobuf:"bytes,9,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
 
 func (x *ResolveProviderCapabilitiesResponse) Reset() {
 	*x = ResolveProviderCapabilitiesResponse{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[12]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1153,7 +1245,7 @@ func (x *ResolveProviderCapabilitiesResponse) String() string {
 func (*ResolveProviderCapabilitiesResponse) ProtoMessage() {}
 
 func (x *ResolveProviderCapabilitiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[12]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1166,7 +1258,7 @@ func (x *ResolveProviderCapabilitiesResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use ResolveProviderCapabilitiesResponse.ProtoReflect.Descriptor instead.
 func (*ResolveProviderCapabilitiesResponse) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{12}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *ResolveProviderCapabilitiesResponse) GetEgressPolicyId() string {
@@ -1183,7 +1275,7 @@ func (x *ResolveProviderCapabilitiesResponse) GetAuthPolicyId() string {
 	return ""
 }
 
-func (x *ResolveProviderCapabilitiesResponse) GetObservability() *v12.ObservabilityCapability {
+func (x *ResolveProviderCapabilitiesResponse) GetObservability() *v14.ObservabilityCapability {
 	if x != nil {
 		return x.Observability
 	}
@@ -1218,17 +1310,32 @@ func (x *ResolveProviderCapabilitiesResponse) GetResourceRef() string {
 	return ""
 }
 
+func (x *ResolveProviderCapabilitiesResponse) GetObservabilityPolicyId() string {
+	if x != nil {
+		return x.ObservabilityPolicyId
+	}
+	return ""
+}
+
+func (x *ResolveProviderCapabilitiesResponse) GetSurfaceId() string {
+	if x != nil {
+		return x.SurfaceId
+	}
+	return ""
+}
+
 type Vendor struct {
 	state            protoimpl.MessageState   `protogen:"open.v1"`
-	Vendor           *v13.Vendor              `protobuf:"bytes,1,opt,name=vendor,proto3" json:"vendor,omitempty"`
+	Vendor           *v15.Vendor              `protobuf:"bytes,1,opt,name=vendor,proto3" json:"vendor,omitempty"`
 	ProviderBindings []*VendorProviderBinding `protobuf:"bytes,2,rep,name=provider_bindings,json=providerBindings,proto3" json:"provider_bindings,omitempty"`
+	Surfaces         []*Surface               `protobuf:"bytes,3,rep,name=surfaces,proto3" json:"surfaces,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
 
 func (x *Vendor) Reset() {
 	*x = Vendor{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[13]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1240,7 +1347,7 @@ func (x *Vendor) String() string {
 func (*Vendor) ProtoMessage() {}
 
 func (x *Vendor) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[13]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1253,10 +1360,10 @@ func (x *Vendor) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Vendor.ProtoReflect.Descriptor instead.
 func (*Vendor) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{13}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{15}
 }
 
-func (x *Vendor) GetVendor() *v13.Vendor {
+func (x *Vendor) GetVendor() *v15.Vendor {
 	if x != nil {
 		return x.Vendor
 	}
@@ -1268,6 +1375,307 @@ func (x *Vendor) GetProviderBindings() []*VendorProviderBinding {
 		return x.ProviderBindings
 	}
 	return nil
+}
+
+func (x *Vendor) GetSurfaces() []*Surface {
+	if x != nil {
+		return x.Surfaces
+	}
+	return nil
+}
+
+type Surface struct {
+	state                            protoimpl.MessageState       `protogen:"open.v1"`
+	SurfaceId                        string                       `protobuf:"bytes,1,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
+	ProductInfoId                    string                       `protobuf:"bytes,2,opt,name=product_info_id,json=productInfoId,proto3" json:"product_info_id,omitempty"`
+	EgressPolicyId                   string                       `protobuf:"bytes,3,opt,name=egress_policy_id,json=egressPolicyId,proto3" json:"egress_policy_id,omitempty"`
+	AuthPolicyId                     string                       `protobuf:"bytes,4,opt,name=auth_policy_id,json=authPolicyId,proto3" json:"auth_policy_id,omitempty"`
+	ModelCatalogProbeId              string                       `protobuf:"bytes,5,opt,name=model_catalog_probe_id,json=modelCatalogProbeId,proto3" json:"model_catalog_probe_id,omitempty"`
+	QuotaProbeId                     string                       `protobuf:"bytes,6,opt,name=quota_probe_id,json=quotaProbeId,proto3" json:"quota_probe_id,omitempty"`
+	ObservabilityPolicyId            string                       `protobuf:"bytes,7,opt,name=observability_policy_id,json=observabilityPolicyId,proto3" json:"observability_policy_id,omitempty"`
+	Observability                    *v14.ObservabilityCapability `protobuf:"bytes,8,opt,name=observability,proto3" json:"observability,omitempty"`
+	ModelCatalogProbeMinimumInterval *durationpb.Duration         `protobuf:"bytes,11,opt,name=model_catalog_probe_minimum_interval,json=modelCatalogProbeMinimumInterval,proto3" json:"model_catalog_probe_minimum_interval,omitempty"`
+	// Types that are valid to be assigned to Spec:
+	//
+	//	*Surface_Api
+	//	*Surface_Cli
+	Spec          isSurface_Spec `protobuf_oneof:"spec"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Surface) Reset() {
+	*x = Surface{}
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Surface) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Surface) ProtoMessage() {}
+
+func (x *Surface) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Surface.ProtoReflect.Descriptor instead.
+func (*Surface) Descriptor() ([]byte, []int) {
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *Surface) GetSurfaceId() string {
+	if x != nil {
+		return x.SurfaceId
+	}
+	return ""
+}
+
+func (x *Surface) GetProductInfoId() string {
+	if x != nil {
+		return x.ProductInfoId
+	}
+	return ""
+}
+
+func (x *Surface) GetEgressPolicyId() string {
+	if x != nil {
+		return x.EgressPolicyId
+	}
+	return ""
+}
+
+func (x *Surface) GetAuthPolicyId() string {
+	if x != nil {
+		return x.AuthPolicyId
+	}
+	return ""
+}
+
+func (x *Surface) GetModelCatalogProbeId() string {
+	if x != nil {
+		return x.ModelCatalogProbeId
+	}
+	return ""
+}
+
+func (x *Surface) GetQuotaProbeId() string {
+	if x != nil {
+		return x.QuotaProbeId
+	}
+	return ""
+}
+
+func (x *Surface) GetObservabilityPolicyId() string {
+	if x != nil {
+		return x.ObservabilityPolicyId
+	}
+	return ""
+}
+
+func (x *Surface) GetObservability() *v14.ObservabilityCapability {
+	if x != nil {
+		return x.Observability
+	}
+	return nil
+}
+
+func (x *Surface) GetModelCatalogProbeMinimumInterval() *durationpb.Duration {
+	if x != nil {
+		return x.ModelCatalogProbeMinimumInterval
+	}
+	return nil
+}
+
+func (x *Surface) GetSpec() isSurface_Spec {
+	if x != nil {
+		return x.Spec
+	}
+	return nil
+}
+
+func (x *Surface) GetApi() *ApiSurface {
+	if x != nil {
+		if x, ok := x.Spec.(*Surface_Api); ok {
+			return x.Api
+		}
+	}
+	return nil
+}
+
+func (x *Surface) GetCli() *CliSurface {
+	if x != nil {
+		if x, ok := x.Spec.(*Surface_Cli); ok {
+			return x.Cli
+		}
+	}
+	return nil
+}
+
+type isSurface_Spec interface {
+	isSurface_Spec()
+}
+
+type Surface_Api struct {
+	Api *ApiSurface `protobuf:"bytes,9,opt,name=api,proto3,oneof"`
+}
+
+type Surface_Cli struct {
+	Cli *CliSurface `protobuf:"bytes,10,opt,name=cli,proto3,oneof"`
+}
+
+func (*Surface_Api) isSurface_Spec() {}
+
+func (*Surface_Cli) isSurface_Spec() {}
+
+type ApiSurface struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ApiEndpoints  []*ApiEndpoint         `protobuf:"bytes,1,rep,name=api_endpoints,json=apiEndpoints,proto3" json:"api_endpoints,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ApiSurface) Reset() {
+	*x = ApiSurface{}
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApiSurface) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApiSurface) ProtoMessage() {}
+
+func (x *ApiSurface) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApiSurface.ProtoReflect.Descriptor instead.
+func (*ApiSurface) Descriptor() ([]byte, []int) {
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *ApiSurface) GetApiEndpoints() []*ApiEndpoint {
+	if x != nil {
+		return x.ApiEndpoints
+	}
+	return nil
+}
+
+type ApiEndpoint struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Protocol      v11.Protocol           `protobuf:"varint,1,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
+	BaseUrl       string                 `protobuf:"bytes,2,opt,name=base_url,json=baseUrl,proto3" json:"base_url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ApiEndpoint) Reset() {
+	*x = ApiEndpoint{}
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApiEndpoint) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApiEndpoint) ProtoMessage() {}
+
+func (x *ApiEndpoint) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApiEndpoint.ProtoReflect.Descriptor instead.
+func (*ApiEndpoint) Descriptor() ([]byte, []int) {
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *ApiEndpoint) GetProtocol() v11.Protocol {
+	if x != nil {
+		return x.Protocol
+	}
+	return v11.Protocol(0)
+}
+
+func (x *ApiEndpoint) GetBaseUrl() string {
+	if x != nil {
+		return x.BaseUrl
+	}
+	return ""
+}
+
+type CliSurface struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CliId         string                 `protobuf:"bytes,1,opt,name=cli_id,json=cliId,proto3" json:"cli_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CliSurface) Reset() {
+	*x = CliSurface{}
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CliSurface) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CliSurface) ProtoMessage() {}
+
+func (x *CliSurface) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CliSurface.ProtoReflect.Descriptor instead.
+func (*CliSurface) Descriptor() ([]byte, []int) {
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *CliSurface) GetCliId() string {
+	if x != nil {
+		return x.CliId
+	}
+	return ""
 }
 
 type ProviderBinding struct {
@@ -1283,7 +1691,7 @@ type ProviderBinding struct {
 
 func (x *ProviderBinding) Reset() {
 	*x = ProviderBinding{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[14]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1295,7 +1703,7 @@ func (x *ProviderBinding) String() string {
 func (*ProviderBinding) ProtoMessage() {}
 
 func (x *ProviderBinding) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[14]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1308,7 +1716,7 @@ func (x *ProviderBinding) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderBinding.ProtoReflect.Descriptor instead.
 func (*ProviderBinding) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{14}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *ProviderBinding) GetSurfaceId() string {
@@ -1349,15 +1757,15 @@ func (x *ProviderBinding) GetHeaderRewritePolicyId() string {
 type ProviderSurfaceRuntimeTemplate struct {
 	state            protoimpl.MessageState      `protogen:"open.v1"`
 	SurfaceId        string                      `protobuf:"bytes,1,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
-	Runtime          *v14.ProviderSurfaceRuntime `protobuf:"bytes,2,opt,name=runtime,proto3" json:"runtime,omitempty"`
-	BootstrapCatalog *v14.ProviderModelCatalog   `protobuf:"bytes,3,opt,name=bootstrap_catalog,json=bootstrapCatalog,proto3" json:"bootstrap_catalog,omitempty"`
+	Runtime          *v13.ProviderSurfaceRuntime `protobuf:"bytes,2,opt,name=runtime,proto3" json:"runtime,omitempty"`
+	BootstrapCatalog *v13.ProviderModelCatalog   `protobuf:"bytes,3,opt,name=bootstrap_catalog,json=bootstrapCatalog,proto3" json:"bootstrap_catalog,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
 
 func (x *ProviderSurfaceRuntimeTemplate) Reset() {
 	*x = ProviderSurfaceRuntimeTemplate{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[15]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1369,7 +1777,7 @@ func (x *ProviderSurfaceRuntimeTemplate) String() string {
 func (*ProviderSurfaceRuntimeTemplate) ProtoMessage() {}
 
 func (x *ProviderSurfaceRuntimeTemplate) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[15]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1382,7 +1790,7 @@ func (x *ProviderSurfaceRuntimeTemplate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderSurfaceRuntimeTemplate.ProtoReflect.Descriptor instead.
 func (*ProviderSurfaceRuntimeTemplate) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{15}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *ProviderSurfaceRuntimeTemplate) GetSurfaceId() string {
@@ -1392,14 +1800,14 @@ func (x *ProviderSurfaceRuntimeTemplate) GetSurfaceId() string {
 	return ""
 }
 
-func (x *ProviderSurfaceRuntimeTemplate) GetRuntime() *v14.ProviderSurfaceRuntime {
+func (x *ProviderSurfaceRuntimeTemplate) GetRuntime() *v13.ProviderSurfaceRuntime {
 	if x != nil {
 		return x.Runtime
 	}
 	return nil
 }
 
-func (x *ProviderSurfaceRuntimeTemplate) GetBootstrapCatalog() *v14.ProviderModelCatalog {
+func (x *ProviderSurfaceRuntimeTemplate) GetBootstrapCatalog() *v13.ProviderModelCatalog {
 	if x != nil {
 		return x.BootstrapCatalog
 	}
@@ -1411,15 +1819,15 @@ type VendorProviderBinding struct {
 	ProviderBinding  *ProviderBinding                  `protobuf:"bytes,1,opt,name=provider_binding,json=providerBinding,proto3" json:"provider_binding,omitempty"`
 	SurfaceTemplates []*ProviderSurfaceRuntimeTemplate `protobuf:"bytes,2,rep,name=surface_templates,json=surfaceTemplates,proto3" json:"surface_templates,omitempty"`
 	ModelDiscovery   *VendorModelDiscovery             `protobuf:"bytes,3,opt,name=model_discovery,json=modelDiscovery,proto3" json:"model_discovery,omitempty"`
-	Observability    *v12.ObservabilityCapability      `protobuf:"bytes,4,opt,name=observability,proto3" json:"observability,omitempty"`
-	EgressPolicy     *v15.EgressPolicy                 `protobuf:"bytes,6,opt,name=egress_policy,json=egressPolicy,proto3" json:"egress_policy,omitempty"`
+	Observability    *v14.ObservabilityCapability      `protobuf:"bytes,4,opt,name=observability,proto3" json:"observability,omitempty"`
+	EgressPolicy     *v16.EgressPolicy                 `protobuf:"bytes,6,opt,name=egress_policy,json=egressPolicy,proto3" json:"egress_policy,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
 
 func (x *VendorProviderBinding) Reset() {
 	*x = VendorProviderBinding{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[16]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1431,7 +1839,7 @@ func (x *VendorProviderBinding) String() string {
 func (*VendorProviderBinding) ProtoMessage() {}
 
 func (x *VendorProviderBinding) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[16]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1444,7 +1852,7 @@ func (x *VendorProviderBinding) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VendorProviderBinding.ProtoReflect.Descriptor instead.
 func (*VendorProviderBinding) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{16}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *VendorProviderBinding) GetProviderBinding() *ProviderBinding {
@@ -1468,14 +1876,14 @@ func (x *VendorProviderBinding) GetModelDiscovery() *VendorModelDiscovery {
 	return nil
 }
 
-func (x *VendorProviderBinding) GetObservability() *v12.ObservabilityCapability {
+func (x *VendorProviderBinding) GetObservability() *v14.ObservabilityCapability {
 	if x != nil {
 		return x.Observability
 	}
 	return nil
 }
 
-func (x *VendorProviderBinding) GetEgressPolicy() *v15.EgressPolicy {
+func (x *VendorProviderBinding) GetEgressPolicy() *v16.EgressPolicy {
 	if x != nil {
 		return x.EgressPolicy
 	}
@@ -1496,7 +1904,7 @@ type VendorModelDiscovery struct {
 
 func (x *VendorModelDiscovery) Reset() {
 	*x = VendorModelDiscovery{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[17]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1508,7 +1916,7 @@ func (x *VendorModelDiscovery) String() string {
 func (*VendorModelDiscovery) ProtoMessage() {}
 
 func (x *VendorModelDiscovery) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[17]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1521,7 +1929,7 @@ func (x *VendorModelDiscovery) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VendorModelDiscovery.ProtoReflect.Descriptor instead.
 func (*VendorModelDiscovery) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{17}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *VendorModelDiscovery) GetCollectorId() string {
@@ -1567,14 +1975,14 @@ func (*VendorModelDiscovery_ActiveDiscovery) isVendorModelDiscovery_Strategy() {
 type ActiveModelDiscovery struct {
 	state         protoimpl.MessageState              `protogen:"open.v1"`
 	SurfaceIds    []string                            `protobuf:"bytes,1,rep,name=surface_ids,json=surfaceIds,proto3" json:"surface_ids,omitempty"`
-	Operation     *v16.ModelCatalogDiscoveryOperation `protobuf:"bytes,2,opt,name=operation,proto3" json:"operation,omitempty"`
+	Operation     *v17.ModelCatalogDiscoveryOperation `protobuf:"bytes,2,opt,name=operation,proto3" json:"operation,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ActiveModelDiscovery) Reset() {
 	*x = ActiveModelDiscovery{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[18]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1586,7 +1994,7 @@ func (x *ActiveModelDiscovery) String() string {
 func (*ActiveModelDiscovery) ProtoMessage() {}
 
 func (x *ActiveModelDiscovery) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[18]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1599,7 +2007,7 @@ func (x *ActiveModelDiscovery) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ActiveModelDiscovery.ProtoReflect.Descriptor instead.
 func (*ActiveModelDiscovery) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{18}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *ActiveModelDiscovery) GetSurfaceIds() []string {
@@ -1609,7 +2017,7 @@ func (x *ActiveModelDiscovery) GetSurfaceIds() []string {
 	return nil
 }
 
-func (x *ActiveModelDiscovery) GetOperation() *v16.ModelCatalogDiscoveryOperation {
+func (x *ActiveModelDiscovery) GetOperation() *v17.ModelCatalogDiscoveryOperation {
 	if x != nil {
 		return x.Operation
 	}
@@ -1627,7 +2035,7 @@ type CLI struct {
 	WebsiteUrl            string                   `protobuf:"bytes,7,opt,name=website_url,json=websiteUrl,proto3" json:"website_url,omitempty"`
 	GithubUrl             string                   `protobuf:"bytes,8,opt,name=github_url,json=githubUrl,proto3" json:"github_url,omitempty"`
 	RuntimeCapabilities   []*RuntimeCapability     `protobuf:"bytes,9,rep,name=runtime_capabilities,json=runtimeCapabilities,proto3" json:"runtime_capabilities,omitempty"`
-	EgressPolicy          *v15.EgressPolicy        `protobuf:"bytes,10,opt,name=egress_policy,json=egressPolicy,proto3" json:"egress_policy,omitempty"`
+	EgressPolicy          *v16.EgressPolicy        `protobuf:"bytes,10,opt,name=egress_policy,json=egressPolicy,proto3" json:"egress_policy,omitempty"`
 	OfficialVersionSource *OfficialVersionSource   `protobuf:"bytes,11,opt,name=official_version_source,json=officialVersionSource,proto3" json:"official_version_source,omitempty"`
 	ContainerImages       []*CLIContainerImage     `protobuf:"bytes,12,rep,name=container_images,json=containerImages,proto3" json:"container_images,omitempty"`
 	Description           string                   `protobuf:"bytes,13,opt,name=description,proto3" json:"description,omitempty"`
@@ -1638,7 +2046,7 @@ type CLI struct {
 
 func (x *CLI) Reset() {
 	*x = CLI{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[19]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1650,7 +2058,7 @@ func (x *CLI) String() string {
 func (*CLI) ProtoMessage() {}
 
 func (x *CLI) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[19]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1663,7 +2071,7 @@ func (x *CLI) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CLI.ProtoReflect.Descriptor instead.
 func (*CLI) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{19}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *CLI) GetCliId() string {
@@ -1729,7 +2137,7 @@ func (x *CLI) GetRuntimeCapabilities() []*RuntimeCapability {
 	return nil
 }
 
-func (x *CLI) GetEgressPolicy() *v15.EgressPolicy {
+func (x *CLI) GetEgressPolicy() *v16.EgressPolicy {
 	if x != nil {
 		return x.EgressPolicy
 	}
@@ -1776,7 +2184,7 @@ type CLIContainerImage struct {
 
 func (x *CLIContainerImage) Reset() {
 	*x = CLIContainerImage{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[20]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1788,7 +2196,7 @@ func (x *CLIContainerImage) String() string {
 func (*CLIContainerImage) ProtoMessage() {}
 
 func (x *CLIContainerImage) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[20]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1801,7 +2209,7 @@ func (x *CLIContainerImage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CLIContainerImage.ProtoReflect.Descriptor instead.
 func (*CLIContainerImage) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{20}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *CLIContainerImage) GetExecutionClass() string {
@@ -1836,14 +2244,14 @@ type CLICapability struct {
 	state                protoimpl.MessageState `protogen:"open.v1"`
 	SupportsStreaming    bool                   `protobuf:"varint,1,opt,name=supports_streaming,json=supportsStreaming,proto3" json:"supports_streaming,omitempty"`
 	SupportsApprovalMode bool                   `protobuf:"varint,2,opt,name=supports_approval_mode,json=supportsApprovalMode,proto3" json:"supports_approval_mode,omitempty"`
-	SupportedProtocols   []v1.Protocol          `protobuf:"varint,3,rep,packed,name=supported_protocols,json=supportedProtocols,proto3,enum=api_protocol.v1.Protocol" json:"supported_protocols,omitempty"`
+	SupportedProtocols   []v11.Protocol         `protobuf:"varint,3,rep,packed,name=supported_protocols,json=supportedProtocols,proto3,enum=api_protocol.v1.Protocol" json:"supported_protocols,omitempty"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
 
 func (x *CLICapability) Reset() {
 	*x = CLICapability{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[21]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1855,7 +2263,7 @@ func (x *CLICapability) String() string {
 func (*CLICapability) ProtoMessage() {}
 
 func (x *CLICapability) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[21]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1868,7 +2276,7 @@ func (x *CLICapability) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CLICapability.ProtoReflect.Descriptor instead.
 func (*CLICapability) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{21}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *CLICapability) GetSupportsStreaming() bool {
@@ -1885,7 +2293,7 @@ func (x *CLICapability) GetSupportsApprovalMode() bool {
 	return false
 }
 
-func (x *CLICapability) GetSupportedProtocols() []v1.Protocol {
+func (x *CLICapability) GetSupportedProtocols() []v11.Protocol {
 	if x != nil {
 		return x.SupportedProtocols
 	}
@@ -1895,12 +2303,12 @@ func (x *CLICapability) GetSupportedProtocols() []v1.Protocol {
 type OAuthSupport struct {
 	state                         protoimpl.MessageState           `protogen:"open.v1"`
 	DisplayName                   string                           `protobuf:"bytes,1,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
-	Flow                          v11.OAuthAuthorizationFlow       `protobuf:"varint,2,opt,name=flow,proto3,enum=credential.v1.OAuthAuthorizationFlow" json:"flow,omitempty"`
+	Flow                          v12.OAuthAuthorizationFlow       `protobuf:"varint,2,opt,name=flow,proto3,enum=credential.v1.OAuthAuthorizationFlow" json:"flow,omitempty"`
 	SupportsOneClickAuthorization bool                             `protobuf:"varint,3,opt,name=supports_one_click_authorization,json=supportsOneClickAuthorization,proto3" json:"supports_one_click_authorization,omitempty"`
-	SupportedPurposes             []v11.CredentialPurpose          `protobuf:"varint,4,rep,packed,name=supported_purposes,json=supportedPurposes,proto3,enum=credential.v1.CredentialPurpose" json:"supported_purposes,omitempty"`
+	SupportedPurposes             []v12.CredentialPurpose          `protobuf:"varint,4,rep,packed,name=supported_purposes,json=supportedPurposes,proto3,enum=credential.v1.CredentialPurpose" json:"supported_purposes,omitempty"`
 	Recommended                   bool                             `protobuf:"varint,5,opt,name=recommended,proto3" json:"recommended,omitempty"`
 	ModelCatalog                  *OAuthModelCatalog               `protobuf:"bytes,6,opt,name=model_catalog,json=modelCatalog,proto3" json:"model_catalog,omitempty"`
-	Observability                 *v12.ObservabilityCapability     `protobuf:"bytes,7,opt,name=observability,proto3" json:"observability,omitempty"`
+	Observability                 *v14.ObservabilityCapability     `protobuf:"bytes,7,opt,name=observability,proto3" json:"observability,omitempty"`
 	OauthClient                   *OAuthClient                     `protobuf:"bytes,8,opt,name=oauth_client,json=oauthClient,proto3" json:"oauth_client,omitempty"`
 	ArtifactProjection            *OAuthArtifactProjection         `protobuf:"bytes,9,opt,name=artifact_projection,json=artifactProjection,proto3" json:"artifact_projection,omitempty"`
 	CodeFlow                      *OAuthCodeFlow                   `protobuf:"bytes,10,opt,name=code_flow,json=codeFlow,proto3" json:"code_flow,omitempty"`
@@ -1915,7 +2323,7 @@ type OAuthSupport struct {
 
 func (x *OAuthSupport) Reset() {
 	*x = OAuthSupport{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[22]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1927,7 +2335,7 @@ func (x *OAuthSupport) String() string {
 func (*OAuthSupport) ProtoMessage() {}
 
 func (x *OAuthSupport) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[22]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1940,7 +2348,7 @@ func (x *OAuthSupport) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthSupport.ProtoReflect.Descriptor instead.
 func (*OAuthSupport) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{22}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *OAuthSupport) GetDisplayName() string {
@@ -1950,11 +2358,11 @@ func (x *OAuthSupport) GetDisplayName() string {
 	return ""
 }
 
-func (x *OAuthSupport) GetFlow() v11.OAuthAuthorizationFlow {
+func (x *OAuthSupport) GetFlow() v12.OAuthAuthorizationFlow {
 	if x != nil {
 		return x.Flow
 	}
-	return v11.OAuthAuthorizationFlow(0)
+	return v12.OAuthAuthorizationFlow(0)
 }
 
 func (x *OAuthSupport) GetSupportsOneClickAuthorization() bool {
@@ -1964,7 +2372,7 @@ func (x *OAuthSupport) GetSupportsOneClickAuthorization() bool {
 	return false
 }
 
-func (x *OAuthSupport) GetSupportedPurposes() []v11.CredentialPurpose {
+func (x *OAuthSupport) GetSupportedPurposes() []v12.CredentialPurpose {
 	if x != nil {
 		return x.SupportedPurposes
 	}
@@ -1985,7 +2393,7 @@ func (x *OAuthSupport) GetModelCatalog() *OAuthModelCatalog {
 	return nil
 }
 
-func (x *OAuthSupport) GetObservability() *v12.ObservabilityCapability {
+func (x *OAuthSupport) GetObservability() *v14.ObservabilityCapability {
 	if x != nil {
 		return x.Observability
 	}
@@ -2050,7 +2458,7 @@ func (x *OAuthSupport) GetProviderBinding() *ProviderBinding {
 
 type APIKeyProtocolSupport struct {
 	state               protoimpl.MessageState  `protogen:"open.v1"`
-	Protocol            v1.Protocol             `protobuf:"varint,1,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
+	Protocol            v11.Protocol            `protobuf:"varint,1,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
 	DisplayName         string                  `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
 	AuthMaterialization *CLIAuthMaterialization `protobuf:"bytes,3,opt,name=auth_materialization,json=authMaterialization,proto3" json:"auth_materialization,omitempty"`
 	unknownFields       protoimpl.UnknownFields
@@ -2059,7 +2467,7 @@ type APIKeyProtocolSupport struct {
 
 func (x *APIKeyProtocolSupport) Reset() {
 	*x = APIKeyProtocolSupport{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[23]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2071,7 +2479,7 @@ func (x *APIKeyProtocolSupport) String() string {
 func (*APIKeyProtocolSupport) ProtoMessage() {}
 
 func (x *APIKeyProtocolSupport) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[23]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2084,14 +2492,14 @@ func (x *APIKeyProtocolSupport) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use APIKeyProtocolSupport.ProtoReflect.Descriptor instead.
 func (*APIKeyProtocolSupport) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{23}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{29}
 }
 
-func (x *APIKeyProtocolSupport) GetProtocol() v1.Protocol {
+func (x *APIKeyProtocolSupport) GetProtocol() v11.Protocol {
 	if x != nil {
 		return x.Protocol
 	}
-	return v1.Protocol(0)
+	return v11.Protocol(0)
 }
 
 func (x *APIKeyProtocolSupport) GetDisplayName() string {
@@ -2119,7 +2527,7 @@ type RuntimeCapability struct {
 
 func (x *RuntimeCapability) Reset() {
 	*x = RuntimeCapability{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[24]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2131,7 +2539,7 @@ func (x *RuntimeCapability) String() string {
 func (*RuntimeCapability) ProtoMessage() {}
 
 func (x *RuntimeCapability) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[24]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2144,7 +2552,7 @@ func (x *RuntimeCapability) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RuntimeCapability.ProtoReflect.Descriptor instead.
 func (*RuntimeCapability) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{24}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *RuntimeCapability) GetKind() RuntimeCapabilityKind {
@@ -2181,7 +2589,7 @@ type OAuthClient struct {
 
 func (x *OAuthClient) Reset() {
 	*x = OAuthClient{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[25]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2193,7 +2601,7 @@ func (x *OAuthClient) String() string {
 func (*OAuthClient) ProtoMessage() {}
 
 func (x *OAuthClient) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[25]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2206,7 +2614,7 @@ func (x *OAuthClient) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthClient.ProtoReflect.Descriptor instead.
 func (*OAuthClient) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{25}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *OAuthClient) GetClientId() string {
@@ -2254,7 +2662,7 @@ type OAuthPKCE struct {
 
 func (x *OAuthPKCE) Reset() {
 	*x = OAuthPKCE{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[26]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2266,7 +2674,7 @@ func (x *OAuthPKCE) String() string {
 func (*OAuthPKCE) ProtoMessage() {}
 
 func (x *OAuthPKCE) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[26]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2279,7 +2687,7 @@ func (x *OAuthPKCE) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthPKCE.ProtoReflect.Descriptor instead.
 func (*OAuthPKCE) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{26}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *OAuthPKCE) GetRequired() bool {
@@ -2309,7 +2717,7 @@ type OAuthCodeFlow struct {
 
 func (x *OAuthCodeFlow) Reset() {
 	*x = OAuthCodeFlow{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[27]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2321,7 +2729,7 @@ func (x *OAuthCodeFlow) String() string {
 func (*OAuthCodeFlow) ProtoMessage() {}
 
 func (x *OAuthCodeFlow) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[27]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2334,7 +2742,7 @@ func (x *OAuthCodeFlow) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthCodeFlow.ProtoReflect.Descriptor instead.
 func (*OAuthCodeFlow) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{27}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *OAuthCodeFlow) GetAuthorizationUrl() string {
@@ -2374,7 +2782,7 @@ func (x *OAuthCodeFlow) GetRequiresState() bool {
 
 type OAuthCallbackDelivery struct {
 	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Mode                  v11.OAuthCallbackMode  `protobuf:"varint,1,opt,name=mode,proto3,enum=credential.v1.OAuthCallbackMode" json:"mode,omitempty"`
+	Mode                  v12.OAuthCallbackMode  `protobuf:"varint,1,opt,name=mode,proto3,enum=credential.v1.OAuthCallbackMode" json:"mode,omitempty"`
 	CallbackProviderId    string                 `protobuf:"bytes,2,opt,name=callback_provider_id,json=callbackProviderId,proto3" json:"callback_provider_id,omitempty"`
 	ProviderRedirectUri   string                 `protobuf:"bytes,3,opt,name=provider_redirect_uri,json=providerRedirectUri,proto3" json:"provider_redirect_uri,omitempty"`
 	LocalhostListenHost   string                 `protobuf:"bytes,4,opt,name=localhost_listen_host,json=localhostListenHost,proto3" json:"localhost_listen_host,omitempty"`
@@ -2386,7 +2794,7 @@ type OAuthCallbackDelivery struct {
 
 func (x *OAuthCallbackDelivery) Reset() {
 	*x = OAuthCallbackDelivery{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[28]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2398,7 +2806,7 @@ func (x *OAuthCallbackDelivery) String() string {
 func (*OAuthCallbackDelivery) ProtoMessage() {}
 
 func (x *OAuthCallbackDelivery) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[28]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2411,14 +2819,14 @@ func (x *OAuthCallbackDelivery) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthCallbackDelivery.ProtoReflect.Descriptor instead.
 func (*OAuthCallbackDelivery) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{28}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{34}
 }
 
-func (x *OAuthCallbackDelivery) GetMode() v11.OAuthCallbackMode {
+func (x *OAuthCallbackDelivery) GetMode() v12.OAuthCallbackMode {
 	if x != nil {
 		return x.Mode
 	}
-	return v11.OAuthCallbackMode(0)
+	return v12.OAuthCallbackMode(0)
 }
 
 func (x *OAuthCallbackDelivery) GetCallbackProviderId() string {
@@ -2470,7 +2878,7 @@ type OAuthDeviceFlow struct {
 
 func (x *OAuthDeviceFlow) Reset() {
 	*x = OAuthDeviceFlow{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[29]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2482,7 +2890,7 @@ func (x *OAuthDeviceFlow) String() string {
 func (*OAuthDeviceFlow) ProtoMessage() {}
 
 func (x *OAuthDeviceFlow) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[29]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2495,7 +2903,7 @@ func (x *OAuthDeviceFlow) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthDeviceFlow.ProtoReflect.Descriptor instead.
 func (*OAuthDeviceFlow) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{29}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *OAuthDeviceFlow) GetDeviceAuthorizationUrl() string {
@@ -2550,7 +2958,7 @@ type OAuthRequestParameter struct {
 
 func (x *OAuthRequestParameter) Reset() {
 	*x = OAuthRequestParameter{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[30]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2562,7 +2970,7 @@ func (x *OAuthRequestParameter) String() string {
 func (*OAuthRequestParameter) ProtoMessage() {}
 
 func (x *OAuthRequestParameter) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[30]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2575,7 +2983,7 @@ func (x *OAuthRequestParameter) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthRequestParameter.ProtoReflect.Descriptor instead.
 func (*OAuthRequestParameter) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{30}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *OAuthRequestParameter) GetName() string {
@@ -2601,7 +3009,7 @@ type OAuthArtifactProjection struct {
 
 func (x *OAuthArtifactProjection) Reset() {
 	*x = OAuthArtifactProjection{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[31]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2613,7 +3021,7 @@ func (x *OAuthArtifactProjection) String() string {
 func (*OAuthArtifactProjection) ProtoMessage() {}
 
 func (x *OAuthArtifactProjection) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[31]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2626,7 +3034,7 @@ func (x *OAuthArtifactProjection) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthArtifactProjection.ProtoReflect.Descriptor instead.
 func (*OAuthArtifactProjection) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{31}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *OAuthArtifactProjection) GetFieldMappings() []*OAuthArtifactFieldMapping {
@@ -2648,7 +3056,7 @@ type OAuthArtifactFieldMapping struct {
 
 func (x *OAuthArtifactFieldMapping) Reset() {
 	*x = OAuthArtifactFieldMapping{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[32]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2660,7 +3068,7 @@ func (x *OAuthArtifactFieldMapping) String() string {
 func (*OAuthArtifactFieldMapping) ProtoMessage() {}
 
 func (x *OAuthArtifactFieldMapping) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[32]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2673,7 +3081,7 @@ func (x *OAuthArtifactFieldMapping) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthArtifactFieldMapping.ProtoReflect.Descriptor instead.
 func (*OAuthArtifactFieldMapping) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{32}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *OAuthArtifactFieldMapping) GetTarget() OAuthArtifactTargetField {
@@ -2706,7 +3114,7 @@ func (x *OAuthArtifactFieldMapping) GetFallbackToSubject() bool {
 
 type OAuthModelCatalog struct {
 	state                  protoimpl.MessageState      `protogen:"open.v1"`
-	DefaultCatalog         *v14.ProviderModelCatalog   `protobuf:"bytes,1,opt,name=default_catalog,json=defaultCatalog,proto3" json:"default_catalog,omitempty"`
+	DefaultCatalog         *v13.ProviderModelCatalog   `protobuf:"bytes,1,opt,name=default_catalog,json=defaultCatalog,proto3" json:"default_catalog,omitempty"`
 	AuthenticatedDiscovery *OAuthModelCatalogDiscovery `protobuf:"bytes,2,opt,name=authenticated_discovery,json=authenticatedDiscovery,proto3" json:"authenticated_discovery,omitempty"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
@@ -2714,7 +3122,7 @@ type OAuthModelCatalog struct {
 
 func (x *OAuthModelCatalog) Reset() {
 	*x = OAuthModelCatalog{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[33]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2726,7 +3134,7 @@ func (x *OAuthModelCatalog) String() string {
 func (*OAuthModelCatalog) ProtoMessage() {}
 
 func (x *OAuthModelCatalog) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[33]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2739,10 +3147,10 @@ func (x *OAuthModelCatalog) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthModelCatalog.ProtoReflect.Descriptor instead.
 func (*OAuthModelCatalog) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{33}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{39}
 }
 
-func (x *OAuthModelCatalog) GetDefaultCatalog() *v14.ProviderModelCatalog {
+func (x *OAuthModelCatalog) GetDefaultCatalog() *v13.ProviderModelCatalog {
 	if x != nil {
 		return x.DefaultCatalog
 	}
@@ -2760,14 +3168,14 @@ type OAuthModelCatalogDiscovery struct {
 	state             protoimpl.MessageState              `protogen:"open.v1"`
 	CollectorId       string                              `protobuf:"bytes,1,opt,name=collector_id,json=collectorId,proto3" json:"collector_id,omitempty"`
 	AuthorityPriority int32                               `protobuf:"varint,2,opt,name=authority_priority,json=authorityPriority,proto3" json:"authority_priority,omitempty"`
-	Operation         *v16.ModelCatalogDiscoveryOperation `protobuf:"bytes,3,opt,name=operation,proto3" json:"operation,omitempty"`
+	Operation         *v17.ModelCatalogDiscoveryOperation `protobuf:"bytes,3,opt,name=operation,proto3" json:"operation,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
 func (x *OAuthModelCatalogDiscovery) Reset() {
 	*x = OAuthModelCatalogDiscovery{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[34]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2779,7 +3187,7 @@ func (x *OAuthModelCatalogDiscovery) String() string {
 func (*OAuthModelCatalogDiscovery) ProtoMessage() {}
 
 func (x *OAuthModelCatalogDiscovery) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[34]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2792,7 +3200,7 @@ func (x *OAuthModelCatalogDiscovery) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthModelCatalogDiscovery.ProtoReflect.Descriptor instead.
 func (*OAuthModelCatalogDiscovery) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{34}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *OAuthModelCatalogDiscovery) GetCollectorId() string {
@@ -2809,7 +3217,7 @@ func (x *OAuthModelCatalogDiscovery) GetAuthorityPriority() int32 {
 	return 0
 }
 
-func (x *OAuthModelCatalogDiscovery) GetOperation() *v16.ModelCatalogDiscoveryOperation {
+func (x *OAuthModelCatalogDiscovery) GetOperation() *v17.ModelCatalogDiscoveryOperation {
 	if x != nil {
 		return x.Operation
 	}
@@ -2831,7 +3239,7 @@ type CLIAuthMaterialization struct {
 
 func (x *CLIAuthMaterialization) Reset() {
 	*x = CLIAuthMaterialization{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[35]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2843,7 +3251,7 @@ func (x *CLIAuthMaterialization) String() string {
 func (*CLIAuthMaterialization) ProtoMessage() {}
 
 func (x *CLIAuthMaterialization) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[35]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2856,7 +3264,7 @@ func (x *CLIAuthMaterialization) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CLIAuthMaterialization.ProtoReflect.Descriptor instead.
 func (*CLIAuthMaterialization) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{35}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *CLIAuthMaterialization) GetMaterializationKey() string {
@@ -2918,7 +3326,7 @@ type RequestAuthInjection struct {
 
 func (x *RequestAuthInjection) Reset() {
 	*x = RequestAuthInjection{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[36]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2930,7 +3338,7 @@ func (x *RequestAuthInjection) String() string {
 func (*RequestAuthInjection) ProtoMessage() {}
 
 func (x *RequestAuthInjection) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[36]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2943,7 +3351,7 @@ func (x *RequestAuthInjection) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestAuthInjection.ProtoReflect.Descriptor instead.
 func (*RequestAuthInjection) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{36}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *RequestAuthInjection) GetHeaderNames() []string {
@@ -2970,7 +3378,7 @@ type OAuthClientIdentity struct {
 
 func (x *OAuthClientIdentity) Reset() {
 	*x = OAuthClientIdentity{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[37]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2982,7 +3390,7 @@ func (x *OAuthClientIdentity) String() string {
 func (*OAuthClientIdentity) ProtoMessage() {}
 
 func (x *OAuthClientIdentity) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[37]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2995,7 +3403,7 @@ func (x *OAuthClientIdentity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OAuthClientIdentity.ProtoReflect.Descriptor instead.
 func (*OAuthClientIdentity) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{37}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *OAuthClientIdentity) GetModelCatalogUserAgentTemplate() string {
@@ -3025,7 +3433,7 @@ type OfficialVersionSource struct {
 
 func (x *OfficialVersionSource) Reset() {
 	*x = OfficialVersionSource{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[38]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3037,7 +3445,7 @@ func (x *OfficialVersionSource) String() string {
 func (*OfficialVersionSource) ProtoMessage() {}
 
 func (x *OfficialVersionSource) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[38]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3050,7 +3458,7 @@ func (x *OfficialVersionSource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OfficialVersionSource.ProtoReflect.Descriptor instead.
 func (*OfficialVersionSource) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{38}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *OfficialVersionSource) GetSource() isOfficialVersionSource_Source {
@@ -3104,7 +3512,7 @@ type NPMRegistryVersionSource struct {
 
 func (x *NPMRegistryVersionSource) Reset() {
 	*x = NPMRegistryVersionSource{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[39]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3116,7 +3524,7 @@ func (x *NPMRegistryVersionSource) String() string {
 func (*NPMRegistryVersionSource) ProtoMessage() {}
 
 func (x *NPMRegistryVersionSource) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[39]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3129,7 +3537,7 @@ func (x *NPMRegistryVersionSource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NPMRegistryVersionSource.ProtoReflect.Descriptor instead.
 func (*NPMRegistryVersionSource) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{39}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *NPMRegistryVersionSource) GetPackageName() string {
@@ -3155,7 +3563,7 @@ type HomebrewCaskVersionSource struct {
 
 func (x *HomebrewCaskVersionSource) Reset() {
 	*x = HomebrewCaskVersionSource{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[40]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3167,7 +3575,7 @@ func (x *HomebrewCaskVersionSource) String() string {
 func (*HomebrewCaskVersionSource) ProtoMessage() {}
 
 func (x *HomebrewCaskVersionSource) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[40]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3180,7 +3588,7 @@ func (x *HomebrewCaskVersionSource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HomebrewCaskVersionSource.ProtoReflect.Descriptor instead.
 func (*HomebrewCaskVersionSource) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{40}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *HomebrewCaskVersionSource) GetCask() string {
@@ -3204,7 +3612,7 @@ type CredentialSubjectSummaryField struct {
 
 func (x *CredentialSubjectSummaryField) Reset() {
 	*x = CredentialSubjectSummaryField{}
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[41]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3216,7 +3624,7 @@ func (x *CredentialSubjectSummaryField) String() string {
 func (*CredentialSubjectSummaryField) ProtoMessage() {}
 
 func (x *CredentialSubjectSummaryField) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_support_v1_support_service_proto_msgTypes[41]
+	mi := &file_platform_support_v1_support_service_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3229,7 +3637,7 @@ func (x *CredentialSubjectSummaryField) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CredentialSubjectSummaryField.ProtoReflect.Descriptor instead.
 func (*CredentialSubjectSummaryField) Descriptor() ([]byte, []int) {
-	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{41}
+	return file_platform_support_v1_support_service_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *CredentialSubjectSummaryField) GetFieldId() string {
@@ -3278,7 +3686,7 @@ var File_platform_support_v1_support_service_proto protoreflect.FileDescriptor
 
 const file_platform_support_v1_support_service_proto_rawDesc = "" +
 	"\n" +
-	")platform/support/v1/support_service.proto\x12\x13platform.support.v1\x1a\x1ecredential/v1/credential.proto\x1a/credential/v1/oauth_authorization_session.proto\x1a\x16egress/v1/policy.proto\x1a\x1eapi_protocol/v1/protocol.proto\x1a\x1aprovider/v1/provider.proto\x1a8model_catalog_discovery/v1/model_catalog_discovery.proto\x1a$observability/v1/observability.proto\x1a!vendor_definition/v1/vendor.proto\"\x14\n" +
+	")platform/support/v1/support_service.proto\x12\x13platform.support.v1\x1a\x1ecredential/v1/credential.proto\x1a/credential/v1/oauth_authorization_session.proto\x1a\x16egress/v1/policy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1eapi_protocol/v1/protocol.proto\x1a\x1aprovider/v1/provider.proto\x1a8model_catalog_discovery/v1/model_catalog_discovery.proto\x1a$observability/v1/observability.proto\x1a\"product_info/v1/product_info.proto\x1a!vendor_definition/v1/vendor.proto\"\x14\n" +
 	"\x12ListVendorsRequest\"H\n" +
 	"\x13ListVendorsResponse\x121\n" +
 	"\x05items\x18\x01 \x03(\v2\x1b.platform.support.v1.VendorR\x05items\"/\n" +
@@ -3292,13 +3700,16 @@ const file_platform_support_v1_support_service_proto_rawDesc = "" +
 	"\rGetCLIRequest\x12\x15\n" +
 	"\x06cli_id\x18\x01 \x01(\tR\x05cliId\">\n" +
 	"\x0eGetCLIResponse\x12,\n" +
-	"\x04item\x18\x01 \x01(\v2\x18.platform.support.v1.CLIR\x04item\"\x9a\x02\n" +
+	"\x04item\x18\x01 \x01(\v2\x18.platform.support.v1.CLIR\x04item\"\x19\n" +
+	"\x17ListProductInfosRequest\"N\n" +
+	"\x18ListProductInfosResponse\x122\n" +
+	"\x05items\x18\x01 \x03(\v2\x1c.product_info.v1.ProductInfoR\x05items\"\x9a\x02\n" +
 	"\"ResolveProviderCapabilitiesRequest\x12L\n" +
 	"\bprovider\x18\x01 \x01(\v2..platform.support.v1.ProviderCapabilitySubjectH\x00R\bprovider\x12P\n" +
 	"\n" +
 	"custom_api\x18\x02 \x01(\v2/.platform.support.v1.CustomAPICapabilitySubjectH\x00R\tcustomApi\x12I\n" +
 	"\aruntime\x18\x03 \x01(\v2-.platform.support.v1.RuntimeCapabilitySubjectH\x00R\aruntimeB\t\n" +
-	"\asubject\"\xef\x02\n" +
+	"\asubject\"\xaa\x03\n" +
 	"\x19ProviderCapabilitySubject\x12\x1f\n" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
 	"providerId\x12\x1d\n" +
@@ -3309,7 +3720,8 @@ const file_platform_support_v1_support_service_proto_rawDesc = "" +
 	"\x0fcredential_kind\x18\x05 \x01(\x0e2\x1d.credential.v1.CredentialKindR\x0ecredentialKind\x12\x1f\n" +
 	"\vruntime_url\x18\x06 \x01(\tR\n" +
 	"runtimeUrl\x12\\\n" +
-	"\x11execution_context\x18\a \x01(\x0e2/.platform.support.v1.CapabilityExecutionContextR\x10executionContext\"\x94\x02\n" +
+	"\x11execution_context\x18\a \x01(\x0e2/.platform.support.v1.CapabilityExecutionContextR\x10executionContext\x129\n" +
+	"\bendpoint\x18\b \x01(\v2\x1d.provider.v1.ProviderEndpointR\bendpoint\"\x94\x02\n" +
 	"\x1aCustomAPICapabilitySubject\x12\x19\n" +
 	"\bbase_url\x18\x01 \x01(\tR\abaseUrl\x125\n" +
 	"\bprotocol\x18\x02 \x01(\x0e2\x19.api_protocol.v1.ProtocolR\bprotocol\x12F\n" +
@@ -3326,7 +3738,7 @@ const file_platform_support_v1_support_service_proto_rawDesc = "" +
 	"\vruntime_url\x18\x06 \x01(\tR\n" +
 	"runtimeUrl\x128\n" +
 	"\x18auth_materialization_key\x18\a \x01(\tR\x16authMaterializationKey\x12\\\n" +
-	"\x11execution_context\x18\b \x01(\x0e2/.platform.support.v1.CapabilityExecutionContextR\x10executionContext\"\xfe\x02\n" +
+	"\x11execution_context\x18\b \x01(\x0e2/.platform.support.v1.CapabilityExecutionContextR\x10executionContext\"\xd5\x03\n" +
 	"#ResolveProviderCapabilitiesResponse\x12(\n" +
 	"\x10egress_policy_id\x18\x01 \x01(\tR\x0eegressPolicyId\x12$\n" +
 	"\x0eauth_policy_id\x18\x02 \x01(\tR\fauthPolicyId\x12O\n" +
@@ -3334,10 +3746,38 @@ const file_platform_support_v1_support_service_proto_rawDesc = "" +
 	"\x16model_catalog_probe_id\x18\x04 \x01(\tR\x13modelCatalogProbeId\x12$\n" +
 	"\x0equota_probe_id\x18\x05 \x01(\tR\fquotaProbeId\x128\n" +
 	"\x18auth_materialization_key\x18\x06 \x01(\tR\x16authMaterializationKey\x12!\n" +
-	"\fresource_ref\x18\a \x01(\tR\vresourceRef\"\x97\x01\n" +
+	"\fresource_ref\x18\a \x01(\tR\vresourceRef\x126\n" +
+	"\x17observability_policy_id\x18\b \x01(\tR\x15observabilityPolicyId\x12\x1d\n" +
+	"\n" +
+	"surface_id\x18\t \x01(\tR\tsurfaceId\"\xd1\x01\n" +
 	"\x06Vendor\x124\n" +
 	"\x06vendor\x18\x01 \x01(\v2\x1c.vendor_definition.v1.VendorR\x06vendor\x12W\n" +
-	"\x11provider_bindings\x18\x02 \x03(\v2*.platform.support.v1.VendorProviderBindingR\x10providerBindings\"\xee\x01\n" +
+	"\x11provider_bindings\x18\x02 \x03(\v2*.platform.support.v1.VendorProviderBindingR\x10providerBindings\x128\n" +
+	"\bsurfaces\x18\x03 \x03(\v2\x1c.platform.support.v1.SurfaceR\bsurfaces\"\xe1\x04\n" +
+	"\aSurface\x12\x1d\n" +
+	"\n" +
+	"surface_id\x18\x01 \x01(\tR\tsurfaceId\x12&\n" +
+	"\x0fproduct_info_id\x18\x02 \x01(\tR\rproductInfoId\x12(\n" +
+	"\x10egress_policy_id\x18\x03 \x01(\tR\x0eegressPolicyId\x12$\n" +
+	"\x0eauth_policy_id\x18\x04 \x01(\tR\fauthPolicyId\x123\n" +
+	"\x16model_catalog_probe_id\x18\x05 \x01(\tR\x13modelCatalogProbeId\x12$\n" +
+	"\x0equota_probe_id\x18\x06 \x01(\tR\fquotaProbeId\x126\n" +
+	"\x17observability_policy_id\x18\a \x01(\tR\x15observabilityPolicyId\x12O\n" +
+	"\robservability\x18\b \x01(\v2).observability.v1.ObservabilityCapabilityR\robservability\x12i\n" +
+	"$model_catalog_probe_minimum_interval\x18\v \x01(\v2\x19.google.protobuf.DurationR modelCatalogProbeMinimumInterval\x123\n" +
+	"\x03api\x18\t \x01(\v2\x1f.platform.support.v1.ApiSurfaceH\x00R\x03api\x123\n" +
+	"\x03cli\x18\n" +
+	" \x01(\v2\x1f.platform.support.v1.CliSurfaceH\x00R\x03cliB\x06\n" +
+	"\x04spec\"S\n" +
+	"\n" +
+	"ApiSurface\x12E\n" +
+	"\rapi_endpoints\x18\x01 \x03(\v2 .platform.support.v1.ApiEndpointR\fapiEndpoints\"_\n" +
+	"\vApiEndpoint\x125\n" +
+	"\bprotocol\x18\x01 \x01(\x0e2\x19.api_protocol.v1.ProtocolR\bprotocol\x12\x19\n" +
+	"\bbase_url\x18\x02 \x01(\tR\abaseUrl\"#\n" +
+	"\n" +
+	"CliSurface\x12\x15\n" +
+	"\x06cli_id\x18\x01 \x01(\tR\x05cliId\"\xee\x01\n" +
 	"\x0fProviderBinding\x12\x1d\n" +
 	"\n" +
 	"surface_id\x18\x01 \x01(\tR\tsurfaceId\x123\n" +
@@ -3534,12 +3974,13 @@ const file_platform_support_v1_support_service_proto_rawDesc = "" +
 	"#CredentialSubjectSummaryValueFormat\x127\n" +
 	"3CREDENTIAL_SUBJECT_SUMMARY_VALUE_FORMAT_UNSPECIFIED\x10\x00\x126\n" +
 	"2CREDENTIAL_SUBJECT_SUMMARY_VALUE_FORMAT_PLAIN_TEXT\x10\x01\x126\n" +
-	"2CREDENTIAL_SUBJECT_SUMMARY_VALUE_FORMAT_MASK_EMAIL\x10\x022\x8d\x04\n" +
+	"2CREDENTIAL_SUBJECT_SUMMARY_VALUE_FORMAT_MASK_EMAIL\x10\x022\xfe\x04\n" +
 	"\x0eSupportService\x12`\n" +
 	"\vListVendors\x12'.platform.support.v1.ListVendorsRequest\x1a(.platform.support.v1.ListVendorsResponse\x12Z\n" +
 	"\tGetVendor\x12%.platform.support.v1.GetVendorRequest\x1a&.platform.support.v1.GetVendorResponse\x12W\n" +
 	"\bListCLIs\x12$.platform.support.v1.ListCLIsRequest\x1a%.platform.support.v1.ListCLIsResponse\x12Q\n" +
-	"\x06GetCLI\x12\".platform.support.v1.GetCLIRequest\x1a#.platform.support.v1.GetCLIResponse\x12\x90\x01\n" +
+	"\x06GetCLI\x12\".platform.support.v1.GetCLIRequest\x1a#.platform.support.v1.GetCLIResponse\x12o\n" +
+	"\x10ListProductInfos\x12,.platform.support.v1.ListProductInfosRequest\x1a-.platform.support.v1.ListProductInfosResponse\x12\x90\x01\n" +
 	"\x1bResolveProviderCapabilities\x127.platform.support.v1.ResolveProviderCapabilitiesRequest\x1a8.platform.support.v1.ResolveProviderCapabilitiesResponseB>Z<code-code.internal/go-contract/platform/support/v1;supportv1b\x06proto3"
 
 var (
@@ -3555,7 +3996,7 @@ func file_platform_support_v1_support_service_proto_rawDescGZIP() []byte {
 }
 
 var file_platform_support_v1_support_service_proto_enumTypes = make([]protoimpl.EnumInfo, 8)
-var file_platform_support_v1_support_service_proto_msgTypes = make([]protoimpl.MessageInfo, 42)
+var file_platform_support_v1_support_service_proto_msgTypes = make([]protoimpl.MessageInfo, 48)
 var file_platform_support_v1_support_service_proto_goTypes = []any{
 	(CapabilityExecutionContext)(0),             // 0: platform.support.v1.CapabilityExecutionContext
 	(RuntimeProjectionKind)(0),                  // 1: platform.support.v1.RuntimeProjectionKind
@@ -3573,138 +4014,158 @@ var file_platform_support_v1_support_service_proto_goTypes = []any{
 	(*ListCLIsResponse)(nil),                    // 13: platform.support.v1.ListCLIsResponse
 	(*GetCLIRequest)(nil),                       // 14: platform.support.v1.GetCLIRequest
 	(*GetCLIResponse)(nil),                      // 15: platform.support.v1.GetCLIResponse
-	(*ResolveProviderCapabilitiesRequest)(nil),  // 16: platform.support.v1.ResolveProviderCapabilitiesRequest
-	(*ProviderCapabilitySubject)(nil),           // 17: platform.support.v1.ProviderCapabilitySubject
-	(*CustomAPICapabilitySubject)(nil),          // 18: platform.support.v1.CustomAPICapabilitySubject
-	(*RuntimeCapabilitySubject)(nil),            // 19: platform.support.v1.RuntimeCapabilitySubject
-	(*ResolveProviderCapabilitiesResponse)(nil), // 20: platform.support.v1.ResolveProviderCapabilitiesResponse
-	(*Vendor)(nil),                              // 21: platform.support.v1.Vendor
-	(*ProviderBinding)(nil),                     // 22: platform.support.v1.ProviderBinding
-	(*ProviderSurfaceRuntimeTemplate)(nil),      // 23: platform.support.v1.ProviderSurfaceRuntimeTemplate
-	(*VendorProviderBinding)(nil),               // 24: platform.support.v1.VendorProviderBinding
-	(*VendorModelDiscovery)(nil),                // 25: platform.support.v1.VendorModelDiscovery
-	(*ActiveModelDiscovery)(nil),                // 26: platform.support.v1.ActiveModelDiscovery
-	(*CLI)(nil),                                 // 27: platform.support.v1.CLI
-	(*CLIContainerImage)(nil),                   // 28: platform.support.v1.CLIContainerImage
-	(*CLICapability)(nil),                       // 29: platform.support.v1.CLICapability
-	(*OAuthSupport)(nil),                        // 30: platform.support.v1.OAuthSupport
-	(*APIKeyProtocolSupport)(nil),               // 31: platform.support.v1.APIKeyProtocolSupport
-	(*RuntimeCapability)(nil),                   // 32: platform.support.v1.RuntimeCapability
-	(*OAuthClient)(nil),                         // 33: platform.support.v1.OAuthClient
-	(*OAuthPKCE)(nil),                           // 34: platform.support.v1.OAuthPKCE
-	(*OAuthCodeFlow)(nil),                       // 35: platform.support.v1.OAuthCodeFlow
-	(*OAuthCallbackDelivery)(nil),               // 36: platform.support.v1.OAuthCallbackDelivery
-	(*OAuthDeviceFlow)(nil),                     // 37: platform.support.v1.OAuthDeviceFlow
-	(*OAuthRequestParameter)(nil),               // 38: platform.support.v1.OAuthRequestParameter
-	(*OAuthArtifactProjection)(nil),             // 39: platform.support.v1.OAuthArtifactProjection
-	(*OAuthArtifactFieldMapping)(nil),           // 40: platform.support.v1.OAuthArtifactFieldMapping
-	(*OAuthModelCatalog)(nil),                   // 41: platform.support.v1.OAuthModelCatalog
-	(*OAuthModelCatalogDiscovery)(nil),          // 42: platform.support.v1.OAuthModelCatalogDiscovery
-	(*CLIAuthMaterialization)(nil),              // 43: platform.support.v1.CLIAuthMaterialization
-	(*RequestAuthInjection)(nil),                // 44: platform.support.v1.RequestAuthInjection
-	(*OAuthClientIdentity)(nil),                 // 45: platform.support.v1.OAuthClientIdentity
-	(*OfficialVersionSource)(nil),               // 46: platform.support.v1.OfficialVersionSource
-	(*NPMRegistryVersionSource)(nil),            // 47: platform.support.v1.NPMRegistryVersionSource
-	(*HomebrewCaskVersionSource)(nil),           // 48: platform.support.v1.HomebrewCaskVersionSource
-	(*CredentialSubjectSummaryField)(nil),       // 49: platform.support.v1.CredentialSubjectSummaryField
-	(v1.Protocol)(0),                            // 50: api_protocol.v1.Protocol
-	(v11.CredentialKind)(0),                     // 51: credential.v1.CredentialKind
-	(*v12.ObservabilityCapability)(nil),         // 52: observability.v1.ObservabilityCapability
-	(*v13.Vendor)(nil),                          // 53: vendor_definition.v1.Vendor
-	(*v14.ProviderSurfaceRuntime)(nil),          // 54: provider.v1.ProviderSurfaceRuntime
-	(*v14.ProviderModelCatalog)(nil),            // 55: provider.v1.ProviderModelCatalog
-	(*v15.EgressPolicy)(nil),                    // 56: egress.v1.EgressPolicy
-	(*v16.ModelCatalogDiscoveryOperation)(nil),  // 57: model_catalog_discovery.v1.ModelCatalogDiscoveryOperation
-	(v11.OAuthAuthorizationFlow)(0),             // 58: credential.v1.OAuthAuthorizationFlow
-	(v11.CredentialPurpose)(0),                  // 59: credential.v1.CredentialPurpose
-	(v11.OAuthCallbackMode)(0),                  // 60: credential.v1.OAuthCallbackMode
+	(*ListProductInfosRequest)(nil),             // 16: platform.support.v1.ListProductInfosRequest
+	(*ListProductInfosResponse)(nil),            // 17: platform.support.v1.ListProductInfosResponse
+	(*ResolveProviderCapabilitiesRequest)(nil),  // 18: platform.support.v1.ResolveProviderCapabilitiesRequest
+	(*ProviderCapabilitySubject)(nil),           // 19: platform.support.v1.ProviderCapabilitySubject
+	(*CustomAPICapabilitySubject)(nil),          // 20: platform.support.v1.CustomAPICapabilitySubject
+	(*RuntimeCapabilitySubject)(nil),            // 21: platform.support.v1.RuntimeCapabilitySubject
+	(*ResolveProviderCapabilitiesResponse)(nil), // 22: platform.support.v1.ResolveProviderCapabilitiesResponse
+	(*Vendor)(nil),                              // 23: platform.support.v1.Vendor
+	(*Surface)(nil),                             // 24: platform.support.v1.Surface
+	(*ApiSurface)(nil),                          // 25: platform.support.v1.ApiSurface
+	(*ApiEndpoint)(nil),                         // 26: platform.support.v1.ApiEndpoint
+	(*CliSurface)(nil),                          // 27: platform.support.v1.CliSurface
+	(*ProviderBinding)(nil),                     // 28: platform.support.v1.ProviderBinding
+	(*ProviderSurfaceRuntimeTemplate)(nil),      // 29: platform.support.v1.ProviderSurfaceRuntimeTemplate
+	(*VendorProviderBinding)(nil),               // 30: platform.support.v1.VendorProviderBinding
+	(*VendorModelDiscovery)(nil),                // 31: platform.support.v1.VendorModelDiscovery
+	(*ActiveModelDiscovery)(nil),                // 32: platform.support.v1.ActiveModelDiscovery
+	(*CLI)(nil),                                 // 33: platform.support.v1.CLI
+	(*CLIContainerImage)(nil),                   // 34: platform.support.v1.CLIContainerImage
+	(*CLICapability)(nil),                       // 35: platform.support.v1.CLICapability
+	(*OAuthSupport)(nil),                        // 36: platform.support.v1.OAuthSupport
+	(*APIKeyProtocolSupport)(nil),               // 37: platform.support.v1.APIKeyProtocolSupport
+	(*RuntimeCapability)(nil),                   // 38: platform.support.v1.RuntimeCapability
+	(*OAuthClient)(nil),                         // 39: platform.support.v1.OAuthClient
+	(*OAuthPKCE)(nil),                           // 40: platform.support.v1.OAuthPKCE
+	(*OAuthCodeFlow)(nil),                       // 41: platform.support.v1.OAuthCodeFlow
+	(*OAuthCallbackDelivery)(nil),               // 42: platform.support.v1.OAuthCallbackDelivery
+	(*OAuthDeviceFlow)(nil),                     // 43: platform.support.v1.OAuthDeviceFlow
+	(*OAuthRequestParameter)(nil),               // 44: platform.support.v1.OAuthRequestParameter
+	(*OAuthArtifactProjection)(nil),             // 45: platform.support.v1.OAuthArtifactProjection
+	(*OAuthArtifactFieldMapping)(nil),           // 46: platform.support.v1.OAuthArtifactFieldMapping
+	(*OAuthModelCatalog)(nil),                   // 47: platform.support.v1.OAuthModelCatalog
+	(*OAuthModelCatalogDiscovery)(nil),          // 48: platform.support.v1.OAuthModelCatalogDiscovery
+	(*CLIAuthMaterialization)(nil),              // 49: platform.support.v1.CLIAuthMaterialization
+	(*RequestAuthInjection)(nil),                // 50: platform.support.v1.RequestAuthInjection
+	(*OAuthClientIdentity)(nil),                 // 51: platform.support.v1.OAuthClientIdentity
+	(*OfficialVersionSource)(nil),               // 52: platform.support.v1.OfficialVersionSource
+	(*NPMRegistryVersionSource)(nil),            // 53: platform.support.v1.NPMRegistryVersionSource
+	(*HomebrewCaskVersionSource)(nil),           // 54: platform.support.v1.HomebrewCaskVersionSource
+	(*CredentialSubjectSummaryField)(nil),       // 55: platform.support.v1.CredentialSubjectSummaryField
+	(*v1.ProductInfo)(nil),                      // 56: product_info.v1.ProductInfo
+	(v11.Protocol)(0),                           // 57: api_protocol.v1.Protocol
+	(v12.CredentialKind)(0),                     // 58: credential.v1.CredentialKind
+	(*v13.ProviderEndpoint)(nil),                // 59: provider.v1.ProviderEndpoint
+	(*v14.ObservabilityCapability)(nil),         // 60: observability.v1.ObservabilityCapability
+	(*v15.Vendor)(nil),                          // 61: vendor_definition.v1.Vendor
+	(*durationpb.Duration)(nil),                 // 62: google.protobuf.Duration
+	(*v13.ProviderSurfaceRuntime)(nil),          // 63: provider.v1.ProviderSurfaceRuntime
+	(*v13.ProviderModelCatalog)(nil),            // 64: provider.v1.ProviderModelCatalog
+	(*v16.EgressPolicy)(nil),                    // 65: egress.v1.EgressPolicy
+	(*v17.ModelCatalogDiscoveryOperation)(nil),  // 66: model_catalog_discovery.v1.ModelCatalogDiscoveryOperation
+	(v12.OAuthAuthorizationFlow)(0),             // 67: credential.v1.OAuthAuthorizationFlow
+	(v12.CredentialPurpose)(0),                  // 68: credential.v1.CredentialPurpose
+	(v12.OAuthCallbackMode)(0),                  // 69: credential.v1.OAuthCallbackMode
 }
 var file_platform_support_v1_support_service_proto_depIdxs = []int32{
-	21, // 0: platform.support.v1.ListVendorsResponse.items:type_name -> platform.support.v1.Vendor
-	21, // 1: platform.support.v1.GetVendorResponse.item:type_name -> platform.support.v1.Vendor
-	27, // 2: platform.support.v1.ListCLIsResponse.items:type_name -> platform.support.v1.CLI
-	27, // 3: platform.support.v1.GetCLIResponse.item:type_name -> platform.support.v1.CLI
-	17, // 4: platform.support.v1.ResolveProviderCapabilitiesRequest.provider:type_name -> platform.support.v1.ProviderCapabilitySubject
-	18, // 5: platform.support.v1.ResolveProviderCapabilitiesRequest.custom_api:type_name -> platform.support.v1.CustomAPICapabilitySubject
-	19, // 6: platform.support.v1.ResolveProviderCapabilitiesRequest.runtime:type_name -> platform.support.v1.RuntimeCapabilitySubject
-	50, // 7: platform.support.v1.ProviderCapabilitySubject.protocol:type_name -> api_protocol.v1.Protocol
-	51, // 8: platform.support.v1.ProviderCapabilitySubject.credential_kind:type_name -> credential.v1.CredentialKind
-	0,  // 9: platform.support.v1.ProviderCapabilitySubject.execution_context:type_name -> platform.support.v1.CapabilityExecutionContext
-	50, // 10: platform.support.v1.CustomAPICapabilitySubject.protocol:type_name -> api_protocol.v1.Protocol
-	51, // 11: platform.support.v1.CustomAPICapabilitySubject.credential_kind:type_name -> credential.v1.CredentialKind
-	0,  // 12: platform.support.v1.CustomAPICapabilitySubject.execution_context:type_name -> platform.support.v1.CapabilityExecutionContext
-	50, // 13: platform.support.v1.RuntimeCapabilitySubject.protocol:type_name -> api_protocol.v1.Protocol
-	51, // 14: platform.support.v1.RuntimeCapabilitySubject.credential_kind:type_name -> credential.v1.CredentialKind
-	0,  // 15: platform.support.v1.RuntimeCapabilitySubject.execution_context:type_name -> platform.support.v1.CapabilityExecutionContext
-	52, // 16: platform.support.v1.ResolveProviderCapabilitiesResponse.observability:type_name -> observability.v1.ObservabilityCapability
-	53, // 17: platform.support.v1.Vendor.vendor:type_name -> vendor_definition.v1.Vendor
-	24, // 18: platform.support.v1.Vendor.provider_bindings:type_name -> platform.support.v1.VendorProviderBinding
-	54, // 19: platform.support.v1.ProviderSurfaceRuntimeTemplate.runtime:type_name -> provider.v1.ProviderSurfaceRuntime
-	55, // 20: platform.support.v1.ProviderSurfaceRuntimeTemplate.bootstrap_catalog:type_name -> provider.v1.ProviderModelCatalog
-	22, // 21: platform.support.v1.VendorProviderBinding.provider_binding:type_name -> platform.support.v1.ProviderBinding
-	23, // 22: platform.support.v1.VendorProviderBinding.surface_templates:type_name -> platform.support.v1.ProviderSurfaceRuntimeTemplate
-	25, // 23: platform.support.v1.VendorProviderBinding.model_discovery:type_name -> platform.support.v1.VendorModelDiscovery
-	52, // 24: platform.support.v1.VendorProviderBinding.observability:type_name -> observability.v1.ObservabilityCapability
-	56, // 25: platform.support.v1.VendorProviderBinding.egress_policy:type_name -> egress.v1.EgressPolicy
-	26, // 26: platform.support.v1.VendorModelDiscovery.active_discovery:type_name -> platform.support.v1.ActiveModelDiscovery
-	57, // 27: platform.support.v1.ActiveModelDiscovery.operation:type_name -> model_catalog_discovery.v1.ModelCatalogDiscoveryOperation
-	30, // 28: platform.support.v1.CLI.oauth:type_name -> platform.support.v1.OAuthSupport
-	31, // 29: platform.support.v1.CLI.api_key_protocols:type_name -> platform.support.v1.APIKeyProtocolSupport
-	32, // 30: platform.support.v1.CLI.runtime_capabilities:type_name -> platform.support.v1.RuntimeCapability
-	56, // 31: platform.support.v1.CLI.egress_policy:type_name -> egress.v1.EgressPolicy
-	46, // 32: platform.support.v1.CLI.official_version_source:type_name -> platform.support.v1.OfficialVersionSource
-	28, // 33: platform.support.v1.CLI.container_images:type_name -> platform.support.v1.CLIContainerImage
-	29, // 34: platform.support.v1.CLI.capability:type_name -> platform.support.v1.CLICapability
-	50, // 35: platform.support.v1.CLICapability.supported_protocols:type_name -> api_protocol.v1.Protocol
-	58, // 36: platform.support.v1.OAuthSupport.flow:type_name -> credential.v1.OAuthAuthorizationFlow
-	59, // 37: platform.support.v1.OAuthSupport.supported_purposes:type_name -> credential.v1.CredentialPurpose
-	41, // 38: platform.support.v1.OAuthSupport.model_catalog:type_name -> platform.support.v1.OAuthModelCatalog
-	52, // 39: platform.support.v1.OAuthSupport.observability:type_name -> observability.v1.ObservabilityCapability
-	33, // 40: platform.support.v1.OAuthSupport.oauth_client:type_name -> platform.support.v1.OAuthClient
-	39, // 41: platform.support.v1.OAuthSupport.artifact_projection:type_name -> platform.support.v1.OAuthArtifactProjection
-	35, // 42: platform.support.v1.OAuthSupport.code_flow:type_name -> platform.support.v1.OAuthCodeFlow
-	37, // 43: platform.support.v1.OAuthSupport.device_flow:type_name -> platform.support.v1.OAuthDeviceFlow
-	43, // 44: platform.support.v1.OAuthSupport.auth_materialization:type_name -> platform.support.v1.CLIAuthMaterialization
-	49, // 45: platform.support.v1.OAuthSupport.subject_summary_fields:type_name -> platform.support.v1.CredentialSubjectSummaryField
-	45, // 46: platform.support.v1.OAuthSupport.client_identity:type_name -> platform.support.v1.OAuthClientIdentity
-	22, // 47: platform.support.v1.OAuthSupport.provider_binding:type_name -> platform.support.v1.ProviderBinding
-	50, // 48: platform.support.v1.APIKeyProtocolSupport.protocol:type_name -> api_protocol.v1.Protocol
-	43, // 49: platform.support.v1.APIKeyProtocolSupport.auth_materialization:type_name -> platform.support.v1.CLIAuthMaterialization
-	3,  // 50: platform.support.v1.RuntimeCapability.kind:type_name -> platform.support.v1.RuntimeCapabilityKind
-	34, // 51: platform.support.v1.OAuthClient.pkce:type_name -> platform.support.v1.OAuthPKCE
-	2,  // 52: platform.support.v1.OAuthPKCE.challenge_method:type_name -> platform.support.v1.OAuthCodeChallengeMethod
-	38, // 53: platform.support.v1.OAuthCodeFlow.authorization_parameters:type_name -> platform.support.v1.OAuthRequestParameter
-	36, // 54: platform.support.v1.OAuthCodeFlow.callback_delivery:type_name -> platform.support.v1.OAuthCallbackDelivery
-	60, // 55: platform.support.v1.OAuthCallbackDelivery.mode:type_name -> credential.v1.OAuthCallbackMode
-	38, // 56: platform.support.v1.OAuthDeviceFlow.device_authorization_parameters:type_name -> platform.support.v1.OAuthRequestParameter
-	40, // 57: platform.support.v1.OAuthArtifactProjection.field_mappings:type_name -> platform.support.v1.OAuthArtifactFieldMapping
-	5,  // 58: platform.support.v1.OAuthArtifactFieldMapping.target:type_name -> platform.support.v1.OAuthArtifactTargetField
-	4,  // 59: platform.support.v1.OAuthArtifactFieldMapping.source:type_name -> platform.support.v1.OAuthArtifactSource
-	55, // 60: platform.support.v1.OAuthModelCatalog.default_catalog:type_name -> provider.v1.ProviderModelCatalog
-	42, // 61: platform.support.v1.OAuthModelCatalog.authenticated_discovery:type_name -> platform.support.v1.OAuthModelCatalogDiscovery
-	57, // 62: platform.support.v1.OAuthModelCatalogDiscovery.operation:type_name -> model_catalog_discovery.v1.ModelCatalogDiscoveryOperation
-	1,  // 63: platform.support.v1.CLIAuthMaterialization.required_runtime_projections:type_name -> platform.support.v1.RuntimeProjectionKind
-	1,  // 64: platform.support.v1.CLIAuthMaterialization.runtime_url_projection_kind:type_name -> platform.support.v1.RuntimeProjectionKind
-	44, // 65: platform.support.v1.CLIAuthMaterialization.request_auth_injection:type_name -> platform.support.v1.RequestAuthInjection
-	47, // 66: platform.support.v1.OfficialVersionSource.npm_dist_tag:type_name -> platform.support.v1.NPMRegistryVersionSource
-	48, // 67: platform.support.v1.OfficialVersionSource.homebrew_cask:type_name -> platform.support.v1.HomebrewCaskVersionSource
-	6,  // 68: platform.support.v1.CredentialSubjectSummaryField.source:type_name -> platform.support.v1.CredentialSubjectSummarySource
-	7,  // 69: platform.support.v1.CredentialSubjectSummaryField.value_format:type_name -> platform.support.v1.CredentialSubjectSummaryValueFormat
-	8,  // 70: platform.support.v1.SupportService.ListVendors:input_type -> platform.support.v1.ListVendorsRequest
-	10, // 71: platform.support.v1.SupportService.GetVendor:input_type -> platform.support.v1.GetVendorRequest
-	12, // 72: platform.support.v1.SupportService.ListCLIs:input_type -> platform.support.v1.ListCLIsRequest
-	14, // 73: platform.support.v1.SupportService.GetCLI:input_type -> platform.support.v1.GetCLIRequest
-	16, // 74: platform.support.v1.SupportService.ResolveProviderCapabilities:input_type -> platform.support.v1.ResolveProviderCapabilitiesRequest
-	9,  // 75: platform.support.v1.SupportService.ListVendors:output_type -> platform.support.v1.ListVendorsResponse
-	11, // 76: platform.support.v1.SupportService.GetVendor:output_type -> platform.support.v1.GetVendorResponse
-	13, // 77: platform.support.v1.SupportService.ListCLIs:output_type -> platform.support.v1.ListCLIsResponse
-	15, // 78: platform.support.v1.SupportService.GetCLI:output_type -> platform.support.v1.GetCLIResponse
-	20, // 79: platform.support.v1.SupportService.ResolveProviderCapabilities:output_type -> platform.support.v1.ResolveProviderCapabilitiesResponse
-	75, // [75:80] is the sub-list for method output_type
-	70, // [70:75] is the sub-list for method input_type
-	70, // [70:70] is the sub-list for extension type_name
-	70, // [70:70] is the sub-list for extension extendee
-	0,  // [0:70] is the sub-list for field type_name
+	23, // 0: platform.support.v1.ListVendorsResponse.items:type_name -> platform.support.v1.Vendor
+	23, // 1: platform.support.v1.GetVendorResponse.item:type_name -> platform.support.v1.Vendor
+	33, // 2: platform.support.v1.ListCLIsResponse.items:type_name -> platform.support.v1.CLI
+	33, // 3: platform.support.v1.GetCLIResponse.item:type_name -> platform.support.v1.CLI
+	56, // 4: platform.support.v1.ListProductInfosResponse.items:type_name -> product_info.v1.ProductInfo
+	19, // 5: platform.support.v1.ResolveProviderCapabilitiesRequest.provider:type_name -> platform.support.v1.ProviderCapabilitySubject
+	20, // 6: platform.support.v1.ResolveProviderCapabilitiesRequest.custom_api:type_name -> platform.support.v1.CustomAPICapabilitySubject
+	21, // 7: platform.support.v1.ResolveProviderCapabilitiesRequest.runtime:type_name -> platform.support.v1.RuntimeCapabilitySubject
+	57, // 8: platform.support.v1.ProviderCapabilitySubject.protocol:type_name -> api_protocol.v1.Protocol
+	58, // 9: platform.support.v1.ProviderCapabilitySubject.credential_kind:type_name -> credential.v1.CredentialKind
+	0,  // 10: platform.support.v1.ProviderCapabilitySubject.execution_context:type_name -> platform.support.v1.CapabilityExecutionContext
+	59, // 11: platform.support.v1.ProviderCapabilitySubject.endpoint:type_name -> provider.v1.ProviderEndpoint
+	57, // 12: platform.support.v1.CustomAPICapabilitySubject.protocol:type_name -> api_protocol.v1.Protocol
+	58, // 13: platform.support.v1.CustomAPICapabilitySubject.credential_kind:type_name -> credential.v1.CredentialKind
+	0,  // 14: platform.support.v1.CustomAPICapabilitySubject.execution_context:type_name -> platform.support.v1.CapabilityExecutionContext
+	57, // 15: platform.support.v1.RuntimeCapabilitySubject.protocol:type_name -> api_protocol.v1.Protocol
+	58, // 16: platform.support.v1.RuntimeCapabilitySubject.credential_kind:type_name -> credential.v1.CredentialKind
+	0,  // 17: platform.support.v1.RuntimeCapabilitySubject.execution_context:type_name -> platform.support.v1.CapabilityExecutionContext
+	60, // 18: platform.support.v1.ResolveProviderCapabilitiesResponse.observability:type_name -> observability.v1.ObservabilityCapability
+	61, // 19: platform.support.v1.Vendor.vendor:type_name -> vendor_definition.v1.Vendor
+	30, // 20: platform.support.v1.Vendor.provider_bindings:type_name -> platform.support.v1.VendorProviderBinding
+	24, // 21: platform.support.v1.Vendor.surfaces:type_name -> platform.support.v1.Surface
+	60, // 22: platform.support.v1.Surface.observability:type_name -> observability.v1.ObservabilityCapability
+	62, // 23: platform.support.v1.Surface.model_catalog_probe_minimum_interval:type_name -> google.protobuf.Duration
+	25, // 24: platform.support.v1.Surface.api:type_name -> platform.support.v1.ApiSurface
+	27, // 25: platform.support.v1.Surface.cli:type_name -> platform.support.v1.CliSurface
+	26, // 26: platform.support.v1.ApiSurface.api_endpoints:type_name -> platform.support.v1.ApiEndpoint
+	57, // 27: platform.support.v1.ApiEndpoint.protocol:type_name -> api_protocol.v1.Protocol
+	63, // 28: platform.support.v1.ProviderSurfaceRuntimeTemplate.runtime:type_name -> provider.v1.ProviderSurfaceRuntime
+	64, // 29: platform.support.v1.ProviderSurfaceRuntimeTemplate.bootstrap_catalog:type_name -> provider.v1.ProviderModelCatalog
+	28, // 30: platform.support.v1.VendorProviderBinding.provider_binding:type_name -> platform.support.v1.ProviderBinding
+	29, // 31: platform.support.v1.VendorProviderBinding.surface_templates:type_name -> platform.support.v1.ProviderSurfaceRuntimeTemplate
+	31, // 32: platform.support.v1.VendorProviderBinding.model_discovery:type_name -> platform.support.v1.VendorModelDiscovery
+	60, // 33: platform.support.v1.VendorProviderBinding.observability:type_name -> observability.v1.ObservabilityCapability
+	65, // 34: platform.support.v1.VendorProviderBinding.egress_policy:type_name -> egress.v1.EgressPolicy
+	32, // 35: platform.support.v1.VendorModelDiscovery.active_discovery:type_name -> platform.support.v1.ActiveModelDiscovery
+	66, // 36: platform.support.v1.ActiveModelDiscovery.operation:type_name -> model_catalog_discovery.v1.ModelCatalogDiscoveryOperation
+	36, // 37: platform.support.v1.CLI.oauth:type_name -> platform.support.v1.OAuthSupport
+	37, // 38: platform.support.v1.CLI.api_key_protocols:type_name -> platform.support.v1.APIKeyProtocolSupport
+	38, // 39: platform.support.v1.CLI.runtime_capabilities:type_name -> platform.support.v1.RuntimeCapability
+	65, // 40: platform.support.v1.CLI.egress_policy:type_name -> egress.v1.EgressPolicy
+	52, // 41: platform.support.v1.CLI.official_version_source:type_name -> platform.support.v1.OfficialVersionSource
+	34, // 42: platform.support.v1.CLI.container_images:type_name -> platform.support.v1.CLIContainerImage
+	35, // 43: platform.support.v1.CLI.capability:type_name -> platform.support.v1.CLICapability
+	57, // 44: platform.support.v1.CLICapability.supported_protocols:type_name -> api_protocol.v1.Protocol
+	67, // 45: platform.support.v1.OAuthSupport.flow:type_name -> credential.v1.OAuthAuthorizationFlow
+	68, // 46: platform.support.v1.OAuthSupport.supported_purposes:type_name -> credential.v1.CredentialPurpose
+	47, // 47: platform.support.v1.OAuthSupport.model_catalog:type_name -> platform.support.v1.OAuthModelCatalog
+	60, // 48: platform.support.v1.OAuthSupport.observability:type_name -> observability.v1.ObservabilityCapability
+	39, // 49: platform.support.v1.OAuthSupport.oauth_client:type_name -> platform.support.v1.OAuthClient
+	45, // 50: platform.support.v1.OAuthSupport.artifact_projection:type_name -> platform.support.v1.OAuthArtifactProjection
+	41, // 51: platform.support.v1.OAuthSupport.code_flow:type_name -> platform.support.v1.OAuthCodeFlow
+	43, // 52: platform.support.v1.OAuthSupport.device_flow:type_name -> platform.support.v1.OAuthDeviceFlow
+	49, // 53: platform.support.v1.OAuthSupport.auth_materialization:type_name -> platform.support.v1.CLIAuthMaterialization
+	55, // 54: platform.support.v1.OAuthSupport.subject_summary_fields:type_name -> platform.support.v1.CredentialSubjectSummaryField
+	51, // 55: platform.support.v1.OAuthSupport.client_identity:type_name -> platform.support.v1.OAuthClientIdentity
+	28, // 56: platform.support.v1.OAuthSupport.provider_binding:type_name -> platform.support.v1.ProviderBinding
+	57, // 57: platform.support.v1.APIKeyProtocolSupport.protocol:type_name -> api_protocol.v1.Protocol
+	49, // 58: platform.support.v1.APIKeyProtocolSupport.auth_materialization:type_name -> platform.support.v1.CLIAuthMaterialization
+	3,  // 59: platform.support.v1.RuntimeCapability.kind:type_name -> platform.support.v1.RuntimeCapabilityKind
+	40, // 60: platform.support.v1.OAuthClient.pkce:type_name -> platform.support.v1.OAuthPKCE
+	2,  // 61: platform.support.v1.OAuthPKCE.challenge_method:type_name -> platform.support.v1.OAuthCodeChallengeMethod
+	44, // 62: platform.support.v1.OAuthCodeFlow.authorization_parameters:type_name -> platform.support.v1.OAuthRequestParameter
+	42, // 63: platform.support.v1.OAuthCodeFlow.callback_delivery:type_name -> platform.support.v1.OAuthCallbackDelivery
+	69, // 64: platform.support.v1.OAuthCallbackDelivery.mode:type_name -> credential.v1.OAuthCallbackMode
+	44, // 65: platform.support.v1.OAuthDeviceFlow.device_authorization_parameters:type_name -> platform.support.v1.OAuthRequestParameter
+	46, // 66: platform.support.v1.OAuthArtifactProjection.field_mappings:type_name -> platform.support.v1.OAuthArtifactFieldMapping
+	5,  // 67: platform.support.v1.OAuthArtifactFieldMapping.target:type_name -> platform.support.v1.OAuthArtifactTargetField
+	4,  // 68: platform.support.v1.OAuthArtifactFieldMapping.source:type_name -> platform.support.v1.OAuthArtifactSource
+	64, // 69: platform.support.v1.OAuthModelCatalog.default_catalog:type_name -> provider.v1.ProviderModelCatalog
+	48, // 70: platform.support.v1.OAuthModelCatalog.authenticated_discovery:type_name -> platform.support.v1.OAuthModelCatalogDiscovery
+	66, // 71: platform.support.v1.OAuthModelCatalogDiscovery.operation:type_name -> model_catalog_discovery.v1.ModelCatalogDiscoveryOperation
+	1,  // 72: platform.support.v1.CLIAuthMaterialization.required_runtime_projections:type_name -> platform.support.v1.RuntimeProjectionKind
+	1,  // 73: platform.support.v1.CLIAuthMaterialization.runtime_url_projection_kind:type_name -> platform.support.v1.RuntimeProjectionKind
+	50, // 74: platform.support.v1.CLIAuthMaterialization.request_auth_injection:type_name -> platform.support.v1.RequestAuthInjection
+	53, // 75: platform.support.v1.OfficialVersionSource.npm_dist_tag:type_name -> platform.support.v1.NPMRegistryVersionSource
+	54, // 76: platform.support.v1.OfficialVersionSource.homebrew_cask:type_name -> platform.support.v1.HomebrewCaskVersionSource
+	6,  // 77: platform.support.v1.CredentialSubjectSummaryField.source:type_name -> platform.support.v1.CredentialSubjectSummarySource
+	7,  // 78: platform.support.v1.CredentialSubjectSummaryField.value_format:type_name -> platform.support.v1.CredentialSubjectSummaryValueFormat
+	8,  // 79: platform.support.v1.SupportService.ListVendors:input_type -> platform.support.v1.ListVendorsRequest
+	10, // 80: platform.support.v1.SupportService.GetVendor:input_type -> platform.support.v1.GetVendorRequest
+	12, // 81: platform.support.v1.SupportService.ListCLIs:input_type -> platform.support.v1.ListCLIsRequest
+	14, // 82: platform.support.v1.SupportService.GetCLI:input_type -> platform.support.v1.GetCLIRequest
+	16, // 83: platform.support.v1.SupportService.ListProductInfos:input_type -> platform.support.v1.ListProductInfosRequest
+	18, // 84: platform.support.v1.SupportService.ResolveProviderCapabilities:input_type -> platform.support.v1.ResolveProviderCapabilitiesRequest
+	9,  // 85: platform.support.v1.SupportService.ListVendors:output_type -> platform.support.v1.ListVendorsResponse
+	11, // 86: platform.support.v1.SupportService.GetVendor:output_type -> platform.support.v1.GetVendorResponse
+	13, // 87: platform.support.v1.SupportService.ListCLIs:output_type -> platform.support.v1.ListCLIsResponse
+	15, // 88: platform.support.v1.SupportService.GetCLI:output_type -> platform.support.v1.GetCLIResponse
+	17, // 89: platform.support.v1.SupportService.ListProductInfos:output_type -> platform.support.v1.ListProductInfosResponse
+	22, // 90: platform.support.v1.SupportService.ResolveProviderCapabilities:output_type -> platform.support.v1.ResolveProviderCapabilitiesResponse
+	85, // [85:91] is the sub-list for method output_type
+	79, // [79:85] is the sub-list for method input_type
+	79, // [79:79] is the sub-list for extension type_name
+	79, // [79:79] is the sub-list for extension extendee
+	0,  // [0:79] is the sub-list for field type_name
 }
 
 func init() { file_platform_support_v1_support_service_proto_init() }
@@ -3712,15 +4173,19 @@ func file_platform_support_v1_support_service_proto_init() {
 	if File_platform_support_v1_support_service_proto != nil {
 		return
 	}
-	file_platform_support_v1_support_service_proto_msgTypes[8].OneofWrappers = []any{
+	file_platform_support_v1_support_service_proto_msgTypes[10].OneofWrappers = []any{
 		(*ResolveProviderCapabilitiesRequest_Provider)(nil),
 		(*ResolveProviderCapabilitiesRequest_CustomApi)(nil),
 		(*ResolveProviderCapabilitiesRequest_Runtime)(nil),
 	}
-	file_platform_support_v1_support_service_proto_msgTypes[17].OneofWrappers = []any{
+	file_platform_support_v1_support_service_proto_msgTypes[16].OneofWrappers = []any{
+		(*Surface_Api)(nil),
+		(*Surface_Cli)(nil),
+	}
+	file_platform_support_v1_support_service_proto_msgTypes[23].OneofWrappers = []any{
 		(*VendorModelDiscovery_ActiveDiscovery)(nil),
 	}
-	file_platform_support_v1_support_service_proto_msgTypes[38].OneofWrappers = []any{
+	file_platform_support_v1_support_service_proto_msgTypes[44].OneofWrappers = []any{
 		(*OfficialVersionSource_NpmDistTag)(nil),
 		(*OfficialVersionSource_HomebrewCask)(nil),
 	}
@@ -3730,7 +4195,7 @@ func file_platform_support_v1_support_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_platform_support_v1_support_service_proto_rawDesc), len(file_platform_support_v1_support_service_proto_rawDesc)),
 			NumEnums:      8,
-			NumMessages:   42,
+			NumMessages:   48,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

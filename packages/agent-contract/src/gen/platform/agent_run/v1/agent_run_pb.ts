@@ -8,9 +8,11 @@ import type { RunRequest, RuntimeEnvironment } from "../../../agent/core/v1/agen
 import { file_agent_core_v1_agent } from "../../../agent/core/v1/agent_pb";
 import type { RunResult } from "../../../agent/result/v1/result_pb";
 import { file_agent_result_v1_result } from "../../../agent/result/v1/result_pb";
+import type { CredentialGrantRef } from "../../../credential/v1/credential_pb";
+import { file_credential_v1_credential } from "../../../credential/v1/credential_pb";
 import type { Timestamp } from "@bufbuild/protobuf/wkt";
 import { file_google_protobuf_timestamp } from "@bufbuild/protobuf/wkt";
-import type { ProviderRunBinding } from "../../../provider/v1/provider_pb";
+import type { ProviderEndpoint } from "../../../provider/v1/provider_pb";
 import { file_provider_v1_provider } from "../../../provider/v1/provider_pb";
 import type { Condition } from "../../condition/v1/condition_pb";
 import { file_platform_condition_v1_condition } from "../../condition/v1/condition_pb";
@@ -20,7 +22,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file platform/agent_run/v1/agent_run.proto.
  */
 export const file_platform_agent_run_v1_agent_run: GenFile = /*@__PURE__*/
-  fileDesc("CiVwbGF0Zm9ybS9hZ2VudF9ydW4vdjEvYWdlbnRfcnVuLnByb3RvEhVwbGF0Zm9ybS5hZ2VudF9ydW4udjEi+wQKDEFnZW50UnVuU3BlYxIOCgZydW5faWQYASABKAkSEgoKc2Vzc2lvbl9pZBgCIAEoCRIaChJzZXNzaW9uX2dlbmVyYXRpb24YAyABKAMSIQoZcnVudGltZV9jb25maWdfZ2VuZXJhdGlvbhgEIAEoAxIiChpyZXNvdXJjZV9jb25maWdfZ2VuZXJhdGlvbhgFIAEoAxIYChBzdGF0ZV9nZW5lcmF0aW9uGAYgASgDEioKB3JlcXVlc3QYByABKAsyGS5hZ2VudC5jb3JlLnYxLlJ1blJlcXVlc3QSFwoPZXhlY3V0aW9uX2NsYXNzGAggASgJEhcKD2NvbnRhaW5lcl9pbWFnZRgJIAEoCRITCgtjcHVfcmVxdWVzdBgKIAEoCRIWCg5tZW1vcnlfcmVxdWVzdBgLIAEoCRITCgtwcm92aWRlcl9pZBgMIAEoCRJIChBhdXRoX3JlcXVpcmVtZW50GA0gASgLMi4ucGxhdGZvcm0uYWdlbnRfcnVuLnYxLkFnZW50UnVuQXV0aFJlcXVpcmVtZW50EhgKEGNhbmNlbF9yZXF1ZXN0ZWQYDiABKAgSPgoTcnVudGltZV9lbnZpcm9ubWVudBgPIAEoCzIhLmFnZW50LmNvcmUudjEuUnVudGltZUVudmlyb25tZW50EhQKDHdvcmtzcGFjZV9pZBgQIAEoCRIVCg1ob21lX3N0YXRlX2lkGBEgASgJEj8KDHByZXBhcmVfam9icxgSIAMoCzIpLnBsYXRmb3JtLmFnZW50X3J1bi52MS5BZ2VudFJ1blByZXBhcmVKb2ISGAoQYWdlbnRfcnVudGltZV9pZBgTIAEoCSLOAQoXQWdlbnRSdW5BdXRoUmVxdWlyZW1lbnQSEwoLcHJvdmlkZXJfaWQYASABKAkSEwoLYXV0aF9zdGF0dXMYAyABKAkSEwoLcnVudGltZV91cmwYBCABKAkSGwoTbWF0ZXJpYWxpemF0aW9uX2tleRgFIAEoCRI9ChRwcm92aWRlcl9ydW5fYmluZGluZxgGIAEoCzIfLnByb3ZpZGVyLnYxLlByb3ZpZGVyUnVuQmluZGluZxISCgpzdXJmYWNlX2lkGAcgASgJSgQIAhADIsgBChJBZ2VudFJ1blByZXBhcmVKb2ISDgoGam9iX2lkGAEgASgJEhAKCGpvYl90eXBlGAIgASgJEkIKCHJ1bl90eXBlGAMgASgOMjAucGxhdGZvcm0uYWdlbnRfcnVuLnYxLkFnZW50UnVuUHJlcGFyZUpvYlJ1blR5cGUSEgoKY2hhbmdlX2tleRgEIAEoCRIPCgdjbGVhbnVwGAUgASgIEhcKD3BhcmFtZXRlcnNfeWFtbBgGIAEoCRIOCgZjbGlfaWQYByABKAki2wEKGEFnZW50UnVuUHJlcGFyZUpvYlN0YXR1cxIOCgZqb2JfaWQYASABKAkSPQoFcGhhc2UYAiABKA4yLi5wbGF0Zm9ybS5hZ2VudF9ydW4udjEuQWdlbnRSdW5QcmVwYXJlSm9iUGhhc2USDwoHbWVzc2FnZRgDIAEoCRIuCgpzdGFydGVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIvCgtmaW5pc2hlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiHQoLQWdlbnRSdW5SZWYSDgoGcnVuX2lkGAEgASgJIiIKC1dvcmtsb2FkUmVmEhMKC3dvcmtsb2FkX2lkGAEgASgJIpIDCg5BZ2VudFJ1blN0YXR1cxIOCgZydW5faWQYASABKAkSMwoFcGhhc2UYAiABKA4yJC5wbGF0Zm9ybS5hZ2VudF9ydW4udjEuQWdlbnRSdW5QaGFzZRIbChNvYnNlcnZlZF9nZW5lcmF0aW9uGAMgASgDEg8KB21lc3NhZ2UYBCABKAkSNAoId29ya2xvYWQYBSABKAsyIi5wbGF0Zm9ybS5hZ2VudF9ydW4udjEuV29ya2xvYWRSZWYSNAoKY29uZGl0aW9ucxgGIAMoCzIgLnBsYXRmb3JtLmNvbmRpdGlvbi52MS5Db25kaXRpb24SKgoGcmVzdWx0GAcgASgLMhouYWdlbnQucmVzdWx0LnYxLlJ1blJlc3VsdBIuCgp1cGRhdGVkX2F0GAggASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBJFCgxwcmVwYXJlX2pvYnMYCSADKAsyLy5wbGF0Zm9ybS5hZ2VudF9ydW4udjEuQWdlbnRSdW5QcmVwYXJlSm9iU3RhdHVzIo0BCg1BZ2VudFJ1blN0YXRlEhIKCmdlbmVyYXRpb24YASABKAMSMQoEc3BlYxgCIAEoCzIjLnBsYXRmb3JtLmFnZW50X3J1bi52MS5BZ2VudFJ1blNwZWMSNQoGc3RhdHVzGAMgASgLMiUucGxhdGZvcm0uYWdlbnRfcnVuLnYxLkFnZW50UnVuU3RhdHVzKs8BChlBZ2VudFJ1blByZXBhcmVKb2JSdW5UeXBlEi4KKkFHRU5UX1JVTl9QUkVQQVJFX0pPQl9SVU5fVFlQRV9VTlNQRUNJRklFRBAAEicKI0FHRU5UX1JVTl9QUkVQQVJFX0pPQl9SVU5fVFlQRV9JTklUEAESKgomQUdFTlRfUlVOX1BSRVBBUkVfSk9CX1JVTl9UWVBFX1BFUl9SVU4QAhItCilBR0VOVF9SVU5fUFJFUEFSRV9KT0JfUlVOX1RZUEVfT05fQ0hBTkdFRBADKr4CChdBZ2VudFJ1blByZXBhcmVKb2JQaGFzZRIrCidBR0VOVF9SVU5fUFJFUEFSRV9KT0JfUEhBU0VfVU5TUEVDSUZJRUQQABInCiNBR0VOVF9SVU5fUFJFUEFSRV9KT0JfUEhBU0VfUEVORElORxABEicKI0FHRU5UX1JVTl9QUkVQQVJFX0pPQl9QSEFTRV9TS0lQUEVEEAISJwojQUdFTlRfUlVOX1BSRVBBUkVfSk9CX1BIQVNFX1JVTk5JTkcQAxIpCiVBR0VOVF9SVU5fUFJFUEFSRV9KT0JfUEhBU0VfU1VDQ0VFREVEEAQSJgoiQUdFTlRfUlVOX1BSRVBBUkVfSk9CX1BIQVNFX0ZBSUxFRBAFEigKJEFHRU5UX1JVTl9QUkVQQVJFX0pPQl9QSEFTRV9DQU5DRUxFRBAGKuIBCg1BZ2VudFJ1blBoYXNlEh8KG0FHRU5UX1JVTl9QSEFTRV9VTlNQRUNJRklFRBAAEhsKF0FHRU5UX1JVTl9QSEFTRV9QRU5ESU5HEAESHQoZQUdFTlRfUlVOX1BIQVNFX1NDSEVEVUxFRBACEhsKF0FHRU5UX1JVTl9QSEFTRV9SVU5OSU5HEAMSHQoZQUdFTlRfUlVOX1BIQVNFX1NVQ0NFRURFRBAEEhoKFkFHRU5UX1JVTl9QSEFTRV9GQUlMRUQQBRIcChhBR0VOVF9SVU5fUEhBU0VfQ0FOQ0VMRUQQBkJBWj9jb2RlLWNvZGUuaW50ZXJuYWwvZ28tY29udHJhY3QvcGxhdGZvcm0vYWdlbnRfcnVuL3YxO2FnZW50cnVudjFiBnByb3RvMw", [file_agent_core_v1_agent, file_agent_result_v1_result, file_google_protobuf_timestamp, file_provider_v1_provider, file_platform_condition_v1_condition]);
+  fileDesc("CiVwbGF0Zm9ybS9hZ2VudF9ydW4vdjEvYWdlbnRfcnVuLnByb3RvEhVwbGF0Zm9ybS5hZ2VudF9ydW4udjEi+wQKDEFnZW50UnVuU3BlYxIOCgZydW5faWQYASABKAkSEgoKc2Vzc2lvbl9pZBgCIAEoCRIaChJzZXNzaW9uX2dlbmVyYXRpb24YAyABKAMSIQoZcnVudGltZV9jb25maWdfZ2VuZXJhdGlvbhgEIAEoAxIiChpyZXNvdXJjZV9jb25maWdfZ2VuZXJhdGlvbhgFIAEoAxIYChBzdGF0ZV9nZW5lcmF0aW9uGAYgASgDEioKB3JlcXVlc3QYByABKAsyGS5hZ2VudC5jb3JlLnYxLlJ1blJlcXVlc3QSFwoPZXhlY3V0aW9uX2NsYXNzGAggASgJEhcKD2NvbnRhaW5lcl9pbWFnZRgJIAEoCRITCgtjcHVfcmVxdWVzdBgKIAEoCRIWCg5tZW1vcnlfcmVxdWVzdBgLIAEoCRITCgtwcm92aWRlcl9pZBgMIAEoCRJIChBhdXRoX3JlcXVpcmVtZW50GA0gASgLMi4ucGxhdGZvcm0uYWdlbnRfcnVuLnYxLkFnZW50UnVuQXV0aFJlcXVpcmVtZW50EhgKEGNhbmNlbF9yZXF1ZXN0ZWQYDiABKAgSPgoTcnVudGltZV9lbnZpcm9ubWVudBgPIAEoCzIhLmFnZW50LmNvcmUudjEuUnVudGltZUVudmlyb25tZW50EhQKDHdvcmtzcGFjZV9pZBgQIAEoCRIVCg1ob21lX3N0YXRlX2lkGBEgASgJEj8KDHByZXBhcmVfam9icxgSIAMoCzIpLnBsYXRmb3JtLmFnZW50X3J1bi52MS5BZ2VudFJ1blByZXBhcmVKb2ISGAoQYWdlbnRfcnVudGltZV9pZBgTIAEoCSLZAQoXQWdlbnRSdW5BdXRoUmVxdWlyZW1lbnQSEwoLcHJvdmlkZXJfaWQYASABKAkSEwoLYXV0aF9zdGF0dXMYAyABKAkSEwoLcnVudGltZV91cmwYBCABKAkSGwoTbWF0ZXJpYWxpemF0aW9uX2tleRgFIAEoCRJIChBwcm92aWRlcl9iaW5kaW5nGAYgASgLMi4ucGxhdGZvcm0uYWdlbnRfcnVuLnYxLkFnZW50UnVuUHJvdmlkZXJCaW5kaW5nEhIKCnN1cmZhY2VfaWQYByABKAlKBAgCEAMijQIKF0FnZW50UnVuUHJvdmlkZXJCaW5kaW5nEhMKC3Byb3ZpZGVyX2lkGAEgASgJEj8KFGNyZWRlbnRpYWxfZ3JhbnRfcmVmGAIgASgLMiEuY3JlZGVudGlhbC52MS5DcmVkZW50aWFsR3JhbnRSZWYSLwoIZW5kcG9pbnQYAyABKAsyHS5wcm92aWRlci52MS5Qcm92aWRlckVuZHBvaW50EhsKE21hdGVyaWFsaXphdGlvbl9rZXkYBCABKAkSGQoRcHJvdmlkZXJfbW9kZWxfaWQYBSABKAkSGgoSY2Fub25pY2FsX21vZGVsX2lkGAYgASgJEhcKD3NvdXJjZV9tb2RlbF9pZBgHIAEoCSLIAQoSQWdlbnRSdW5QcmVwYXJlSm9iEg4KBmpvYl9pZBgBIAEoCRIQCghqb2JfdHlwZRgCIAEoCRJCCghydW5fdHlwZRgDIAEoDjIwLnBsYXRmb3JtLmFnZW50X3J1bi52MS5BZ2VudFJ1blByZXBhcmVKb2JSdW5UeXBlEhIKCmNoYW5nZV9rZXkYBCABKAkSDwoHY2xlYW51cBgFIAEoCBIXCg9wYXJhbWV0ZXJzX3lhbWwYBiABKAkSDgoGY2xpX2lkGAcgASgJItsBChhBZ2VudFJ1blByZXBhcmVKb2JTdGF0dXMSDgoGam9iX2lkGAEgASgJEj0KBXBoYXNlGAIgASgOMi4ucGxhdGZvcm0uYWdlbnRfcnVuLnYxLkFnZW50UnVuUHJlcGFyZUpvYlBoYXNlEg8KB21lc3NhZ2UYAyABKAkSLgoKc3RhcnRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLwoLZmluaXNoZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wIh0KC0FnZW50UnVuUmVmEg4KBnJ1bl9pZBgBIAEoCSIiCgtXb3JrbG9hZFJlZhITCgt3b3JrbG9hZF9pZBgBIAEoCSKSAwoOQWdlbnRSdW5TdGF0dXMSDgoGcnVuX2lkGAEgASgJEjMKBXBoYXNlGAIgASgOMiQucGxhdGZvcm0uYWdlbnRfcnVuLnYxLkFnZW50UnVuUGhhc2USGwoTb2JzZXJ2ZWRfZ2VuZXJhdGlvbhgDIAEoAxIPCgdtZXNzYWdlGAQgASgJEjQKCHdvcmtsb2FkGAUgASgLMiIucGxhdGZvcm0uYWdlbnRfcnVuLnYxLldvcmtsb2FkUmVmEjQKCmNvbmRpdGlvbnMYBiADKAsyIC5wbGF0Zm9ybS5jb25kaXRpb24udjEuQ29uZGl0aW9uEioKBnJlc3VsdBgHIAEoCzIaLmFnZW50LnJlc3VsdC52MS5SdW5SZXN1bHQSLgoKdXBkYXRlZF9hdBgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASRQoMcHJlcGFyZV9qb2JzGAkgAygLMi8ucGxhdGZvcm0uYWdlbnRfcnVuLnYxLkFnZW50UnVuUHJlcGFyZUpvYlN0YXR1cyKNAQoNQWdlbnRSdW5TdGF0ZRISCgpnZW5lcmF0aW9uGAEgASgDEjEKBHNwZWMYAiABKAsyIy5wbGF0Zm9ybS5hZ2VudF9ydW4udjEuQWdlbnRSdW5TcGVjEjUKBnN0YXR1cxgDIAEoCzIlLnBsYXRmb3JtLmFnZW50X3J1bi52MS5BZ2VudFJ1blN0YXR1cyrPAQoZQWdlbnRSdW5QcmVwYXJlSm9iUnVuVHlwZRIuCipBR0VOVF9SVU5fUFJFUEFSRV9KT0JfUlVOX1RZUEVfVU5TUEVDSUZJRUQQABInCiNBR0VOVF9SVU5fUFJFUEFSRV9KT0JfUlVOX1RZUEVfSU5JVBABEioKJkFHRU5UX1JVTl9QUkVQQVJFX0pPQl9SVU5fVFlQRV9QRVJfUlVOEAISLQopQUdFTlRfUlVOX1BSRVBBUkVfSk9CX1JVTl9UWVBFX09OX0NIQU5HRUQQAyq+AgoXQWdlbnRSdW5QcmVwYXJlSm9iUGhhc2USKwonQUdFTlRfUlVOX1BSRVBBUkVfSk9CX1BIQVNFX1VOU1BFQ0lGSUVEEAASJwojQUdFTlRfUlVOX1BSRVBBUkVfSk9CX1BIQVNFX1BFTkRJTkcQARInCiNBR0VOVF9SVU5fUFJFUEFSRV9KT0JfUEhBU0VfU0tJUFBFRBACEicKI0FHRU5UX1JVTl9QUkVQQVJFX0pPQl9QSEFTRV9SVU5OSU5HEAMSKQolQUdFTlRfUlVOX1BSRVBBUkVfSk9CX1BIQVNFX1NVQ0NFRURFRBAEEiYKIkFHRU5UX1JVTl9QUkVQQVJFX0pPQl9QSEFTRV9GQUlMRUQQBRIoCiRBR0VOVF9SVU5fUFJFUEFSRV9KT0JfUEhBU0VfQ0FOQ0VMRUQQBiriAQoNQWdlbnRSdW5QaGFzZRIfChtBR0VOVF9SVU5fUEhBU0VfVU5TUEVDSUZJRUQQABIbChdBR0VOVF9SVU5fUEhBU0VfUEVORElORxABEh0KGUFHRU5UX1JVTl9QSEFTRV9TQ0hFRFVMRUQQAhIbChdBR0VOVF9SVU5fUEhBU0VfUlVOTklORxADEh0KGUFHRU5UX1JVTl9QSEFTRV9TVUNDRUVERUQQBBIaChZBR0VOVF9SVU5fUEhBU0VfRkFJTEVEEAUSHAoYQUdFTlRfUlVOX1BIQVNFX0NBTkNFTEVEEAZCQVo/Y29kZS1jb2RlLmludGVybmFsL2dvLWNvbnRyYWN0L3BsYXRmb3JtL2FnZW50X3J1bi92MTthZ2VudHJ1bnYxYgZwcm90bzM", [file_agent_core_v1_agent, file_agent_result_v1_result, file_credential_v1_credential, file_google_protobuf_timestamp, file_provider_v1_provider, file_platform_condition_v1_condition]);
 
 /**
  * AgentRunSpec describes the desired state for one turn within one
@@ -161,9 +163,9 @@ export type AgentRunAuthRequirement = Message<"platform.agent_run.v1.AgentRunAut
   materializationKey: string;
 
   /**
-   * @generated from field: provider.v1.ProviderRunBinding provider_run_binding = 6;
+   * @generated from field: platform.agent_run.v1.AgentRunProviderBinding provider_binding = 6;
    */
-  providerRunBinding?: ProviderRunBinding;
+  providerBinding?: AgentRunProviderBinding;
 
   /**
    * @generated from field: string surface_id = 7;
@@ -177,6 +179,53 @@ export type AgentRunAuthRequirement = Message<"platform.agent_run.v1.AgentRunAut
  */
 export const AgentRunAuthRequirementSchema: GenMessage<AgentRunAuthRequirement> = /*@__PURE__*/
   messageDesc(file_platform_agent_run_v1_agent_run, 1);
+
+/**
+ * @generated from message platform.agent_run.v1.AgentRunProviderBinding
+ */
+export type AgentRunProviderBinding = Message<"platform.agent_run.v1.AgentRunProviderBinding"> & {
+  /**
+   * @generated from field: string provider_id = 1;
+   */
+  providerId: string;
+
+  /**
+   * @generated from field: credential.v1.CredentialGrantRef credential_grant_ref = 2;
+   */
+  credentialGrantRef?: CredentialGrantRef;
+
+  /**
+   * @generated from field: provider.v1.ProviderEndpoint endpoint = 3;
+   */
+  endpoint?: ProviderEndpoint;
+
+  /**
+   * @generated from field: string materialization_key = 4;
+   */
+  materializationKey: string;
+
+  /**
+   * @generated from field: string provider_model_id = 5;
+   */
+  providerModelId: string;
+
+  /**
+   * @generated from field: string canonical_model_id = 6;
+   */
+  canonicalModelId: string;
+
+  /**
+   * @generated from field: string source_model_id = 7;
+   */
+  sourceModelId: string;
+};
+
+/**
+ * Describes the message platform.agent_run.v1.AgentRunProviderBinding.
+ * Use `create(AgentRunProviderBindingSchema)` to create a new message.
+ */
+export const AgentRunProviderBindingSchema: GenMessage<AgentRunProviderBinding> = /*@__PURE__*/
+  messageDesc(file_platform_agent_run_v1_agent_run, 2);
 
 /**
  * AgentRunPrepareJob captures one CLI-scoped prepare workload before execution.
@@ -225,7 +274,7 @@ export type AgentRunPrepareJob = Message<"platform.agent_run.v1.AgentRunPrepareJ
  * Use `create(AgentRunPrepareJobSchema)` to create a new message.
  */
 export const AgentRunPrepareJobSchema: GenMessage<AgentRunPrepareJob> = /*@__PURE__*/
-  messageDesc(file_platform_agent_run_v1_agent_run, 2);
+  messageDesc(file_platform_agent_run_v1_agent_run, 3);
 
 /**
  * AgentRunPrepareJobStatus captures the observed summary for one prepare job.
@@ -264,7 +313,7 @@ export type AgentRunPrepareJobStatus = Message<"platform.agent_run.v1.AgentRunPr
  * Use `create(AgentRunPrepareJobStatusSchema)` to create a new message.
  */
 export const AgentRunPrepareJobStatusSchema: GenMessage<AgentRunPrepareJobStatus> = /*@__PURE__*/
-  messageDesc(file_platform_agent_run_v1_agent_run, 3);
+  messageDesc(file_platform_agent_run_v1_agent_run, 4);
 
 /**
  * AgentRunRef identifies one submitted agent run.
@@ -283,7 +332,7 @@ export type AgentRunRef = Message<"platform.agent_run.v1.AgentRunRef"> & {
  * Use `create(AgentRunRefSchema)` to create a new message.
  */
 export const AgentRunRefSchema: GenMessage<AgentRunRef> = /*@__PURE__*/
-  messageDesc(file_platform_agent_run_v1_agent_run, 4);
+  messageDesc(file_platform_agent_run_v1_agent_run, 5);
 
 /**
  * WorkloadRef identifies the workload backing one agent run.
@@ -302,7 +351,7 @@ export type WorkloadRef = Message<"platform.agent_run.v1.WorkloadRef"> & {
  * Use `create(WorkloadRefSchema)` to create a new message.
  */
 export const WorkloadRefSchema: GenMessage<WorkloadRef> = /*@__PURE__*/
-  messageDesc(file_platform_agent_run_v1_agent_run, 5);
+  messageDesc(file_platform_agent_run_v1_agent_run, 6);
 
 /**
  * AgentRunStatus describes observed summary state for one turn. run_id
@@ -363,7 +412,7 @@ export type AgentRunStatus = Message<"platform.agent_run.v1.AgentRunStatus"> & {
  * Use `create(AgentRunStatusSchema)` to create a new message.
  */
 export const AgentRunStatusSchema: GenMessage<AgentRunStatus> = /*@__PURE__*/
-  messageDesc(file_platform_agent_run_v1_agent_run, 6);
+  messageDesc(file_platform_agent_run_v1_agent_run, 7);
 
 /**
  * AgentRunState combines desired state and observed state for one turn.
@@ -393,7 +442,7 @@ export type AgentRunState = Message<"platform.agent_run.v1.AgentRunState"> & {
  * Use `create(AgentRunStateSchema)` to create a new message.
  */
 export const AgentRunStateSchema: GenMessage<AgentRunState> = /*@__PURE__*/
-  messageDesc(file_platform_agent_run_v1_agent_run, 7);
+  messageDesc(file_platform_agent_run_v1_agent_run, 8);
 
 /**
  * AgentRunPrepareJobRunType identifies when one prepare job should run.

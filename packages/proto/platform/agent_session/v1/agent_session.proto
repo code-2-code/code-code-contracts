@@ -30,9 +30,10 @@ message AgentSessionSpec {
 // AgentSessionRuntimeConfig describes the runtime reload surface used for
 // future turns of one session.
 message AgentSessionRuntimeConfig {
-  provider.v1.ProviderRuntimeRef provider_runtime_ref = 1;
-  repeated AgentSessionRuntimeFallbackCandidate fallbacks = 2;
-  reserved 3, 4;
+  string provider_id = 1;
+  provider.v1.ProviderEndpoint endpoint = 2;
+  repeated AgentSessionRuntimeFallbackCandidate fallbacks = 3;
+  reserved 4;
   AgentSessionRuntimeModelSelector primary_model_selector = 5;
   reserved "provider_credential_id", "network_policy_id", "default_model_id";
 }
@@ -49,7 +50,8 @@ message AgentSessionRuntimeModelSelector {
 // AgentSessionRuntimeFallbackCandidate describes one secondary runtime
 // candidate used for future fallback inside one session.
 message AgentSessionRuntimeFallbackCandidate {
-  provider.v1.ProviderRuntimeRef provider_runtime_ref = 1;
+  string provider_id = 1;
+  provider.v1.ProviderEndpoint endpoint = 4;
 
   oneof model_selector {
     model.v1.ModelRef model_ref = 2;

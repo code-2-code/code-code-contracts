@@ -32,6 +32,7 @@ service AuthService {
   rpc GetEgressAuthPolicy(GetEgressAuthPolicyRequest) returns (GetEgressAuthPolicyResponse);
   rpc ResolveEgressRequestHeaders(ResolveEgressRequestHeadersRequest) returns (ResolveEgressRequestHeadersResponse);
   rpc ResolveEgressResponseHeaders(ResolveEgressResponseHeadersRequest) returns (ResolveEgressResponseHeadersResponse);
+  rpc RecordEgressResponseHeaders(RecordEgressResponseHeadersRequest) returns (RecordEgressResponseHeadersResponse);
 }
 
 message ListCredentialsRequest {}

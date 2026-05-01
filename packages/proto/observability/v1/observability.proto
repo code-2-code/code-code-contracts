@@ -24,7 +24,7 @@ message ObservabilityProfile {
   repeated ObservabilityMetric metrics = 4;
 
   oneof collection {
-    ActiveQueryCollection active_query = 5;
+    QuotaQueryCollection quota_query = 5;
     PassiveHttpTelemetryCollection passive_http = 6;
   }
 
@@ -76,8 +76,8 @@ enum ObservabilityAttributeRequirementLevel {
   OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_RECOMMENDED = 2;
 }
 
-// ActiveQueryCollection declares an active query collection policy.
-message ActiveQueryCollection {
+// QuotaQueryCollection declares an quota query collection policy.
+message QuotaQueryCollection {
   google.protobuf.Duration minimum_poll_interval = 1;
 
   // Dynamic parameters required by the collector when surface auth is not
@@ -85,7 +85,7 @@ message ActiveQueryCollection {
   repeated DynamicParameterDefinition dynamic_parameters = 2;
 
   // Optional collector implementation key resolved by the host package.
-  // Empty means host-default active query execution.
+  // Empty means host-default quota query execution.
   string collector_id = 3;
 
   // Explicit credential values that the collector may persist after a
@@ -94,13 +94,18 @@ message ActiveQueryCollection {
   repeated CredentialBackfillRule credential_backfills = 4;
 
   // Optional schema-driven form used to collect management-plane credential
-  // inputs required by this active query.
-  ActiveQueryInputForm input_form = 5;
+  // inputs required by this quota query.
+  QuotaQueryInputForm input_form = 5;
 
   // Explicit non-secret material keys the collector may read back on later
   // runs. Secret tokens/cookies should stay behind authservice/egress auth and
   // must not be listed here.
   repeated string material_read_fields = 6;
+
+  // True when this quota query requires a dedicated management-plane quota
+  // credential. Leave false when the provider data-plane credential is enough
+  // to query quota data.
+  bool requires_quota_credential = 7;
 }
 
 // DynamicParameterDefinition describes one dynamically supplied parameter.
@@ -112,65 +117,65 @@ message DynamicParameterDefinition {
   bool secret = 5;
 }
 
-// ActiveQueryInputForm describes provider-owned credential inputs needed by one
-// active query. UI clients render this schema instead of hard-coding per-vendor
+// QuotaQueryInputForm describes provider-owned credential inputs needed by one
+// quota query. UI clients render this schema instead of hard-coding per-vendor
 // fields.
-message ActiveQueryInputForm {
+message QuotaQueryInputForm {
   string schema_id = 1;
   string title = 2;
   string action_label = 3;
   string description = 4;
-  repeated ActiveQueryInputField fields = 5;
+  repeated QuotaQueryInputField fields = 5;
 }
 
-// ActiveQueryInputField describes one operator-supplied input field.
-message ActiveQueryInputField {
+// QuotaQueryInputField describes one operator-supplied input field.
+message QuotaQueryInputField {
   string field_id = 1;
   string label = 2;
   string description = 3;
   string placeholder = 4;
   bool required = 5;
   bool sensitive = 6;
-  ActiveQueryInputControl control = 7;
-  ActiveQueryInputPersistence persistence = 8;
+  QuotaQueryInputControl control = 7;
+  QuotaQueryInputPersistence persistence = 8;
   string target_field_id = 9;
-  ActiveQueryInputValueTransform transform = 10;
+  QuotaQueryInputValueTransform transform = 10;
   string default_value = 11;
 }
 
-// ActiveQueryInputControl identifies the preferred UI control for one input.
-enum ActiveQueryInputControl {
-  ACTIVE_QUERY_INPUT_CONTROL_UNSPECIFIED = 0;
-  ACTIVE_QUERY_INPUT_CONTROL_TEXT = 1;
-  ACTIVE_QUERY_INPUT_CONTROL_PASSWORD = 2;
-  ACTIVE_QUERY_INPUT_CONTROL_TEXTAREA = 3;
+// QuotaQueryInputControl identifies the preferred UI control for one input.
+enum QuotaQueryInputControl {
+  QUOTA_QUERY_INPUT_CONTROL_UNSPECIFIED = 0;
+  QUOTA_QUERY_INPUT_CONTROL_TEXT = 1;
+  QUOTA_QUERY_INPUT_CONTROL_PASSWORD = 2;
+  QUOTA_QUERY_INPUT_CONTROL_TEXTAREA = 3;
 }
 
-// ActiveQueryInputPersistence describes whether a submitted field is persisted
+// QuotaQueryInputPersistence describes whether a submitted field is persisted
 // into provider observability credential material.
-enum ActiveQueryInputPersistence {
-  ACTIVE_QUERY_INPUT_PERSISTENCE_UNSPECIFIED = 0;
-  ACTIVE_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL = 1;
-  ACTIVE_QUERY_INPUT_PERSISTENCE_TRANSIENT = 2;
+enum QuotaQueryInputPersistence {
+  QUOTA_QUERY_INPUT_PERSISTENCE_UNSPECIFIED = 0;
+  QUOTA_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL = 1;
+  QUOTA_QUERY_INPUT_PERSISTENCE_TRANSIENT = 2;
 }
 
-// ActiveQueryInputValueTransform describes a built-in normalization applied to
+// QuotaQueryInputValueTransform describes a built-in normalization applied to
 // an input value before it is persisted.
-enum ActiveQueryInputValueTransform {
-  ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED = 0;
-  ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY = 1;
-  ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE = 2;
+enum QuotaQueryInputValueTransform {
+  QUOTA_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED = 0;
+  QUOTA_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY = 1;
+  QUOTA_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE = 2;
 }
 
 // CredentialBackfillRule declares one credential value that may be persisted
-// from structured active query output.
+// from structured quota query output.
 message CredentialBackfillRule {
   string rule_id = 1;
   // Structured collector output field to persist.
   string output_field_id = 2;
   string target_material_key = 3;
   bool required = 4;
-  // If true, this persisted value may be read back by the same active query
+  // If true, this persisted value may be read back by the same quota query
   // collector on later runs. Leave false for token/cookie/session material that
   // should remain write-only outside authservice.
   bool readable = 5;

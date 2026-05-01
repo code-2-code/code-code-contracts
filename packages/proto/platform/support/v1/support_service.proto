@@ -5,11 +5,13 @@ package platform.support.v1;
 import "credential/v1/credential.proto";
 import "credential/v1/oauth_authorization_session.proto";
 import "egress/v1/policy.proto";
+import "google/protobuf/duration.proto";
 import "api_protocol/v1/protocol.proto";
 import "provider/v1/provider.proto";
 
 import "model_catalog_discovery/v1/model_catalog_discovery.proto";
 import "observability/v1/observability.proto";
+import "product_info/v1/product_info.proto";
 
 import "vendor_definition/v1/vendor.proto";
 
@@ -21,6 +23,7 @@ service SupportService {
 
   rpc ListCLIs(ListCLIsRequest) returns (ListCLIsResponse);
   rpc GetCLI(GetCLIRequest) returns (GetCLIResponse);
+  rpc ListProductInfos(ListProductInfosRequest) returns (ListProductInfosResponse);
   rpc ResolveProviderCapabilities(ResolveProviderCapabilitiesRequest) returns (ResolveProviderCapabilitiesResponse);
 }
 
@@ -54,6 +57,12 @@ message GetCLIResponse {
   CLI item = 1;
 }
 
+message ListProductInfosRequest {}
+
+message ListProductInfosResponse {
+  repeated product_info.v1.ProductInfo items = 1;
+}
+
 message ResolveProviderCapabilitiesRequest {
   oneof subject {
     ProviderCapabilitySubject provider = 1;
@@ -70,6 +79,7 @@ message ProviderCapabilitySubject {
   credential.v1.CredentialKind credential_kind = 5;
   string runtime_url = 6;
   CapabilityExecutionContext execution_context = 7;
+  provider.v1.ProviderEndpoint endpoint = 8;
 }
 
 message CustomAPICapabilitySubject {
@@ -98,6 +108,8 @@ message ResolveProviderCapabilitiesResponse {
   string quota_probe_id = 5;
   string auth_materialization_key = 6;
   string resource_ref = 7;
+  string observability_policy_id = 8;
+  string surface_id = 9;
 }
 
 enum CapabilityExecutionContext {
@@ -109,6 +121,37 @@ enum CapabilityExecutionContext {
 message Vendor {
   vendor_definition.v1.Vendor vendor = 1;
   repeated VendorProviderBinding provider_bindings = 2;
+  repeated Surface surfaces = 3;
+}
+
+message Surface {
+  string surface_id = 1;
+  string product_info_id = 2;
+  string egress_policy_id = 3;
+  string auth_policy_id = 4;
+  string model_catalog_probe_id = 5;
+  string quota_probe_id = 6;
+  string observability_policy_id = 7;
+  observability.v1.ObservabilityCapability observability = 8;
+  google.protobuf.Duration model_catalog_probe_minimum_interval = 11;
+
+  oneof spec {
+    ApiSurface api = 9;
+    CliSurface cli = 10;
+  }
+}
+
+message ApiSurface {
+  repeated ApiEndpoint api_endpoints = 1;
+}
+
+message ApiEndpoint {
+  api_protocol.v1.Protocol protocol = 1;
+  string base_url = 2;
+}
+
+message CliSurface {
+  string cli_id = 1;
 }
 
 message ProviderBinding {

@@ -55,18 +55,24 @@ func ValidateProvider(provider *Provider) error {
 	if strings.TrimSpace(provider.GetSurfaceId()) == "" {
 		return fmt.Errorf("providerv1: provider surface id is empty")
 	}
-	if err := ValidateProviderSurfaceRuntime(provider.GetRuntime()); err != nil {
-		return fmt.Errorf("providerv1: invalid provider runtime: %w", err)
-	}
 	if provider.GetProviderCredentialRef() != nil {
 		if err := ValidateProviderCredentialRef(provider.GetProviderCredentialRef()); err != nil {
 			return err
 		}
 	}
+	if err := ValidateProviderModels(provider.GetModels()); err != nil {
+		return err
+	}
+	if custom := provider.GetCustomApiKeySurface(); custom != nil {
+		if strings.TrimSpace(custom.GetBaseUrl()) == "" {
+			return fmt.Errorf("providerv1: custom api key surface base_url is empty")
+		}
+		if custom.GetProtocol() == apiprotocolv1.Protocol_PROTOCOL_UNSPECIFIED {
+			return fmt.Errorf("providerv1: custom api key surface protocol is unspecified")
+		}
+	}
 	return nil
 }
-
-
 
 // ValidateCredentialCompatibility validates that one credential definition is compatible with one provider surface.
 func ValidateCredentialCompatibility(surface *ProviderSurface, credential *credentialv1.CredentialDefinition) error {
@@ -93,8 +99,6 @@ func ValidateProviderCredentialRef(ref *ProviderCredentialRef) error {
 	return nil
 }
 
-
-
 // ValidateProviderModelCatalog validates one provider-level model catalog.
 func ValidateProviderModelCatalog(catalog *ProviderModelCatalog) error {
 	if catalog == nil {
@@ -109,6 +113,25 @@ func ValidateProviderModelCatalog(catalog *ProviderModelCatalog) error {
 			return err
 		}
 		providerModelID := strings.TrimSpace(model.GetProviderModelId())
+		if _, ok := seen[providerModelID]; ok {
+			return fmt.Errorf("providerv1: duplicate provider model id %q", providerModelID)
+		}
+		seen[providerModelID] = struct{}{}
+	}
+	return nil
+}
+
+// ValidateProviderModels validates provider-callable model entries.
+func ValidateProviderModels(models []*ProviderModel) error {
+	seen := map[string]struct{}{}
+	for _, model := range models {
+		if model == nil {
+			return fmt.Errorf("providerv1: provider model is nil")
+		}
+		providerModelID := strings.TrimSpace(model.GetProviderModelId())
+		if providerModelID == "" {
+			return fmt.Errorf("providerv1: provider model id is empty")
+		}
 		if _, ok := seen[providerModelID]; ok {
 			return fmt.Errorf("providerv1: duplicate provider model id %q", providerModelID)
 		}

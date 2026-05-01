@@ -43,6 +43,9 @@ const (
 	SupportServiceListCLIsProcedure = "/platform.support.v1.SupportService/ListCLIs"
 	// SupportServiceGetCLIProcedure is the fully-qualified name of the SupportService's GetCLI RPC.
 	SupportServiceGetCLIProcedure = "/platform.support.v1.SupportService/GetCLI"
+	// SupportServiceListProductInfosProcedure is the fully-qualified name of the SupportService's
+	// ListProductInfos RPC.
+	SupportServiceListProductInfosProcedure = "/platform.support.v1.SupportService/ListProductInfos"
 	// SupportServiceResolveProviderCapabilitiesProcedure is the fully-qualified name of the
 	// SupportService's ResolveProviderCapabilities RPC.
 	SupportServiceResolveProviderCapabilitiesProcedure = "/platform.support.v1.SupportService/ResolveProviderCapabilities"
@@ -54,6 +57,7 @@ type SupportServiceClient interface {
 	GetVendor(context.Context, *v1.GetVendorRequest) (*v1.GetVendorResponse, error)
 	ListCLIs(context.Context, *v1.ListCLIsRequest) (*v1.ListCLIsResponse, error)
 	GetCLI(context.Context, *v1.GetCLIRequest) (*v1.GetCLIResponse, error)
+	ListProductInfos(context.Context, *v1.ListProductInfosRequest) (*v1.ListProductInfosResponse, error)
 	ResolveProviderCapabilities(context.Context, *v1.ResolveProviderCapabilitiesRequest) (*v1.ResolveProviderCapabilitiesResponse, error)
 }
 
@@ -92,6 +96,12 @@ func NewSupportServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			connect.WithSchema(supportServiceMethods.ByName("GetCLI")),
 			connect.WithClientOptions(opts...),
 		),
+		listProductInfos: connect.NewClient[v1.ListProductInfosRequest, v1.ListProductInfosResponse](
+			httpClient,
+			baseURL+SupportServiceListProductInfosProcedure,
+			connect.WithSchema(supportServiceMethods.ByName("ListProductInfos")),
+			connect.WithClientOptions(opts...),
+		),
 		resolveProviderCapabilities: connect.NewClient[v1.ResolveProviderCapabilitiesRequest, v1.ResolveProviderCapabilitiesResponse](
 			httpClient,
 			baseURL+SupportServiceResolveProviderCapabilitiesProcedure,
@@ -107,6 +117,7 @@ type supportServiceClient struct {
 	getVendor                   *connect.Client[v1.GetVendorRequest, v1.GetVendorResponse]
 	listCLIs                    *connect.Client[v1.ListCLIsRequest, v1.ListCLIsResponse]
 	getCLI                      *connect.Client[v1.GetCLIRequest, v1.GetCLIResponse]
+	listProductInfos            *connect.Client[v1.ListProductInfosRequest, v1.ListProductInfosResponse]
 	resolveProviderCapabilities *connect.Client[v1.ResolveProviderCapabilitiesRequest, v1.ResolveProviderCapabilitiesResponse]
 }
 
@@ -146,6 +157,15 @@ func (c *supportServiceClient) GetCLI(ctx context.Context, req *v1.GetCLIRequest
 	return nil, err
 }
 
+// ListProductInfos calls platform.support.v1.SupportService.ListProductInfos.
+func (c *supportServiceClient) ListProductInfos(ctx context.Context, req *v1.ListProductInfosRequest) (*v1.ListProductInfosResponse, error) {
+	response, err := c.listProductInfos.CallUnary(ctx, connect.NewRequest(req))
+	if response != nil {
+		return response.Msg, err
+	}
+	return nil, err
+}
+
 // ResolveProviderCapabilities calls platform.support.v1.SupportService.ResolveProviderCapabilities.
 func (c *supportServiceClient) ResolveProviderCapabilities(ctx context.Context, req *v1.ResolveProviderCapabilitiesRequest) (*v1.ResolveProviderCapabilitiesResponse, error) {
 	response, err := c.resolveProviderCapabilities.CallUnary(ctx, connect.NewRequest(req))
@@ -161,6 +181,7 @@ type SupportServiceHandler interface {
 	GetVendor(context.Context, *v1.GetVendorRequest) (*v1.GetVendorResponse, error)
 	ListCLIs(context.Context, *v1.ListCLIsRequest) (*v1.ListCLIsResponse, error)
 	GetCLI(context.Context, *v1.GetCLIRequest) (*v1.GetCLIResponse, error)
+	ListProductInfos(context.Context, *v1.ListProductInfosRequest) (*v1.ListProductInfosResponse, error)
 	ResolveProviderCapabilities(context.Context, *v1.ResolveProviderCapabilitiesRequest) (*v1.ResolveProviderCapabilitiesResponse, error)
 }
 
@@ -195,6 +216,12 @@ func NewSupportServiceHandler(svc SupportServiceHandler, opts ...connect.Handler
 		connect.WithSchema(supportServiceMethods.ByName("GetCLI")),
 		connect.WithHandlerOptions(opts...),
 	)
+	supportServiceListProductInfosHandler := connect.NewUnaryHandlerSimple(
+		SupportServiceListProductInfosProcedure,
+		svc.ListProductInfos,
+		connect.WithSchema(supportServiceMethods.ByName("ListProductInfos")),
+		connect.WithHandlerOptions(opts...),
+	)
 	supportServiceResolveProviderCapabilitiesHandler := connect.NewUnaryHandlerSimple(
 		SupportServiceResolveProviderCapabilitiesProcedure,
 		svc.ResolveProviderCapabilities,
@@ -211,6 +238,8 @@ func NewSupportServiceHandler(svc SupportServiceHandler, opts ...connect.Handler
 			supportServiceListCLIsHandler.ServeHTTP(w, r)
 		case SupportServiceGetCLIProcedure:
 			supportServiceGetCLIHandler.ServeHTTP(w, r)
+		case SupportServiceListProductInfosProcedure:
+			supportServiceListProductInfosHandler.ServeHTTP(w, r)
 		case SupportServiceResolveProviderCapabilitiesProcedure:
 			supportServiceResolveProviderCapabilitiesHandler.ServeHTTP(w, r)
 		default:
@@ -236,6 +265,10 @@ func (UnimplementedSupportServiceHandler) ListCLIs(context.Context, *v1.ListCLIs
 
 func (UnimplementedSupportServiceHandler) GetCLI(context.Context, *v1.GetCLIRequest) (*v1.GetCLIResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.support.v1.SupportService.GetCLI is not implemented"))
+}
+
+func (UnimplementedSupportServiceHandler) ListProductInfos(context.Context, *v1.ListProductInfosRequest) (*v1.ListProductInfosResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.support.v1.SupportService.ListProductInfos is not implemented"))
 }
 
 func (UnimplementedSupportServiceHandler) ResolveProviderCapabilities(context.Context, *v1.ResolveProviderCapabilitiesRequest) (*v1.ResolveProviderCapabilitiesResponse, error) {

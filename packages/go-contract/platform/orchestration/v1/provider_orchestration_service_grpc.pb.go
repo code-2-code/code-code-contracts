@@ -24,20 +24,25 @@ const (
 	ProviderOrchestrationService_GetProviderConnectSession_FullMethodName                 = "/platform.orchestration.v1.ProviderOrchestrationService/GetProviderConnectSession"
 	ProviderOrchestrationService_UpdateProviderAuthentication_FullMethodName              = "/platform.orchestration.v1.ProviderOrchestrationService/UpdateProviderAuthentication"
 	ProviderOrchestrationService_UpdateProviderObservabilityAuthentication_FullMethodName = "/platform.orchestration.v1.ProviderOrchestrationService/UpdateProviderObservabilityAuthentication"
+	ProviderOrchestrationService_ProbeProviderObservability_FullMethodName                = "/platform.orchestration.v1.ProviderOrchestrationService/ProbeProviderObservability"
+	ProviderOrchestrationService_ProbeProviderModelCatalog_FullMethodName                 = "/platform.orchestration.v1.ProviderOrchestrationService/ProbeProviderModelCatalog"
 )
 
 // ProviderOrchestrationServiceClient is the client API for ProviderOrchestrationService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// ProviderOrchestrationService owns cross-domain provider onboarding and
-// credential update flows. Secret material is accepted only at this API
-// boundary and is never passed into Temporal workflow payloads.
+// ProviderOrchestrationService owns cross-domain provider onboarding,
+// credential update, and provider probe coordination flows. Secret material is
+// accepted only at this API boundary and is never passed into Temporal workflow
+// payloads.
 type ProviderOrchestrationServiceClient interface {
 	ConnectProvider(ctx context.Context, in *v1.ConnectProviderRequest, opts ...grpc.CallOption) (*v1.ConnectProviderResponse, error)
 	GetProviderConnectSession(ctx context.Context, in *v1.GetProviderConnectSessionRequest, opts ...grpc.CallOption) (*v1.GetProviderConnectSessionResponse, error)
 	UpdateProviderAuthentication(ctx context.Context, in *v1.UpdateProviderAuthenticationRequest, opts ...grpc.CallOption) (*v1.UpdateProviderAuthenticationResponse, error)
 	UpdateProviderObservabilityAuthentication(ctx context.Context, in *v1.UpdateProviderObservabilityAuthenticationRequest, opts ...grpc.CallOption) (*v1.UpdateProviderObservabilityAuthenticationResponse, error)
+	ProbeProviderObservability(ctx context.Context, in *v1.ProbeProviderObservabilityRequest, opts ...grpc.CallOption) (*v1.ProbeProviderObservabilityResponse, error)
+	ProbeProviderModelCatalog(ctx context.Context, in *v1.ProbeProviderModelCatalogRequest, opts ...grpc.CallOption) (*v1.ProbeProviderModelCatalogResponse, error)
 }
 
 type providerOrchestrationServiceClient struct {
@@ -88,18 +93,41 @@ func (c *providerOrchestrationServiceClient) UpdateProviderObservabilityAuthenti
 	return out, nil
 }
 
+func (c *providerOrchestrationServiceClient) ProbeProviderObservability(ctx context.Context, in *v1.ProbeProviderObservabilityRequest, opts ...grpc.CallOption) (*v1.ProbeProviderObservabilityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(v1.ProbeProviderObservabilityResponse)
+	err := c.cc.Invoke(ctx, ProviderOrchestrationService_ProbeProviderObservability_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerOrchestrationServiceClient) ProbeProviderModelCatalog(ctx context.Context, in *v1.ProbeProviderModelCatalogRequest, opts ...grpc.CallOption) (*v1.ProbeProviderModelCatalogResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(v1.ProbeProviderModelCatalogResponse)
+	err := c.cc.Invoke(ctx, ProviderOrchestrationService_ProbeProviderModelCatalog_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProviderOrchestrationServiceServer is the server API for ProviderOrchestrationService service.
 // All implementations must embed UnimplementedProviderOrchestrationServiceServer
 // for forward compatibility.
 //
-// ProviderOrchestrationService owns cross-domain provider onboarding and
-// credential update flows. Secret material is accepted only at this API
-// boundary and is never passed into Temporal workflow payloads.
+// ProviderOrchestrationService owns cross-domain provider onboarding,
+// credential update, and provider probe coordination flows. Secret material is
+// accepted only at this API boundary and is never passed into Temporal workflow
+// payloads.
 type ProviderOrchestrationServiceServer interface {
 	ConnectProvider(context.Context, *v1.ConnectProviderRequest) (*v1.ConnectProviderResponse, error)
 	GetProviderConnectSession(context.Context, *v1.GetProviderConnectSessionRequest) (*v1.GetProviderConnectSessionResponse, error)
 	UpdateProviderAuthentication(context.Context, *v1.UpdateProviderAuthenticationRequest) (*v1.UpdateProviderAuthenticationResponse, error)
 	UpdateProviderObservabilityAuthentication(context.Context, *v1.UpdateProviderObservabilityAuthenticationRequest) (*v1.UpdateProviderObservabilityAuthenticationResponse, error)
+	ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error)
+	ProbeProviderModelCatalog(context.Context, *v1.ProbeProviderModelCatalogRequest) (*v1.ProbeProviderModelCatalogResponse, error)
 	mustEmbedUnimplementedProviderOrchestrationServiceServer()
 }
 
@@ -121,6 +149,12 @@ func (UnimplementedProviderOrchestrationServiceServer) UpdateProviderAuthenticat
 }
 func (UnimplementedProviderOrchestrationServiceServer) UpdateProviderObservabilityAuthentication(context.Context, *v1.UpdateProviderObservabilityAuthenticationRequest) (*v1.UpdateProviderObservabilityAuthenticationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateProviderObservabilityAuthentication not implemented")
+}
+func (UnimplementedProviderOrchestrationServiceServer) ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProbeProviderObservability not implemented")
+}
+func (UnimplementedProviderOrchestrationServiceServer) ProbeProviderModelCatalog(context.Context, *v1.ProbeProviderModelCatalogRequest) (*v1.ProbeProviderModelCatalogResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProbeProviderModelCatalog not implemented")
 }
 func (UnimplementedProviderOrchestrationServiceServer) mustEmbedUnimplementedProviderOrchestrationServiceServer() {
 }
@@ -216,6 +250,42 @@ func _ProviderOrchestrationService_UpdateProviderObservabilityAuthentication_Han
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProviderOrchestrationService_ProbeProviderObservability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v1.ProbeProviderObservabilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderOrchestrationServiceServer).ProbeProviderObservability(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderOrchestrationService_ProbeProviderObservability_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderOrchestrationServiceServer).ProbeProviderObservability(ctx, req.(*v1.ProbeProviderObservabilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderOrchestrationService_ProbeProviderModelCatalog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(v1.ProbeProviderModelCatalogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderOrchestrationServiceServer).ProbeProviderModelCatalog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderOrchestrationService_ProbeProviderModelCatalog_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderOrchestrationServiceServer).ProbeProviderModelCatalog(ctx, req.(*v1.ProbeProviderModelCatalogRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProviderOrchestrationService_ServiceDesc is the grpc.ServiceDesc for ProviderOrchestrationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -238,6 +308,14 @@ var ProviderOrchestrationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateProviderObservabilityAuthentication",
 			Handler:    _ProviderOrchestrationService_UpdateProviderObservabilityAuthentication_Handler,
+		},
+		{
+			MethodName: "ProbeProviderObservability",
+			Handler:    _ProviderOrchestrationService_ProbeProviderObservability_Handler,
+		},
+		{
+			MethodName: "ProbeProviderModelCatalog",
+			Handler:    _ProviderOrchestrationService_ProbeProviderModelCatalog_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

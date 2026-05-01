@@ -4,6 +4,7 @@ package platform.agent_run.v1;
 
 import "agent/core/v1/agent.proto";
 import "agent/result/v1/result.proto";
+import "credential/v1/credential.proto";
 import "google/protobuf/timestamp.proto";
 import "provider/v1/provider.proto";
 import "platform/condition/v1/condition.proto";
@@ -43,8 +44,18 @@ message AgentRunAuthRequirement {
  string auth_status = 3;
   string runtime_url = 4;
   string materialization_key = 5;
-  provider.v1.ProviderRunBinding provider_run_binding = 6;
+  AgentRunProviderBinding provider_binding = 6;
   string surface_id = 7;
+}
+
+message AgentRunProviderBinding {
+  string provider_id = 1;
+  credential.v1.CredentialGrantRef credential_grant_ref = 2;
+  provider.v1.ProviderEndpoint endpoint = 3;
+  string materialization_key = 4;
+  string provider_model_id = 5;
+  string canonical_model_id = 6;
+  string source_model_id = 7;
 }
 
 // AgentRunPrepareJob captures one CLI-scoped prepare workload before execution.

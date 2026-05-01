@@ -5,13 +5,13 @@ package platform.management.v1;
 import "egress/v1/policy.proto";
 import "google/protobuf/timestamp.proto";
 import "api_protocol/v1/protocol.proto";
-import "product_info/v1/product_info.proto";
 import "provider/v1/provider.proto";
 import "platform/agent_profile/v1/agent_profile.proto";
 import "platform/mcp/v1/mcp.proto";
 import "platform/provider/v1/provider_shared.proto";
 import "platform/rule/v1/rule.proto";
 import "platform/skill/v1/skill.proto";
+import "platform/support/v1/support_service.proto";
 
 option go_package = "code-code.internal/go-contract/platform/management/v1;managementv1";
 
@@ -237,7 +237,7 @@ message DeleteRuleResponse {
 message ListProviderSurfacesRequest {}
 
 message ListProviderSurfacesResponse {
-  repeated .provider.v1.ProviderSurface items = 1;
+  repeated platform.support.v1.Surface items = 1;
 }
 
 message ListProvidersRequest {}
@@ -262,12 +262,27 @@ message ProviderView {
   reserved "default_model_id";
   .provider.v1.ProviderModelCatalog model_catalog = 10;
   repeated ProviderHostTelemetry host_telemetry = 11;
+  repeated .provider.v1.ProviderModel models = 17;
+  repeated .provider.v1.ProviderEndpoint endpoints = 18;
+  ProviderObservabilityView observability = 19;
+  .provider.v1.ProviderProbeStatus probe_status = 20;
 
   // Flat surface fields (Provider 1:1 Surface).
   string surface_id = 13;
   .provider.v1.ProviderSurfaceRuntime runtime = 14;
   string product_info_id = 15;
   ProviderStatus status = 16;
+}
+
+message ProviderObservabilityView {
+  string observability_policy_id = 1;
+  ProviderObservabilityStatus status = 2;
+}
+
+message ProviderObservabilityStatus {
+  bool supports_quota = 1;
+  bool supports_model_usage = 2;
+  bool supports_account_summary = 3;
 }
 
 message ProviderStatus {
@@ -298,6 +313,7 @@ message ProviderHostTelemetry {
 message UpsertProviderRequest {
   string display_name = 1;
   string surface_id = 2;
+  repeated .provider.v1.ProviderModel models = 10;
   string provider_credential_id = 13;
   .provider.v1.ProviderSurfaceRuntime runtime = 14;
   string vendor_id = 15;
@@ -384,6 +400,7 @@ message ApiKeyConnectMaterial {
   // surfaces. Each entry carries one surface-local provider_model_id plus one
   // optional authority model binding.
   repeated ProviderSurfaceModelCatalog surface_model_catalogs = 4;
+  repeated .provider.v1.ProviderModel models = 5;
 
 }
 
@@ -411,6 +428,7 @@ message ConnectProviderRequest {
 
   // API key and CLI OAuth are the only supported provider add methods.
   platform.provider.v1.ProviderAddMethod add_method = 7;
+  string surface_id = 10;
 
   oneof auth_material {
     ApiKeyConnectMaterial api_key = 5;
@@ -431,6 +449,7 @@ message ProviderConnectSessionView {
   platform.provider.v1.ProviderAddMethod add_method = 10;
   string vendor_id = 11;
   string cli_id = 12;
+  string surface_id = 13;
 }
 
 message ConnectProviderResponse {
@@ -463,7 +482,19 @@ message ProbeProviderObservabilityResponse {
   string next_allowed_at = 5;
   string last_attempt_at = 6;
   repeated string provider_ids = 7;
-  string workflow_id = 8;
+  string probe_id = 8;
+}
+
+message ProbeProviderModelCatalogRequest {
+  string provider_id = 1;
+  repeated string provider_ids = 2;
+}
+
+message ProbeProviderModelCatalogResponse {
+  string provider_id = 1;
+  repeated string provider_ids = 2;
+  string message = 3;
+  string probe_id = 4;
 }
 
 message ProviderWorkflowStatus {

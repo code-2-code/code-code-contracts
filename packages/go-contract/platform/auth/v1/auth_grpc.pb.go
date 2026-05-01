@@ -39,6 +39,7 @@ const (
 	AuthService_GetEgressAuthPolicy_FullMethodName            = "/platform.auth.v1.AuthService/GetEgressAuthPolicy"
 	AuthService_ResolveEgressRequestHeaders_FullMethodName    = "/platform.auth.v1.AuthService/ResolveEgressRequestHeaders"
 	AuthService_ResolveEgressResponseHeaders_FullMethodName   = "/platform.auth.v1.AuthService/ResolveEgressResponseHeaders"
+	AuthService_RecordEgressResponseHeaders_FullMethodName    = "/platform.auth.v1.AuthService/RecordEgressResponseHeaders"
 )
 
 // AuthServiceClient is the client API for AuthService service.
@@ -65,6 +66,7 @@ type AuthServiceClient interface {
 	GetEgressAuthPolicy(ctx context.Context, in *GetEgressAuthPolicyRequest, opts ...grpc.CallOption) (*GetEgressAuthPolicyResponse, error)
 	ResolveEgressRequestHeaders(ctx context.Context, in *ResolveEgressRequestHeadersRequest, opts ...grpc.CallOption) (*ResolveEgressRequestHeadersResponse, error)
 	ResolveEgressResponseHeaders(ctx context.Context, in *ResolveEgressResponseHeadersRequest, opts ...grpc.CallOption) (*ResolveEgressResponseHeadersResponse, error)
+	RecordEgressResponseHeaders(ctx context.Context, in *RecordEgressResponseHeadersRequest, opts ...grpc.CallOption) (*RecordEgressResponseHeadersResponse, error)
 }
 
 type authServiceClient struct {
@@ -275,6 +277,16 @@ func (c *authServiceClient) ResolveEgressResponseHeaders(ctx context.Context, in
 	return out, nil
 }
 
+func (c *authServiceClient) RecordEgressResponseHeaders(ctx context.Context, in *RecordEgressResponseHeadersRequest, opts ...grpc.CallOption) (*RecordEgressResponseHeadersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RecordEgressResponseHeadersResponse)
+	err := c.cc.Invoke(ctx, AuthService_RecordEgressResponseHeaders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AuthServiceServer is the server API for AuthService service.
 // All implementations must embed UnimplementedAuthServiceServer
 // for forward compatibility.
@@ -299,6 +311,7 @@ type AuthServiceServer interface {
 	GetEgressAuthPolicy(context.Context, *GetEgressAuthPolicyRequest) (*GetEgressAuthPolicyResponse, error)
 	ResolveEgressRequestHeaders(context.Context, *ResolveEgressRequestHeadersRequest) (*ResolveEgressRequestHeadersResponse, error)
 	ResolveEgressResponseHeaders(context.Context, *ResolveEgressResponseHeadersRequest) (*ResolveEgressResponseHeadersResponse, error)
+	RecordEgressResponseHeaders(context.Context, *RecordEgressResponseHeadersRequest) (*RecordEgressResponseHeadersResponse, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }
 
@@ -368,6 +381,9 @@ func (UnimplementedAuthServiceServer) ResolveEgressRequestHeaders(context.Contex
 }
 func (UnimplementedAuthServiceServer) ResolveEgressResponseHeaders(context.Context, *ResolveEgressResponseHeadersRequest) (*ResolveEgressResponseHeadersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ResolveEgressResponseHeaders not implemented")
+}
+func (UnimplementedAuthServiceServer) RecordEgressResponseHeaders(context.Context, *RecordEgressResponseHeadersRequest) (*RecordEgressResponseHeadersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RecordEgressResponseHeaders not implemented")
 }
 func (UnimplementedAuthServiceServer) mustEmbedUnimplementedAuthServiceServer() {}
 func (UnimplementedAuthServiceServer) testEmbeddedByValue()                     {}
@@ -750,6 +766,24 @@ func _AuthService_ResolveEgressResponseHeaders_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AuthService_RecordEgressResponseHeaders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecordEgressResponseHeadersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).RecordEgressResponseHeaders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_RecordEgressResponseHeaders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).RecordEgressResponseHeaders(ctx, req.(*RecordEgressResponseHeadersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AuthService_ServiceDesc is the grpc.ServiceDesc for AuthService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -836,6 +870,10 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ResolveEgressResponseHeaders",
 			Handler:    _AuthService_ResolveEgressResponseHeaders_Handler,
+		},
+		{
+			MethodName: "RecordEgressResponseHeaders",
+			Handler:    _AuthService_RecordEgressResponseHeaders_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -108,6 +108,9 @@ message Provider {
 
   reserved 12;
   reserved "source_ref";
+  repeated ProviderModel models = 13;
+  CustomAPIKeySurface custom_api_key_surface = 14;
+  ProviderProbeStatus probe_status = 15;
 }
 
 // ProviderCapabilities describes which capabilities one provider exposes natively.
@@ -124,6 +127,59 @@ message ProviderCapabilities {
 // ProviderCredentialRef references a provider credential by stable identity.
 message ProviderCredentialRef {
   string provider_credential_id = 1;
+}
+
+message ProviderModel {
+  string provider_model_id = 1;
+  model.v1.ModelRef model_ref = 2;
+}
+
+message CustomAPIKeySurface {
+  string base_url = 1;
+  api_protocol.v1.Protocol protocol = 2;
+}
+
+message ProviderEndpoint {
+  ProviderEndpointType type = 1;
+
+  oneof shape {
+    ProviderApiEndpoint api = 2;
+    ProviderCliEndpoint cli = 3;
+  }
+}
+
+enum ProviderEndpointType {
+  PROVIDER_ENDPOINT_TYPE_UNSPECIFIED = 0;
+  PROVIDER_ENDPOINT_TYPE_API = 1;
+  PROVIDER_ENDPOINT_TYPE_CLI = 2;
+}
+
+message ProviderApiEndpoint {
+  string base_url = 1;
+  api_protocol.v1.Protocol protocol = 2;
+}
+
+message ProviderCliEndpoint {
+  string cli_id = 1;
+}
+
+message ProviderProbeStatus {
+  ProviderProbeRunState model_catalog = 1;
+  ProviderProbeRunState quota = 2;
+}
+
+message ProviderProbeRunState {
+  google.protobuf.Timestamp last_attempt_at = 1;
+  google.protobuf.Timestamp next_allowed_at = 2;
+  string probe_id = 3;
+  string outcome = 4;
+  string message = 5;
+}
+
+enum ProviderProbeKind {
+  PROVIDER_PROBE_KIND_UNSPECIFIED = 0;
+  PROVIDER_PROBE_KIND_MODEL_CATALOG = 1;
+  PROVIDER_PROBE_KIND_QUOTA = 2;
 }
 
 // ProviderRuntimeRef references one callable surface inside one provider.
@@ -156,6 +212,8 @@ message ProviderRunBinding {
     ProviderRunAPIAccess api = 9;
     ProviderRunCLIAccess cli = 10;
   }
+
+  ProviderEndpoint endpoint = 11;
 }
 
 message ProviderRunAPIAccess {
@@ -240,4 +298,5 @@ message ResolvedProviderModel {
   reserved "provider_metadata";
   CatalogSource source = 8;
   ResolvedProviderSurface surface = 9;
+  ProviderEndpoint endpoint = 10;
 }

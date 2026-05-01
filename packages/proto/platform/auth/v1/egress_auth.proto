@@ -44,6 +44,27 @@ message ResolveEgressResponseHeadersRequest {
   string target_method = 18;
 }
 
+message RecordEgressResponseHeadersRequest {
+  string policy_id = 1;
+  string credential_id = 2;
+  string target_host = 3;
+  string origin = 4;
+  map<string, string> request_headers = 5;
+  map<string, string> response_headers = 6;
+  EgressRequestSource runtime_source = 7;
+  string target_path = 8;
+  uint32 status_code = 9;
+  string source_principal = 10;
+  string egress_policy_id = 11;
+  string auth_policy_id = 12;
+  string target_method = 13;
+}
+
+message RecordEgressResponseHeadersResponse {
+  bool material_updated = 1;
+  bool skipped = 2;
+}
+
 message EgressHeaderReplacementItem {
   string name = 1;
   string current_value = 2;

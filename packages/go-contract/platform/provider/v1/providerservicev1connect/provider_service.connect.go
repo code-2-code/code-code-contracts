@@ -48,18 +48,24 @@ const (
 	// ProviderServiceDeleteProviderProcedure is the fully-qualified name of the ProviderService's
 	// DeleteProvider RPC.
 	ProviderServiceDeleteProviderProcedure = "/platform.provider.v1.ProviderService/DeleteProvider"
+	// ProviderServiceApplyProviderModelCatalogProcedure is the fully-qualified name of the
+	// ProviderService's ApplyProviderModelCatalog RPC.
+	ProviderServiceApplyProviderModelCatalogProcedure = "/platform.provider.v1.ProviderService/ApplyProviderModelCatalog"
+	// ProviderServiceApplyProviderProbeStatusProcedure is the fully-qualified name of the
+	// ProviderService's ApplyProviderProbeStatus RPC.
+	ProviderServiceApplyProviderProbeStatusProcedure = "/platform.provider.v1.ProviderService/ApplyProviderProbeStatus"
 	// ProviderServiceProbeProviderObservabilityProcedure is the fully-qualified name of the
 	// ProviderService's ProbeProviderObservability RPC.
 	ProviderServiceProbeProviderObservabilityProcedure = "/platform.provider.v1.ProviderService/ProbeProviderObservability"
+	// ProviderServiceProbeProviderModelCatalogProcedure is the fully-qualified name of the
+	// ProviderService's ProbeProviderModelCatalog RPC.
+	ProviderServiceProbeProviderModelCatalogProcedure = "/platform.provider.v1.ProviderService/ProbeProviderModelCatalog"
 	// ProviderServiceWatchProviderStatusEventsProcedure is the fully-qualified name of the
 	// ProviderService's WatchProviderStatusEvents RPC.
 	ProviderServiceWatchProviderStatusEventsProcedure = "/platform.provider.v1.ProviderService/WatchProviderStatusEvents"
 	// ProviderServiceListVendorsProcedure is the fully-qualified name of the ProviderService's
 	// ListVendors RPC.
 	ProviderServiceListVendorsProcedure = "/platform.provider.v1.ProviderService/ListVendors"
-	// ProviderServiceListCLIDefinitionsProcedure is the fully-qualified name of the ProviderService's
-	// ListCLIDefinitions RPC.
-	ProviderServiceListCLIDefinitionsProcedure = "/platform.provider.v1.ProviderService/ListCLIDefinitions"
 	// ProviderServiceListTemplatesProcedure is the fully-qualified name of the ProviderService's
 	// ListTemplates RPC.
 	ProviderServiceListTemplatesProcedure = "/platform.provider.v1.ProviderService/ListTemplates"
@@ -75,10 +81,12 @@ type ProviderServiceClient interface {
 	CreateProvider(context.Context, *v1.CreateProviderRequest) (*v1.CreateProviderResponse, error)
 	UpdateProvider(context.Context, *v1.UpdateProviderRequest) (*v1.UpdateProviderResponse, error)
 	DeleteProvider(context.Context, *v1.DeleteProviderRequest) (*v1.DeleteProviderResponse, error)
+	ApplyProviderModelCatalog(context.Context, *v1.ApplyProviderModelCatalogRequest) (*v1.ApplyProviderModelCatalogResponse, error)
+	ApplyProviderProbeStatus(context.Context, *v1.ApplyProviderProbeStatusRequest) (*v1.ApplyProviderProbeStatusResponse, error)
 	ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error)
+	ProbeProviderModelCatalog(context.Context, *v1.ProbeProviderModelCatalogRequest) (*v1.ProbeProviderModelCatalogResponse, error)
 	WatchProviderStatusEvents(context.Context, *v1.WatchProviderStatusEventsRequest) (*connect.ServerStreamForClient[v1.WatchProviderStatusEventsResponse], error)
 	ListVendors(context.Context, *v1.ListVendorsRequest) (*v1.ListVendorsResponse, error)
-	ListCLIDefinitions(context.Context, *v1.ListCLIDefinitionsRequest) (*v1.ListCLIDefinitionsResponse, error)
 	ListTemplates(context.Context, *v1.ListTemplatesRequest) (*v1.ListTemplatesResponse, error)
 	ApplyTemplate(context.Context, *v1.ApplyTemplateRequest) (*v1.ApplyTemplateResponse, error)
 }
@@ -124,10 +132,28 @@ func NewProviderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 			connect.WithSchema(providerServiceMethods.ByName("DeleteProvider")),
 			connect.WithClientOptions(opts...),
 		),
+		applyProviderModelCatalog: connect.NewClient[v1.ApplyProviderModelCatalogRequest, v1.ApplyProviderModelCatalogResponse](
+			httpClient,
+			baseURL+ProviderServiceApplyProviderModelCatalogProcedure,
+			connect.WithSchema(providerServiceMethods.ByName("ApplyProviderModelCatalog")),
+			connect.WithClientOptions(opts...),
+		),
+		applyProviderProbeStatus: connect.NewClient[v1.ApplyProviderProbeStatusRequest, v1.ApplyProviderProbeStatusResponse](
+			httpClient,
+			baseURL+ProviderServiceApplyProviderProbeStatusProcedure,
+			connect.WithSchema(providerServiceMethods.ByName("ApplyProviderProbeStatus")),
+			connect.WithClientOptions(opts...),
+		),
 		probeProviderObservability: connect.NewClient[v1.ProbeProviderObservabilityRequest, v1.ProbeProviderObservabilityResponse](
 			httpClient,
 			baseURL+ProviderServiceProbeProviderObservabilityProcedure,
 			connect.WithSchema(providerServiceMethods.ByName("ProbeProviderObservability")),
+			connect.WithClientOptions(opts...),
+		),
+		probeProviderModelCatalog: connect.NewClient[v1.ProbeProviderModelCatalogRequest, v1.ProbeProviderModelCatalogResponse](
+			httpClient,
+			baseURL+ProviderServiceProbeProviderModelCatalogProcedure,
+			connect.WithSchema(providerServiceMethods.ByName("ProbeProviderModelCatalog")),
 			connect.WithClientOptions(opts...),
 		),
 		watchProviderStatusEvents: connect.NewClient[v1.WatchProviderStatusEventsRequest, v1.WatchProviderStatusEventsResponse](
@@ -140,12 +166,6 @@ func NewProviderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 			httpClient,
 			baseURL+ProviderServiceListVendorsProcedure,
 			connect.WithSchema(providerServiceMethods.ByName("ListVendors")),
-			connect.WithClientOptions(opts...),
-		),
-		listCLIDefinitions: connect.NewClient[v1.ListCLIDefinitionsRequest, v1.ListCLIDefinitionsResponse](
-			httpClient,
-			baseURL+ProviderServiceListCLIDefinitionsProcedure,
-			connect.WithSchema(providerServiceMethods.ByName("ListCLIDefinitions")),
 			connect.WithClientOptions(opts...),
 		),
 		listTemplates: connect.NewClient[v1.ListTemplatesRequest, v1.ListTemplatesResponse](
@@ -170,10 +190,12 @@ type providerServiceClient struct {
 	createProvider             *connect.Client[v1.CreateProviderRequest, v1.CreateProviderResponse]
 	updateProvider             *connect.Client[v1.UpdateProviderRequest, v1.UpdateProviderResponse]
 	deleteProvider             *connect.Client[v1.DeleteProviderRequest, v1.DeleteProviderResponse]
+	applyProviderModelCatalog  *connect.Client[v1.ApplyProviderModelCatalogRequest, v1.ApplyProviderModelCatalogResponse]
+	applyProviderProbeStatus   *connect.Client[v1.ApplyProviderProbeStatusRequest, v1.ApplyProviderProbeStatusResponse]
 	probeProviderObservability *connect.Client[v1.ProbeProviderObservabilityRequest, v1.ProbeProviderObservabilityResponse]
+	probeProviderModelCatalog  *connect.Client[v1.ProbeProviderModelCatalogRequest, v1.ProbeProviderModelCatalogResponse]
 	watchProviderStatusEvents  *connect.Client[v1.WatchProviderStatusEventsRequest, v1.WatchProviderStatusEventsResponse]
 	listVendors                *connect.Client[v1.ListVendorsRequest, v1.ListVendorsResponse]
-	listCLIDefinitions         *connect.Client[v1.ListCLIDefinitionsRequest, v1.ListCLIDefinitionsResponse]
 	listTemplates              *connect.Client[v1.ListTemplatesRequest, v1.ListTemplatesResponse]
 	applyTemplate              *connect.Client[v1.ApplyTemplateRequest, v1.ApplyTemplateResponse]
 }
@@ -223,9 +245,36 @@ func (c *providerServiceClient) DeleteProvider(ctx context.Context, req *v1.Dele
 	return nil, err
 }
 
+// ApplyProviderModelCatalog calls platform.provider.v1.ProviderService.ApplyProviderModelCatalog.
+func (c *providerServiceClient) ApplyProviderModelCatalog(ctx context.Context, req *v1.ApplyProviderModelCatalogRequest) (*v1.ApplyProviderModelCatalogResponse, error) {
+	response, err := c.applyProviderModelCatalog.CallUnary(ctx, connect.NewRequest(req))
+	if response != nil {
+		return response.Msg, err
+	}
+	return nil, err
+}
+
+// ApplyProviderProbeStatus calls platform.provider.v1.ProviderService.ApplyProviderProbeStatus.
+func (c *providerServiceClient) ApplyProviderProbeStatus(ctx context.Context, req *v1.ApplyProviderProbeStatusRequest) (*v1.ApplyProviderProbeStatusResponse, error) {
+	response, err := c.applyProviderProbeStatus.CallUnary(ctx, connect.NewRequest(req))
+	if response != nil {
+		return response.Msg, err
+	}
+	return nil, err
+}
+
 // ProbeProviderObservability calls platform.provider.v1.ProviderService.ProbeProviderObservability.
 func (c *providerServiceClient) ProbeProviderObservability(ctx context.Context, req *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error) {
 	response, err := c.probeProviderObservability.CallUnary(ctx, connect.NewRequest(req))
+	if response != nil {
+		return response.Msg, err
+	}
+	return nil, err
+}
+
+// ProbeProviderModelCatalog calls platform.provider.v1.ProviderService.ProbeProviderModelCatalog.
+func (c *providerServiceClient) ProbeProviderModelCatalog(ctx context.Context, req *v1.ProbeProviderModelCatalogRequest) (*v1.ProbeProviderModelCatalogResponse, error) {
+	response, err := c.probeProviderModelCatalog.CallUnary(ctx, connect.NewRequest(req))
 	if response != nil {
 		return response.Msg, err
 	}
@@ -240,15 +289,6 @@ func (c *providerServiceClient) WatchProviderStatusEvents(ctx context.Context, r
 // ListVendors calls platform.provider.v1.ProviderService.ListVendors.
 func (c *providerServiceClient) ListVendors(ctx context.Context, req *v1.ListVendorsRequest) (*v1.ListVendorsResponse, error) {
 	response, err := c.listVendors.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// ListCLIDefinitions calls platform.provider.v1.ProviderService.ListCLIDefinitions.
-func (c *providerServiceClient) ListCLIDefinitions(ctx context.Context, req *v1.ListCLIDefinitionsRequest) (*v1.ListCLIDefinitionsResponse, error) {
-	response, err := c.listCLIDefinitions.CallUnary(ctx, connect.NewRequest(req))
 	if response != nil {
 		return response.Msg, err
 	}
@@ -280,10 +320,12 @@ type ProviderServiceHandler interface {
 	CreateProvider(context.Context, *v1.CreateProviderRequest) (*v1.CreateProviderResponse, error)
 	UpdateProvider(context.Context, *v1.UpdateProviderRequest) (*v1.UpdateProviderResponse, error)
 	DeleteProvider(context.Context, *v1.DeleteProviderRequest) (*v1.DeleteProviderResponse, error)
+	ApplyProviderModelCatalog(context.Context, *v1.ApplyProviderModelCatalogRequest) (*v1.ApplyProviderModelCatalogResponse, error)
+	ApplyProviderProbeStatus(context.Context, *v1.ApplyProviderProbeStatusRequest) (*v1.ApplyProviderProbeStatusResponse, error)
 	ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error)
+	ProbeProviderModelCatalog(context.Context, *v1.ProbeProviderModelCatalogRequest) (*v1.ProbeProviderModelCatalogResponse, error)
 	WatchProviderStatusEvents(context.Context, *v1.WatchProviderStatusEventsRequest, *connect.ServerStream[v1.WatchProviderStatusEventsResponse]) error
 	ListVendors(context.Context, *v1.ListVendorsRequest) (*v1.ListVendorsResponse, error)
-	ListCLIDefinitions(context.Context, *v1.ListCLIDefinitionsRequest) (*v1.ListCLIDefinitionsResponse, error)
 	ListTemplates(context.Context, *v1.ListTemplatesRequest) (*v1.ListTemplatesResponse, error)
 	ApplyTemplate(context.Context, *v1.ApplyTemplateRequest) (*v1.ApplyTemplateResponse, error)
 }
@@ -325,10 +367,28 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 		connect.WithSchema(providerServiceMethods.ByName("DeleteProvider")),
 		connect.WithHandlerOptions(opts...),
 	)
+	providerServiceApplyProviderModelCatalogHandler := connect.NewUnaryHandlerSimple(
+		ProviderServiceApplyProviderModelCatalogProcedure,
+		svc.ApplyProviderModelCatalog,
+		connect.WithSchema(providerServiceMethods.ByName("ApplyProviderModelCatalog")),
+		connect.WithHandlerOptions(opts...),
+	)
+	providerServiceApplyProviderProbeStatusHandler := connect.NewUnaryHandlerSimple(
+		ProviderServiceApplyProviderProbeStatusProcedure,
+		svc.ApplyProviderProbeStatus,
+		connect.WithSchema(providerServiceMethods.ByName("ApplyProviderProbeStatus")),
+		connect.WithHandlerOptions(opts...),
+	)
 	providerServiceProbeProviderObservabilityHandler := connect.NewUnaryHandlerSimple(
 		ProviderServiceProbeProviderObservabilityProcedure,
 		svc.ProbeProviderObservability,
 		connect.WithSchema(providerServiceMethods.ByName("ProbeProviderObservability")),
+		connect.WithHandlerOptions(opts...),
+	)
+	providerServiceProbeProviderModelCatalogHandler := connect.NewUnaryHandlerSimple(
+		ProviderServiceProbeProviderModelCatalogProcedure,
+		svc.ProbeProviderModelCatalog,
+		connect.WithSchema(providerServiceMethods.ByName("ProbeProviderModelCatalog")),
 		connect.WithHandlerOptions(opts...),
 	)
 	providerServiceWatchProviderStatusEventsHandler := connect.NewServerStreamHandlerSimple(
@@ -341,12 +401,6 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 		ProviderServiceListVendorsProcedure,
 		svc.ListVendors,
 		connect.WithSchema(providerServiceMethods.ByName("ListVendors")),
-		connect.WithHandlerOptions(opts...),
-	)
-	providerServiceListCLIDefinitionsHandler := connect.NewUnaryHandlerSimple(
-		ProviderServiceListCLIDefinitionsProcedure,
-		svc.ListCLIDefinitions,
-		connect.WithSchema(providerServiceMethods.ByName("ListCLIDefinitions")),
 		connect.WithHandlerOptions(opts...),
 	)
 	providerServiceListTemplatesHandler := connect.NewUnaryHandlerSimple(
@@ -373,14 +427,18 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 			providerServiceUpdateProviderHandler.ServeHTTP(w, r)
 		case ProviderServiceDeleteProviderProcedure:
 			providerServiceDeleteProviderHandler.ServeHTTP(w, r)
+		case ProviderServiceApplyProviderModelCatalogProcedure:
+			providerServiceApplyProviderModelCatalogHandler.ServeHTTP(w, r)
+		case ProviderServiceApplyProviderProbeStatusProcedure:
+			providerServiceApplyProviderProbeStatusHandler.ServeHTTP(w, r)
 		case ProviderServiceProbeProviderObservabilityProcedure:
 			providerServiceProbeProviderObservabilityHandler.ServeHTTP(w, r)
+		case ProviderServiceProbeProviderModelCatalogProcedure:
+			providerServiceProbeProviderModelCatalogHandler.ServeHTTP(w, r)
 		case ProviderServiceWatchProviderStatusEventsProcedure:
 			providerServiceWatchProviderStatusEventsHandler.ServeHTTP(w, r)
 		case ProviderServiceListVendorsProcedure:
 			providerServiceListVendorsHandler.ServeHTTP(w, r)
-		case ProviderServiceListCLIDefinitionsProcedure:
-			providerServiceListCLIDefinitionsHandler.ServeHTTP(w, r)
 		case ProviderServiceListTemplatesProcedure:
 			providerServiceListTemplatesHandler.ServeHTTP(w, r)
 		case ProviderServiceApplyTemplateProcedure:
@@ -414,8 +472,20 @@ func (UnimplementedProviderServiceHandler) DeleteProvider(context.Context, *v1.D
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.DeleteProvider is not implemented"))
 }
 
+func (UnimplementedProviderServiceHandler) ApplyProviderModelCatalog(context.Context, *v1.ApplyProviderModelCatalogRequest) (*v1.ApplyProviderModelCatalogResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.ApplyProviderModelCatalog is not implemented"))
+}
+
+func (UnimplementedProviderServiceHandler) ApplyProviderProbeStatus(context.Context, *v1.ApplyProviderProbeStatusRequest) (*v1.ApplyProviderProbeStatusResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.ApplyProviderProbeStatus is not implemented"))
+}
+
 func (UnimplementedProviderServiceHandler) ProbeProviderObservability(context.Context, *v1.ProbeProviderObservabilityRequest) (*v1.ProbeProviderObservabilityResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.ProbeProviderObservability is not implemented"))
+}
+
+func (UnimplementedProviderServiceHandler) ProbeProviderModelCatalog(context.Context, *v1.ProbeProviderModelCatalogRequest) (*v1.ProbeProviderModelCatalogResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.ProbeProviderModelCatalog is not implemented"))
 }
 
 func (UnimplementedProviderServiceHandler) WatchProviderStatusEvents(context.Context, *v1.WatchProviderStatusEventsRequest, *connect.ServerStream[v1.WatchProviderStatusEventsResponse]) error {
@@ -424,10 +494,6 @@ func (UnimplementedProviderServiceHandler) WatchProviderStatusEvents(context.Con
 
 func (UnimplementedProviderServiceHandler) ListVendors(context.Context, *v1.ListVendorsRequest) (*v1.ListVendorsResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.ListVendors is not implemented"))
-}
-
-func (UnimplementedProviderServiceHandler) ListCLIDefinitions(context.Context, *v1.ListCLIDefinitionsRequest) (*v1.ListCLIDefinitionsResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.provider.v1.ProviderService.ListCLIDefinitions is not implemented"))
 }
 
 func (UnimplementedProviderServiceHandler) ListTemplates(context.Context, *v1.ListTemplatesRequest) (*v1.ListTemplatesResponse, error) {

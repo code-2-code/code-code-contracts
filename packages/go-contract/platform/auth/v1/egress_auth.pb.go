@@ -417,6 +417,198 @@ func (x *ResolveEgressResponseHeadersRequest) GetTargetMethod() string {
 	return ""
 }
 
+type RecordEgressResponseHeadersRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	PolicyId        string                 `protobuf:"bytes,1,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
+	CredentialId    string                 `protobuf:"bytes,2,opt,name=credential_id,json=credentialId,proto3" json:"credential_id,omitempty"`
+	TargetHost      string                 `protobuf:"bytes,3,opt,name=target_host,json=targetHost,proto3" json:"target_host,omitempty"`
+	Origin          string                 `protobuf:"bytes,4,opt,name=origin,proto3" json:"origin,omitempty"`
+	RequestHeaders  map[string]string      `protobuf:"bytes,5,rep,name=request_headers,json=requestHeaders,proto3" json:"request_headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	ResponseHeaders map[string]string      `protobuf:"bytes,6,rep,name=response_headers,json=responseHeaders,proto3" json:"response_headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	RuntimeSource   *EgressRequestSource   `protobuf:"bytes,7,opt,name=runtime_source,json=runtimeSource,proto3" json:"runtime_source,omitempty"`
+	TargetPath      string                 `protobuf:"bytes,8,opt,name=target_path,json=targetPath,proto3" json:"target_path,omitempty"`
+	StatusCode      uint32                 `protobuf:"varint,9,opt,name=status_code,json=statusCode,proto3" json:"status_code,omitempty"`
+	SourcePrincipal string                 `protobuf:"bytes,10,opt,name=source_principal,json=sourcePrincipal,proto3" json:"source_principal,omitempty"`
+	EgressPolicyId  string                 `protobuf:"bytes,11,opt,name=egress_policy_id,json=egressPolicyId,proto3" json:"egress_policy_id,omitempty"`
+	AuthPolicyId    string                 `protobuf:"bytes,12,opt,name=auth_policy_id,json=authPolicyId,proto3" json:"auth_policy_id,omitempty"`
+	TargetMethod    string                 `protobuf:"bytes,13,opt,name=target_method,json=targetMethod,proto3" json:"target_method,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *RecordEgressResponseHeadersRequest) Reset() {
+	*x = RecordEgressResponseHeadersRequest{}
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecordEgressResponseHeadersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecordEgressResponseHeadersRequest) ProtoMessage() {}
+
+func (x *RecordEgressResponseHeadersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecordEgressResponseHeadersRequest.ProtoReflect.Descriptor instead.
+func (*RecordEgressResponseHeadersRequest) Descriptor() ([]byte, []int) {
+	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetPolicyId() string {
+	if x != nil {
+		return x.PolicyId
+	}
+	return ""
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetCredentialId() string {
+	if x != nil {
+		return x.CredentialId
+	}
+	return ""
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetTargetHost() string {
+	if x != nil {
+		return x.TargetHost
+	}
+	return ""
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetOrigin() string {
+	if x != nil {
+		return x.Origin
+	}
+	return ""
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetRequestHeaders() map[string]string {
+	if x != nil {
+		return x.RequestHeaders
+	}
+	return nil
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetResponseHeaders() map[string]string {
+	if x != nil {
+		return x.ResponseHeaders
+	}
+	return nil
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetRuntimeSource() *EgressRequestSource {
+	if x != nil {
+		return x.RuntimeSource
+	}
+	return nil
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetTargetPath() string {
+	if x != nil {
+		return x.TargetPath
+	}
+	return ""
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetStatusCode() uint32 {
+	if x != nil {
+		return x.StatusCode
+	}
+	return 0
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetSourcePrincipal() string {
+	if x != nil {
+		return x.SourcePrincipal
+	}
+	return ""
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetEgressPolicyId() string {
+	if x != nil {
+		return x.EgressPolicyId
+	}
+	return ""
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetAuthPolicyId() string {
+	if x != nil {
+		return x.AuthPolicyId
+	}
+	return ""
+}
+
+func (x *RecordEgressResponseHeadersRequest) GetTargetMethod() string {
+	if x != nil {
+		return x.TargetMethod
+	}
+	return ""
+}
+
+type RecordEgressResponseHeadersResponse struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	MaterialUpdated bool                   `protobuf:"varint,1,opt,name=material_updated,json=materialUpdated,proto3" json:"material_updated,omitempty"`
+	Skipped         bool                   `protobuf:"varint,2,opt,name=skipped,proto3" json:"skipped,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *RecordEgressResponseHeadersResponse) Reset() {
+	*x = RecordEgressResponseHeadersResponse{}
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecordEgressResponseHeadersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecordEgressResponseHeadersResponse) ProtoMessage() {}
+
+func (x *RecordEgressResponseHeadersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecordEgressResponseHeadersResponse.ProtoReflect.Descriptor instead.
+func (*RecordEgressResponseHeadersResponse) Descriptor() ([]byte, []int) {
+	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *RecordEgressResponseHeadersResponse) GetMaterialUpdated() bool {
+	if x != nil {
+		return x.MaterialUpdated
+	}
+	return false
+}
+
+func (x *RecordEgressResponseHeadersResponse) GetSkipped() bool {
+	if x != nil {
+		return x.Skipped
+	}
+	return false
+}
+
 type EgressHeaderReplacementItem struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
@@ -427,7 +619,7 @@ type EgressHeaderReplacementItem struct {
 
 func (x *EgressHeaderReplacementItem) Reset() {
 	*x = EgressHeaderReplacementItem{}
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[2]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -439,7 +631,7 @@ func (x *EgressHeaderReplacementItem) String() string {
 func (*EgressHeaderReplacementItem) ProtoMessage() {}
 
 func (x *EgressHeaderReplacementItem) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[2]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -452,7 +644,7 @@ func (x *EgressHeaderReplacementItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EgressHeaderReplacementItem.ProtoReflect.Descriptor instead.
 func (*EgressHeaderReplacementItem) Descriptor() ([]byte, []int) {
-	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{2}
+	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *EgressHeaderReplacementItem) GetName() string {
@@ -482,7 +674,7 @@ type EgressSimpleReplacementRule struct {
 
 func (x *EgressSimpleReplacementRule) Reset() {
 	*x = EgressSimpleReplacementRule{}
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[3]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -494,7 +686,7 @@ func (x *EgressSimpleReplacementRule) String() string {
 func (*EgressSimpleReplacementRule) ProtoMessage() {}
 
 func (x *EgressSimpleReplacementRule) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[3]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -507,7 +699,7 @@ func (x *EgressSimpleReplacementRule) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EgressSimpleReplacementRule.ProtoReflect.Descriptor instead.
 func (*EgressSimpleReplacementRule) Descriptor() ([]byte, []int) {
-	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{3}
+	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *EgressSimpleReplacementRule) GetMode() string {
@@ -556,7 +748,7 @@ type EgressHeaderMutation struct {
 
 func (x *EgressHeaderMutation) Reset() {
 	*x = EgressHeaderMutation{}
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[4]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -568,7 +760,7 @@ func (x *EgressHeaderMutation) String() string {
 func (*EgressHeaderMutation) ProtoMessage() {}
 
 func (x *EgressHeaderMutation) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[4]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -581,7 +773,7 @@ func (x *EgressHeaderMutation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EgressHeaderMutation.ProtoReflect.Descriptor instead.
 func (*EgressHeaderMutation) Descriptor() ([]byte, []int) {
-	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{4}
+	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *EgressHeaderMutation) GetName() string {
@@ -617,7 +809,7 @@ type ResolveEgressRequestHeadersResponse struct {
 
 func (x *ResolveEgressRequestHeadersResponse) Reset() {
 	*x = ResolveEgressRequestHeadersResponse{}
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[5]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -629,7 +821,7 @@ func (x *ResolveEgressRequestHeadersResponse) String() string {
 func (*ResolveEgressRequestHeadersResponse) ProtoMessage() {}
 
 func (x *ResolveEgressRequestHeadersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[5]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -642,7 +834,7 @@ func (x *ResolveEgressRequestHeadersResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use ResolveEgressRequestHeadersResponse.ProtoReflect.Descriptor instead.
 func (*ResolveEgressRequestHeadersResponse) Descriptor() ([]byte, []int) {
-	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{5}
+	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ResolveEgressRequestHeadersResponse) GetHeaders() []*EgressHeaderMutation {
@@ -685,7 +877,7 @@ type ResolveEgressResponseHeadersResponse struct {
 
 func (x *ResolveEgressResponseHeadersResponse) Reset() {
 	*x = ResolveEgressResponseHeadersResponse{}
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[6]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -697,7 +889,7 @@ func (x *ResolveEgressResponseHeadersResponse) String() string {
 func (*ResolveEgressResponseHeadersResponse) ProtoMessage() {}
 
 func (x *ResolveEgressResponseHeadersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[6]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -710,7 +902,7 @@ func (x *ResolveEgressResponseHeadersResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use ResolveEgressResponseHeadersResponse.ProtoReflect.Descriptor instead.
 func (*ResolveEgressResponseHeadersResponse) Descriptor() ([]byte, []int) {
-	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{6}
+	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ResolveEgressResponseHeadersResponse) GetHeaders() []*EgressHeaderMutation {
@@ -755,7 +947,7 @@ type EgressRequestSource struct {
 
 func (x *EgressRequestSource) Reset() {
 	*x = EgressRequestSource{}
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[7]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -767,7 +959,7 @@ func (x *EgressRequestSource) String() string {
 func (*EgressRequestSource) ProtoMessage() {}
 
 func (x *EgressRequestSource) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[7]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -780,7 +972,7 @@ func (x *EgressRequestSource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EgressRequestSource.ProtoReflect.Descriptor instead.
 func (*EgressRequestSource) Descriptor() ([]byte, []int) {
-	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{7}
+	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *EgressRequestSource) GetSource() isEgressRequestSource_Source {
@@ -851,7 +1043,7 @@ type EgressPodSource struct {
 
 func (x *EgressPodSource) Reset() {
 	*x = EgressPodSource{}
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[8]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -863,7 +1055,7 @@ func (x *EgressPodSource) String() string {
 func (*EgressPodSource) ProtoMessage() {}
 
 func (x *EgressPodSource) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[8]
+	mi := &file_platform_auth_v1_egress_auth_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -876,7 +1068,7 @@ func (x *EgressPodSource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EgressPodSource.ProtoReflect.Descriptor instead.
 func (*EgressPodSource) Descriptor() ([]byte, []int) {
-	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{8}
+	return file_platform_auth_v1_egress_auth_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *EgressPodSource) GetNamespace() string {
@@ -965,7 +1157,34 @@ const file_platform_auth_v1_egress_auth_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1aB\n" +
 	"\x14ResponseHeadersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"V\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xbf\x06\n" +
+	"\"RecordEgressResponseHeadersRequest\x12\x1b\n" +
+	"\tpolicy_id\x18\x01 \x01(\tR\bpolicyId\x12#\n" +
+	"\rcredential_id\x18\x02 \x01(\tR\fcredentialId\x12\x1f\n" +
+	"\vtarget_host\x18\x03 \x01(\tR\n" +
+	"targetHost\x12\x16\n" +
+	"\x06origin\x18\x04 \x01(\tR\x06origin\x12q\n" +
+	"\x0frequest_headers\x18\x05 \x03(\v2H.platform.auth.v1.RecordEgressResponseHeadersRequest.RequestHeadersEntryR\x0erequestHeaders\x12t\n" +
+	"\x10response_headers\x18\x06 \x03(\v2I.platform.auth.v1.RecordEgressResponseHeadersRequest.ResponseHeadersEntryR\x0fresponseHeaders\x12L\n" +
+	"\x0eruntime_source\x18\a \x01(\v2%.platform.auth.v1.EgressRequestSourceR\rruntimeSource\x12\x1f\n" +
+	"\vtarget_path\x18\b \x01(\tR\n" +
+	"targetPath\x12\x1f\n" +
+	"\vstatus_code\x18\t \x01(\rR\n" +
+	"statusCode\x12)\n" +
+	"\x10source_principal\x18\n" +
+	" \x01(\tR\x0fsourcePrincipal\x12(\n" +
+	"\x10egress_policy_id\x18\v \x01(\tR\x0eegressPolicyId\x12$\n" +
+	"\x0eauth_policy_id\x18\f \x01(\tR\fauthPolicyId\x12#\n" +
+	"\rtarget_method\x18\r \x01(\tR\ftargetMethod\x1aA\n" +
+	"\x13RequestHeadersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1aB\n" +
+	"\x14ResponseHeadersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"j\n" +
+	"#RecordEgressResponseHeadersResponse\x12)\n" +
+	"\x10material_updated\x18\x01 \x01(\bR\x0fmaterialUpdated\x12\x18\n" +
+	"\askipped\x18\x02 \x01(\bR\askipped\"V\n" +
 	"\x1bEgressHeaderReplacementItem\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12#\n" +
 	"\rcurrent_value\x18\x02 \x01(\tR\fcurrentValue\"\xc1\x01\n" +
@@ -1020,41 +1239,48 @@ func file_platform_auth_v1_egress_auth_proto_rawDescGZIP() []byte {
 }
 
 var file_platform_auth_v1_egress_auth_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_platform_auth_v1_egress_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_platform_auth_v1_egress_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_platform_auth_v1_egress_auth_proto_goTypes = []any{
 	(EgressHeaderAppendAction)(0),                // 0: platform.auth.v1.EgressHeaderAppendAction
 	(*ResolveEgressRequestHeadersRequest)(nil),   // 1: platform.auth.v1.ResolveEgressRequestHeadersRequest
 	(*ResolveEgressResponseHeadersRequest)(nil),  // 2: platform.auth.v1.ResolveEgressResponseHeadersRequest
-	(*EgressHeaderReplacementItem)(nil),          // 3: platform.auth.v1.EgressHeaderReplacementItem
-	(*EgressSimpleReplacementRule)(nil),          // 4: platform.auth.v1.EgressSimpleReplacementRule
-	(*EgressHeaderMutation)(nil),                 // 5: platform.auth.v1.EgressHeaderMutation
-	(*ResolveEgressRequestHeadersResponse)(nil),  // 6: platform.auth.v1.ResolveEgressRequestHeadersResponse
-	(*ResolveEgressResponseHeadersResponse)(nil), // 7: platform.auth.v1.ResolveEgressResponseHeadersResponse
-	(*EgressRequestSource)(nil),                  // 8: platform.auth.v1.EgressRequestSource
-	(*EgressPodSource)(nil),                      // 9: platform.auth.v1.EgressPodSource
-	nil,                                          // 10: platform.auth.v1.ResolveEgressRequestHeadersRequest.RequestHeadersEntry
-	nil,                                          // 11: platform.auth.v1.ResolveEgressResponseHeadersRequest.RequestHeadersEntry
-	nil,                                          // 12: platform.auth.v1.ResolveEgressResponseHeadersRequest.ResponseHeadersEntry
+	(*RecordEgressResponseHeadersRequest)(nil),   // 3: platform.auth.v1.RecordEgressResponseHeadersRequest
+	(*RecordEgressResponseHeadersResponse)(nil),  // 4: platform.auth.v1.RecordEgressResponseHeadersResponse
+	(*EgressHeaderReplacementItem)(nil),          // 5: platform.auth.v1.EgressHeaderReplacementItem
+	(*EgressSimpleReplacementRule)(nil),          // 6: platform.auth.v1.EgressSimpleReplacementRule
+	(*EgressHeaderMutation)(nil),                 // 7: platform.auth.v1.EgressHeaderMutation
+	(*ResolveEgressRequestHeadersResponse)(nil),  // 8: platform.auth.v1.ResolveEgressRequestHeadersResponse
+	(*ResolveEgressResponseHeadersResponse)(nil), // 9: platform.auth.v1.ResolveEgressResponseHeadersResponse
+	(*EgressRequestSource)(nil),                  // 10: platform.auth.v1.EgressRequestSource
+	(*EgressPodSource)(nil),                      // 11: platform.auth.v1.EgressPodSource
+	nil,                                          // 12: platform.auth.v1.ResolveEgressRequestHeadersRequest.RequestHeadersEntry
+	nil,                                          // 13: platform.auth.v1.ResolveEgressResponseHeadersRequest.RequestHeadersEntry
+	nil,                                          // 14: platform.auth.v1.ResolveEgressResponseHeadersRequest.ResponseHeadersEntry
+	nil,                                          // 15: platform.auth.v1.RecordEgressResponseHeadersRequest.RequestHeadersEntry
+	nil,                                          // 16: platform.auth.v1.RecordEgressResponseHeadersRequest.ResponseHeadersEntry
 }
 var file_platform_auth_v1_egress_auth_proto_depIdxs = []int32{
-	10, // 0: platform.auth.v1.ResolveEgressRequestHeadersRequest.request_headers:type_name -> platform.auth.v1.ResolveEgressRequestHeadersRequest.RequestHeadersEntry
-	4,  // 1: platform.auth.v1.ResolveEgressRequestHeadersRequest.simple_replacement_rules:type_name -> platform.auth.v1.EgressSimpleReplacementRule
-	3,  // 2: platform.auth.v1.ResolveEgressRequestHeadersRequest.headers:type_name -> platform.auth.v1.EgressHeaderReplacementItem
-	8,  // 3: platform.auth.v1.ResolveEgressRequestHeadersRequest.runtime_source:type_name -> platform.auth.v1.EgressRequestSource
-	11, // 4: platform.auth.v1.ResolveEgressResponseHeadersRequest.request_headers:type_name -> platform.auth.v1.ResolveEgressResponseHeadersRequest.RequestHeadersEntry
-	12, // 5: platform.auth.v1.ResolveEgressResponseHeadersRequest.response_headers:type_name -> platform.auth.v1.ResolveEgressResponseHeadersRequest.ResponseHeadersEntry
-	4,  // 6: platform.auth.v1.ResolveEgressResponseHeadersRequest.simple_replacement_rules:type_name -> platform.auth.v1.EgressSimpleReplacementRule
-	3,  // 7: platform.auth.v1.ResolveEgressResponseHeadersRequest.headers:type_name -> platform.auth.v1.EgressHeaderReplacementItem
-	8,  // 8: platform.auth.v1.ResolveEgressResponseHeadersRequest.runtime_source:type_name -> platform.auth.v1.EgressRequestSource
-	0,  // 9: platform.auth.v1.EgressHeaderMutation.append_action:type_name -> platform.auth.v1.EgressHeaderAppendAction
-	5,  // 10: platform.auth.v1.ResolveEgressRequestHeadersResponse.headers:type_name -> platform.auth.v1.EgressHeaderMutation
-	5,  // 11: platform.auth.v1.ResolveEgressResponseHeadersResponse.headers:type_name -> platform.auth.v1.EgressHeaderMutation
-	9,  // 12: platform.auth.v1.EgressRequestSource.pod:type_name -> platform.auth.v1.EgressPodSource
-	13, // [13:13] is the sub-list for method output_type
-	13, // [13:13] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	12, // 0: platform.auth.v1.ResolveEgressRequestHeadersRequest.request_headers:type_name -> platform.auth.v1.ResolveEgressRequestHeadersRequest.RequestHeadersEntry
+	6,  // 1: platform.auth.v1.ResolveEgressRequestHeadersRequest.simple_replacement_rules:type_name -> platform.auth.v1.EgressSimpleReplacementRule
+	5,  // 2: platform.auth.v1.ResolveEgressRequestHeadersRequest.headers:type_name -> platform.auth.v1.EgressHeaderReplacementItem
+	10, // 3: platform.auth.v1.ResolveEgressRequestHeadersRequest.runtime_source:type_name -> platform.auth.v1.EgressRequestSource
+	13, // 4: platform.auth.v1.ResolveEgressResponseHeadersRequest.request_headers:type_name -> platform.auth.v1.ResolveEgressResponseHeadersRequest.RequestHeadersEntry
+	14, // 5: platform.auth.v1.ResolveEgressResponseHeadersRequest.response_headers:type_name -> platform.auth.v1.ResolveEgressResponseHeadersRequest.ResponseHeadersEntry
+	6,  // 6: platform.auth.v1.ResolveEgressResponseHeadersRequest.simple_replacement_rules:type_name -> platform.auth.v1.EgressSimpleReplacementRule
+	5,  // 7: platform.auth.v1.ResolveEgressResponseHeadersRequest.headers:type_name -> platform.auth.v1.EgressHeaderReplacementItem
+	10, // 8: platform.auth.v1.ResolveEgressResponseHeadersRequest.runtime_source:type_name -> platform.auth.v1.EgressRequestSource
+	15, // 9: platform.auth.v1.RecordEgressResponseHeadersRequest.request_headers:type_name -> platform.auth.v1.RecordEgressResponseHeadersRequest.RequestHeadersEntry
+	16, // 10: platform.auth.v1.RecordEgressResponseHeadersRequest.response_headers:type_name -> platform.auth.v1.RecordEgressResponseHeadersRequest.ResponseHeadersEntry
+	10, // 11: platform.auth.v1.RecordEgressResponseHeadersRequest.runtime_source:type_name -> platform.auth.v1.EgressRequestSource
+	0,  // 12: platform.auth.v1.EgressHeaderMutation.append_action:type_name -> platform.auth.v1.EgressHeaderAppendAction
+	7,  // 13: platform.auth.v1.ResolveEgressRequestHeadersResponse.headers:type_name -> platform.auth.v1.EgressHeaderMutation
+	7,  // 14: platform.auth.v1.ResolveEgressResponseHeadersResponse.headers:type_name -> platform.auth.v1.EgressHeaderMutation
+	11, // 15: platform.auth.v1.EgressRequestSource.pod:type_name -> platform.auth.v1.EgressPodSource
+	16, // [16:16] is the sub-list for method output_type
+	16, // [16:16] is the sub-list for method input_type
+	16, // [16:16] is the sub-list for extension type_name
+	16, // [16:16] is the sub-list for extension extendee
+	0,  // [0:16] is the sub-list for field type_name
 }
 
 func init() { file_platform_auth_v1_egress_auth_proto_init() }
@@ -1062,7 +1288,7 @@ func file_platform_auth_v1_egress_auth_proto_init() {
 	if File_platform_auth_v1_egress_auth_proto != nil {
 		return
 	}
-	file_platform_auth_v1_egress_auth_proto_msgTypes[7].OneofWrappers = []any{
+	file_platform_auth_v1_egress_auth_proto_msgTypes[9].OneofWrappers = []any{
 		(*EgressRequestSource_Pod)(nil),
 		(*EgressRequestSource_RunId)(nil),
 		(*EgressRequestSource_WorkloadId)(nil),
@@ -1073,7 +1299,7 @@ func file_platform_auth_v1_egress_auth_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_platform_auth_v1_egress_auth_proto_rawDesc), len(file_platform_auth_v1_egress_auth_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   12,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

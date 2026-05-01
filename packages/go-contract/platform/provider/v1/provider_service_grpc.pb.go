@@ -24,10 +24,12 @@ const (
 	ProviderService_CreateProvider_FullMethodName             = "/platform.provider.v1.ProviderService/CreateProvider"
 	ProviderService_UpdateProvider_FullMethodName             = "/platform.provider.v1.ProviderService/UpdateProvider"
 	ProviderService_DeleteProvider_FullMethodName             = "/platform.provider.v1.ProviderService/DeleteProvider"
+	ProviderService_ApplyProviderModelCatalog_FullMethodName  = "/platform.provider.v1.ProviderService/ApplyProviderModelCatalog"
+	ProviderService_ApplyProviderProbeStatus_FullMethodName   = "/platform.provider.v1.ProviderService/ApplyProviderProbeStatus"
 	ProviderService_ProbeProviderObservability_FullMethodName = "/platform.provider.v1.ProviderService/ProbeProviderObservability"
+	ProviderService_ProbeProviderModelCatalog_FullMethodName  = "/platform.provider.v1.ProviderService/ProbeProviderModelCatalog"
 	ProviderService_WatchProviderStatusEvents_FullMethodName  = "/platform.provider.v1.ProviderService/WatchProviderStatusEvents"
 	ProviderService_ListVendors_FullMethodName                = "/platform.provider.v1.ProviderService/ListVendors"
-	ProviderService_ListCLIDefinitions_FullMethodName         = "/platform.provider.v1.ProviderService/ListCLIDefinitions"
 	ProviderService_ListTemplates_FullMethodName              = "/platform.provider.v1.ProviderService/ListTemplates"
 	ProviderService_ApplyTemplate_FullMethodName              = "/platform.provider.v1.ProviderService/ApplyTemplate"
 )
@@ -41,10 +43,12 @@ type ProviderServiceClient interface {
 	CreateProvider(ctx context.Context, in *CreateProviderRequest, opts ...grpc.CallOption) (*CreateProviderResponse, error)
 	UpdateProvider(ctx context.Context, in *UpdateProviderRequest, opts ...grpc.CallOption) (*UpdateProviderResponse, error)
 	DeleteProvider(ctx context.Context, in *DeleteProviderRequest, opts ...grpc.CallOption) (*DeleteProviderResponse, error)
+	ApplyProviderModelCatalog(ctx context.Context, in *ApplyProviderModelCatalogRequest, opts ...grpc.CallOption) (*ApplyProviderModelCatalogResponse, error)
+	ApplyProviderProbeStatus(ctx context.Context, in *ApplyProviderProbeStatusRequest, opts ...grpc.CallOption) (*ApplyProviderProbeStatusResponse, error)
 	ProbeProviderObservability(ctx context.Context, in *ProbeProviderObservabilityRequest, opts ...grpc.CallOption) (*ProbeProviderObservabilityResponse, error)
+	ProbeProviderModelCatalog(ctx context.Context, in *ProbeProviderModelCatalogRequest, opts ...grpc.CallOption) (*ProbeProviderModelCatalogResponse, error)
 	WatchProviderStatusEvents(ctx context.Context, in *WatchProviderStatusEventsRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchProviderStatusEventsResponse], error)
 	ListVendors(ctx context.Context, in *ListVendorsRequest, opts ...grpc.CallOption) (*ListVendorsResponse, error)
-	ListCLIDefinitions(ctx context.Context, in *ListCLIDefinitionsRequest, opts ...grpc.CallOption) (*ListCLIDefinitionsResponse, error)
 	ListTemplates(ctx context.Context, in *ListTemplatesRequest, opts ...grpc.CallOption) (*ListTemplatesResponse, error)
 	ApplyTemplate(ctx context.Context, in *ApplyTemplateRequest, opts ...grpc.CallOption) (*ApplyTemplateResponse, error)
 }
@@ -107,10 +111,40 @@ func (c *providerServiceClient) DeleteProvider(ctx context.Context, in *DeletePr
 	return out, nil
 }
 
+func (c *providerServiceClient) ApplyProviderModelCatalog(ctx context.Context, in *ApplyProviderModelCatalogRequest, opts ...grpc.CallOption) (*ApplyProviderModelCatalogResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApplyProviderModelCatalogResponse)
+	err := c.cc.Invoke(ctx, ProviderService_ApplyProviderModelCatalog_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) ApplyProviderProbeStatus(ctx context.Context, in *ApplyProviderProbeStatusRequest, opts ...grpc.CallOption) (*ApplyProviderProbeStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApplyProviderProbeStatusResponse)
+	err := c.cc.Invoke(ctx, ProviderService_ApplyProviderProbeStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *providerServiceClient) ProbeProviderObservability(ctx context.Context, in *ProbeProviderObservabilityRequest, opts ...grpc.CallOption) (*ProbeProviderObservabilityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ProbeProviderObservabilityResponse)
 	err := c.cc.Invoke(ctx, ProviderService_ProbeProviderObservability_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) ProbeProviderModelCatalog(ctx context.Context, in *ProbeProviderModelCatalogRequest, opts ...grpc.CallOption) (*ProbeProviderModelCatalogResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ProbeProviderModelCatalogResponse)
+	err := c.cc.Invoke(ctx, ProviderService_ProbeProviderModelCatalog_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -146,16 +180,6 @@ func (c *providerServiceClient) ListVendors(ctx context.Context, in *ListVendors
 	return out, nil
 }
 
-func (c *providerServiceClient) ListCLIDefinitions(ctx context.Context, in *ListCLIDefinitionsRequest, opts ...grpc.CallOption) (*ListCLIDefinitionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListCLIDefinitionsResponse)
-	err := c.cc.Invoke(ctx, ProviderService_ListCLIDefinitions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *providerServiceClient) ListTemplates(ctx context.Context, in *ListTemplatesRequest, opts ...grpc.CallOption) (*ListTemplatesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListTemplatesResponse)
@@ -185,10 +209,12 @@ type ProviderServiceServer interface {
 	CreateProvider(context.Context, *CreateProviderRequest) (*CreateProviderResponse, error)
 	UpdateProvider(context.Context, *UpdateProviderRequest) (*UpdateProviderResponse, error)
 	DeleteProvider(context.Context, *DeleteProviderRequest) (*DeleteProviderResponse, error)
+	ApplyProviderModelCatalog(context.Context, *ApplyProviderModelCatalogRequest) (*ApplyProviderModelCatalogResponse, error)
+	ApplyProviderProbeStatus(context.Context, *ApplyProviderProbeStatusRequest) (*ApplyProviderProbeStatusResponse, error)
 	ProbeProviderObservability(context.Context, *ProbeProviderObservabilityRequest) (*ProbeProviderObservabilityResponse, error)
+	ProbeProviderModelCatalog(context.Context, *ProbeProviderModelCatalogRequest) (*ProbeProviderModelCatalogResponse, error)
 	WatchProviderStatusEvents(*WatchProviderStatusEventsRequest, grpc.ServerStreamingServer[WatchProviderStatusEventsResponse]) error
 	ListVendors(context.Context, *ListVendorsRequest) (*ListVendorsResponse, error)
-	ListCLIDefinitions(context.Context, *ListCLIDefinitionsRequest) (*ListCLIDefinitionsResponse, error)
 	ListTemplates(context.Context, *ListTemplatesRequest) (*ListTemplatesResponse, error)
 	ApplyTemplate(context.Context, *ApplyTemplateRequest) (*ApplyTemplateResponse, error)
 	mustEmbedUnimplementedProviderServiceServer()
@@ -216,17 +242,23 @@ func (UnimplementedProviderServiceServer) UpdateProvider(context.Context, *Updat
 func (UnimplementedProviderServiceServer) DeleteProvider(context.Context, *DeleteProviderRequest) (*DeleteProviderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteProvider not implemented")
 }
+func (UnimplementedProviderServiceServer) ApplyProviderModelCatalog(context.Context, *ApplyProviderModelCatalogRequest) (*ApplyProviderModelCatalogResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ApplyProviderModelCatalog not implemented")
+}
+func (UnimplementedProviderServiceServer) ApplyProviderProbeStatus(context.Context, *ApplyProviderProbeStatusRequest) (*ApplyProviderProbeStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ApplyProviderProbeStatus not implemented")
+}
 func (UnimplementedProviderServiceServer) ProbeProviderObservability(context.Context, *ProbeProviderObservabilityRequest) (*ProbeProviderObservabilityResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProbeProviderObservability not implemented")
+}
+func (UnimplementedProviderServiceServer) ProbeProviderModelCatalog(context.Context, *ProbeProviderModelCatalogRequest) (*ProbeProviderModelCatalogResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProbeProviderModelCatalog not implemented")
 }
 func (UnimplementedProviderServiceServer) WatchProviderStatusEvents(*WatchProviderStatusEventsRequest, grpc.ServerStreamingServer[WatchProviderStatusEventsResponse]) error {
 	return status.Errorf(codes.Unimplemented, "method WatchProviderStatusEvents not implemented")
 }
 func (UnimplementedProviderServiceServer) ListVendors(context.Context, *ListVendorsRequest) (*ListVendorsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListVendors not implemented")
-}
-func (UnimplementedProviderServiceServer) ListCLIDefinitions(context.Context, *ListCLIDefinitionsRequest) (*ListCLIDefinitionsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListCLIDefinitions not implemented")
 }
 func (UnimplementedProviderServiceServer) ListTemplates(context.Context, *ListTemplatesRequest) (*ListTemplatesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTemplates not implemented")
@@ -345,6 +377,42 @@ func _ProviderService_DeleteProvider_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProviderService_ApplyProviderModelCatalog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplyProviderModelCatalogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).ApplyProviderModelCatalog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_ApplyProviderModelCatalog_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).ApplyProviderModelCatalog(ctx, req.(*ApplyProviderModelCatalogRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_ApplyProviderProbeStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplyProviderProbeStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).ApplyProviderProbeStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_ApplyProviderProbeStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).ApplyProviderProbeStatus(ctx, req.(*ApplyProviderProbeStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ProviderService_ProbeProviderObservability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProbeProviderObservabilityRequest)
 	if err := dec(in); err != nil {
@@ -359,6 +427,24 @@ func _ProviderService_ProbeProviderObservability_Handler(srv interface{}, ctx co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ProviderServiceServer).ProbeProviderObservability(ctx, req.(*ProbeProviderObservabilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_ProbeProviderModelCatalog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProbeProviderModelCatalogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).ProbeProviderModelCatalog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_ProbeProviderModelCatalog_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).ProbeProviderModelCatalog(ctx, req.(*ProbeProviderModelCatalogRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -388,24 +474,6 @@ func _ProviderService_ListVendors_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ProviderServiceServer).ListVendors(ctx, req.(*ListVendorsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_ListCLIDefinitions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListCLIDefinitionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).ListCLIDefinitions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_ListCLIDefinitions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).ListCLIDefinitions(ctx, req.(*ListCLIDefinitionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -474,16 +542,24 @@ var ProviderService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ProviderService_DeleteProvider_Handler,
 		},
 		{
+			MethodName: "ApplyProviderModelCatalog",
+			Handler:    _ProviderService_ApplyProviderModelCatalog_Handler,
+		},
+		{
+			MethodName: "ApplyProviderProbeStatus",
+			Handler:    _ProviderService_ApplyProviderProbeStatus_Handler,
+		},
+		{
 			MethodName: "ProbeProviderObservability",
 			Handler:    _ProviderService_ProbeProviderObservability_Handler,
 		},
 		{
-			MethodName: "ListVendors",
-			Handler:    _ProviderService_ListVendors_Handler,
+			MethodName: "ProbeProviderModelCatalog",
+			Handler:    _ProviderService_ProbeProviderModelCatalog_Handler,
 		},
 		{
-			MethodName: "ListCLIDefinitions",
-			Handler:    _ProviderService_ListCLIDefinitions_Handler,
+			MethodName: "ListVendors",
+			Handler:    _ProviderService_ListVendors_Handler,
 		},
 		{
 			MethodName: "ListTemplates",

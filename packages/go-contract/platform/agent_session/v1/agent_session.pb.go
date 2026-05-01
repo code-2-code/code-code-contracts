@@ -207,8 +207,9 @@ func (x *AgentSessionSpec) GetPrepareJobs() []*AgentSessionPrepareJob {
 // future turns of one session.
 type AgentSessionRuntimeConfig struct {
 	state                protoimpl.MessageState                  `protogen:"open.v1"`
-	ProviderRuntimeRef   *v11.ProviderRuntimeRef                 `protobuf:"bytes,1,opt,name=provider_runtime_ref,json=providerRuntimeRef,proto3" json:"provider_runtime_ref,omitempty"`
-	Fallbacks            []*AgentSessionRuntimeFallbackCandidate `protobuf:"bytes,2,rep,name=fallbacks,proto3" json:"fallbacks,omitempty"`
+	ProviderId           string                                  `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
+	Endpoint             *v11.ProviderEndpoint                   `protobuf:"bytes,2,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
+	Fallbacks            []*AgentSessionRuntimeFallbackCandidate `protobuf:"bytes,3,rep,name=fallbacks,proto3" json:"fallbacks,omitempty"`
 	PrimaryModelSelector *AgentSessionRuntimeModelSelector       `protobuf:"bytes,5,opt,name=primary_model_selector,json=primaryModelSelector,proto3" json:"primary_model_selector,omitempty"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
@@ -244,9 +245,16 @@ func (*AgentSessionRuntimeConfig) Descriptor() ([]byte, []int) {
 	return file_platform_agent_session_v1_agent_session_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *AgentSessionRuntimeConfig) GetProviderRuntimeRef() *v11.ProviderRuntimeRef {
+func (x *AgentSessionRuntimeConfig) GetProviderId() string {
 	if x != nil {
-		return x.ProviderRuntimeRef
+		return x.ProviderId
+	}
+	return ""
+}
+
+func (x *AgentSessionRuntimeConfig) GetEndpoint() *v11.ProviderEndpoint {
+	if x != nil {
+		return x.Endpoint
 	}
 	return nil
 }
@@ -353,8 +361,9 @@ func (*AgentSessionRuntimeModelSelector_ProviderModelId) isAgentSessionRuntimeMo
 // AgentSessionRuntimeFallbackCandidate describes one secondary runtime
 // candidate used for future fallback inside one session.
 type AgentSessionRuntimeFallbackCandidate struct {
-	state              protoimpl.MessageState  `protogen:"open.v1"`
-	ProviderRuntimeRef *v11.ProviderRuntimeRef `protobuf:"bytes,1,opt,name=provider_runtime_ref,json=providerRuntimeRef,proto3" json:"provider_runtime_ref,omitempty"`
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	ProviderId string                 `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
+	Endpoint   *v11.ProviderEndpoint  `protobuf:"bytes,4,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
 	// Types that are valid to be assigned to ModelSelector:
 	//
 	//	*AgentSessionRuntimeFallbackCandidate_ModelRef
@@ -394,9 +403,16 @@ func (*AgentSessionRuntimeFallbackCandidate) Descriptor() ([]byte, []int) {
 	return file_platform_agent_session_v1_agent_session_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *AgentSessionRuntimeFallbackCandidate) GetProviderRuntimeRef() *v11.ProviderRuntimeRef {
+func (x *AgentSessionRuntimeFallbackCandidate) GetProviderId() string {
 	if x != nil {
-		return x.ProviderRuntimeRef
+		return x.ProviderId
+	}
+	return ""
+}
+
+func (x *AgentSessionRuntimeFallbackCandidate) GetEndpoint() *v11.ProviderEndpoint {
+	if x != nil {
+		return x.Endpoint
 	}
 	return nil
 }
@@ -952,18 +968,22 @@ const file_platform_agent_session_v1_agent_session_proto_rawDesc = "" +
 	"\x12profile_generation\x18\b \x01(\x03R\x11profileGeneration\x12'\n" +
 	"\x0fexecution_class\x18\t \x01(\tR\x0eexecutionClass\x12T\n" +
 	"\fprepare_jobs\x18\n" +
-	" \x03(\v21.platform.agent_session.v1.AgentSessionPrepareJobR\vprepareJobs\"\x89\x03\n" +
-	"\x19AgentSessionRuntimeConfig\x12Q\n" +
-	"\x14provider_runtime_ref\x18\x01 \x01(\v2\x1f.provider.v1.ProviderRuntimeRefR\x12providerRuntimeRef\x12]\n" +
-	"\tfallbacks\x18\x02 \x03(\v2?.platform.agent_session.v1.AgentSessionRuntimeFallbackCandidateR\tfallbacks\x12q\n" +
-	"\x16primary_model_selector\x18\x05 \x01(\v2;.platform.agent_session.v1.AgentSessionRuntimeModelSelectorR\x14primaryModelSelectorJ\x04\b\x03\x10\x04J\x04\b\x04\x10\x05R\x16provider_credential_idR\x11network_policy_idR\x10default_model_id\"\x8f\x01\n" +
+	" \x03(\v21.platform.agent_session.v1.AgentSessionPrepareJobR\vprepareJobs\"\x8c\x03\n" +
+	"\x19AgentSessionRuntimeConfig\x12\x1f\n" +
+	"\vprovider_id\x18\x01 \x01(\tR\n" +
+	"providerId\x129\n" +
+	"\bendpoint\x18\x02 \x01(\v2\x1d.provider.v1.ProviderEndpointR\bendpoint\x12]\n" +
+	"\tfallbacks\x18\x03 \x03(\v2?.platform.agent_session.v1.AgentSessionRuntimeFallbackCandidateR\tfallbacks\x12q\n" +
+	"\x16primary_model_selector\x18\x05 \x01(\v2;.platform.agent_session.v1.AgentSessionRuntimeModelSelectorR\x14primaryModelSelectorJ\x04\b\x04\x10\x05R\x16provider_credential_idR\x11network_policy_idR\x10default_model_id\"\x8f\x01\n" +
 	" AgentSessionRuntimeModelSelector\x121\n" +
 	"\tmodel_ref\x18\x01 \x01(\v2\x12.model.v1.ModelRefH\x00R\bmodelRef\x12,\n" +
 	"\x11provider_model_id\x18\x02 \x01(\tH\x00R\x0fproviderModelIdB\n" +
 	"\n" +
-	"\bselector\"\xec\x01\n" +
-	"$AgentSessionRuntimeFallbackCandidate\x12Q\n" +
-	"\x14provider_runtime_ref\x18\x01 \x01(\v2\x1f.provider.v1.ProviderRuntimeRefR\x12providerRuntimeRef\x121\n" +
+	"\bselector\"\xf5\x01\n" +
+	"$AgentSessionRuntimeFallbackCandidate\x12\x1f\n" +
+	"\vprovider_id\x18\x01 \x01(\tR\n" +
+	"providerId\x129\n" +
+	"\bendpoint\x18\x04 \x01(\v2\x1d.provider.v1.ProviderEndpointR\bendpoint\x121\n" +
 	"\tmodel_ref\x18\x02 \x01(\v2\x12.model.v1.ModelRefH\x00R\bmodelRef\x12,\n" +
 	"\x11provider_model_id\x18\x03 \x01(\tH\x00R\x0fproviderModelIdB\x10\n" +
 	"\x0emodel_selector\"\x90\x02\n" +
@@ -1047,7 +1067,7 @@ var file_platform_agent_session_v1_agent_session_proto_goTypes = []any{
 	(*AgentSessionStatus)(nil),                   // 10: platform.agent_session.v1.AgentSessionStatus
 	(*AgentSessionState)(nil),                    // 11: platform.agent_session.v1.AgentSessionState
 	(*v1.AgentResources)(nil),                    // 12: agent.cap.v1.AgentResources
-	(*v11.ProviderRuntimeRef)(nil),               // 13: provider.v1.ProviderRuntimeRef
+	(*v11.ProviderEndpoint)(nil),                 // 13: provider.v1.ProviderEndpoint
 	(*v12.ModelRef)(nil),                         // 14: model.v1.ModelRef
 	(v13.AgentRunPrepareJobRunType)(0),           // 15: platform.agent_run.v1.AgentRunPrepareJobRunType
 	(*v14.Condition)(nil),                        // 16: platform.condition.v1.Condition
@@ -1059,11 +1079,11 @@ var file_platform_agent_session_v1_agent_session_proto_depIdxs = []int32{
 	6,  // 2: platform.agent_session.v1.AgentSessionSpec.workspace_ref:type_name -> platform.agent_session.v1.AgentSessionWorkspaceRef
 	7,  // 3: platform.agent_session.v1.AgentSessionSpec.home_state_ref:type_name -> platform.agent_session.v1.AgentSessionHomeStateRef
 	5,  // 4: platform.agent_session.v1.AgentSessionSpec.prepare_jobs:type_name -> platform.agent_session.v1.AgentSessionPrepareJob
-	13, // 5: platform.agent_session.v1.AgentSessionRuntimeConfig.provider_runtime_ref:type_name -> provider.v1.ProviderRuntimeRef
+	13, // 5: platform.agent_session.v1.AgentSessionRuntimeConfig.endpoint:type_name -> provider.v1.ProviderEndpoint
 	4,  // 6: platform.agent_session.v1.AgentSessionRuntimeConfig.fallbacks:type_name -> platform.agent_session.v1.AgentSessionRuntimeFallbackCandidate
 	3,  // 7: platform.agent_session.v1.AgentSessionRuntimeConfig.primary_model_selector:type_name -> platform.agent_session.v1.AgentSessionRuntimeModelSelector
 	14, // 8: platform.agent_session.v1.AgentSessionRuntimeModelSelector.model_ref:type_name -> model.v1.ModelRef
-	13, // 9: platform.agent_session.v1.AgentSessionRuntimeFallbackCandidate.provider_runtime_ref:type_name -> provider.v1.ProviderRuntimeRef
+	13, // 9: platform.agent_session.v1.AgentSessionRuntimeFallbackCandidate.endpoint:type_name -> provider.v1.ProviderEndpoint
 	14, // 10: platform.agent_session.v1.AgentSessionRuntimeFallbackCandidate.model_ref:type_name -> model.v1.ModelRef
 	15, // 11: platform.agent_session.v1.AgentSessionPrepareJob.run_type:type_name -> platform.agent_run.v1.AgentRunPrepareJobRunType
 	0,  // 12: platform.agent_session.v1.AgentSessionStatus.phase:type_name -> platform.agent_session.v1.AgentSessionPhase

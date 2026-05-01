@@ -131,6 +131,104 @@ func (ProviderSurfaceKind) EnumDescriptor() ([]byte, []int) {
 	return file_provider_v1_provider_proto_rawDescGZIP(), []int{1}
 }
 
+type ProviderEndpointType int32
+
+const (
+	ProviderEndpointType_PROVIDER_ENDPOINT_TYPE_UNSPECIFIED ProviderEndpointType = 0
+	ProviderEndpointType_PROVIDER_ENDPOINT_TYPE_API         ProviderEndpointType = 1
+	ProviderEndpointType_PROVIDER_ENDPOINT_TYPE_CLI         ProviderEndpointType = 2
+)
+
+// Enum value maps for ProviderEndpointType.
+var (
+	ProviderEndpointType_name = map[int32]string{
+		0: "PROVIDER_ENDPOINT_TYPE_UNSPECIFIED",
+		1: "PROVIDER_ENDPOINT_TYPE_API",
+		2: "PROVIDER_ENDPOINT_TYPE_CLI",
+	}
+	ProviderEndpointType_value = map[string]int32{
+		"PROVIDER_ENDPOINT_TYPE_UNSPECIFIED": 0,
+		"PROVIDER_ENDPOINT_TYPE_API":         1,
+		"PROVIDER_ENDPOINT_TYPE_CLI":         2,
+	}
+)
+
+func (x ProviderEndpointType) Enum() *ProviderEndpointType {
+	p := new(ProviderEndpointType)
+	*p = x
+	return p
+}
+
+func (x ProviderEndpointType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ProviderEndpointType) Descriptor() protoreflect.EnumDescriptor {
+	return file_provider_v1_provider_proto_enumTypes[2].Descriptor()
+}
+
+func (ProviderEndpointType) Type() protoreflect.EnumType {
+	return &file_provider_v1_provider_proto_enumTypes[2]
+}
+
+func (x ProviderEndpointType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ProviderEndpointType.Descriptor instead.
+func (ProviderEndpointType) EnumDescriptor() ([]byte, []int) {
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{2}
+}
+
+type ProviderProbeKind int32
+
+const (
+	ProviderProbeKind_PROVIDER_PROBE_KIND_UNSPECIFIED   ProviderProbeKind = 0
+	ProviderProbeKind_PROVIDER_PROBE_KIND_MODEL_CATALOG ProviderProbeKind = 1
+	ProviderProbeKind_PROVIDER_PROBE_KIND_QUOTA         ProviderProbeKind = 2
+)
+
+// Enum value maps for ProviderProbeKind.
+var (
+	ProviderProbeKind_name = map[int32]string{
+		0: "PROVIDER_PROBE_KIND_UNSPECIFIED",
+		1: "PROVIDER_PROBE_KIND_MODEL_CATALOG",
+		2: "PROVIDER_PROBE_KIND_QUOTA",
+	}
+	ProviderProbeKind_value = map[string]int32{
+		"PROVIDER_PROBE_KIND_UNSPECIFIED":   0,
+		"PROVIDER_PROBE_KIND_MODEL_CATALOG": 1,
+		"PROVIDER_PROBE_KIND_QUOTA":         2,
+	}
+)
+
+func (x ProviderProbeKind) Enum() *ProviderProbeKind {
+	p := new(ProviderProbeKind)
+	*p = x
+	return p
+}
+
+func (x ProviderProbeKind) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ProviderProbeKind) Descriptor() protoreflect.EnumDescriptor {
+	return file_provider_v1_provider_proto_enumTypes[3].Descriptor()
+}
+
+func (ProviderProbeKind) Type() protoreflect.EnumType {
+	return &file_provider_v1_provider_proto_enumTypes[3]
+}
+
+func (x ProviderProbeKind) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ProviderProbeKind.Descriptor instead.
+func (ProviderProbeKind) EnumDescriptor() ([]byte, []int) {
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{3}
+}
+
 // ProviderSurfaceOrigin identifies whether a surface is derived from
 // platform metadata or defined manually by the user.
 type ProviderSurfaceOrigin int32
@@ -166,11 +264,11 @@ func (x ProviderSurfaceOrigin) String() string {
 }
 
 func (ProviderSurfaceOrigin) Descriptor() protoreflect.EnumDescriptor {
-	return file_provider_v1_provider_proto_enumTypes[2].Descriptor()
+	return file_provider_v1_provider_proto_enumTypes[4].Descriptor()
 }
 
 func (ProviderSurfaceOrigin) Type() protoreflect.EnumType {
-	return &file_provider_v1_provider_proto_enumTypes[2]
+	return &file_provider_v1_provider_proto_enumTypes[4]
 }
 
 func (x ProviderSurfaceOrigin) Number() protoreflect.EnumNumber {
@@ -179,7 +277,7 @@ func (x ProviderSurfaceOrigin) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ProviderSurfaceOrigin.Descriptor instead.
 func (ProviderSurfaceOrigin) EnumDescriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{2}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{4}
 }
 
 // CatalogSource identifies where one model catalog comes from.
@@ -222,11 +320,11 @@ func (x CatalogSource) String() string {
 }
 
 func (CatalogSource) Descriptor() protoreflect.EnumDescriptor {
-	return file_provider_v1_provider_proto_enumTypes[3].Descriptor()
+	return file_provider_v1_provider_proto_enumTypes[5].Descriptor()
 }
 
 func (CatalogSource) Type() protoreflect.EnumType {
-	return &file_provider_v1_provider_proto_enumTypes[3]
+	return &file_provider_v1_provider_proto_enumTypes[5]
 }
 
 func (x CatalogSource) Number() protoreflect.EnumNumber {
@@ -235,7 +333,7 @@ func (x CatalogSource) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CatalogSource.Descriptor instead.
 func (CatalogSource) EnumDescriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{3}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{5}
 }
 
 // ProviderSurface describes one stable provider integration surface.
@@ -799,9 +897,12 @@ type Provider struct {
 	// Credential reference.
 	ProviderCredentialRef *ProviderCredentialRef `protobuf:"bytes,10,opt,name=provider_credential_ref,json=providerCredentialRef,proto3" json:"provider_credential_ref,omitempty"`
 	// Concrete callable runtime.
-	Runtime       *ProviderSurfaceRuntime `protobuf:"bytes,11,opt,name=runtime,proto3" json:"runtime,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	Runtime             *ProviderSurfaceRuntime `protobuf:"bytes,11,opt,name=runtime,proto3" json:"runtime,omitempty"`
+	Models              []*ProviderModel        `protobuf:"bytes,13,rep,name=models,proto3" json:"models,omitempty"`
+	CustomApiKeySurface *CustomAPIKeySurface    `protobuf:"bytes,14,opt,name=custom_api_key_surface,json=customApiKeySurface,proto3" json:"custom_api_key_surface,omitempty"`
+	ProbeStatus         *ProviderProbeStatus    `protobuf:"bytes,15,opt,name=probe_status,json=probeStatus,proto3" json:"probe_status,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *Provider) Reset() {
@@ -865,6 +966,27 @@ func (x *Provider) GetProviderCredentialRef() *ProviderCredentialRef {
 func (x *Provider) GetRuntime() *ProviderSurfaceRuntime {
 	if x != nil {
 		return x.Runtime
+	}
+	return nil
+}
+
+func (x *Provider) GetModels() []*ProviderModel {
+	if x != nil {
+		return x.Models
+	}
+	return nil
+}
+
+func (x *Provider) GetCustomApiKeySurface() *CustomAPIKeySurface {
+	if x != nil {
+		return x.CustomApiKeySurface
+	}
+	return nil
+}
+
+func (x *Provider) GetProbeStatus() *ProviderProbeStatus {
+	if x != nil {
+		return x.ProbeStatus
 	}
 	return nil
 }
@@ -975,6 +1097,424 @@ func (x *ProviderCredentialRef) GetProviderCredentialId() string {
 	return ""
 }
 
+type ProviderModel struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	ProviderModelId string                 `protobuf:"bytes,1,opt,name=provider_model_id,json=providerModelId,proto3" json:"provider_model_id,omitempty"`
+	ModelRef        *v12.ModelRef          `protobuf:"bytes,2,opt,name=model_ref,json=modelRef,proto3" json:"model_ref,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *ProviderModel) Reset() {
+	*x = ProviderModel{}
+	mi := &file_provider_v1_provider_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProviderModel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProviderModel) ProtoMessage() {}
+
+func (x *ProviderModel) ProtoReflect() protoreflect.Message {
+	mi := &file_provider_v1_provider_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProviderModel.ProtoReflect.Descriptor instead.
+func (*ProviderModel) Descriptor() ([]byte, []int) {
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *ProviderModel) GetProviderModelId() string {
+	if x != nil {
+		return x.ProviderModelId
+	}
+	return ""
+}
+
+func (x *ProviderModel) GetModelRef() *v12.ModelRef {
+	if x != nil {
+		return x.ModelRef
+	}
+	return nil
+}
+
+type CustomAPIKeySurface struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	BaseUrl       string                 `protobuf:"bytes,1,opt,name=base_url,json=baseUrl,proto3" json:"base_url,omitempty"`
+	Protocol      v11.Protocol           `protobuf:"varint,2,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CustomAPIKeySurface) Reset() {
+	*x = CustomAPIKeySurface{}
+	mi := &file_provider_v1_provider_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CustomAPIKeySurface) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CustomAPIKeySurface) ProtoMessage() {}
+
+func (x *CustomAPIKeySurface) ProtoReflect() protoreflect.Message {
+	mi := &file_provider_v1_provider_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CustomAPIKeySurface.ProtoReflect.Descriptor instead.
+func (*CustomAPIKeySurface) Descriptor() ([]byte, []int) {
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *CustomAPIKeySurface) GetBaseUrl() string {
+	if x != nil {
+		return x.BaseUrl
+	}
+	return ""
+}
+
+func (x *CustomAPIKeySurface) GetProtocol() v11.Protocol {
+	if x != nil {
+		return x.Protocol
+	}
+	return v11.Protocol(0)
+}
+
+type ProviderEndpoint struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Type  ProviderEndpointType   `protobuf:"varint,1,opt,name=type,proto3,enum=provider.v1.ProviderEndpointType" json:"type,omitempty"`
+	// Types that are valid to be assigned to Shape:
+	//
+	//	*ProviderEndpoint_Api
+	//	*ProviderEndpoint_Cli
+	Shape         isProviderEndpoint_Shape `protobuf_oneof:"shape"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProviderEndpoint) Reset() {
+	*x = ProviderEndpoint{}
+	mi := &file_provider_v1_provider_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProviderEndpoint) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProviderEndpoint) ProtoMessage() {}
+
+func (x *ProviderEndpoint) ProtoReflect() protoreflect.Message {
+	mi := &file_provider_v1_provider_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProviderEndpoint.ProtoReflect.Descriptor instead.
+func (*ProviderEndpoint) Descriptor() ([]byte, []int) {
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ProviderEndpoint) GetType() ProviderEndpointType {
+	if x != nil {
+		return x.Type
+	}
+	return ProviderEndpointType_PROVIDER_ENDPOINT_TYPE_UNSPECIFIED
+}
+
+func (x *ProviderEndpoint) GetShape() isProviderEndpoint_Shape {
+	if x != nil {
+		return x.Shape
+	}
+	return nil
+}
+
+func (x *ProviderEndpoint) GetApi() *ProviderApiEndpoint {
+	if x != nil {
+		if x, ok := x.Shape.(*ProviderEndpoint_Api); ok {
+			return x.Api
+		}
+	}
+	return nil
+}
+
+func (x *ProviderEndpoint) GetCli() *ProviderCliEndpoint {
+	if x != nil {
+		if x, ok := x.Shape.(*ProviderEndpoint_Cli); ok {
+			return x.Cli
+		}
+	}
+	return nil
+}
+
+type isProviderEndpoint_Shape interface {
+	isProviderEndpoint_Shape()
+}
+
+type ProviderEndpoint_Api struct {
+	Api *ProviderApiEndpoint `protobuf:"bytes,2,opt,name=api,proto3,oneof"`
+}
+
+type ProviderEndpoint_Cli struct {
+	Cli *ProviderCliEndpoint `protobuf:"bytes,3,opt,name=cli,proto3,oneof"`
+}
+
+func (*ProviderEndpoint_Api) isProviderEndpoint_Shape() {}
+
+func (*ProviderEndpoint_Cli) isProviderEndpoint_Shape() {}
+
+type ProviderApiEndpoint struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	BaseUrl       string                 `protobuf:"bytes,1,opt,name=base_url,json=baseUrl,proto3" json:"base_url,omitempty"`
+	Protocol      v11.Protocol           `protobuf:"varint,2,opt,name=protocol,proto3,enum=api_protocol.v1.Protocol" json:"protocol,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProviderApiEndpoint) Reset() {
+	*x = ProviderApiEndpoint{}
+	mi := &file_provider_v1_provider_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProviderApiEndpoint) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProviderApiEndpoint) ProtoMessage() {}
+
+func (x *ProviderApiEndpoint) ProtoReflect() protoreflect.Message {
+	mi := &file_provider_v1_provider_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProviderApiEndpoint.ProtoReflect.Descriptor instead.
+func (*ProviderApiEndpoint) Descriptor() ([]byte, []int) {
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *ProviderApiEndpoint) GetBaseUrl() string {
+	if x != nil {
+		return x.BaseUrl
+	}
+	return ""
+}
+
+func (x *ProviderApiEndpoint) GetProtocol() v11.Protocol {
+	if x != nil {
+		return x.Protocol
+	}
+	return v11.Protocol(0)
+}
+
+type ProviderCliEndpoint struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CliId         string                 `protobuf:"bytes,1,opt,name=cli_id,json=cliId,proto3" json:"cli_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProviderCliEndpoint) Reset() {
+	*x = ProviderCliEndpoint{}
+	mi := &file_provider_v1_provider_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProviderCliEndpoint) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProviderCliEndpoint) ProtoMessage() {}
+
+func (x *ProviderCliEndpoint) ProtoReflect() protoreflect.Message {
+	mi := &file_provider_v1_provider_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProviderCliEndpoint.ProtoReflect.Descriptor instead.
+func (*ProviderCliEndpoint) Descriptor() ([]byte, []int) {
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ProviderCliEndpoint) GetCliId() string {
+	if x != nil {
+		return x.CliId
+	}
+	return ""
+}
+
+type ProviderProbeStatus struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ModelCatalog  *ProviderProbeRunState `protobuf:"bytes,1,opt,name=model_catalog,json=modelCatalog,proto3" json:"model_catalog,omitempty"`
+	Quota         *ProviderProbeRunState `protobuf:"bytes,2,opt,name=quota,proto3" json:"quota,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProviderProbeStatus) Reset() {
+	*x = ProviderProbeStatus{}
+	mi := &file_provider_v1_provider_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProviderProbeStatus) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProviderProbeStatus) ProtoMessage() {}
+
+func (x *ProviderProbeStatus) ProtoReflect() protoreflect.Message {
+	mi := &file_provider_v1_provider_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProviderProbeStatus.ProtoReflect.Descriptor instead.
+func (*ProviderProbeStatus) Descriptor() ([]byte, []int) {
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *ProviderProbeStatus) GetModelCatalog() *ProviderProbeRunState {
+	if x != nil {
+		return x.ModelCatalog
+	}
+	return nil
+}
+
+func (x *ProviderProbeStatus) GetQuota() *ProviderProbeRunState {
+	if x != nil {
+		return x.Quota
+	}
+	return nil
+}
+
+type ProviderProbeRunState struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	LastAttemptAt *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=last_attempt_at,json=lastAttemptAt,proto3" json:"last_attempt_at,omitempty"`
+	NextAllowedAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=next_allowed_at,json=nextAllowedAt,proto3" json:"next_allowed_at,omitempty"`
+	ProbeId       string                 `protobuf:"bytes,3,opt,name=probe_id,json=probeId,proto3" json:"probe_id,omitempty"`
+	Outcome       string                 `protobuf:"bytes,4,opt,name=outcome,proto3" json:"outcome,omitempty"`
+	Message       string                 `protobuf:"bytes,5,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProviderProbeRunState) Reset() {
+	*x = ProviderProbeRunState{}
+	mi := &file_provider_v1_provider_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProviderProbeRunState) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProviderProbeRunState) ProtoMessage() {}
+
+func (x *ProviderProbeRunState) ProtoReflect() protoreflect.Message {
+	mi := &file_provider_v1_provider_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProviderProbeRunState.ProtoReflect.Descriptor instead.
+func (*ProviderProbeRunState) Descriptor() ([]byte, []int) {
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *ProviderProbeRunState) GetLastAttemptAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.LastAttemptAt
+	}
+	return nil
+}
+
+func (x *ProviderProbeRunState) GetNextAllowedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.NextAllowedAt
+	}
+	return nil
+}
+
+func (x *ProviderProbeRunState) GetProbeId() string {
+	if x != nil {
+		return x.ProbeId
+	}
+	return ""
+}
+
+func (x *ProviderProbeRunState) GetOutcome() string {
+	if x != nil {
+		return x.Outcome
+	}
+	return ""
+}
+
+func (x *ProviderProbeRunState) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 // ProviderRuntimeRef references one callable surface inside one provider.
 type ProviderRuntimeRef struct {
 	state      protoimpl.MessageState `protogen:"open.v1"`
@@ -991,7 +1531,7 @@ type ProviderRuntimeRef struct {
 
 func (x *ProviderRuntimeRef) Reset() {
 	*x = ProviderRuntimeRef{}
-	mi := &file_provider_v1_provider_proto_msgTypes[11]
+	mi := &file_provider_v1_provider_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1003,7 +1543,7 @@ func (x *ProviderRuntimeRef) String() string {
 func (*ProviderRuntimeRef) ProtoMessage() {}
 
 func (x *ProviderRuntimeRef) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[11]
+	mi := &file_provider_v1_provider_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1016,7 +1556,7 @@ func (x *ProviderRuntimeRef) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderRuntimeRef.ProtoReflect.Descriptor instead.
 func (*ProviderRuntimeRef) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{11}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *ProviderRuntimeRef) GetProviderId() string {
@@ -1083,7 +1623,7 @@ type ProviderRuntimeAPIRef struct {
 
 func (x *ProviderRuntimeAPIRef) Reset() {
 	*x = ProviderRuntimeAPIRef{}
-	mi := &file_provider_v1_provider_proto_msgTypes[12]
+	mi := &file_provider_v1_provider_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1095,7 +1635,7 @@ func (x *ProviderRuntimeAPIRef) String() string {
 func (*ProviderRuntimeAPIRef) ProtoMessage() {}
 
 func (x *ProviderRuntimeAPIRef) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[12]
+	mi := &file_provider_v1_provider_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1108,7 +1648,7 @@ func (x *ProviderRuntimeAPIRef) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderRuntimeAPIRef.ProtoReflect.Descriptor instead.
 func (*ProviderRuntimeAPIRef) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{12}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *ProviderRuntimeAPIRef) GetProtocol() v11.Protocol {
@@ -1126,7 +1666,7 @@ type ProviderRuntimeCLIRef struct {
 
 func (x *ProviderRuntimeCLIRef) Reset() {
 	*x = ProviderRuntimeCLIRef{}
-	mi := &file_provider_v1_provider_proto_msgTypes[13]
+	mi := &file_provider_v1_provider_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1138,7 +1678,7 @@ func (x *ProviderRuntimeCLIRef) String() string {
 func (*ProviderRuntimeCLIRef) ProtoMessage() {}
 
 func (x *ProviderRuntimeCLIRef) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[13]
+	mi := &file_provider_v1_provider_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1151,7 +1691,7 @@ func (x *ProviderRuntimeCLIRef) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderRuntimeCLIRef.ProtoReflect.Descriptor instead.
 func (*ProviderRuntimeCLIRef) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{13}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{20}
 }
 
 type ProviderRunBinding struct {
@@ -1169,13 +1709,14 @@ type ProviderRunBinding struct {
 	//	*ProviderRunBinding_Api
 	//	*ProviderRunBinding_Cli
 	Access        isProviderRunBinding_Access `protobuf_oneof:"access"`
+	Endpoint      *ProviderEndpoint           `protobuf:"bytes,11,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ProviderRunBinding) Reset() {
 	*x = ProviderRunBinding{}
-	mi := &file_provider_v1_provider_proto_msgTypes[14]
+	mi := &file_provider_v1_provider_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1187,7 +1728,7 @@ func (x *ProviderRunBinding) String() string {
 func (*ProviderRunBinding) ProtoMessage() {}
 
 func (x *ProviderRunBinding) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[14]
+	mi := &file_provider_v1_provider_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1200,7 +1741,7 @@ func (x *ProviderRunBinding) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderRunBinding.ProtoReflect.Descriptor instead.
 func (*ProviderRunBinding) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{14}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *ProviderRunBinding) GetProviderId() string {
@@ -1284,6 +1825,13 @@ func (x *ProviderRunBinding) GetCli() *ProviderRunCLIAccess {
 	return nil
 }
 
+func (x *ProviderRunBinding) GetEndpoint() *ProviderEndpoint {
+	if x != nil {
+		return x.Endpoint
+	}
+	return nil
+}
+
 type isProviderRunBinding_Access interface {
 	isProviderRunBinding_Access()
 }
@@ -1309,7 +1857,7 @@ type ProviderRunAPIAccess struct {
 
 func (x *ProviderRunAPIAccess) Reset() {
 	*x = ProviderRunAPIAccess{}
-	mi := &file_provider_v1_provider_proto_msgTypes[15]
+	mi := &file_provider_v1_provider_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1321,7 +1869,7 @@ func (x *ProviderRunAPIAccess) String() string {
 func (*ProviderRunAPIAccess) ProtoMessage() {}
 
 func (x *ProviderRunAPIAccess) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[15]
+	mi := &file_provider_v1_provider_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1334,7 +1882,7 @@ func (x *ProviderRunAPIAccess) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderRunAPIAccess.ProtoReflect.Descriptor instead.
 func (*ProviderRunAPIAccess) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{15}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *ProviderRunAPIAccess) GetProtocol() v11.Protocol {
@@ -1352,7 +1900,7 @@ type ProviderRunCLIAccess struct {
 
 func (x *ProviderRunCLIAccess) Reset() {
 	*x = ProviderRunCLIAccess{}
-	mi := &file_provider_v1_provider_proto_msgTypes[16]
+	mi := &file_provider_v1_provider_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1364,7 +1912,7 @@ func (x *ProviderRunCLIAccess) String() string {
 func (*ProviderRunCLIAccess) ProtoMessage() {}
 
 func (x *ProviderRunCLIAccess) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[16]
+	mi := &file_provider_v1_provider_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1377,7 +1925,7 @@ func (x *ProviderRunCLIAccess) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderRunCLIAccess.ProtoReflect.Descriptor instead.
 func (*ProviderRunCLIAccess) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{16}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{23}
 }
 
 // ProviderSurfaceRuntime describes how one configured provider surface is used.
@@ -1400,7 +1948,7 @@ type ProviderSurfaceRuntime struct {
 
 func (x *ProviderSurfaceRuntime) Reset() {
 	*x = ProviderSurfaceRuntime{}
-	mi := &file_provider_v1_provider_proto_msgTypes[17]
+	mi := &file_provider_v1_provider_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1412,7 +1960,7 @@ func (x *ProviderSurfaceRuntime) String() string {
 func (*ProviderSurfaceRuntime) ProtoMessage() {}
 
 func (x *ProviderSurfaceRuntime) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[17]
+	mi := &file_provider_v1_provider_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1425,7 +1973,7 @@ func (x *ProviderSurfaceRuntime) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderSurfaceRuntime.ProtoReflect.Descriptor instead.
 func (*ProviderSurfaceRuntime) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{17}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *ProviderSurfaceRuntime) GetDisplayName() string {
@@ -1521,7 +2069,7 @@ type ProviderAPISurfaceRuntime struct {
 
 func (x *ProviderAPISurfaceRuntime) Reset() {
 	*x = ProviderAPISurfaceRuntime{}
-	mi := &file_provider_v1_provider_proto_msgTypes[18]
+	mi := &file_provider_v1_provider_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1533,7 +2081,7 @@ func (x *ProviderAPISurfaceRuntime) String() string {
 func (*ProviderAPISurfaceRuntime) ProtoMessage() {}
 
 func (x *ProviderAPISurfaceRuntime) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[18]
+	mi := &file_provider_v1_provider_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1546,7 +2094,7 @@ func (x *ProviderAPISurfaceRuntime) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderAPISurfaceRuntime.ProtoReflect.Descriptor instead.
 func (*ProviderAPISurfaceRuntime) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{18}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *ProviderAPISurfaceRuntime) GetProtocol() v11.Protocol {
@@ -1572,7 +2120,7 @@ type ProviderCLISurfaceRuntime struct {
 
 func (x *ProviderCLISurfaceRuntime) Reset() {
 	*x = ProviderCLISurfaceRuntime{}
-	mi := &file_provider_v1_provider_proto_msgTypes[19]
+	mi := &file_provider_v1_provider_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1584,7 +2132,7 @@ func (x *ProviderCLISurfaceRuntime) String() string {
 func (*ProviderCLISurfaceRuntime) ProtoMessage() {}
 
 func (x *ProviderCLISurfaceRuntime) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[19]
+	mi := &file_provider_v1_provider_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1597,7 +2145,7 @@ func (x *ProviderCLISurfaceRuntime) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderCLISurfaceRuntime.ProtoReflect.Descriptor instead.
 func (*ProviderCLISurfaceRuntime) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{19}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *ProviderCLISurfaceRuntime) GetCliId() string {
@@ -1619,7 +2167,7 @@ type ProviderModelCatalogEntry struct {
 
 func (x *ProviderModelCatalogEntry) Reset() {
 	*x = ProviderModelCatalogEntry{}
-	mi := &file_provider_v1_provider_proto_msgTypes[20]
+	mi := &file_provider_v1_provider_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1631,7 +2179,7 @@ func (x *ProviderModelCatalogEntry) String() string {
 func (*ProviderModelCatalogEntry) ProtoMessage() {}
 
 func (x *ProviderModelCatalogEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[20]
+	mi := &file_provider_v1_provider_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1644,7 +2192,7 @@ func (x *ProviderModelCatalogEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderModelCatalogEntry.ProtoReflect.Descriptor instead.
 func (*ProviderModelCatalogEntry) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{20}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *ProviderModelCatalogEntry) GetProviderModelId() string {
@@ -1674,7 +2222,7 @@ type ProviderModelCatalog struct {
 
 func (x *ProviderModelCatalog) Reset() {
 	*x = ProviderModelCatalog{}
-	mi := &file_provider_v1_provider_proto_msgTypes[21]
+	mi := &file_provider_v1_provider_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1686,7 +2234,7 @@ func (x *ProviderModelCatalog) String() string {
 func (*ProviderModelCatalog) ProtoMessage() {}
 
 func (x *ProviderModelCatalog) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[21]
+	mi := &file_provider_v1_provider_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1699,7 +2247,7 @@ func (x *ProviderModelCatalog) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProviderModelCatalog.ProtoReflect.Descriptor instead.
 func (*ProviderModelCatalog) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{21}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *ProviderModelCatalog) GetModels() []*ProviderModelCatalogEntry {
@@ -1742,7 +2290,7 @@ type ResolvedProviderSurface struct {
 
 func (x *ResolvedProviderSurface) Reset() {
 	*x = ResolvedProviderSurface{}
-	mi := &file_provider_v1_provider_proto_msgTypes[22]
+	mi := &file_provider_v1_provider_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1754,7 +2302,7 @@ func (x *ResolvedProviderSurface) String() string {
 func (*ResolvedProviderSurface) ProtoMessage() {}
 
 func (x *ResolvedProviderSurface) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[22]
+	mi := &file_provider_v1_provider_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1767,7 +2315,7 @@ func (x *ResolvedProviderSurface) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResolvedProviderSurface.ProtoReflect.Descriptor instead.
 func (*ResolvedProviderSurface) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{22}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *ResolvedProviderSurface) GetSurface() *ProviderSurfaceRuntime {
@@ -1795,13 +2343,14 @@ type ResolvedProviderModel struct {
 	Model           *v12.ResolvedModel       `protobuf:"bytes,6,opt,name=model,proto3" json:"model,omitempty"`
 	Source          CatalogSource            `protobuf:"varint,8,opt,name=source,proto3,enum=provider.v1.CatalogSource" json:"source,omitempty"`
 	Surface         *ResolvedProviderSurface `protobuf:"bytes,9,opt,name=surface,proto3" json:"surface,omitempty"`
+	Endpoint        *ProviderEndpoint        `protobuf:"bytes,10,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *ResolvedProviderModel) Reset() {
 	*x = ResolvedProviderModel{}
-	mi := &file_provider_v1_provider_proto_msgTypes[23]
+	mi := &file_provider_v1_provider_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1813,7 +2362,7 @@ func (x *ResolvedProviderModel) String() string {
 func (*ResolvedProviderModel) ProtoMessage() {}
 
 func (x *ResolvedProviderModel) ProtoReflect() protoreflect.Message {
-	mi := &file_provider_v1_provider_proto_msgTypes[23]
+	mi := &file_provider_v1_provider_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1826,7 +2375,7 @@ func (x *ResolvedProviderModel) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResolvedProviderModel.ProtoReflect.Descriptor instead.
 func (*ResolvedProviderModel) Descriptor() ([]byte, []int) {
-	return file_provider_v1_provider_proto_rawDescGZIP(), []int{23}
+	return file_provider_v1_provider_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *ResolvedProviderModel) GetSurfaceId() string {
@@ -1878,6 +2427,13 @@ func (x *ResolvedProviderModel) GetSurface() *ResolvedProviderSurface {
 	return nil
 }
 
+func (x *ResolvedProviderModel) GetEndpoint() *ProviderEndpoint {
+	if x != nil {
+		return x.Endpoint
+	}
+	return nil
+}
+
 var File_provider_v1_provider_proto protoreflect.FileDescriptor
 
 const file_provider_v1_provider_proto_rawDesc = "" +
@@ -1921,7 +2477,7 @@ const file_provider_v1_provider_proto_rawDesc = "" +
 	"\brequired\x18\x04 \x01(\bR\brequired\x12\x1c\n" +
 	"\tsensitive\x18\x05 \x01(\bR\tsensitive\x12\x1c\n" +
 	"\tmultiline\x18\x06 \x01(\bR\tmultiline\x12 \n" +
-	"\vplaceholder\x18\a \x01(\tR\vplaceholder\"\x86\x03\n" +
+	"\vplaceholder\x18\a \x01(\tR\vplaceholder\"\xd6\x04\n" +
 	"\bProvider\x12\x1f\n" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
 	"providerId\x12!\n" +
@@ -1930,14 +2486,42 @@ const file_provider_v1_provider_proto_rawDesc = "" +
 	"surface_id\x18\t \x01(\tR\tsurfaceId\x12Z\n" +
 	"\x17provider_credential_ref\x18\n" +
 	" \x01(\v2\".provider.v1.ProviderCredentialRefR\x15providerCredentialRef\x12=\n" +
-	"\aruntime\x18\v \x01(\v2#.provider.v1.ProviderSurfaceRuntimeR\aruntimeJ\x04\b\x04\x10\x05J\x04\b\x05\x10\x06J\x04\b\x06\x10\aJ\x04\b\b\x10\tJ\x04\b\a\x10\bJ\x04\b\f\x10\rR\tvendor_idR\x16provider_credential_idR\x10default_model_idR\rmodel_catalogR\bsurfacesR\n" +
+	"\aruntime\x18\v \x01(\v2#.provider.v1.ProviderSurfaceRuntimeR\aruntime\x122\n" +
+	"\x06models\x18\r \x03(\v2\x1a.provider.v1.ProviderModelR\x06models\x12U\n" +
+	"\x16custom_api_key_surface\x18\x0e \x01(\v2 .provider.v1.CustomAPIKeySurfaceR\x13customApiKeySurface\x12C\n" +
+	"\fprobe_status\x18\x0f \x01(\v2 .provider.v1.ProviderProbeStatusR\vprobeStatusJ\x04\b\x04\x10\x05J\x04\b\x05\x10\x06J\x04\b\x06\x10\aJ\x04\b\b\x10\tJ\x04\b\a\x10\bJ\x04\b\f\x10\rR\tvendor_idR\x16provider_credential_idR\x10default_model_idR\rmodel_catalogR\bsurfacesR\n" +
 	"source_ref\"\xeb\x01\n" +
 	"\x14ProviderCapabilities\x126\n" +
 	"\x17supports_model_override\x18\x01 \x01(\bR\x15supportsModelOverride\x12?\n" +
 	"\x1csupports_model_catalog_probe\x18\x03 \x01(\bR\x19supportsModelCatalogProbe\x120\n" +
 	"\x14supports_quota_probe\x18\x04 \x01(\bR\x12supportsQuotaProbeJ\x04\b\x02\x10\x03R\"supports_available_model_discovery\"M\n" +
 	"\x15ProviderCredentialRef\x124\n" +
-	"\x16provider_credential_id\x18\x01 \x01(\tR\x14providerCredentialId\"\xce\x01\n" +
+	"\x16provider_credential_id\x18\x01 \x01(\tR\x14providerCredentialId\"l\n" +
+	"\rProviderModel\x12*\n" +
+	"\x11provider_model_id\x18\x01 \x01(\tR\x0fproviderModelId\x12/\n" +
+	"\tmodel_ref\x18\x02 \x01(\v2\x12.model.v1.ModelRefR\bmodelRef\"g\n" +
+	"\x13CustomAPIKeySurface\x12\x19\n" +
+	"\bbase_url\x18\x01 \x01(\tR\abaseUrl\x125\n" +
+	"\bprotocol\x18\x02 \x01(\x0e2\x19.api_protocol.v1.ProtocolR\bprotocol\"\xbe\x01\n" +
+	"\x10ProviderEndpoint\x125\n" +
+	"\x04type\x18\x01 \x01(\x0e2!.provider.v1.ProviderEndpointTypeR\x04type\x124\n" +
+	"\x03api\x18\x02 \x01(\v2 .provider.v1.ProviderApiEndpointH\x00R\x03api\x124\n" +
+	"\x03cli\x18\x03 \x01(\v2 .provider.v1.ProviderCliEndpointH\x00R\x03cliB\a\n" +
+	"\x05shape\"g\n" +
+	"\x13ProviderApiEndpoint\x12\x19\n" +
+	"\bbase_url\x18\x01 \x01(\tR\abaseUrl\x125\n" +
+	"\bprotocol\x18\x02 \x01(\x0e2\x19.api_protocol.v1.ProtocolR\bprotocol\",\n" +
+	"\x13ProviderCliEndpoint\x12\x15\n" +
+	"\x06cli_id\x18\x01 \x01(\tR\x05cliId\"\x98\x01\n" +
+	"\x13ProviderProbeStatus\x12G\n" +
+	"\rmodel_catalog\x18\x01 \x01(\v2\".provider.v1.ProviderProbeRunStateR\fmodelCatalog\x128\n" +
+	"\x05quota\x18\x02 \x01(\v2\".provider.v1.ProviderProbeRunStateR\x05quota\"\xee\x01\n" +
+	"\x15ProviderProbeRunState\x12B\n" +
+	"\x0flast_attempt_at\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\rlastAttemptAt\x12B\n" +
+	"\x0fnext_allowed_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\rnextAllowedAt\x12\x19\n" +
+	"\bprobe_id\x18\x03 \x01(\tR\aprobeId\x12\x18\n" +
+	"\aoutcome\x18\x04 \x01(\tR\aoutcome\x12\x18\n" +
+	"\amessage\x18\x05 \x01(\tR\amessage\"\xce\x01\n" +
 	"\x12ProviderRuntimeRef\x12\x1f\n" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
 	"providerId\x12\x1d\n" +
@@ -1948,7 +2532,7 @@ const file_provider_v1_provider_proto_rawDesc = "" +
 	"\x06access\"N\n" +
 	"\x15ProviderRuntimeAPIRef\x125\n" +
 	"\bprotocol\x18\x01 \x01(\x0e2\x19.api_protocol.v1.ProtocolR\bprotocol\"\x17\n" +
-	"\x15ProviderRuntimeCLIRef\"\xfc\x03\n" +
+	"\x15ProviderRuntimeCLIRef\"\xb7\x04\n" +
 	"\x12ProviderRunBinding\x12\x1f\n" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
 	"providerId\x12S\n" +
@@ -1962,7 +2546,8 @@ const file_provider_v1_provider_proto_rawDesc = "" +
 	"\x0fsource_model_id\x18\b \x01(\tR\rsourceModelId\x125\n" +
 	"\x03api\x18\t \x01(\v2!.provider.v1.ProviderRunAPIAccessH\x00R\x03api\x125\n" +
 	"\x03cli\x18\n" +
-	" \x01(\v2!.provider.v1.ProviderRunCLIAccessH\x00R\x03cliB\b\n" +
+	" \x01(\v2!.provider.v1.ProviderRunCLIAccessH\x00R\x03cli\x129\n" +
+	"\bendpoint\x18\v \x01(\v2\x1d.provider.v1.ProviderEndpointR\bendpointB\b\n" +
 	"\x06access\"M\n" +
 	"\x14ProviderRunAPIAccess\x125\n" +
 	"\bprotocol\x18\x01 \x01(\x0e2\x19.api_protocol.v1.ProtocolR\bprotocol\"\x16\n" +
@@ -1994,7 +2579,7 @@ const file_provider_v1_provider_proto_rawDesc = "" +
 	"\rrefresh_after\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\frefreshAfter\"\x8f\x01\n" +
 	"\x17ResolvedProviderSurface\x12=\n" +
 	"\asurface\x18\x01 \x01(\v2#.provider.v1.ProviderSurfaceRuntimeR\asurface\x125\n" +
-	"\x04auth\x18\x02 \x01(\v2!.credential.v1.ResolvedCredentialR\x04auth\"\xf0\x02\n" +
+	"\x04auth\x18\x02 \x01(\v2!.credential.v1.ResolvedCredentialR\x04auth\"\xab\x03\n" +
 	"\x15ResolvedProviderModel\x12\x1d\n" +
 	"\n" +
 	"surface_id\x18\x01 \x01(\tR\tsurfaceId\x12*\n" +
@@ -2003,7 +2588,9 @@ const file_provider_v1_provider_proto_rawDesc = "" +
 	"\bbase_url\x18\x05 \x01(\tR\abaseUrl\x12-\n" +
 	"\x05model\x18\x06 \x01(\v2\x17.model.v1.ResolvedModelR\x05model\x122\n" +
 	"\x06source\x18\b \x01(\x0e2\x1a.provider.v1.CatalogSourceR\x06source\x12>\n" +
-	"\asurface\x18\t \x01(\v2$.provider.v1.ResolvedProviderSurfaceR\asurfaceJ\x04\b\a\x10\bR\x11provider_metadata*\x9c\x02\n" +
+	"\asurface\x18\t \x01(\v2$.provider.v1.ResolvedProviderSurfaceR\asurface\x129\n" +
+	"\bendpoint\x18\n" +
+	" \x01(\v2\x1d.provider.v1.ProviderEndpointR\bendpointJ\x04\b\a\x10\bR\x11provider_metadata*\x9c\x02\n" +
 	"&ProviderSurfaceModelCatalogProbeMethod\x12;\n" +
 	"7PROVIDER_SURFACE_MODEL_CATALOG_PROBE_METHOD_UNSPECIFIED\x10\x00\x12D\n" +
 	"@PROVIDER_SURFACE_MODEL_CATALOG_PROBE_METHOD_PROTOCOL_BEST_EFFORT\x10\x01\x126\n" +
@@ -2013,7 +2600,15 @@ const file_provider_v1_provider_proto_rawDesc = "" +
 	"!PROVIDER_SURFACE_KIND_UNSPECIFIED\x10\x00\x12\x1d\n" +
 	"\x19PROVIDER_SURFACE_KIND_API\x10\x01\x12\x1d\n" +
 	"\x19PROVIDER_SURFACE_KIND_CLI\x10\x02\x12\x1d\n" +
-	"\x19PROVIDER_SURFACE_KIND_WEB\x10\x03*\x89\x01\n" +
+	"\x19PROVIDER_SURFACE_KIND_WEB\x10\x03*~\n" +
+	"\x14ProviderEndpointType\x12&\n" +
+	"\"PROVIDER_ENDPOINT_TYPE_UNSPECIFIED\x10\x00\x12\x1e\n" +
+	"\x1aPROVIDER_ENDPOINT_TYPE_API\x10\x01\x12\x1e\n" +
+	"\x1aPROVIDER_ENDPOINT_TYPE_CLI\x10\x02*~\n" +
+	"\x11ProviderProbeKind\x12#\n" +
+	"\x1fPROVIDER_PROBE_KIND_UNSPECIFIED\x10\x00\x12%\n" +
+	"!PROVIDER_PROBE_KIND_MODEL_CATALOG\x10\x01\x12\x1d\n" +
+	"\x19PROVIDER_PROBE_KIND_QUOTA\x10\x02*\x89\x01\n" +
 	"\x15ProviderSurfaceOrigin\x12'\n" +
 	"#PROVIDER_SURFACE_ORIGIN_UNSPECIFIED\x10\x00\x12#\n" +
 	"\x1fPROVIDER_SURFACE_ORIGIN_DERIVED\x10\x01\x12\"\n" +
@@ -2037,89 +2632,113 @@ func file_provider_v1_provider_proto_rawDescGZIP() []byte {
 	return file_provider_v1_provider_proto_rawDescData
 }
 
-var file_provider_v1_provider_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
-var file_provider_v1_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
+var file_provider_v1_provider_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
+var file_provider_v1_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 31)
 var file_provider_v1_provider_proto_goTypes = []any{
 	(ProviderSurfaceModelCatalogProbeMethod)(0), // 0: provider.v1.ProviderSurfaceModelCatalogProbeMethod
 	(ProviderSurfaceKind)(0),                    // 1: provider.v1.ProviderSurfaceKind
-	(ProviderSurfaceOrigin)(0),                  // 2: provider.v1.ProviderSurfaceOrigin
-	(CatalogSource)(0),                          // 3: provider.v1.CatalogSource
-	(*ProviderSurface)(nil),                     // 4: provider.v1.ProviderSurface
-	(*ProviderSurfaceAPISpec)(nil),              // 5: provider.v1.ProviderSurfaceAPISpec
-	(*ProviderSurfaceCLISpec)(nil),              // 6: provider.v1.ProviderSurfaceCLISpec
-	(*ProviderSurfaceWebSpec)(nil),              // 7: provider.v1.ProviderSurfaceWebSpec
-	(*ProviderSurfaceProbes)(nil),               // 8: provider.v1.ProviderSurfaceProbes
-	(*ProviderSurfaceModelCatalogProbe)(nil),    // 9: provider.v1.ProviderSurfaceModelCatalogProbe
-	(*ProviderSurfaceQuotaProbe)(nil),           // 10: provider.v1.ProviderSurfaceQuotaProbe
-	(*ProviderSurfaceProbeArg)(nil),             // 11: provider.v1.ProviderSurfaceProbeArg
-	(*Provider)(nil),                            // 12: provider.v1.Provider
-	(*ProviderCapabilities)(nil),                // 13: provider.v1.ProviderCapabilities
-	(*ProviderCredentialRef)(nil),               // 14: provider.v1.ProviderCredentialRef
-	(*ProviderRuntimeRef)(nil),                  // 15: provider.v1.ProviderRuntimeRef
-	(*ProviderRuntimeAPIRef)(nil),               // 16: provider.v1.ProviderRuntimeAPIRef
-	(*ProviderRuntimeCLIRef)(nil),               // 17: provider.v1.ProviderRuntimeCLIRef
-	(*ProviderRunBinding)(nil),                  // 18: provider.v1.ProviderRunBinding
-	(*ProviderRunAPIAccess)(nil),                // 19: provider.v1.ProviderRunAPIAccess
-	(*ProviderRunCLIAccess)(nil),                // 20: provider.v1.ProviderRunCLIAccess
-	(*ProviderSurfaceRuntime)(nil),              // 21: provider.v1.ProviderSurfaceRuntime
-	(*ProviderAPISurfaceRuntime)(nil),           // 22: provider.v1.ProviderAPISurfaceRuntime
-	(*ProviderCLISurfaceRuntime)(nil),           // 23: provider.v1.ProviderCLISurfaceRuntime
-	(*ProviderModelCatalogEntry)(nil),           // 24: provider.v1.ProviderModelCatalogEntry
-	(*ProviderModelCatalog)(nil),                // 25: provider.v1.ProviderModelCatalog
-	(*ResolvedProviderSurface)(nil),             // 26: provider.v1.ResolvedProviderSurface
-	(*ResolvedProviderModel)(nil),               // 27: provider.v1.ResolvedProviderModel
-	(v1.CredentialKind)(0),                      // 28: credential.v1.CredentialKind
-	(v11.Protocol)(0),                           // 29: api_protocol.v1.Protocol
-	(*v1.CredentialGrantRef)(nil),               // 30: credential.v1.CredentialGrantRef
-	(*v12.ModelRef)(nil),                        // 31: model.v1.ModelRef
-	(*timestamppb.Timestamp)(nil),               // 32: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),                 // 33: google.protobuf.Duration
-	(*v1.ResolvedCredential)(nil),               // 34: credential.v1.ResolvedCredential
-	(*v12.ResolvedModel)(nil),                   // 35: model.v1.ResolvedModel
+	(ProviderEndpointType)(0),                   // 2: provider.v1.ProviderEndpointType
+	(ProviderProbeKind)(0),                      // 3: provider.v1.ProviderProbeKind
+	(ProviderSurfaceOrigin)(0),                  // 4: provider.v1.ProviderSurfaceOrigin
+	(CatalogSource)(0),                          // 5: provider.v1.CatalogSource
+	(*ProviderSurface)(nil),                     // 6: provider.v1.ProviderSurface
+	(*ProviderSurfaceAPISpec)(nil),              // 7: provider.v1.ProviderSurfaceAPISpec
+	(*ProviderSurfaceCLISpec)(nil),              // 8: provider.v1.ProviderSurfaceCLISpec
+	(*ProviderSurfaceWebSpec)(nil),              // 9: provider.v1.ProviderSurfaceWebSpec
+	(*ProviderSurfaceProbes)(nil),               // 10: provider.v1.ProviderSurfaceProbes
+	(*ProviderSurfaceModelCatalogProbe)(nil),    // 11: provider.v1.ProviderSurfaceModelCatalogProbe
+	(*ProviderSurfaceQuotaProbe)(nil),           // 12: provider.v1.ProviderSurfaceQuotaProbe
+	(*ProviderSurfaceProbeArg)(nil),             // 13: provider.v1.ProviderSurfaceProbeArg
+	(*Provider)(nil),                            // 14: provider.v1.Provider
+	(*ProviderCapabilities)(nil),                // 15: provider.v1.ProviderCapabilities
+	(*ProviderCredentialRef)(nil),               // 16: provider.v1.ProviderCredentialRef
+	(*ProviderModel)(nil),                       // 17: provider.v1.ProviderModel
+	(*CustomAPIKeySurface)(nil),                 // 18: provider.v1.CustomAPIKeySurface
+	(*ProviderEndpoint)(nil),                    // 19: provider.v1.ProviderEndpoint
+	(*ProviderApiEndpoint)(nil),                 // 20: provider.v1.ProviderApiEndpoint
+	(*ProviderCliEndpoint)(nil),                 // 21: provider.v1.ProviderCliEndpoint
+	(*ProviderProbeStatus)(nil),                 // 22: provider.v1.ProviderProbeStatus
+	(*ProviderProbeRunState)(nil),               // 23: provider.v1.ProviderProbeRunState
+	(*ProviderRuntimeRef)(nil),                  // 24: provider.v1.ProviderRuntimeRef
+	(*ProviderRuntimeAPIRef)(nil),               // 25: provider.v1.ProviderRuntimeAPIRef
+	(*ProviderRuntimeCLIRef)(nil),               // 26: provider.v1.ProviderRuntimeCLIRef
+	(*ProviderRunBinding)(nil),                  // 27: provider.v1.ProviderRunBinding
+	(*ProviderRunAPIAccess)(nil),                // 28: provider.v1.ProviderRunAPIAccess
+	(*ProviderRunCLIAccess)(nil),                // 29: provider.v1.ProviderRunCLIAccess
+	(*ProviderSurfaceRuntime)(nil),              // 30: provider.v1.ProviderSurfaceRuntime
+	(*ProviderAPISurfaceRuntime)(nil),           // 31: provider.v1.ProviderAPISurfaceRuntime
+	(*ProviderCLISurfaceRuntime)(nil),           // 32: provider.v1.ProviderCLISurfaceRuntime
+	(*ProviderModelCatalogEntry)(nil),           // 33: provider.v1.ProviderModelCatalogEntry
+	(*ProviderModelCatalog)(nil),                // 34: provider.v1.ProviderModelCatalog
+	(*ResolvedProviderSurface)(nil),             // 35: provider.v1.ResolvedProviderSurface
+	(*ResolvedProviderModel)(nil),               // 36: provider.v1.ResolvedProviderModel
+	(v1.CredentialKind)(0),                      // 37: credential.v1.CredentialKind
+	(v11.Protocol)(0),                           // 38: api_protocol.v1.Protocol
+	(*v12.ModelRef)(nil),                        // 39: model.v1.ModelRef
+	(*timestamppb.Timestamp)(nil),               // 40: google.protobuf.Timestamp
+	(*v1.CredentialGrantRef)(nil),               // 41: credential.v1.CredentialGrantRef
+	(*durationpb.Duration)(nil),                 // 42: google.protobuf.Duration
+	(*v1.ResolvedCredential)(nil),               // 43: credential.v1.ResolvedCredential
+	(*v12.ResolvedModel)(nil),                   // 44: model.v1.ResolvedModel
 }
 var file_provider_v1_provider_proto_depIdxs = []int32{
-	28, // 0: provider.v1.ProviderSurface.supported_credential_kinds:type_name -> credential.v1.CredentialKind
-	13, // 1: provider.v1.ProviderSurface.capabilities:type_name -> provider.v1.ProviderCapabilities
+	37, // 0: provider.v1.ProviderSurface.supported_credential_kinds:type_name -> credential.v1.CredentialKind
+	15, // 1: provider.v1.ProviderSurface.capabilities:type_name -> provider.v1.ProviderCapabilities
 	1,  // 2: provider.v1.ProviderSurface.kind:type_name -> provider.v1.ProviderSurfaceKind
-	5,  // 3: provider.v1.ProviderSurface.api:type_name -> provider.v1.ProviderSurfaceAPISpec
-	6,  // 4: provider.v1.ProviderSurface.cli:type_name -> provider.v1.ProviderSurfaceCLISpec
-	7,  // 5: provider.v1.ProviderSurface.web:type_name -> provider.v1.ProviderSurfaceWebSpec
-	8,  // 6: provider.v1.ProviderSurface.probes:type_name -> provider.v1.ProviderSurfaceProbes
-	29, // 7: provider.v1.ProviderSurfaceAPISpec.supported_protocols:type_name -> api_protocol.v1.Protocol
-	9,  // 8: provider.v1.ProviderSurfaceProbes.model_catalog:type_name -> provider.v1.ProviderSurfaceModelCatalogProbe
-	10, // 9: provider.v1.ProviderSurfaceProbes.quota:type_name -> provider.v1.ProviderSurfaceQuotaProbe
+	7,  // 3: provider.v1.ProviderSurface.api:type_name -> provider.v1.ProviderSurfaceAPISpec
+	8,  // 4: provider.v1.ProviderSurface.cli:type_name -> provider.v1.ProviderSurfaceCLISpec
+	9,  // 5: provider.v1.ProviderSurface.web:type_name -> provider.v1.ProviderSurfaceWebSpec
+	10, // 6: provider.v1.ProviderSurface.probes:type_name -> provider.v1.ProviderSurfaceProbes
+	38, // 7: provider.v1.ProviderSurfaceAPISpec.supported_protocols:type_name -> api_protocol.v1.Protocol
+	11, // 8: provider.v1.ProviderSurfaceProbes.model_catalog:type_name -> provider.v1.ProviderSurfaceModelCatalogProbe
+	12, // 9: provider.v1.ProviderSurfaceProbes.quota:type_name -> provider.v1.ProviderSurfaceQuotaProbe
 	0,  // 10: provider.v1.ProviderSurfaceModelCatalogProbe.method:type_name -> provider.v1.ProviderSurfaceModelCatalogProbeMethod
-	11, // 11: provider.v1.ProviderSurfaceQuotaProbe.args:type_name -> provider.v1.ProviderSurfaceProbeArg
-	14, // 12: provider.v1.Provider.provider_credential_ref:type_name -> provider.v1.ProviderCredentialRef
-	21, // 13: provider.v1.Provider.runtime:type_name -> provider.v1.ProviderSurfaceRuntime
-	16, // 14: provider.v1.ProviderRuntimeRef.api:type_name -> provider.v1.ProviderRuntimeAPIRef
-	17, // 15: provider.v1.ProviderRuntimeRef.cli:type_name -> provider.v1.ProviderRuntimeCLIRef
-	29, // 16: provider.v1.ProviderRuntimeAPIRef.protocol:type_name -> api_protocol.v1.Protocol
-	30, // 17: provider.v1.ProviderRunBinding.credential_grant_ref:type_name -> credential.v1.CredentialGrantRef
-	19, // 18: provider.v1.ProviderRunBinding.api:type_name -> provider.v1.ProviderRunAPIAccess
-	20, // 19: provider.v1.ProviderRunBinding.cli:type_name -> provider.v1.ProviderRunCLIAccess
-	29, // 20: provider.v1.ProviderRunAPIAccess.protocol:type_name -> api_protocol.v1.Protocol
-	2,  // 21: provider.v1.ProviderSurfaceRuntime.origin:type_name -> provider.v1.ProviderSurfaceOrigin
-	25, // 22: provider.v1.ProviderSurfaceRuntime.catalog:type_name -> provider.v1.ProviderModelCatalog
-	22, // 23: provider.v1.ProviderSurfaceRuntime.api:type_name -> provider.v1.ProviderAPISurfaceRuntime
-	23, // 24: provider.v1.ProviderSurfaceRuntime.cli:type_name -> provider.v1.ProviderCLISurfaceRuntime
-	29, // 25: provider.v1.ProviderAPISurfaceRuntime.protocol:type_name -> api_protocol.v1.Protocol
-	31, // 26: provider.v1.ProviderModelCatalogEntry.model_ref:type_name -> model.v1.ModelRef
-	24, // 27: provider.v1.ProviderModelCatalog.models:type_name -> provider.v1.ProviderModelCatalogEntry
-	3,  // 28: provider.v1.ProviderModelCatalog.source:type_name -> provider.v1.CatalogSource
-	32, // 29: provider.v1.ProviderModelCatalog.updated_at:type_name -> google.protobuf.Timestamp
-	33, // 30: provider.v1.ProviderModelCatalog.refresh_after:type_name -> google.protobuf.Duration
-	21, // 31: provider.v1.ResolvedProviderSurface.surface:type_name -> provider.v1.ProviderSurfaceRuntime
-	34, // 32: provider.v1.ResolvedProviderSurface.auth:type_name -> credential.v1.ResolvedCredential
-	29, // 33: provider.v1.ResolvedProviderModel.protocol:type_name -> api_protocol.v1.Protocol
-	35, // 34: provider.v1.ResolvedProviderModel.model:type_name -> model.v1.ResolvedModel
-	3,  // 35: provider.v1.ResolvedProviderModel.source:type_name -> provider.v1.CatalogSource
-	26, // 36: provider.v1.ResolvedProviderModel.surface:type_name -> provider.v1.ResolvedProviderSurface
-	37, // [37:37] is the sub-list for method output_type
-	37, // [37:37] is the sub-list for method input_type
-	37, // [37:37] is the sub-list for extension type_name
-	37, // [37:37] is the sub-list for extension extendee
-	0,  // [0:37] is the sub-list for field type_name
+	13, // 11: provider.v1.ProviderSurfaceQuotaProbe.args:type_name -> provider.v1.ProviderSurfaceProbeArg
+	16, // 12: provider.v1.Provider.provider_credential_ref:type_name -> provider.v1.ProviderCredentialRef
+	30, // 13: provider.v1.Provider.runtime:type_name -> provider.v1.ProviderSurfaceRuntime
+	17, // 14: provider.v1.Provider.models:type_name -> provider.v1.ProviderModel
+	18, // 15: provider.v1.Provider.custom_api_key_surface:type_name -> provider.v1.CustomAPIKeySurface
+	22, // 16: provider.v1.Provider.probe_status:type_name -> provider.v1.ProviderProbeStatus
+	39, // 17: provider.v1.ProviderModel.model_ref:type_name -> model.v1.ModelRef
+	38, // 18: provider.v1.CustomAPIKeySurface.protocol:type_name -> api_protocol.v1.Protocol
+	2,  // 19: provider.v1.ProviderEndpoint.type:type_name -> provider.v1.ProviderEndpointType
+	20, // 20: provider.v1.ProviderEndpoint.api:type_name -> provider.v1.ProviderApiEndpoint
+	21, // 21: provider.v1.ProviderEndpoint.cli:type_name -> provider.v1.ProviderCliEndpoint
+	38, // 22: provider.v1.ProviderApiEndpoint.protocol:type_name -> api_protocol.v1.Protocol
+	23, // 23: provider.v1.ProviderProbeStatus.model_catalog:type_name -> provider.v1.ProviderProbeRunState
+	23, // 24: provider.v1.ProviderProbeStatus.quota:type_name -> provider.v1.ProviderProbeRunState
+	40, // 25: provider.v1.ProviderProbeRunState.last_attempt_at:type_name -> google.protobuf.Timestamp
+	40, // 26: provider.v1.ProviderProbeRunState.next_allowed_at:type_name -> google.protobuf.Timestamp
+	25, // 27: provider.v1.ProviderRuntimeRef.api:type_name -> provider.v1.ProviderRuntimeAPIRef
+	26, // 28: provider.v1.ProviderRuntimeRef.cli:type_name -> provider.v1.ProviderRuntimeCLIRef
+	38, // 29: provider.v1.ProviderRuntimeAPIRef.protocol:type_name -> api_protocol.v1.Protocol
+	41, // 30: provider.v1.ProviderRunBinding.credential_grant_ref:type_name -> credential.v1.CredentialGrantRef
+	28, // 31: provider.v1.ProviderRunBinding.api:type_name -> provider.v1.ProviderRunAPIAccess
+	29, // 32: provider.v1.ProviderRunBinding.cli:type_name -> provider.v1.ProviderRunCLIAccess
+	19, // 33: provider.v1.ProviderRunBinding.endpoint:type_name -> provider.v1.ProviderEndpoint
+	38, // 34: provider.v1.ProviderRunAPIAccess.protocol:type_name -> api_protocol.v1.Protocol
+	4,  // 35: provider.v1.ProviderSurfaceRuntime.origin:type_name -> provider.v1.ProviderSurfaceOrigin
+	34, // 36: provider.v1.ProviderSurfaceRuntime.catalog:type_name -> provider.v1.ProviderModelCatalog
+	31, // 37: provider.v1.ProviderSurfaceRuntime.api:type_name -> provider.v1.ProviderAPISurfaceRuntime
+	32, // 38: provider.v1.ProviderSurfaceRuntime.cli:type_name -> provider.v1.ProviderCLISurfaceRuntime
+	38, // 39: provider.v1.ProviderAPISurfaceRuntime.protocol:type_name -> api_protocol.v1.Protocol
+	39, // 40: provider.v1.ProviderModelCatalogEntry.model_ref:type_name -> model.v1.ModelRef
+	33, // 41: provider.v1.ProviderModelCatalog.models:type_name -> provider.v1.ProviderModelCatalogEntry
+	5,  // 42: provider.v1.ProviderModelCatalog.source:type_name -> provider.v1.CatalogSource
+	40, // 43: provider.v1.ProviderModelCatalog.updated_at:type_name -> google.protobuf.Timestamp
+	42, // 44: provider.v1.ProviderModelCatalog.refresh_after:type_name -> google.protobuf.Duration
+	30, // 45: provider.v1.ResolvedProviderSurface.surface:type_name -> provider.v1.ProviderSurfaceRuntime
+	43, // 46: provider.v1.ResolvedProviderSurface.auth:type_name -> credential.v1.ResolvedCredential
+	38, // 47: provider.v1.ResolvedProviderModel.protocol:type_name -> api_protocol.v1.Protocol
+	44, // 48: provider.v1.ResolvedProviderModel.model:type_name -> model.v1.ResolvedModel
+	5,  // 49: provider.v1.ResolvedProviderModel.source:type_name -> provider.v1.CatalogSource
+	35, // 50: provider.v1.ResolvedProviderModel.surface:type_name -> provider.v1.ResolvedProviderSurface
+	19, // 51: provider.v1.ResolvedProviderModel.endpoint:type_name -> provider.v1.ProviderEndpoint
+	52, // [52:52] is the sub-list for method output_type
+	52, // [52:52] is the sub-list for method input_type
+	52, // [52:52] is the sub-list for extension type_name
+	52, // [52:52] is the sub-list for extension extendee
+	0,  // [0:52] is the sub-list for field type_name
 }
 
 func init() { file_provider_v1_provider_proto_init() }
@@ -2132,15 +2751,19 @@ func file_provider_v1_provider_proto_init() {
 		(*ProviderSurface_Cli)(nil),
 		(*ProviderSurface_Web)(nil),
 	}
-	file_provider_v1_provider_proto_msgTypes[11].OneofWrappers = []any{
+	file_provider_v1_provider_proto_msgTypes[13].OneofWrappers = []any{
+		(*ProviderEndpoint_Api)(nil),
+		(*ProviderEndpoint_Cli)(nil),
+	}
+	file_provider_v1_provider_proto_msgTypes[18].OneofWrappers = []any{
 		(*ProviderRuntimeRef_Api)(nil),
 		(*ProviderRuntimeRef_Cli)(nil),
 	}
-	file_provider_v1_provider_proto_msgTypes[14].OneofWrappers = []any{
+	file_provider_v1_provider_proto_msgTypes[21].OneofWrappers = []any{
 		(*ProviderRunBinding_Api)(nil),
 		(*ProviderRunBinding_Cli)(nil),
 	}
-	file_provider_v1_provider_proto_msgTypes[17].OneofWrappers = []any{
+	file_provider_v1_provider_proto_msgTypes[24].OneofWrappers = []any{
 		(*ProviderSurfaceRuntime_Api)(nil),
 		(*ProviderSurfaceRuntime_Cli)(nil),
 	}
@@ -2149,8 +2772,8 @@ func file_provider_v1_provider_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_provider_v1_provider_proto_rawDesc), len(file_provider_v1_provider_proto_rawDesc)),
-			NumEnums:      4,
-			NumMessages:   24,
+			NumEnums:      6,
+			NumMessages:   31,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

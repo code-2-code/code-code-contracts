@@ -23,6 +23,7 @@ const (
 	SupportService_GetVendor_FullMethodName                   = "/platform.support.v1.SupportService/GetVendor"
 	SupportService_ListCLIs_FullMethodName                    = "/platform.support.v1.SupportService/ListCLIs"
 	SupportService_GetCLI_FullMethodName                      = "/platform.support.v1.SupportService/GetCLI"
+	SupportService_ListProductInfos_FullMethodName            = "/platform.support.v1.SupportService/ListProductInfos"
 	SupportService_ResolveProviderCapabilities_FullMethodName = "/platform.support.v1.SupportService/ResolveProviderCapabilities"
 )
 
@@ -34,6 +35,7 @@ type SupportServiceClient interface {
 	GetVendor(ctx context.Context, in *GetVendorRequest, opts ...grpc.CallOption) (*GetVendorResponse, error)
 	ListCLIs(ctx context.Context, in *ListCLIsRequest, opts ...grpc.CallOption) (*ListCLIsResponse, error)
 	GetCLI(ctx context.Context, in *GetCLIRequest, opts ...grpc.CallOption) (*GetCLIResponse, error)
+	ListProductInfos(ctx context.Context, in *ListProductInfosRequest, opts ...grpc.CallOption) (*ListProductInfosResponse, error)
 	ResolveProviderCapabilities(ctx context.Context, in *ResolveProviderCapabilitiesRequest, opts ...grpc.CallOption) (*ResolveProviderCapabilitiesResponse, error)
 }
 
@@ -85,6 +87,16 @@ func (c *supportServiceClient) GetCLI(ctx context.Context, in *GetCLIRequest, op
 	return out, nil
 }
 
+func (c *supportServiceClient) ListProductInfos(ctx context.Context, in *ListProductInfosRequest, opts ...grpc.CallOption) (*ListProductInfosResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListProductInfosResponse)
+	err := c.cc.Invoke(ctx, SupportService_ListProductInfos_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *supportServiceClient) ResolveProviderCapabilities(ctx context.Context, in *ResolveProviderCapabilitiesRequest, opts ...grpc.CallOption) (*ResolveProviderCapabilitiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ResolveProviderCapabilitiesResponse)
@@ -103,6 +115,7 @@ type SupportServiceServer interface {
 	GetVendor(context.Context, *GetVendorRequest) (*GetVendorResponse, error)
 	ListCLIs(context.Context, *ListCLIsRequest) (*ListCLIsResponse, error)
 	GetCLI(context.Context, *GetCLIRequest) (*GetCLIResponse, error)
+	ListProductInfos(context.Context, *ListProductInfosRequest) (*ListProductInfosResponse, error)
 	ResolveProviderCapabilities(context.Context, *ResolveProviderCapabilitiesRequest) (*ResolveProviderCapabilitiesResponse, error)
 	mustEmbedUnimplementedSupportServiceServer()
 }
@@ -125,6 +138,9 @@ func (UnimplementedSupportServiceServer) ListCLIs(context.Context, *ListCLIsRequ
 }
 func (UnimplementedSupportServiceServer) GetCLI(context.Context, *GetCLIRequest) (*GetCLIResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCLI not implemented")
+}
+func (UnimplementedSupportServiceServer) ListProductInfos(context.Context, *ListProductInfosRequest) (*ListProductInfosResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListProductInfos not implemented")
 }
 func (UnimplementedSupportServiceServer) ResolveProviderCapabilities(context.Context, *ResolveProviderCapabilitiesRequest) (*ResolveProviderCapabilitiesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ResolveProviderCapabilities not implemented")
@@ -222,6 +238,24 @@ func _SupportService_GetCLI_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SupportService_ListProductInfos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListProductInfosRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SupportServiceServer).ListProductInfos(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SupportService_ListProductInfos_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SupportServiceServer).ListProductInfos(ctx, req.(*ListProductInfosRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _SupportService_ResolveProviderCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ResolveProviderCapabilitiesRequest)
 	if err := dec(in); err != nil {
@@ -262,6 +296,10 @@ var SupportService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCLI",
 			Handler:    _SupportService_GetCLI_Handler,
+		},
+		{
+			MethodName: "ListProductInfos",
+			Handler:    _SupportService_ListProductInfos_Handler,
 		},
 		{
 			MethodName: "ResolveProviderCapabilities",

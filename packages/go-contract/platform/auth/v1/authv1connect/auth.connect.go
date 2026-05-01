@@ -92,6 +92,9 @@ const (
 	// AuthServiceResolveEgressResponseHeadersProcedure is the fully-qualified name of the AuthService's
 	// ResolveEgressResponseHeaders RPC.
 	AuthServiceResolveEgressResponseHeadersProcedure = "/platform.auth.v1.AuthService/ResolveEgressResponseHeaders"
+	// AuthServiceRecordEgressResponseHeadersProcedure is the fully-qualified name of the AuthService's
+	// RecordEgressResponseHeaders RPC.
+	AuthServiceRecordEgressResponseHeadersProcedure = "/platform.auth.v1.AuthService/RecordEgressResponseHeaders"
 )
 
 // AuthServiceClient is a client for the platform.auth.v1.AuthService service.
@@ -116,6 +119,7 @@ type AuthServiceClient interface {
 	GetEgressAuthPolicy(context.Context, *v1.GetEgressAuthPolicyRequest) (*v1.GetEgressAuthPolicyResponse, error)
 	ResolveEgressRequestHeaders(context.Context, *v1.ResolveEgressRequestHeadersRequest) (*v1.ResolveEgressRequestHeadersResponse, error)
 	ResolveEgressResponseHeaders(context.Context, *v1.ResolveEgressResponseHeadersRequest) (*v1.ResolveEgressResponseHeadersResponse, error)
+	RecordEgressResponseHeaders(context.Context, *v1.RecordEgressResponseHeadersRequest) (*v1.RecordEgressResponseHeadersResponse, error)
 }
 
 // NewAuthServiceClient constructs a client for the platform.auth.v1.AuthService service. By
@@ -249,6 +253,12 @@ func NewAuthServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 			connect.WithSchema(authServiceMethods.ByName("ResolveEgressResponseHeaders")),
 			connect.WithClientOptions(opts...),
 		),
+		recordEgressResponseHeaders: connect.NewClient[v1.RecordEgressResponseHeadersRequest, v1.RecordEgressResponseHeadersResponse](
+			httpClient,
+			baseURL+AuthServiceRecordEgressResponseHeadersProcedure,
+			connect.WithSchema(authServiceMethods.ByName("RecordEgressResponseHeaders")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
@@ -274,6 +284,7 @@ type authServiceClient struct {
 	getEgressAuthPolicy            *connect.Client[v1.GetEgressAuthPolicyRequest, v1.GetEgressAuthPolicyResponse]
 	resolveEgressRequestHeaders    *connect.Client[v1.ResolveEgressRequestHeadersRequest, v1.ResolveEgressRequestHeadersResponse]
 	resolveEgressResponseHeaders   *connect.Client[v1.ResolveEgressResponseHeadersRequest, v1.ResolveEgressResponseHeadersResponse]
+	recordEgressResponseHeaders    *connect.Client[v1.RecordEgressResponseHeadersRequest, v1.RecordEgressResponseHeadersResponse]
 }
 
 // ListCredentials calls platform.auth.v1.AuthService.ListCredentials.
@@ -456,6 +467,15 @@ func (c *authServiceClient) ResolveEgressResponseHeaders(ctx context.Context, re
 	return nil, err
 }
 
+// RecordEgressResponseHeaders calls platform.auth.v1.AuthService.RecordEgressResponseHeaders.
+func (c *authServiceClient) RecordEgressResponseHeaders(ctx context.Context, req *v1.RecordEgressResponseHeadersRequest) (*v1.RecordEgressResponseHeadersResponse, error) {
+	response, err := c.recordEgressResponseHeaders.CallUnary(ctx, connect.NewRequest(req))
+	if response != nil {
+		return response.Msg, err
+	}
+	return nil, err
+}
+
 // AuthServiceHandler is an implementation of the platform.auth.v1.AuthService service.
 type AuthServiceHandler interface {
 	ListCredentials(context.Context, *v1.ListCredentialsRequest) (*v1.ListCredentialsResponse, error)
@@ -478,6 +498,7 @@ type AuthServiceHandler interface {
 	GetEgressAuthPolicy(context.Context, *v1.GetEgressAuthPolicyRequest) (*v1.GetEgressAuthPolicyResponse, error)
 	ResolveEgressRequestHeaders(context.Context, *v1.ResolveEgressRequestHeadersRequest) (*v1.ResolveEgressRequestHeadersResponse, error)
 	ResolveEgressResponseHeaders(context.Context, *v1.ResolveEgressResponseHeadersRequest) (*v1.ResolveEgressResponseHeadersResponse, error)
+	RecordEgressResponseHeaders(context.Context, *v1.RecordEgressResponseHeadersRequest) (*v1.RecordEgressResponseHeadersResponse, error)
 }
 
 // NewAuthServiceHandler builds an HTTP handler from the service implementation. It returns the path
@@ -607,6 +628,12 @@ func NewAuthServiceHandler(svc AuthServiceHandler, opts ...connect.HandlerOption
 		connect.WithSchema(authServiceMethods.ByName("ResolveEgressResponseHeaders")),
 		connect.WithHandlerOptions(opts...),
 	)
+	authServiceRecordEgressResponseHeadersHandler := connect.NewUnaryHandlerSimple(
+		AuthServiceRecordEgressResponseHeadersProcedure,
+		svc.RecordEgressResponseHeaders,
+		connect.WithSchema(authServiceMethods.ByName("RecordEgressResponseHeaders")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/platform.auth.v1.AuthService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case AuthServiceListCredentialsProcedure:
@@ -649,6 +676,8 @@ func NewAuthServiceHandler(svc AuthServiceHandler, opts ...connect.HandlerOption
 			authServiceResolveEgressRequestHeadersHandler.ServeHTTP(w, r)
 		case AuthServiceResolveEgressResponseHeadersProcedure:
 			authServiceResolveEgressResponseHeadersHandler.ServeHTTP(w, r)
+		case AuthServiceRecordEgressResponseHeadersProcedure:
+			authServiceRecordEgressResponseHeadersHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -736,4 +765,8 @@ func (UnimplementedAuthServiceHandler) ResolveEgressRequestHeaders(context.Conte
 
 func (UnimplementedAuthServiceHandler) ResolveEgressResponseHeaders(context.Context, *v1.ResolveEgressResponseHeadersRequest) (*v1.ResolveEgressResponseHeadersResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.auth.v1.AuthService.ResolveEgressResponseHeaders is not implemented"))
+}
+
+func (UnimplementedAuthServiceHandler) RecordEgressResponseHeaders(context.Context, *v1.RecordEgressResponseHeadersRequest) (*v1.RecordEgressResponseHeadersResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("platform.auth.v1.AuthService.RecordEgressResponseHeaders is not implemented"))
 }

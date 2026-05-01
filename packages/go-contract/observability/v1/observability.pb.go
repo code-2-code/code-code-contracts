@@ -179,158 +179,158 @@ func (ObservabilityAttributeRequirementLevel) EnumDescriptor() ([]byte, []int) {
 	return file_observability_v1_observability_proto_rawDescGZIP(), []int{2}
 }
 
-// ActiveQueryInputControl identifies the preferred UI control for one input.
-type ActiveQueryInputControl int32
+// QuotaQueryInputControl identifies the preferred UI control for one input.
+type QuotaQueryInputControl int32
 
 const (
-	ActiveQueryInputControl_ACTIVE_QUERY_INPUT_CONTROL_UNSPECIFIED ActiveQueryInputControl = 0
-	ActiveQueryInputControl_ACTIVE_QUERY_INPUT_CONTROL_TEXT        ActiveQueryInputControl = 1
-	ActiveQueryInputControl_ACTIVE_QUERY_INPUT_CONTROL_PASSWORD    ActiveQueryInputControl = 2
-	ActiveQueryInputControl_ACTIVE_QUERY_INPUT_CONTROL_TEXTAREA    ActiveQueryInputControl = 3
+	QuotaQueryInputControl_QUOTA_QUERY_INPUT_CONTROL_UNSPECIFIED QuotaQueryInputControl = 0
+	QuotaQueryInputControl_QUOTA_QUERY_INPUT_CONTROL_TEXT        QuotaQueryInputControl = 1
+	QuotaQueryInputControl_QUOTA_QUERY_INPUT_CONTROL_PASSWORD    QuotaQueryInputControl = 2
+	QuotaQueryInputControl_QUOTA_QUERY_INPUT_CONTROL_TEXTAREA    QuotaQueryInputControl = 3
 )
 
-// Enum value maps for ActiveQueryInputControl.
+// Enum value maps for QuotaQueryInputControl.
 var (
-	ActiveQueryInputControl_name = map[int32]string{
-		0: "ACTIVE_QUERY_INPUT_CONTROL_UNSPECIFIED",
-		1: "ACTIVE_QUERY_INPUT_CONTROL_TEXT",
-		2: "ACTIVE_QUERY_INPUT_CONTROL_PASSWORD",
-		3: "ACTIVE_QUERY_INPUT_CONTROL_TEXTAREA",
+	QuotaQueryInputControl_name = map[int32]string{
+		0: "QUOTA_QUERY_INPUT_CONTROL_UNSPECIFIED",
+		1: "QUOTA_QUERY_INPUT_CONTROL_TEXT",
+		2: "QUOTA_QUERY_INPUT_CONTROL_PASSWORD",
+		3: "QUOTA_QUERY_INPUT_CONTROL_TEXTAREA",
 	}
-	ActiveQueryInputControl_value = map[string]int32{
-		"ACTIVE_QUERY_INPUT_CONTROL_UNSPECIFIED": 0,
-		"ACTIVE_QUERY_INPUT_CONTROL_TEXT":        1,
-		"ACTIVE_QUERY_INPUT_CONTROL_PASSWORD":    2,
-		"ACTIVE_QUERY_INPUT_CONTROL_TEXTAREA":    3,
+	QuotaQueryInputControl_value = map[string]int32{
+		"QUOTA_QUERY_INPUT_CONTROL_UNSPECIFIED": 0,
+		"QUOTA_QUERY_INPUT_CONTROL_TEXT":        1,
+		"QUOTA_QUERY_INPUT_CONTROL_PASSWORD":    2,
+		"QUOTA_QUERY_INPUT_CONTROL_TEXTAREA":    3,
 	}
 )
 
-func (x ActiveQueryInputControl) Enum() *ActiveQueryInputControl {
-	p := new(ActiveQueryInputControl)
+func (x QuotaQueryInputControl) Enum() *QuotaQueryInputControl {
+	p := new(QuotaQueryInputControl)
 	*p = x
 	return p
 }
 
-func (x ActiveQueryInputControl) String() string {
+func (x QuotaQueryInputControl) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (ActiveQueryInputControl) Descriptor() protoreflect.EnumDescriptor {
+func (QuotaQueryInputControl) Descriptor() protoreflect.EnumDescriptor {
 	return file_observability_v1_observability_proto_enumTypes[3].Descriptor()
 }
 
-func (ActiveQueryInputControl) Type() protoreflect.EnumType {
+func (QuotaQueryInputControl) Type() protoreflect.EnumType {
 	return &file_observability_v1_observability_proto_enumTypes[3]
 }
 
-func (x ActiveQueryInputControl) Number() protoreflect.EnumNumber {
+func (x QuotaQueryInputControl) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use ActiveQueryInputControl.Descriptor instead.
-func (ActiveQueryInputControl) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use QuotaQueryInputControl.Descriptor instead.
+func (QuotaQueryInputControl) EnumDescriptor() ([]byte, []int) {
 	return file_observability_v1_observability_proto_rawDescGZIP(), []int{3}
 }
 
-// ActiveQueryInputPersistence describes whether a submitted field is persisted
+// QuotaQueryInputPersistence describes whether a submitted field is persisted
 // into provider observability credential material.
-type ActiveQueryInputPersistence int32
+type QuotaQueryInputPersistence int32
 
 const (
-	ActiveQueryInputPersistence_ACTIVE_QUERY_INPUT_PERSISTENCE_UNSPECIFIED     ActiveQueryInputPersistence = 0
-	ActiveQueryInputPersistence_ACTIVE_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL ActiveQueryInputPersistence = 1
-	ActiveQueryInputPersistence_ACTIVE_QUERY_INPUT_PERSISTENCE_TRANSIENT       ActiveQueryInputPersistence = 2
+	QuotaQueryInputPersistence_QUOTA_QUERY_INPUT_PERSISTENCE_UNSPECIFIED     QuotaQueryInputPersistence = 0
+	QuotaQueryInputPersistence_QUOTA_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL QuotaQueryInputPersistence = 1
+	QuotaQueryInputPersistence_QUOTA_QUERY_INPUT_PERSISTENCE_TRANSIENT       QuotaQueryInputPersistence = 2
 )
 
-// Enum value maps for ActiveQueryInputPersistence.
+// Enum value maps for QuotaQueryInputPersistence.
 var (
-	ActiveQueryInputPersistence_name = map[int32]string{
-		0: "ACTIVE_QUERY_INPUT_PERSISTENCE_UNSPECIFIED",
-		1: "ACTIVE_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL",
-		2: "ACTIVE_QUERY_INPUT_PERSISTENCE_TRANSIENT",
+	QuotaQueryInputPersistence_name = map[int32]string{
+		0: "QUOTA_QUERY_INPUT_PERSISTENCE_UNSPECIFIED",
+		1: "QUOTA_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL",
+		2: "QUOTA_QUERY_INPUT_PERSISTENCE_TRANSIENT",
 	}
-	ActiveQueryInputPersistence_value = map[string]int32{
-		"ACTIVE_QUERY_INPUT_PERSISTENCE_UNSPECIFIED":     0,
-		"ACTIVE_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL": 1,
-		"ACTIVE_QUERY_INPUT_PERSISTENCE_TRANSIENT":       2,
+	QuotaQueryInputPersistence_value = map[string]int32{
+		"QUOTA_QUERY_INPUT_PERSISTENCE_UNSPECIFIED":     0,
+		"QUOTA_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL": 1,
+		"QUOTA_QUERY_INPUT_PERSISTENCE_TRANSIENT":       2,
 	}
 )
 
-func (x ActiveQueryInputPersistence) Enum() *ActiveQueryInputPersistence {
-	p := new(ActiveQueryInputPersistence)
+func (x QuotaQueryInputPersistence) Enum() *QuotaQueryInputPersistence {
+	p := new(QuotaQueryInputPersistence)
 	*p = x
 	return p
 }
 
-func (x ActiveQueryInputPersistence) String() string {
+func (x QuotaQueryInputPersistence) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (ActiveQueryInputPersistence) Descriptor() protoreflect.EnumDescriptor {
+func (QuotaQueryInputPersistence) Descriptor() protoreflect.EnumDescriptor {
 	return file_observability_v1_observability_proto_enumTypes[4].Descriptor()
 }
 
-func (ActiveQueryInputPersistence) Type() protoreflect.EnumType {
+func (QuotaQueryInputPersistence) Type() protoreflect.EnumType {
 	return &file_observability_v1_observability_proto_enumTypes[4]
 }
 
-func (x ActiveQueryInputPersistence) Number() protoreflect.EnumNumber {
+func (x QuotaQueryInputPersistence) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use ActiveQueryInputPersistence.Descriptor instead.
-func (ActiveQueryInputPersistence) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use QuotaQueryInputPersistence.Descriptor instead.
+func (QuotaQueryInputPersistence) EnumDescriptor() ([]byte, []int) {
 	return file_observability_v1_observability_proto_rawDescGZIP(), []int{4}
 }
 
-// ActiveQueryInputValueTransform describes a built-in normalization applied to
+// QuotaQueryInputValueTransform describes a built-in normalization applied to
 // an input value before it is persisted.
-type ActiveQueryInputValueTransform int32
+type QuotaQueryInputValueTransform int32
 
 const (
-	ActiveQueryInputValueTransform_ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED      ActiveQueryInputValueTransform = 0
-	ActiveQueryInputValueTransform_ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY         ActiveQueryInputValueTransform = 1
-	ActiveQueryInputValueTransform_ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE ActiveQueryInputValueTransform = 2
+	QuotaQueryInputValueTransform_QUOTA_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED      QuotaQueryInputValueTransform = 0
+	QuotaQueryInputValueTransform_QUOTA_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY         QuotaQueryInputValueTransform = 1
+	QuotaQueryInputValueTransform_QUOTA_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE QuotaQueryInputValueTransform = 2
 )
 
-// Enum value maps for ActiveQueryInputValueTransform.
+// Enum value maps for QuotaQueryInputValueTransform.
 var (
-	ActiveQueryInputValueTransform_name = map[int32]string{
-		0: "ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED",
-		1: "ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY",
-		2: "ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE",
+	QuotaQueryInputValueTransform_name = map[int32]string{
+		0: "QUOTA_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED",
+		1: "QUOTA_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY",
+		2: "QUOTA_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE",
 	}
-	ActiveQueryInputValueTransform_value = map[string]int32{
-		"ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED":      0,
-		"ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY":         1,
-		"ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE": 2,
+	QuotaQueryInputValueTransform_value = map[string]int32{
+		"QUOTA_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED":      0,
+		"QUOTA_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY":         1,
+		"QUOTA_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE": 2,
 	}
 )
 
-func (x ActiveQueryInputValueTransform) Enum() *ActiveQueryInputValueTransform {
-	p := new(ActiveQueryInputValueTransform)
+func (x QuotaQueryInputValueTransform) Enum() *QuotaQueryInputValueTransform {
+	p := new(QuotaQueryInputValueTransform)
 	*p = x
 	return p
 }
 
-func (x ActiveQueryInputValueTransform) String() string {
+func (x QuotaQueryInputValueTransform) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (ActiveQueryInputValueTransform) Descriptor() protoreflect.EnumDescriptor {
+func (QuotaQueryInputValueTransform) Descriptor() protoreflect.EnumDescriptor {
 	return file_observability_v1_observability_proto_enumTypes[5].Descriptor()
 }
 
-func (ActiveQueryInputValueTransform) Type() protoreflect.EnumType {
+func (QuotaQueryInputValueTransform) Type() protoreflect.EnumType {
 	return &file_observability_v1_observability_proto_enumTypes[5]
 }
 
-func (x ActiveQueryInputValueTransform) Number() protoreflect.EnumNumber {
+func (x QuotaQueryInputValueTransform) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use ActiveQueryInputValueTransform.Descriptor instead.
-func (ActiveQueryInputValueTransform) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use QuotaQueryInputValueTransform.Descriptor instead.
+func (QuotaQueryInputValueTransform) EnumDescriptor() ([]byte, []int) {
 	return file_observability_v1_observability_proto_rawDescGZIP(), []int{5}
 }
 
@@ -813,7 +813,7 @@ type ObservabilityProfile struct {
 	Metrics  []*ObservabilityMetric `protobuf:"bytes,4,rep,name=metrics,proto3" json:"metrics,omitempty"`
 	// Types that are valid to be assigned to Collection:
 	//
-	//	*ObservabilityProfile_ActiveQuery
+	//	*ObservabilityProfile_QuotaQuery
 	//	*ObservabilityProfile_PassiveHttp
 	Collection isObservabilityProfile_Collection `protobuf_oneof:"collection"`
 	// Stable metric queries consumed by availability judgment.
@@ -889,10 +889,10 @@ func (x *ObservabilityProfile) GetCollection() isObservabilityProfile_Collection
 	return nil
 }
 
-func (x *ObservabilityProfile) GetActiveQuery() *ActiveQueryCollection {
+func (x *ObservabilityProfile) GetQuotaQuery() *QuotaQueryCollection {
 	if x != nil {
-		if x, ok := x.Collection.(*ObservabilityProfile_ActiveQuery); ok {
-			return x.ActiveQuery
+		if x, ok := x.Collection.(*ObservabilityProfile_QuotaQuery); ok {
+			return x.QuotaQuery
 		}
 	}
 	return nil
@@ -925,15 +925,15 @@ type isObservabilityProfile_Collection interface {
 	isObservabilityProfile_Collection()
 }
 
-type ObservabilityProfile_ActiveQuery struct {
-	ActiveQuery *ActiveQueryCollection `protobuf:"bytes,5,opt,name=active_query,json=activeQuery,proto3,oneof"`
+type ObservabilityProfile_QuotaQuery struct {
+	QuotaQuery *QuotaQueryCollection `protobuf:"bytes,5,opt,name=quota_query,json=quotaQuery,proto3,oneof"`
 }
 
 type ObservabilityProfile_PassiveHttp struct {
 	PassiveHttp *PassiveHttpTelemetryCollection `protobuf:"bytes,6,opt,name=passive_http,json=passiveHttp,proto3,oneof"`
 }
 
-func (*ObservabilityProfile_ActiveQuery) isObservabilityProfile_Collection() {}
+func (*ObservabilityProfile_QuotaQuery) isObservabilityProfile_Collection() {}
 
 func (*ObservabilityProfile_PassiveHttp) isObservabilityProfile_Collection() {}
 
@@ -1083,45 +1083,49 @@ func (x *ObservabilityMetricAttribute) GetRequirementLevel() ObservabilityAttrib
 	return ObservabilityAttributeRequirementLevel_OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_UNSPECIFIED
 }
 
-// ActiveQueryCollection declares an active query collection policy.
-type ActiveQueryCollection struct {
+// QuotaQueryCollection declares an quota query collection policy.
+type QuotaQueryCollection struct {
 	state               protoimpl.MessageState `protogen:"open.v1"`
 	MinimumPollInterval *durationpb.Duration   `protobuf:"bytes,1,opt,name=minimum_poll_interval,json=minimumPollInterval,proto3" json:"minimum_poll_interval,omitempty"`
 	// Dynamic parameters required by the collector when surface auth is not
 	// sufficient. Actual values are supplied by the host provider config.
 	DynamicParameters []*DynamicParameterDefinition `protobuf:"bytes,2,rep,name=dynamic_parameters,json=dynamicParameters,proto3" json:"dynamic_parameters,omitempty"`
 	// Optional collector implementation key resolved by the host package.
-	// Empty means host-default active query execution.
+	// Empty means host-default quota query execution.
 	CollectorId string `protobuf:"bytes,3,opt,name=collector_id,json=collectorId,proto3" json:"collector_id,omitempty"`
 	// Explicit credential values that the collector may persist after a
 	// successful management-plane query. These values come only from structured
 	// collector output, not raw HTTP response headers.
 	CredentialBackfills []*CredentialBackfillRule `protobuf:"bytes,4,rep,name=credential_backfills,json=credentialBackfills,proto3" json:"credential_backfills,omitempty"`
 	// Optional schema-driven form used to collect management-plane credential
-	// inputs required by this active query.
-	InputForm *ActiveQueryInputForm `protobuf:"bytes,5,opt,name=input_form,json=inputForm,proto3" json:"input_form,omitempty"`
+	// inputs required by this quota query.
+	InputForm *QuotaQueryInputForm `protobuf:"bytes,5,opt,name=input_form,json=inputForm,proto3" json:"input_form,omitempty"`
 	// Explicit non-secret material keys the collector may read back on later
 	// runs. Secret tokens/cookies should stay behind authservice/egress auth and
 	// must not be listed here.
 	MaterialReadFields []string `protobuf:"bytes,6,rep,name=material_read_fields,json=materialReadFields,proto3" json:"material_read_fields,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	// True when this quota query requires a dedicated management-plane quota
+	// credential. Leave false when the provider data-plane credential is enough
+	// to query quota data.
+	RequiresQuotaCredential bool `protobuf:"varint,7,opt,name=requires_quota_credential,json=requiresQuotaCredential,proto3" json:"requires_quota_credential,omitempty"`
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
-func (x *ActiveQueryCollection) Reset() {
-	*x = ActiveQueryCollection{}
+func (x *QuotaQueryCollection) Reset() {
+	*x = QuotaQueryCollection{}
 	mi := &file_observability_v1_observability_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ActiveQueryCollection) String() string {
+func (x *QuotaQueryCollection) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ActiveQueryCollection) ProtoMessage() {}
+func (*QuotaQueryCollection) ProtoMessage() {}
 
-func (x *ActiveQueryCollection) ProtoReflect() protoreflect.Message {
+func (x *QuotaQueryCollection) ProtoReflect() protoreflect.Message {
 	mi := &file_observability_v1_observability_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1133,51 +1137,58 @@ func (x *ActiveQueryCollection) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ActiveQueryCollection.ProtoReflect.Descriptor instead.
-func (*ActiveQueryCollection) Descriptor() ([]byte, []int) {
+// Deprecated: Use QuotaQueryCollection.ProtoReflect.Descriptor instead.
+func (*QuotaQueryCollection) Descriptor() ([]byte, []int) {
 	return file_observability_v1_observability_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *ActiveQueryCollection) GetMinimumPollInterval() *durationpb.Duration {
+func (x *QuotaQueryCollection) GetMinimumPollInterval() *durationpb.Duration {
 	if x != nil {
 		return x.MinimumPollInterval
 	}
 	return nil
 }
 
-func (x *ActiveQueryCollection) GetDynamicParameters() []*DynamicParameterDefinition {
+func (x *QuotaQueryCollection) GetDynamicParameters() []*DynamicParameterDefinition {
 	if x != nil {
 		return x.DynamicParameters
 	}
 	return nil
 }
 
-func (x *ActiveQueryCollection) GetCollectorId() string {
+func (x *QuotaQueryCollection) GetCollectorId() string {
 	if x != nil {
 		return x.CollectorId
 	}
 	return ""
 }
 
-func (x *ActiveQueryCollection) GetCredentialBackfills() []*CredentialBackfillRule {
+func (x *QuotaQueryCollection) GetCredentialBackfills() []*CredentialBackfillRule {
 	if x != nil {
 		return x.CredentialBackfills
 	}
 	return nil
 }
 
-func (x *ActiveQueryCollection) GetInputForm() *ActiveQueryInputForm {
+func (x *QuotaQueryCollection) GetInputForm() *QuotaQueryInputForm {
 	if x != nil {
 		return x.InputForm
 	}
 	return nil
 }
 
-func (x *ActiveQueryCollection) GetMaterialReadFields() []string {
+func (x *QuotaQueryCollection) GetMaterialReadFields() []string {
 	if x != nil {
 		return x.MaterialReadFields
 	}
 	return nil
+}
+
+func (x *QuotaQueryCollection) GetRequiresQuotaCredential() bool {
+	if x != nil {
+		return x.RequiresQuotaCredential
+	}
+	return false
 }
 
 // DynamicParameterDefinition describes one dynamically supplied parameter.
@@ -1257,34 +1268,34 @@ func (x *DynamicParameterDefinition) GetSecret() bool {
 	return false
 }
 
-// ActiveQueryInputForm describes provider-owned credential inputs needed by one
-// active query. UI clients render this schema instead of hard-coding per-vendor
+// QuotaQueryInputForm describes provider-owned credential inputs needed by one
+// quota query. UI clients render this schema instead of hard-coding per-vendor
 // fields.
-type ActiveQueryInputForm struct {
-	state         protoimpl.MessageState   `protogen:"open.v1"`
-	SchemaId      string                   `protobuf:"bytes,1,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty"`
-	Title         string                   `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
-	ActionLabel   string                   `protobuf:"bytes,3,opt,name=action_label,json=actionLabel,proto3" json:"action_label,omitempty"`
-	Description   string                   `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
-	Fields        []*ActiveQueryInputField `protobuf:"bytes,5,rep,name=fields,proto3" json:"fields,omitempty"`
+type QuotaQueryInputForm struct {
+	state         protoimpl.MessageState  `protogen:"open.v1"`
+	SchemaId      string                  `protobuf:"bytes,1,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty"`
+	Title         string                  `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	ActionLabel   string                  `protobuf:"bytes,3,opt,name=action_label,json=actionLabel,proto3" json:"action_label,omitempty"`
+	Description   string                  `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	Fields        []*QuotaQueryInputField `protobuf:"bytes,5,rep,name=fields,proto3" json:"fields,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ActiveQueryInputForm) Reset() {
-	*x = ActiveQueryInputForm{}
+func (x *QuotaQueryInputForm) Reset() {
+	*x = QuotaQueryInputForm{}
 	mi := &file_observability_v1_observability_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ActiveQueryInputForm) String() string {
+func (x *QuotaQueryInputForm) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ActiveQueryInputForm) ProtoMessage() {}
+func (*QuotaQueryInputForm) ProtoMessage() {}
 
-func (x *ActiveQueryInputForm) ProtoReflect() protoreflect.Message {
+func (x *QuotaQueryInputForm) ProtoReflect() protoreflect.Message {
 	mi := &file_observability_v1_observability_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1296,78 +1307,78 @@ func (x *ActiveQueryInputForm) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ActiveQueryInputForm.ProtoReflect.Descriptor instead.
-func (*ActiveQueryInputForm) Descriptor() ([]byte, []int) {
+// Deprecated: Use QuotaQueryInputForm.ProtoReflect.Descriptor instead.
+func (*QuotaQueryInputForm) Descriptor() ([]byte, []int) {
 	return file_observability_v1_observability_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *ActiveQueryInputForm) GetSchemaId() string {
+func (x *QuotaQueryInputForm) GetSchemaId() string {
 	if x != nil {
 		return x.SchemaId
 	}
 	return ""
 }
 
-func (x *ActiveQueryInputForm) GetTitle() string {
+func (x *QuotaQueryInputForm) GetTitle() string {
 	if x != nil {
 		return x.Title
 	}
 	return ""
 }
 
-func (x *ActiveQueryInputForm) GetActionLabel() string {
+func (x *QuotaQueryInputForm) GetActionLabel() string {
 	if x != nil {
 		return x.ActionLabel
 	}
 	return ""
 }
 
-func (x *ActiveQueryInputForm) GetDescription() string {
+func (x *QuotaQueryInputForm) GetDescription() string {
 	if x != nil {
 		return x.Description
 	}
 	return ""
 }
 
-func (x *ActiveQueryInputForm) GetFields() []*ActiveQueryInputField {
+func (x *QuotaQueryInputForm) GetFields() []*QuotaQueryInputField {
 	if x != nil {
 		return x.Fields
 	}
 	return nil
 }
 
-// ActiveQueryInputField describes one operator-supplied input field.
-type ActiveQueryInputField struct {
-	state         protoimpl.MessageState         `protogen:"open.v1"`
-	FieldId       string                         `protobuf:"bytes,1,opt,name=field_id,json=fieldId,proto3" json:"field_id,omitempty"`
-	Label         string                         `protobuf:"bytes,2,opt,name=label,proto3" json:"label,omitempty"`
-	Description   string                         `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	Placeholder   string                         `protobuf:"bytes,4,opt,name=placeholder,proto3" json:"placeholder,omitempty"`
-	Required      bool                           `protobuf:"varint,5,opt,name=required,proto3" json:"required,omitempty"`
-	Sensitive     bool                           `protobuf:"varint,6,opt,name=sensitive,proto3" json:"sensitive,omitempty"`
-	Control       ActiveQueryInputControl        `protobuf:"varint,7,opt,name=control,proto3,enum=observability.v1.ActiveQueryInputControl" json:"control,omitempty"`
-	Persistence   ActiveQueryInputPersistence    `protobuf:"varint,8,opt,name=persistence,proto3,enum=observability.v1.ActiveQueryInputPersistence" json:"persistence,omitempty"`
-	TargetFieldId string                         `protobuf:"bytes,9,opt,name=target_field_id,json=targetFieldId,proto3" json:"target_field_id,omitempty"`
-	Transform     ActiveQueryInputValueTransform `protobuf:"varint,10,opt,name=transform,proto3,enum=observability.v1.ActiveQueryInputValueTransform" json:"transform,omitempty"`
-	DefaultValue  string                         `protobuf:"bytes,11,opt,name=default_value,json=defaultValue,proto3" json:"default_value,omitempty"`
+// QuotaQueryInputField describes one operator-supplied input field.
+type QuotaQueryInputField struct {
+	state         protoimpl.MessageState        `protogen:"open.v1"`
+	FieldId       string                        `protobuf:"bytes,1,opt,name=field_id,json=fieldId,proto3" json:"field_id,omitempty"`
+	Label         string                        `protobuf:"bytes,2,opt,name=label,proto3" json:"label,omitempty"`
+	Description   string                        `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	Placeholder   string                        `protobuf:"bytes,4,opt,name=placeholder,proto3" json:"placeholder,omitempty"`
+	Required      bool                          `protobuf:"varint,5,opt,name=required,proto3" json:"required,omitempty"`
+	Sensitive     bool                          `protobuf:"varint,6,opt,name=sensitive,proto3" json:"sensitive,omitempty"`
+	Control       QuotaQueryInputControl        `protobuf:"varint,7,opt,name=control,proto3,enum=observability.v1.QuotaQueryInputControl" json:"control,omitempty"`
+	Persistence   QuotaQueryInputPersistence    `protobuf:"varint,8,opt,name=persistence,proto3,enum=observability.v1.QuotaQueryInputPersistence" json:"persistence,omitempty"`
+	TargetFieldId string                        `protobuf:"bytes,9,opt,name=target_field_id,json=targetFieldId,proto3" json:"target_field_id,omitempty"`
+	Transform     QuotaQueryInputValueTransform `protobuf:"varint,10,opt,name=transform,proto3,enum=observability.v1.QuotaQueryInputValueTransform" json:"transform,omitempty"`
+	DefaultValue  string                        `protobuf:"bytes,11,opt,name=default_value,json=defaultValue,proto3" json:"default_value,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ActiveQueryInputField) Reset() {
-	*x = ActiveQueryInputField{}
+func (x *QuotaQueryInputField) Reset() {
+	*x = QuotaQueryInputField{}
 	mi := &file_observability_v1_observability_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ActiveQueryInputField) String() string {
+func (x *QuotaQueryInputField) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ActiveQueryInputField) ProtoMessage() {}
+func (*QuotaQueryInputField) ProtoMessage() {}
 
-func (x *ActiveQueryInputField) ProtoReflect() protoreflect.Message {
+func (x *QuotaQueryInputField) ProtoReflect() protoreflect.Message {
 	mi := &file_observability_v1_observability_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1379,82 +1390,82 @@ func (x *ActiveQueryInputField) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ActiveQueryInputField.ProtoReflect.Descriptor instead.
-func (*ActiveQueryInputField) Descriptor() ([]byte, []int) {
+// Deprecated: Use QuotaQueryInputField.ProtoReflect.Descriptor instead.
+func (*QuotaQueryInputField) Descriptor() ([]byte, []int) {
 	return file_observability_v1_observability_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *ActiveQueryInputField) GetFieldId() string {
+func (x *QuotaQueryInputField) GetFieldId() string {
 	if x != nil {
 		return x.FieldId
 	}
 	return ""
 }
 
-func (x *ActiveQueryInputField) GetLabel() string {
+func (x *QuotaQueryInputField) GetLabel() string {
 	if x != nil {
 		return x.Label
 	}
 	return ""
 }
 
-func (x *ActiveQueryInputField) GetDescription() string {
+func (x *QuotaQueryInputField) GetDescription() string {
 	if x != nil {
 		return x.Description
 	}
 	return ""
 }
 
-func (x *ActiveQueryInputField) GetPlaceholder() string {
+func (x *QuotaQueryInputField) GetPlaceholder() string {
 	if x != nil {
 		return x.Placeholder
 	}
 	return ""
 }
 
-func (x *ActiveQueryInputField) GetRequired() bool {
+func (x *QuotaQueryInputField) GetRequired() bool {
 	if x != nil {
 		return x.Required
 	}
 	return false
 }
 
-func (x *ActiveQueryInputField) GetSensitive() bool {
+func (x *QuotaQueryInputField) GetSensitive() bool {
 	if x != nil {
 		return x.Sensitive
 	}
 	return false
 }
 
-func (x *ActiveQueryInputField) GetControl() ActiveQueryInputControl {
+func (x *QuotaQueryInputField) GetControl() QuotaQueryInputControl {
 	if x != nil {
 		return x.Control
 	}
-	return ActiveQueryInputControl_ACTIVE_QUERY_INPUT_CONTROL_UNSPECIFIED
+	return QuotaQueryInputControl_QUOTA_QUERY_INPUT_CONTROL_UNSPECIFIED
 }
 
-func (x *ActiveQueryInputField) GetPersistence() ActiveQueryInputPersistence {
+func (x *QuotaQueryInputField) GetPersistence() QuotaQueryInputPersistence {
 	if x != nil {
 		return x.Persistence
 	}
-	return ActiveQueryInputPersistence_ACTIVE_QUERY_INPUT_PERSISTENCE_UNSPECIFIED
+	return QuotaQueryInputPersistence_QUOTA_QUERY_INPUT_PERSISTENCE_UNSPECIFIED
 }
 
-func (x *ActiveQueryInputField) GetTargetFieldId() string {
+func (x *QuotaQueryInputField) GetTargetFieldId() string {
 	if x != nil {
 		return x.TargetFieldId
 	}
 	return ""
 }
 
-func (x *ActiveQueryInputField) GetTransform() ActiveQueryInputValueTransform {
+func (x *QuotaQueryInputField) GetTransform() QuotaQueryInputValueTransform {
 	if x != nil {
 		return x.Transform
 	}
-	return ActiveQueryInputValueTransform_ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED
+	return QuotaQueryInputValueTransform_QUOTA_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED
 }
 
-func (x *ActiveQueryInputField) GetDefaultValue() string {
+func (x *QuotaQueryInputField) GetDefaultValue() string {
 	if x != nil {
 		return x.DefaultValue
 	}
@@ -1462,7 +1473,7 @@ func (x *ActiveQueryInputField) GetDefaultValue() string {
 }
 
 // CredentialBackfillRule declares one credential value that may be persisted
-// from structured active query output.
+// from structured quota query output.
 type CredentialBackfillRule struct {
 	state  protoimpl.MessageState `protogen:"open.v1"`
 	RuleId string                 `protobuf:"bytes,1,opt,name=rule_id,json=ruleId,proto3" json:"rule_id,omitempty"`
@@ -1470,7 +1481,7 @@ type CredentialBackfillRule struct {
 	OutputFieldId     string `protobuf:"bytes,2,opt,name=output_field_id,json=outputFieldId,proto3" json:"output_field_id,omitempty"`
 	TargetMaterialKey string `protobuf:"bytes,3,opt,name=target_material_key,json=targetMaterialKey,proto3" json:"target_material_key,omitempty"`
 	Required          bool   `protobuf:"varint,4,opt,name=required,proto3" json:"required,omitempty"`
-	// If true, this persisted value may be read back by the same active query
+	// If true, this persisted value may be read back by the same quota query
 	// collector on later runs. Leave false for token/cookie/session material that
 	// should remain write-only outside authservice.
 	Readable      bool `protobuf:"varint,5,opt,name=readable,proto3" json:"readable,omitempty"`
@@ -2174,14 +2185,15 @@ const file_observability_v1_observability_proto_rawDesc = "" +
 	"\n" +
 	"$observability/v1/observability.proto\x12\x10observability.v1\x1a\x1egoogle/protobuf/duration.proto\"]\n" +
 	"\x17ObservabilityCapability\x12B\n" +
-	"\bprofiles\x18\x01 \x03(\v2&.observability.v1.ObservabilityProfileR\bprofiles\"\x8c\x04\n" +
+	"\bprofiles\x18\x01 \x03(\v2&.observability.v1.ObservabilityProfileR\bprofiles\"\x89\x04\n" +
 	"\x14ObservabilityProfile\x12\x1d\n" +
 	"\n" +
 	"profile_id\x18\x01 \x01(\tR\tprofileId\x12!\n" +
 	"\fdisplay_name\x18\x02 \x01(\tR\vdisplayName\x12\x1b\n" +
 	"\tscope_ids\x18\x03 \x03(\tR\bscopeIds\x12?\n" +
-	"\ametrics\x18\x04 \x03(\v2%.observability.v1.ObservabilityMetricR\ametrics\x12L\n" +
-	"\factive_query\x18\x05 \x01(\v2'.observability.v1.ActiveQueryCollectionH\x00R\vactiveQuery\x12U\n" +
+	"\ametrics\x18\x04 \x03(\v2%.observability.v1.ObservabilityMetricR\ametrics\x12I\n" +
+	"\vquota_query\x18\x05 \x01(\v2&.observability.v1.QuotaQueryCollectionH\x00R\n" +
+	"quotaQuery\x12U\n" +
 	"\fpassive_http\x18\x06 \x01(\v20.observability.v1.PassiveHttpTelemetryCollectionH\x00R\vpassiveHttp\x12D\n" +
 	"\x0emetric_queries\x18\a \x03(\v2\x1d.observability.v1.MetricQueryR\rmetricQueries\x12[\n" +
 	"\x15availability_judgment\x18\b \x01(\v2&.observability.v1.AvailabilityJudgmentR\x14availabilityJudgmentB\f\n" +
@@ -2199,39 +2211,40 @@ const file_observability_v1_observability_proto_rawDesc = "" +
 	"\x1cObservabilityMetricAttribute\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12e\n" +
-	"\x11requirement_level\x18\x03 \x01(\x0e28.observability.v1.ObservabilityAttributeRequirementLevelR\x10requirementLevel\"\xbc\x03\n" +
-	"\x15ActiveQueryCollection\x12M\n" +
+	"\x11requirement_level\x18\x03 \x01(\x0e28.observability.v1.ObservabilityAttributeRequirementLevelR\x10requirementLevel\"\xf6\x03\n" +
+	"\x14QuotaQueryCollection\x12M\n" +
 	"\x15minimum_poll_interval\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\x13minimumPollInterval\x12[\n" +
 	"\x12dynamic_parameters\x18\x02 \x03(\v2,.observability.v1.DynamicParameterDefinitionR\x11dynamicParameters\x12!\n" +
 	"\fcollector_id\x18\x03 \x01(\tR\vcollectorId\x12[\n" +
-	"\x14credential_backfills\x18\x04 \x03(\v2(.observability.v1.CredentialBackfillRuleR\x13credentialBackfills\x12E\n" +
+	"\x14credential_backfills\x18\x04 \x03(\v2(.observability.v1.CredentialBackfillRuleR\x13credentialBackfills\x12D\n" +
 	"\n" +
-	"input_form\x18\x05 \x01(\v2&.observability.v1.ActiveQueryInputFormR\tinputForm\x120\n" +
-	"\x14material_read_fields\x18\x06 \x03(\tR\x12materialReadFields\"\xb8\x01\n" +
+	"input_form\x18\x05 \x01(\v2%.observability.v1.QuotaQueryInputFormR\tinputForm\x120\n" +
+	"\x14material_read_fields\x18\x06 \x03(\tR\x12materialReadFields\x12:\n" +
+	"\x19requires_quota_credential\x18\a \x01(\bR\x17requiresQuotaCredential\"\xb8\x01\n" +
 	"\x1aDynamicParameterDefinition\x12!\n" +
 	"\fparameter_id\x18\x01 \x01(\tR\vparameterId\x12!\n" +
 	"\fdisplay_name\x18\x02 \x01(\tR\vdisplayName\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1a\n" +
 	"\brequired\x18\x04 \x01(\bR\brequired\x12\x16\n" +
-	"\x06secret\x18\x05 \x01(\bR\x06secret\"\xcf\x01\n" +
-	"\x14ActiveQueryInputForm\x12\x1b\n" +
+	"\x06secret\x18\x05 \x01(\bR\x06secret\"\xcd\x01\n" +
+	"\x13QuotaQueryInputForm\x12\x1b\n" +
 	"\tschema_id\x18\x01 \x01(\tR\bschemaId\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12!\n" +
 	"\faction_label\x18\x03 \x01(\tR\vactionLabel\x12 \n" +
-	"\vdescription\x18\x04 \x01(\tR\vdescription\x12?\n" +
-	"\x06fields\x18\x05 \x03(\v2'.observability.v1.ActiveQueryInputFieldR\x06fields\"\xf9\x03\n" +
-	"\x15ActiveQueryInputField\x12\x19\n" +
+	"\vdescription\x18\x04 \x01(\tR\vdescription\x12>\n" +
+	"\x06fields\x18\x05 \x03(\v2&.observability.v1.QuotaQueryInputFieldR\x06fields\"\xf5\x03\n" +
+	"\x14QuotaQueryInputField\x12\x19\n" +
 	"\bfield_id\x18\x01 \x01(\tR\afieldId\x12\x14\n" +
 	"\x05label\x18\x02 \x01(\tR\x05label\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12 \n" +
 	"\vplaceholder\x18\x04 \x01(\tR\vplaceholder\x12\x1a\n" +
 	"\brequired\x18\x05 \x01(\bR\brequired\x12\x1c\n" +
-	"\tsensitive\x18\x06 \x01(\bR\tsensitive\x12C\n" +
-	"\acontrol\x18\a \x01(\x0e2).observability.v1.ActiveQueryInputControlR\acontrol\x12O\n" +
-	"\vpersistence\x18\b \x01(\x0e2-.observability.v1.ActiveQueryInputPersistenceR\vpersistence\x12&\n" +
-	"\x0ftarget_field_id\x18\t \x01(\tR\rtargetFieldId\x12N\n" +
+	"\tsensitive\x18\x06 \x01(\bR\tsensitive\x12B\n" +
+	"\acontrol\x18\a \x01(\x0e2(.observability.v1.QuotaQueryInputControlR\acontrol\x12N\n" +
+	"\vpersistence\x18\b \x01(\x0e2,.observability.v1.QuotaQueryInputPersistenceR\vpersistence\x12&\n" +
+	"\x0ftarget_field_id\x18\t \x01(\tR\rtargetFieldId\x12M\n" +
 	"\ttransform\x18\n" +
-	" \x01(\x0e20.observability.v1.ActiveQueryInputValueTransformR\ttransform\x12#\n" +
+	" \x01(\x0e2/.observability.v1.QuotaQueryInputValueTransformR\ttransform\x12#\n" +
 	"\rdefault_value\x18\v \x01(\tR\fdefaultValue\"\xc1\x01\n" +
 	"\x16CredentialBackfillRule\x12\x17\n" +
 	"\arule_id\x18\x01 \x01(\tR\x06ruleId\x12&\n" +
@@ -2303,20 +2316,20 @@ const file_observability_v1_observability_proto_rawDesc = "" +
 	"&ObservabilityAttributeRequirementLevel\x129\n" +
 	"5OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_UNSPECIFIED\x10\x00\x126\n" +
 	"2OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_REQUIRED\x10\x01\x129\n" +
-	"5OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_RECOMMENDED\x10\x02*\xbc\x01\n" +
-	"\x17ActiveQueryInputControl\x12*\n" +
-	"&ACTIVE_QUERY_INPUT_CONTROL_UNSPECIFIED\x10\x00\x12#\n" +
-	"\x1fACTIVE_QUERY_INPUT_CONTROL_TEXT\x10\x01\x12'\n" +
-	"#ACTIVE_QUERY_INPUT_CONTROL_PASSWORD\x10\x02\x12'\n" +
-	"#ACTIVE_QUERY_INPUT_CONTROL_TEXTAREA\x10\x03*\xaf\x01\n" +
-	"\x1bActiveQueryInputPersistence\x12.\n" +
-	"*ACTIVE_QUERY_INPUT_PERSISTENCE_UNSPECIFIED\x10\x00\x122\n" +
-	".ACTIVE_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL\x10\x01\x12,\n" +
-	"(ACTIVE_QUERY_INPUT_PERSISTENCE_TRANSIENT\x10\x02*\xbe\x01\n" +
-	"\x1eActiveQueryInputValueTransform\x122\n" +
-	".ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED\x10\x00\x12/\n" +
-	"+ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY\x10\x01\x127\n" +
-	"3ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE\x10\x02*\x96\x01\n" +
+	"5OBSERVABILITY_ATTRIBUTE_REQUIREMENT_LEVEL_RECOMMENDED\x10\x02*\xb7\x01\n" +
+	"\x16QuotaQueryInputControl\x12)\n" +
+	"%QUOTA_QUERY_INPUT_CONTROL_UNSPECIFIED\x10\x00\x12\"\n" +
+	"\x1eQUOTA_QUERY_INPUT_CONTROL_TEXT\x10\x01\x12&\n" +
+	"\"QUOTA_QUERY_INPUT_CONTROL_PASSWORD\x10\x02\x12&\n" +
+	"\"QUOTA_QUERY_INPUT_CONTROL_TEXTAREA\x10\x03*\xab\x01\n" +
+	"\x1aQuotaQueryInputPersistence\x12-\n" +
+	")QUOTA_QUERY_INPUT_PERSISTENCE_UNSPECIFIED\x10\x00\x121\n" +
+	"-QUOTA_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL\x10\x01\x12+\n" +
+	"'QUOTA_QUERY_INPUT_PERSISTENCE_TRANSIENT\x10\x02*\xba\x01\n" +
+	"\x1dQuotaQueryInputValueTransform\x121\n" +
+	"-QUOTA_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED\x10\x00\x12.\n" +
+	"*QUOTA_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY\x10\x01\x126\n" +
+	"2QUOTA_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE\x10\x02*\x96\x01\n" +
 	"\x15TelemetryCapturePoint\x12'\n" +
 	"#TELEMETRY_CAPTURE_POINT_UNSPECIFIED\x10\x00\x12\"\n" +
 	"\x1eTELEMETRY_CAPTURE_POINT_EGRESS\x10\x01\x120\n" +
@@ -2375,9 +2388,9 @@ var file_observability_v1_observability_proto_goTypes = []any{
 	(ObservabilityMetricKind)(0),                // 0: observability.v1.ObservabilityMetricKind
 	(ObservabilityMetricCategory)(0),            // 1: observability.v1.ObservabilityMetricCategory
 	(ObservabilityAttributeRequirementLevel)(0), // 2: observability.v1.ObservabilityAttributeRequirementLevel
-	(ActiveQueryInputControl)(0),                // 3: observability.v1.ActiveQueryInputControl
-	(ActiveQueryInputPersistence)(0),            // 4: observability.v1.ActiveQueryInputPersistence
-	(ActiveQueryInputValueTransform)(0),         // 5: observability.v1.ActiveQueryInputValueTransform
+	(QuotaQueryInputControl)(0),                 // 3: observability.v1.QuotaQueryInputControl
+	(QuotaQueryInputPersistence)(0),             // 4: observability.v1.QuotaQueryInputPersistence
+	(QuotaQueryInputValueTransform)(0),          // 5: observability.v1.QuotaQueryInputValueTransform
 	(TelemetryCapturePoint)(0),                  // 6: observability.v1.TelemetryCapturePoint
 	(HttpHeaderSource)(0),                       // 7: observability.v1.HttpHeaderSource
 	(MetricQueryLanguage)(0),                    // 8: observability.v1.MetricQueryLanguage
@@ -2390,10 +2403,10 @@ var file_observability_v1_observability_proto_goTypes = []any{
 	(*ObservabilityProfile)(nil),                // 15: observability.v1.ObservabilityProfile
 	(*ObservabilityMetric)(nil),                 // 16: observability.v1.ObservabilityMetric
 	(*ObservabilityMetricAttribute)(nil),        // 17: observability.v1.ObservabilityMetricAttribute
-	(*ActiveQueryCollection)(nil),               // 18: observability.v1.ActiveQueryCollection
+	(*QuotaQueryCollection)(nil),                // 18: observability.v1.QuotaQueryCollection
 	(*DynamicParameterDefinition)(nil),          // 19: observability.v1.DynamicParameterDefinition
-	(*ActiveQueryInputForm)(nil),                // 20: observability.v1.ActiveQueryInputForm
-	(*ActiveQueryInputField)(nil),               // 21: observability.v1.ActiveQueryInputField
+	(*QuotaQueryInputForm)(nil),                 // 20: observability.v1.QuotaQueryInputForm
+	(*QuotaQueryInputField)(nil),                // 21: observability.v1.QuotaQueryInputField
 	(*CredentialBackfillRule)(nil),              // 22: observability.v1.CredentialBackfillRule
 	(*PassiveHttpTelemetryCollection)(nil),      // 23: observability.v1.PassiveHttpTelemetryCollection
 	(*HttpTelemetrySelector)(nil),               // 24: observability.v1.HttpTelemetrySelector
@@ -2409,7 +2422,7 @@ var file_observability_v1_observability_proto_goTypes = []any{
 var file_observability_v1_observability_proto_depIdxs = []int32{
 	15, // 0: observability.v1.ObservabilityCapability.profiles:type_name -> observability.v1.ObservabilityProfile
 	16, // 1: observability.v1.ObservabilityProfile.metrics:type_name -> observability.v1.ObservabilityMetric
-	18, // 2: observability.v1.ObservabilityProfile.active_query:type_name -> observability.v1.ActiveQueryCollection
+	18, // 2: observability.v1.ObservabilityProfile.quota_query:type_name -> observability.v1.QuotaQueryCollection
 	23, // 3: observability.v1.ObservabilityProfile.passive_http:type_name -> observability.v1.PassiveHttpTelemetryCollection
 	28, // 4: observability.v1.ObservabilityProfile.metric_queries:type_name -> observability.v1.MetricQuery
 	29, // 5: observability.v1.ObservabilityProfile.availability_judgment:type_name -> observability.v1.AvailabilityJudgment
@@ -2417,14 +2430,14 @@ var file_observability_v1_observability_proto_depIdxs = []int32{
 	1,  // 7: observability.v1.ObservabilityMetric.category:type_name -> observability.v1.ObservabilityMetricCategory
 	17, // 8: observability.v1.ObservabilityMetric.attributes:type_name -> observability.v1.ObservabilityMetricAttribute
 	2,  // 9: observability.v1.ObservabilityMetricAttribute.requirement_level:type_name -> observability.v1.ObservabilityAttributeRequirementLevel
-	32, // 10: observability.v1.ActiveQueryCollection.minimum_poll_interval:type_name -> google.protobuf.Duration
-	19, // 11: observability.v1.ActiveQueryCollection.dynamic_parameters:type_name -> observability.v1.DynamicParameterDefinition
-	22, // 12: observability.v1.ActiveQueryCollection.credential_backfills:type_name -> observability.v1.CredentialBackfillRule
-	20, // 13: observability.v1.ActiveQueryCollection.input_form:type_name -> observability.v1.ActiveQueryInputForm
-	21, // 14: observability.v1.ActiveQueryInputForm.fields:type_name -> observability.v1.ActiveQueryInputField
-	3,  // 15: observability.v1.ActiveQueryInputField.control:type_name -> observability.v1.ActiveQueryInputControl
-	4,  // 16: observability.v1.ActiveQueryInputField.persistence:type_name -> observability.v1.ActiveQueryInputPersistence
-	5,  // 17: observability.v1.ActiveQueryInputField.transform:type_name -> observability.v1.ActiveQueryInputValueTransform
+	32, // 10: observability.v1.QuotaQueryCollection.minimum_poll_interval:type_name -> google.protobuf.Duration
+	19, // 11: observability.v1.QuotaQueryCollection.dynamic_parameters:type_name -> observability.v1.DynamicParameterDefinition
+	22, // 12: observability.v1.QuotaQueryCollection.credential_backfills:type_name -> observability.v1.CredentialBackfillRule
+	20, // 13: observability.v1.QuotaQueryCollection.input_form:type_name -> observability.v1.QuotaQueryInputForm
+	21, // 14: observability.v1.QuotaQueryInputForm.fields:type_name -> observability.v1.QuotaQueryInputField
+	3,  // 15: observability.v1.QuotaQueryInputField.control:type_name -> observability.v1.QuotaQueryInputControl
+	4,  // 16: observability.v1.QuotaQueryInputField.persistence:type_name -> observability.v1.QuotaQueryInputPersistence
+	5,  // 17: observability.v1.QuotaQueryInputField.transform:type_name -> observability.v1.QuotaQueryInputValueTransform
 	6,  // 18: observability.v1.PassiveHttpTelemetryCollection.capture_point:type_name -> observability.v1.TelemetryCapturePoint
 	24, // 19: observability.v1.PassiveHttpTelemetryCollection.selectors:type_name -> observability.v1.HttpTelemetrySelector
 	25, // 20: observability.v1.PassiveHttpTelemetryCollection.transforms:type_name -> observability.v1.HttpHeaderTelemetryTransform
@@ -2452,7 +2465,7 @@ func file_observability_v1_observability_proto_init() {
 		return
 	}
 	file_observability_v1_observability_proto_msgTypes[1].OneofWrappers = []any{
-		(*ObservabilityProfile_ActiveQuery)(nil),
+		(*ObservabilityProfile_QuotaQuery)(nil),
 		(*ObservabilityProfile_PassiveHttp)(nil),
 	}
 	type x struct{}

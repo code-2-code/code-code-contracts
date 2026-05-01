@@ -91,15 +91,15 @@ func ValidateProfile(profile *ObservabilityProfile) error {
 		metricAttributeNames[name] = attributeNames
 	}
 
-	activeQuery := profile.GetActiveQuery()
+	activeQuery := profile.GetQuotaQuery()
 	passiveHTTP := profile.GetPassiveHttp()
 	switch {
 	case activeQuery != nil && passiveHTTP != nil:
-		return fmt.Errorf("observabilityv1: profile collection must be either active_query or passive_http")
+		return fmt.Errorf("observabilityv1: profile collection must be either quota_query or passive_http")
 	case activeQuery == nil && passiveHTTP == nil:
 		return fmt.Errorf("observabilityv1: profile collection is empty")
 	case activeQuery != nil:
-		if err := validateActiveQuery(activeQuery); err != nil {
+		if err := validateQuotaQuery(activeQuery); err != nil {
 			return err
 		}
 	case passiveHTTP != nil:
@@ -216,20 +216,20 @@ func validateMetricNameAndUnit(name, unit string, kind ObservabilityMetricKind) 
 	return nil
 }
 
-func validateActiveQuery(collection *ActiveQueryCollection) error {
+func validateQuotaQuery(collection *QuotaQueryCollection) error {
 	if collection == nil {
-		return fmt.Errorf("observabilityv1: active query collection is nil")
+		return fmt.Errorf("observabilityv1: quota query collection is nil")
 	}
 	if err := validatePositiveDuration(collection.GetMinimumPollInterval()); err != nil {
-		return fmt.Errorf("observabilityv1: active query minimum_poll_interval: %w", err)
+		return fmt.Errorf("observabilityv1: quota query minimum_poll_interval: %w", err)
 	}
 	if rawCollectorID := collection.GetCollectorId(); rawCollectorID != "" {
 		collectorID := strings.TrimSpace(rawCollectorID)
 		if collectorID == "" {
-			return fmt.Errorf("observabilityv1: active query collector_id is empty")
+			return fmt.Errorf("observabilityv1: quota query collector_id is empty")
 		}
 		if !collectorIDPattern.MatchString(collectorID) {
-			return fmt.Errorf("observabilityv1: active query collector_id %q is invalid", collectorID)
+			return fmt.Errorf("observabilityv1: quota query collector_id %q is invalid", collectorID)
 		}
 	}
 	dynamicParameterIDs := make(map[string]struct{}, len(collection.GetDynamicParameters()))
@@ -255,7 +255,7 @@ func validateActiveQuery(collection *ActiveQueryCollection) error {
 	if err := validateMaterialReadFields(collection.GetMaterialReadFields()); err != nil {
 		return err
 	}
-	if err := validateActiveQueryInputForm(collection.GetInputForm()); err != nil {
+	if err := validateQuotaQueryInputForm(collection.GetInputForm()); err != nil {
 		return err
 	}
 	return nil
@@ -266,102 +266,102 @@ func validateMaterialReadFields(fields []string) error {
 	for _, raw := range fields {
 		field := strings.TrimSpace(raw)
 		if field == "" {
-			return fmt.Errorf("observabilityv1: active query material_read_fields contains empty field")
+			return fmt.Errorf("observabilityv1: quota query material_read_fields contains empty field")
 		}
 		if !credentialMaterialKeyPattern.MatchString(field) {
-			return fmt.Errorf("observabilityv1: active query material_read_fields field %q is invalid", field)
+			return fmt.Errorf("observabilityv1: quota query material_read_fields field %q is invalid", field)
 		}
 		if _, exists := seen[field]; exists {
-			return fmt.Errorf("observabilityv1: duplicate active query material_read_fields field %q", field)
+			return fmt.Errorf("observabilityv1: duplicate quota query material_read_fields field %q", field)
 		}
 		seen[field] = struct{}{}
 	}
 	return nil
 }
 
-func validateActiveQueryInputForm(form *ActiveQueryInputForm) error {
+func validateQuotaQueryInputForm(form *QuotaQueryInputForm) error {
 	if form == nil {
 		return nil
 	}
 	schemaID := strings.TrimSpace(form.GetSchemaId())
 	if schemaID == "" {
-		return fmt.Errorf("observabilityv1: active query input form schema_id is empty")
+		return fmt.Errorf("observabilityv1: quota query input form schema_id is empty")
 	}
 	if !collectorIDPattern.MatchString(schemaID) {
-		return fmt.Errorf("observabilityv1: active query input form schema_id %q is invalid", schemaID)
+		return fmt.Errorf("observabilityv1: quota query input form schema_id %q is invalid", schemaID)
 	}
 	if strings.TrimSpace(form.GetTitle()) == "" {
-		return fmt.Errorf("observabilityv1: active query input form title is empty")
+		return fmt.Errorf("observabilityv1: quota query input form title is empty")
 	}
 	if strings.TrimSpace(form.GetActionLabel()) == "" {
-		return fmt.Errorf("observabilityv1: active query input form action_label is empty")
+		return fmt.Errorf("observabilityv1: quota query input form action_label is empty")
 	}
 	if len(form.GetFields()) == 0 {
-		return fmt.Errorf("observabilityv1: active query input form fields are empty")
+		return fmt.Errorf("observabilityv1: quota query input form fields are empty")
 	}
 
 	fieldIDs := make(map[string]struct{}, len(form.GetFields()))
 	storedFieldIDs := make(map[string]struct{}, len(form.GetFields()))
 	for _, field := range form.GetFields() {
 		if field == nil {
-			return fmt.Errorf("observabilityv1: active query input field is nil")
+			return fmt.Errorf("observabilityv1: quota query input field is nil")
 		}
 		fieldID := strings.TrimSpace(field.GetFieldId())
 		if fieldID == "" {
-			return fmt.Errorf("observabilityv1: active query input field id is empty")
+			return fmt.Errorf("observabilityv1: quota query input field id is empty")
 		}
 		if !credentialMaterialKeyPattern.MatchString(fieldID) {
-			return fmt.Errorf("observabilityv1: active query input field id %q is invalid", fieldID)
+			return fmt.Errorf("observabilityv1: quota query input field id %q is invalid", fieldID)
 		}
 		if _, exists := fieldIDs[fieldID]; exists {
-			return fmt.Errorf("observabilityv1: duplicate active query input field id %q", fieldID)
+			return fmt.Errorf("observabilityv1: duplicate quota query input field id %q", fieldID)
 		}
 		fieldIDs[fieldID] = struct{}{}
 		if strings.TrimSpace(field.GetLabel()) == "" {
-			return fmt.Errorf("observabilityv1: active query input field %q label is empty", fieldID)
+			return fmt.Errorf("observabilityv1: quota query input field %q label is empty", fieldID)
 		}
-		if field.GetControl() == ActiveQueryInputControl_ACTIVE_QUERY_INPUT_CONTROL_UNSPECIFIED {
-			return fmt.Errorf("observabilityv1: active query input field %q control is unspecified", fieldID)
+		if field.GetControl() == QuotaQueryInputControl_QUOTA_QUERY_INPUT_CONTROL_UNSPECIFIED {
+			return fmt.Errorf("observabilityv1: quota query input field %q control is unspecified", fieldID)
 		}
 		if field.GetSensitive() && strings.TrimSpace(field.GetDefaultValue()) != "" {
-			return fmt.Errorf("observabilityv1: active query input field %q default_value is not allowed for sensitive fields", fieldID)
+			return fmt.Errorf("observabilityv1: quota query input field %q default_value is not allowed for sensitive fields", fieldID)
 		}
 		switch field.GetPersistence() {
-		case ActiveQueryInputPersistence_ACTIVE_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL:
+		case QuotaQueryInputPersistence_QUOTA_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL:
 			if strings.TrimSpace(field.GetTargetFieldId()) != "" {
-				return fmt.Errorf("observabilityv1: stored active query input field %q target_field_id must be empty", fieldID)
+				return fmt.Errorf("observabilityv1: stored quota query input field %q target_field_id must be empty", fieldID)
 			}
-			if transform := field.GetTransform(); transform != ActiveQueryInputValueTransform_ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED &&
-				transform != ActiveQueryInputValueTransform_ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY {
-				return fmt.Errorf("observabilityv1: stored active query input field %q transform must be identity", fieldID)
+			if transform := field.GetTransform(); transform != QuotaQueryInputValueTransform_QUOTA_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED &&
+				transform != QuotaQueryInputValueTransform_QUOTA_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY {
+				return fmt.Errorf("observabilityv1: stored quota query input field %q transform must be identity", fieldID)
 			}
 			storedFieldIDs[fieldID] = struct{}{}
-		case ActiveQueryInputPersistence_ACTIVE_QUERY_INPUT_PERSISTENCE_TRANSIENT:
+		case QuotaQueryInputPersistence_QUOTA_QUERY_INPUT_PERSISTENCE_TRANSIENT:
 			if field.GetRequired() {
-				return fmt.Errorf("observabilityv1: transient active query input field %q must not be required", fieldID)
+				return fmt.Errorf("observabilityv1: transient quota query input field %q must not be required", fieldID)
 			}
 			targetFieldID := strings.TrimSpace(field.GetTargetFieldId())
 			if targetFieldID == "" {
-				return fmt.Errorf("observabilityv1: transient active query input field %q target_field_id is empty", fieldID)
+				return fmt.Errorf("observabilityv1: transient quota query input field %q target_field_id is empty", fieldID)
 			}
 			if !credentialMaterialKeyPattern.MatchString(targetFieldID) {
-				return fmt.Errorf("observabilityv1: transient active query input field %q target_field_id %q is invalid", fieldID, targetFieldID)
+				return fmt.Errorf("observabilityv1: transient quota query input field %q target_field_id %q is invalid", fieldID, targetFieldID)
 			}
-			if field.GetTransform() == ActiveQueryInputValueTransform_ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED ||
-				field.GetTransform() == ActiveQueryInputValueTransform_ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY {
-				return fmt.Errorf("observabilityv1: transient active query input field %q transform is required", fieldID)
+			if field.GetTransform() == QuotaQueryInputValueTransform_QUOTA_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED ||
+				field.GetTransform() == QuotaQueryInputValueTransform_QUOTA_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY {
+				return fmt.Errorf("observabilityv1: transient quota query input field %q transform is required", fieldID)
 			}
 		default:
-			return fmt.Errorf("observabilityv1: active query input field %q persistence is unspecified", fieldID)
+			return fmt.Errorf("observabilityv1: quota query input field %q persistence is unspecified", fieldID)
 		}
 	}
 	for _, field := range form.GetFields() {
-		if field.GetPersistence() != ActiveQueryInputPersistence_ACTIVE_QUERY_INPUT_PERSISTENCE_TRANSIENT {
+		if field.GetPersistence() != QuotaQueryInputPersistence_QUOTA_QUERY_INPUT_PERSISTENCE_TRANSIENT {
 			continue
 		}
 		targetFieldID := strings.TrimSpace(field.GetTargetFieldId())
 		if _, exists := storedFieldIDs[targetFieldID]; !exists {
-			return fmt.Errorf("observabilityv1: transient active query input field %q target_field_id %q does not reference a stored field", field.GetFieldId(), targetFieldID)
+			return fmt.Errorf("observabilityv1: transient quota query input field %q target_field_id %q does not reference a stored field", field.GetFieldId(), targetFieldID)
 		}
 	}
 	return nil

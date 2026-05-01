@@ -173,8 +173,9 @@ func (x *AgentSelectionStrategy) GetFallbacks() []*AgentFallbackCandidate {
 // AgentFallbackCandidate describes one ordered provider surface plus model
 // selector candidate.
 type AgentFallbackCandidate struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	ProviderRuntimeRef *v1.ProviderRuntimeRef `protobuf:"bytes,1,opt,name=provider_runtime_ref,json=providerRuntimeRef,proto3" json:"provider_runtime_ref,omitempty"`
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	ProviderId string                 `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
+	Endpoint   *v1.ProviderEndpoint   `protobuf:"bytes,4,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
 	// Types that are valid to be assigned to ModelSelector:
 	//
 	//	*AgentFallbackCandidate_ModelRef
@@ -214,9 +215,16 @@ func (*AgentFallbackCandidate) Descriptor() ([]byte, []int) {
 	return file_platform_agent_profile_v1_agent_profile_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *AgentFallbackCandidate) GetProviderRuntimeRef() *v1.ProviderRuntimeRef {
+func (x *AgentFallbackCandidate) GetProviderId() string {
 	if x != nil {
-		return x.ProviderRuntimeRef
+		return x.ProviderId
+	}
+	return ""
+}
+
+func (x *AgentFallbackCandidate) GetEndpoint() *v1.ProviderEndpoint {
+	if x != nil {
+		return x.Endpoint
 	}
 	return nil
 }
@@ -279,9 +287,11 @@ const file_platform_agent_profile_v1_agent_profile_proto_rawDesc = "" +
 	"\vprovider_id\x18\x01 \x01(\tR\n" +
 	"providerId\x12'\n" +
 	"\x0fexecution_class\x18\x02 \x01(\tR\x0eexecutionClass\x12O\n" +
-	"\tfallbacks\x18\x03 \x03(\v21.platform.agent_profile.v1.AgentFallbackCandidateR\tfallbacks\"\xde\x01\n" +
-	"\x16AgentFallbackCandidate\x12Q\n" +
-	"\x14provider_runtime_ref\x18\x01 \x01(\v2\x1f.provider.v1.ProviderRuntimeRefR\x12providerRuntimeRef\x121\n" +
+	"\tfallbacks\x18\x03 \x03(\v21.platform.agent_profile.v1.AgentFallbackCandidateR\tfallbacks\"\xe7\x01\n" +
+	"\x16AgentFallbackCandidate\x12\x1f\n" +
+	"\vprovider_id\x18\x01 \x01(\tR\n" +
+	"providerId\x129\n" +
+	"\bendpoint\x18\x04 \x01(\v2\x1d.provider.v1.ProviderEndpointR\bendpoint\x121\n" +
 	"\tmodel_ref\x18\x02 \x01(\v2\x12.model.v1.ModelRefH\x00R\bmodelRef\x12,\n" +
 	"\x11provider_model_id\x18\x03 \x01(\tH\x00R\x0fproviderModelIdB\x10\n" +
 	"\x0emodel_selectorBIZGcode-code.internal/go-contract/platform/agent_profile/v1;agentprofilev1b\x06proto3"
@@ -303,13 +313,13 @@ var file_platform_agent_profile_v1_agent_profile_proto_goTypes = []any{
 	(*AgentProfile)(nil),           // 0: platform.agent_profile.v1.AgentProfile
 	(*AgentSelectionStrategy)(nil), // 1: platform.agent_profile.v1.AgentSelectionStrategy
 	(*AgentFallbackCandidate)(nil), // 2: platform.agent_profile.v1.AgentFallbackCandidate
-	(*v1.ProviderRuntimeRef)(nil),  // 3: provider.v1.ProviderRuntimeRef
+	(*v1.ProviderEndpoint)(nil),    // 3: provider.v1.ProviderEndpoint
 	(*v11.ModelRef)(nil),           // 4: model.v1.ModelRef
 }
 var file_platform_agent_profile_v1_agent_profile_proto_depIdxs = []int32{
 	1, // 0: platform.agent_profile.v1.AgentProfile.selection_strategy:type_name -> platform.agent_profile.v1.AgentSelectionStrategy
 	2, // 1: platform.agent_profile.v1.AgentSelectionStrategy.fallbacks:type_name -> platform.agent_profile.v1.AgentFallbackCandidate
-	3, // 2: platform.agent_profile.v1.AgentFallbackCandidate.provider_runtime_ref:type_name -> provider.v1.ProviderRuntimeRef
+	3, // 2: platform.agent_profile.v1.AgentFallbackCandidate.endpoint:type_name -> provider.v1.ProviderEndpoint
 	4, // 3: platform.agent_profile.v1.AgentFallbackCandidate.model_ref:type_name -> model.v1.ModelRef
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type

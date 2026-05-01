@@ -137,8 +137,8 @@ func TestValidateCapabilityRejectsInvalidCounterName(t *testing.T) {
 				Kind:        ObservabilityMetricKind_OBSERVABILITY_METRIC_KIND_COUNTER,
 				Category:    ObservabilityMetricCategory_OBSERVABILITY_METRIC_CATEGORY_USAGE,
 			}},
-			Collection: &ObservabilityProfile_ActiveQuery{
-				ActiveQuery: &ActiveQueryCollection{
+			Collection: &ObservabilityProfile_QuotaQuery{
+				QuotaQuery: &QuotaQueryCollection{
 					MinimumPollInterval: durationpb.New(5 * time.Second),
 				},
 			},
@@ -245,7 +245,7 @@ func TestValidateCapabilityRejectsPassiveHTTPWithoutRawHeaderDrop(t *testing.T) 
 	}
 }
 
-func TestValidateCapabilityAcceptsActiveQueryCollectorID(t *testing.T) {
+func TestValidateCapabilityAcceptsQuotaQueryCollectorID(t *testing.T) {
 	capability := &ObservabilityCapability{
 		Profiles: []*ObservabilityProfile{{
 			ProfileId:   "oauth_management_state",
@@ -257,8 +257,8 @@ func TestValidateCapabilityAcceptsActiveQueryCollectorID(t *testing.T) {
 				Kind:        ObservabilityMetricKind_OBSERVABILITY_METRIC_KIND_COUNTER,
 				Category:    ObservabilityMetricCategory_OBSERVABILITY_METRIC_CATEGORY_USAGE,
 			}},
-			Collection: &ObservabilityProfile_ActiveQuery{
-				ActiveQuery: &ActiveQueryCollection{
+			Collection: &ObservabilityProfile_QuotaQuery{
+				QuotaQuery: &QuotaQueryCollection{
 					MinimumPollInterval: durationpb.New(30 * time.Second),
 					CollectorId:         "gemini-cli",
 				},
@@ -271,7 +271,7 @@ func TestValidateCapabilityAcceptsActiveQueryCollectorID(t *testing.T) {
 	}
 }
 
-func TestValidateCapabilityAcceptsActiveQueryCredentialBackfills(t *testing.T) {
+func TestValidateCapabilityAcceptsQuotaQueryCredentialBackfills(t *testing.T) {
 	capability := &ObservabilityCapability{
 		Profiles: []*ObservabilityProfile{{
 			ProfileId:   "oauth_management_state",
@@ -283,8 +283,8 @@ func TestValidateCapabilityAcceptsActiveQueryCredentialBackfills(t *testing.T) {
 				Kind:        ObservabilityMetricKind_OBSERVABILITY_METRIC_KIND_GAUGE,
 				Category:    ObservabilityMetricCategory_OBSERVABILITY_METRIC_CATEGORY_USAGE,
 			}},
-			Collection: &ObservabilityProfile_ActiveQuery{
-				ActiveQuery: &ActiveQueryCollection{
+			Collection: &ObservabilityProfile_QuotaQuery{
+				QuotaQuery: &QuotaQueryCollection{
 					MinimumPollInterval: durationpb.New(30 * time.Second),
 					CollectorId:         "gemini-cli",
 					CredentialBackfills: []*CredentialBackfillRule{{
@@ -302,7 +302,7 @@ func TestValidateCapabilityAcceptsActiveQueryCredentialBackfills(t *testing.T) {
 	}
 }
 
-func TestValidateCapabilityAcceptsActiveQueryInputForm(t *testing.T) {
+func TestValidateCapabilityAcceptsQuotaQueryInputForm(t *testing.T) {
 	capability := &ObservabilityCapability{
 		Profiles: []*ObservabilityProfile{{
 			ProfileId:   "vendor_management_state",
@@ -314,29 +314,29 @@ func TestValidateCapabilityAcceptsActiveQueryInputForm(t *testing.T) {
 				Kind:        ObservabilityMetricKind_OBSERVABILITY_METRIC_KIND_GAUGE,
 				Category:    ObservabilityMetricCategory_OBSERVABILITY_METRIC_CATEGORY_QUOTA,
 			}},
-			Collection: &ObservabilityProfile_ActiveQuery{
-				ActiveQuery: &ActiveQueryCollection{
+			Collection: &ObservabilityProfile_QuotaQuery{
+				QuotaQuery: &QuotaQueryCollection{
 					MinimumPollInterval: durationpb.New(30 * time.Second),
-					InputForm: &ActiveQueryInputForm{
+					InputForm: &QuotaQueryInputForm{
 						SchemaId:    "google-ai-studio-session",
 						Title:       "Update AI Studio Session",
 						ActionLabel: "Update AI Studio Session",
-						Fields: []*ActiveQueryInputField{
+						Fields: []*QuotaQueryInputField{
 							{
 								FieldId:     "cookie",
 								Label:       "Request Cookie",
 								Required:    true,
 								Sensitive:   true,
-								Control:     ActiveQueryInputControl_ACTIVE_QUERY_INPUT_CONTROL_TEXTAREA,
-								Persistence: ActiveQueryInputPersistence_ACTIVE_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL,
+								Control:     QuotaQueryInputControl_QUOTA_QUERY_INPUT_CONTROL_TEXTAREA,
+								Persistence: QuotaQueryInputPersistence_QUOTA_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL,
 							},
 							{
 								FieldId:       "response_set_cookie",
 								Label:         "Response Set-Cookie",
-								Control:       ActiveQueryInputControl_ACTIVE_QUERY_INPUT_CONTROL_TEXTAREA,
-								Persistence:   ActiveQueryInputPersistence_ACTIVE_QUERY_INPUT_PERSISTENCE_TRANSIENT,
+								Control:       QuotaQueryInputControl_QUOTA_QUERY_INPUT_CONTROL_TEXTAREA,
+								Persistence:   QuotaQueryInputPersistence_QUOTA_QUERY_INPUT_PERSISTENCE_TRANSIENT,
 								TargetFieldId: "cookie",
-								Transform:     ActiveQueryInputValueTransform_ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE,
+								Transform:     QuotaQueryInputValueTransform_QUOTA_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE,
 							},
 						},
 					},
@@ -350,7 +350,7 @@ func TestValidateCapabilityAcceptsActiveQueryInputForm(t *testing.T) {
 	}
 }
 
-func TestValidateCapabilityRejectsActiveQueryInputFormTransientWithoutStoredTarget(t *testing.T) {
+func TestValidateCapabilityRejectsQuotaQueryInputFormTransientWithoutStoredTarget(t *testing.T) {
 	capability := &ObservabilityCapability{
 		Profiles: []*ObservabilityProfile{{
 			ProfileId:   "vendor_management_state",
@@ -362,20 +362,20 @@ func TestValidateCapabilityRejectsActiveQueryInputFormTransientWithoutStoredTarg
 				Kind:        ObservabilityMetricKind_OBSERVABILITY_METRIC_KIND_GAUGE,
 				Category:    ObservabilityMetricCategory_OBSERVABILITY_METRIC_CATEGORY_QUOTA,
 			}},
-			Collection: &ObservabilityProfile_ActiveQuery{
-				ActiveQuery: &ActiveQueryCollection{
+			Collection: &ObservabilityProfile_QuotaQuery{
+				QuotaQuery: &QuotaQueryCollection{
 					MinimumPollInterval: durationpb.New(30 * time.Second),
-					InputForm: &ActiveQueryInputForm{
+					InputForm: &QuotaQueryInputForm{
 						SchemaId:    "google-ai-studio-session",
 						Title:       "Update AI Studio Session",
 						ActionLabel: "Update AI Studio Session",
-						Fields: []*ActiveQueryInputField{{
+						Fields: []*QuotaQueryInputField{{
 							FieldId:       "response_set_cookie",
 							Label:         "Response Set-Cookie",
-							Control:       ActiveQueryInputControl_ACTIVE_QUERY_INPUT_CONTROL_TEXTAREA,
-							Persistence:   ActiveQueryInputPersistence_ACTIVE_QUERY_INPUT_PERSISTENCE_TRANSIENT,
+							Control:       QuotaQueryInputControl_QUOTA_QUERY_INPUT_CONTROL_TEXTAREA,
+							Persistence:   QuotaQueryInputPersistence_QUOTA_QUERY_INPUT_PERSISTENCE_TRANSIENT,
 							TargetFieldId: "cookie",
-							Transform:     ActiveQueryInputValueTransform_ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE,
+							Transform:     QuotaQueryInputValueTransform_QUOTA_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE,
 						}},
 					},
 				},
@@ -400,8 +400,8 @@ func TestValidateCapabilityRejectsDuplicateCredentialBackfillTargets(t *testing.
 				Kind:        ObservabilityMetricKind_OBSERVABILITY_METRIC_KIND_GAUGE,
 				Category:    ObservabilityMetricCategory_OBSERVABILITY_METRIC_CATEGORY_USAGE,
 			}},
-			Collection: &ObservabilityProfile_ActiveQuery{
-				ActiveQuery: &ActiveQueryCollection{
+			Collection: &ObservabilityProfile_QuotaQuery{
+				QuotaQuery: &QuotaQueryCollection{
 					MinimumPollInterval: durationpb.New(30 * time.Second),
 					CredentialBackfills: []*CredentialBackfillRule{
 						{
@@ -425,7 +425,7 @@ func TestValidateCapabilityRejectsDuplicateCredentialBackfillTargets(t *testing.
 	}
 }
 
-func TestValidateCapabilityRejectsInvalidActiveQueryCollectorID(t *testing.T) {
+func TestValidateCapabilityRejectsInvalidQuotaQueryCollectorID(t *testing.T) {
 	capability := &ObservabilityCapability{
 		Profiles: []*ObservabilityProfile{{
 			ProfileId:   "oauth_management_state",
@@ -437,8 +437,8 @@ func TestValidateCapabilityRejectsInvalidActiveQueryCollectorID(t *testing.T) {
 				Kind:        ObservabilityMetricKind_OBSERVABILITY_METRIC_KIND_COUNTER,
 				Category:    ObservabilityMetricCategory_OBSERVABILITY_METRIC_CATEGORY_USAGE,
 			}},
-			Collection: &ObservabilityProfile_ActiveQuery{
-				ActiveQuery: &ActiveQueryCollection{
+			Collection: &ObservabilityProfile_QuotaQuery{
+				QuotaQuery: &QuotaQueryCollection{
 					MinimumPollInterval: durationpb.New(30 * time.Second),
 					CollectorId:         "Gemini@Collector",
 				},

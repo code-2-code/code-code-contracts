@@ -25,37 +25,47 @@ var File_platform_orchestration_v1_provider_orchestration_service_proto protoref
 
 const file_platform_orchestration_v1_provider_orchestration_service_proto_rawDesc = "" +
 	"\n" +
-	">platform/orchestration/v1/provider_orchestration_service.proto\x12\x19platform.orchestration.v1\x1a'platform/management/v1/management.proto2\x84\x05\n" +
+	">platform/orchestration/v1/provider_orchestration_service.proto\x12\x19platform.orchestration.v1\x1a'platform/management/v1/management.proto2\xad\a\n" +
 	"\x1cProviderOrchestrationService\x12r\n" +
 	"\x0fConnectProvider\x12..platform.management.v1.ConnectProviderRequest\x1a/.platform.management.v1.ConnectProviderResponse\x12\x90\x01\n" +
 	"\x19GetProviderConnectSession\x128.platform.management.v1.GetProviderConnectSessionRequest\x1a9.platform.management.v1.GetProviderConnectSessionResponse\x12\x99\x01\n" +
 	"\x1cUpdateProviderAuthentication\x12;.platform.management.v1.UpdateProviderAuthenticationRequest\x1a<.platform.management.v1.UpdateProviderAuthenticationResponse\x12\xc0\x01\n" +
-	")UpdateProviderObservabilityAuthentication\x12H.platform.management.v1.UpdateProviderObservabilityAuthenticationRequest\x1aI.platform.management.v1.UpdateProviderObservabilityAuthenticationResponseBJZHcode-code.internal/go-contract/platform/orchestration/v1;orchestrationv1b\x06proto3"
+	")UpdateProviderObservabilityAuthentication\x12H.platform.management.v1.UpdateProviderObservabilityAuthenticationRequest\x1aI.platform.management.v1.UpdateProviderObservabilityAuthenticationResponse\x12\x93\x01\n" +
+	"\x1aProbeProviderObservability\x129.platform.management.v1.ProbeProviderObservabilityRequest\x1a:.platform.management.v1.ProbeProviderObservabilityResponse\x12\x90\x01\n" +
+	"\x19ProbeProviderModelCatalog\x128.platform.management.v1.ProbeProviderModelCatalogRequest\x1a9.platform.management.v1.ProbeProviderModelCatalogResponseBJZHcode-code.internal/go-contract/platform/orchestration/v1;orchestrationv1b\x06proto3"
 
 var file_platform_orchestration_v1_provider_orchestration_service_proto_goTypes = []any{
 	(*v1.ConnectProviderRequest)(nil),                            // 0: platform.management.v1.ConnectProviderRequest
 	(*v1.GetProviderConnectSessionRequest)(nil),                  // 1: platform.management.v1.GetProviderConnectSessionRequest
 	(*v1.UpdateProviderAuthenticationRequest)(nil),               // 2: platform.management.v1.UpdateProviderAuthenticationRequest
 	(*v1.UpdateProviderObservabilityAuthenticationRequest)(nil),  // 3: platform.management.v1.UpdateProviderObservabilityAuthenticationRequest
-	(*v1.ConnectProviderResponse)(nil),                           // 4: platform.management.v1.ConnectProviderResponse
-	(*v1.GetProviderConnectSessionResponse)(nil),                 // 5: platform.management.v1.GetProviderConnectSessionResponse
-	(*v1.UpdateProviderAuthenticationResponse)(nil),              // 6: platform.management.v1.UpdateProviderAuthenticationResponse
-	(*v1.UpdateProviderObservabilityAuthenticationResponse)(nil), // 7: platform.management.v1.UpdateProviderObservabilityAuthenticationResponse
+	(*v1.ProbeProviderObservabilityRequest)(nil),                 // 4: platform.management.v1.ProbeProviderObservabilityRequest
+	(*v1.ProbeProviderModelCatalogRequest)(nil),                  // 5: platform.management.v1.ProbeProviderModelCatalogRequest
+	(*v1.ConnectProviderResponse)(nil),                           // 6: platform.management.v1.ConnectProviderResponse
+	(*v1.GetProviderConnectSessionResponse)(nil),                 // 7: platform.management.v1.GetProviderConnectSessionResponse
+	(*v1.UpdateProviderAuthenticationResponse)(nil),              // 8: platform.management.v1.UpdateProviderAuthenticationResponse
+	(*v1.UpdateProviderObservabilityAuthenticationResponse)(nil), // 9: platform.management.v1.UpdateProviderObservabilityAuthenticationResponse
+	(*v1.ProbeProviderObservabilityResponse)(nil),                // 10: platform.management.v1.ProbeProviderObservabilityResponse
+	(*v1.ProbeProviderModelCatalogResponse)(nil),                 // 11: platform.management.v1.ProbeProviderModelCatalogResponse
 }
 var file_platform_orchestration_v1_provider_orchestration_service_proto_depIdxs = []int32{
-	0, // 0: platform.orchestration.v1.ProviderOrchestrationService.ConnectProvider:input_type -> platform.management.v1.ConnectProviderRequest
-	1, // 1: platform.orchestration.v1.ProviderOrchestrationService.GetProviderConnectSession:input_type -> platform.management.v1.GetProviderConnectSessionRequest
-	2, // 2: platform.orchestration.v1.ProviderOrchestrationService.UpdateProviderAuthentication:input_type -> platform.management.v1.UpdateProviderAuthenticationRequest
-	3, // 3: platform.orchestration.v1.ProviderOrchestrationService.UpdateProviderObservabilityAuthentication:input_type -> platform.management.v1.UpdateProviderObservabilityAuthenticationRequest
-	4, // 4: platform.orchestration.v1.ProviderOrchestrationService.ConnectProvider:output_type -> platform.management.v1.ConnectProviderResponse
-	5, // 5: platform.orchestration.v1.ProviderOrchestrationService.GetProviderConnectSession:output_type -> platform.management.v1.GetProviderConnectSessionResponse
-	6, // 6: platform.orchestration.v1.ProviderOrchestrationService.UpdateProviderAuthentication:output_type -> platform.management.v1.UpdateProviderAuthenticationResponse
-	7, // 7: platform.orchestration.v1.ProviderOrchestrationService.UpdateProviderObservabilityAuthentication:output_type -> platform.management.v1.UpdateProviderObservabilityAuthenticationResponse
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: platform.orchestration.v1.ProviderOrchestrationService.ConnectProvider:input_type -> platform.management.v1.ConnectProviderRequest
+	1,  // 1: platform.orchestration.v1.ProviderOrchestrationService.GetProviderConnectSession:input_type -> platform.management.v1.GetProviderConnectSessionRequest
+	2,  // 2: platform.orchestration.v1.ProviderOrchestrationService.UpdateProviderAuthentication:input_type -> platform.management.v1.UpdateProviderAuthenticationRequest
+	3,  // 3: platform.orchestration.v1.ProviderOrchestrationService.UpdateProviderObservabilityAuthentication:input_type -> platform.management.v1.UpdateProviderObservabilityAuthenticationRequest
+	4,  // 4: platform.orchestration.v1.ProviderOrchestrationService.ProbeProviderObservability:input_type -> platform.management.v1.ProbeProviderObservabilityRequest
+	5,  // 5: platform.orchestration.v1.ProviderOrchestrationService.ProbeProviderModelCatalog:input_type -> platform.management.v1.ProbeProviderModelCatalogRequest
+	6,  // 6: platform.orchestration.v1.ProviderOrchestrationService.ConnectProvider:output_type -> platform.management.v1.ConnectProviderResponse
+	7,  // 7: platform.orchestration.v1.ProviderOrchestrationService.GetProviderConnectSession:output_type -> platform.management.v1.GetProviderConnectSessionResponse
+	8,  // 8: platform.orchestration.v1.ProviderOrchestrationService.UpdateProviderAuthentication:output_type -> platform.management.v1.UpdateProviderAuthenticationResponse
+	9,  // 9: platform.orchestration.v1.ProviderOrchestrationService.UpdateProviderObservabilityAuthentication:output_type -> platform.management.v1.UpdateProviderObservabilityAuthenticationResponse
+	10, // 10: platform.orchestration.v1.ProviderOrchestrationService.ProbeProviderObservability:output_type -> platform.management.v1.ProbeProviderObservabilityResponse
+	11, // 11: platform.orchestration.v1.ProviderOrchestrationService.ProbeProviderModelCatalog:output_type -> platform.management.v1.ProbeProviderModelCatalogResponse
+	6,  // [6:12] is the sub-list for method output_type
+	0,  // [0:6] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_platform_orchestration_v1_provider_orchestration_service_proto_init() }

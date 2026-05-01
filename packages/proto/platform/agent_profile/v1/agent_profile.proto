@@ -28,7 +28,8 @@ message AgentSelectionStrategy {
 // AgentFallbackCandidate describes one ordered provider surface plus model
 // selector candidate.
 message AgentFallbackCandidate {
-  provider.v1.ProviderRuntimeRef provider_runtime_ref = 1;
+  string provider_id = 1;
+  provider.v1.ProviderEndpoint endpoint = 4;
 
   oneof model_selector {
     model.v1.ModelRef model_ref = 2;

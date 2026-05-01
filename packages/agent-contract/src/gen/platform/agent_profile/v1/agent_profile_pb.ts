@@ -4,7 +4,7 @@
 
 import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2";
 import { fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv2";
-import type { ProviderRuntimeRef } from "../../../provider/v1/provider_pb";
+import type { ProviderEndpoint } from "../../../provider/v1/provider_pb";
 import { file_provider_v1_provider } from "../../../provider/v1/provider_pb";
 import type { ModelRef } from "../../../model/v1/model_pb";
 import { file_model_v1_model } from "../../../model/v1/model_pb";
@@ -14,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file platform/agent_profile/v1/agent_profile.proto.
  */
 export const file_platform_agent_profile_v1_agent_profile: GenFile = /*@__PURE__*/
-  fileDesc("Ci1wbGF0Zm9ybS9hZ2VudF9wcm9maWxlL3YxL2FnZW50X3Byb2ZpbGUucHJvdG8SGXBsYXRmb3JtLmFnZW50X3Byb2ZpbGUudjEitQEKDEFnZW50UHJvZmlsZRISCgpwcm9maWxlX2lkGAEgASgJEgwKBG5hbWUYAiABKAkSTQoSc2VsZWN0aW9uX3N0cmF0ZWd5GAMgASgLMjEucGxhdGZvcm0uYWdlbnRfcHJvZmlsZS52MS5BZ2VudFNlbGVjdGlvblN0cmF0ZWd5Eg8KB21jcF9pZHMYBCADKAkSEQoJc2tpbGxfaWRzGAUgAygJEhAKCHJ1bGVfaWRzGAYgAygJIowBChZBZ2VudFNlbGVjdGlvblN0cmF0ZWd5EhMKC3Byb3ZpZGVyX2lkGAEgASgJEhcKD2V4ZWN1dGlvbl9jbGFzcxgCIAEoCRJECglmYWxsYmFja3MYAyADKAsyMS5wbGF0Zm9ybS5hZ2VudF9wcm9maWxlLnYxLkFnZW50RmFsbGJhY2tDYW5kaWRhdGUirwEKFkFnZW50RmFsbGJhY2tDYW5kaWRhdGUSPQoUcHJvdmlkZXJfcnVudGltZV9yZWYYASABKAsyHy5wcm92aWRlci52MS5Qcm92aWRlclJ1bnRpbWVSZWYSJwoJbW9kZWxfcmVmGAIgASgLMhIubW9kZWwudjEuTW9kZWxSZWZIABIbChFwcm92aWRlcl9tb2RlbF9pZBgDIAEoCUgAQhAKDm1vZGVsX3NlbGVjdG9yQklaR2NvZGUtY29kZS5pbnRlcm5hbC9nby1jb250cmFjdC9wbGF0Zm9ybS9hZ2VudF9wcm9maWxlL3YxO2FnZW50cHJvZmlsZXYxYgZwcm90bzM", [file_provider_v1_provider, file_model_v1_model]);
+  fileDesc("Ci1wbGF0Zm9ybS9hZ2VudF9wcm9maWxlL3YxL2FnZW50X3Byb2ZpbGUucHJvdG8SGXBsYXRmb3JtLmFnZW50X3Byb2ZpbGUudjEitQEKDEFnZW50UHJvZmlsZRISCgpwcm9maWxlX2lkGAEgASgJEgwKBG5hbWUYAiABKAkSTQoSc2VsZWN0aW9uX3N0cmF0ZWd5GAMgASgLMjEucGxhdGZvcm0uYWdlbnRfcHJvZmlsZS52MS5BZ2VudFNlbGVjdGlvblN0cmF0ZWd5Eg8KB21jcF9pZHMYBCADKAkSEQoJc2tpbGxfaWRzGAUgAygJEhAKCHJ1bGVfaWRzGAYgAygJIowBChZBZ2VudFNlbGVjdGlvblN0cmF0ZWd5EhMKC3Byb3ZpZGVyX2lkGAEgASgJEhcKD2V4ZWN1dGlvbl9jbGFzcxgCIAEoCRJECglmYWxsYmFja3MYAyADKAsyMS5wbGF0Zm9ybS5hZ2VudF9wcm9maWxlLnYxLkFnZW50RmFsbGJhY2tDYW5kaWRhdGUitgEKFkFnZW50RmFsbGJhY2tDYW5kaWRhdGUSEwoLcHJvdmlkZXJfaWQYASABKAkSLwoIZW5kcG9pbnQYBCABKAsyHS5wcm92aWRlci52MS5Qcm92aWRlckVuZHBvaW50EicKCW1vZGVsX3JlZhgCIAEoCzISLm1vZGVsLnYxLk1vZGVsUmVmSAASGwoRcHJvdmlkZXJfbW9kZWxfaWQYAyABKAlIAEIQCg5tb2RlbF9zZWxlY3RvckJJWkdjb2RlLWNvZGUuaW50ZXJuYWwvZ28tY29udHJhY3QvcGxhdGZvcm0vYWdlbnRfcHJvZmlsZS92MTthZ2VudHByb2ZpbGV2MWIGcHJvdG8z", [file_provider_v1_provider, file_model_v1_model]);
 
 /**
  * AgentProfile describes one operator-managed default agent invocation profile.
@@ -98,9 +98,14 @@ export const AgentSelectionStrategySchema: GenMessage<AgentSelectionStrategy> = 
  */
 export type AgentFallbackCandidate = Message<"platform.agent_profile.v1.AgentFallbackCandidate"> & {
   /**
-   * @generated from field: provider.v1.ProviderRuntimeRef provider_runtime_ref = 1;
+   * @generated from field: string provider_id = 1;
    */
-  providerRuntimeRef?: ProviderRuntimeRef;
+  providerId: string;
+
+  /**
+   * @generated from field: provider.v1.ProviderEndpoint endpoint = 4;
+   */
+  endpoint?: ProviderEndpoint;
 
   /**
    * @generated from oneof platform.agent_profile.v1.AgentFallbackCandidate.model_selector

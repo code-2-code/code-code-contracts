@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file observability/v1/observability.proto.
  */
 export const file_observability_v1_observability: GenFile = /*@__PURE__*/
-  fileDesc("CiRvYnNlcnZhYmlsaXR5L3YxL29ic2VydmFiaWxpdHkucHJvdG8SEG9ic2VydmFiaWxpdHkudjEiUwoXT2JzZXJ2YWJpbGl0eUNhcGFiaWxpdHkSOAoIcHJvZmlsZXMYASADKAsyJi5vYnNlcnZhYmlsaXR5LnYxLk9ic2VydmFiaWxpdHlQcm9maWxlIqIDChRPYnNlcnZhYmlsaXR5UHJvZmlsZRISCgpwcm9maWxlX2lkGAEgASgJEhQKDGRpc3BsYXlfbmFtZRgCIAEoCRIRCglzY29wZV9pZHMYAyADKAkSNgoHbWV0cmljcxgEIAMoCzIlLm9ic2VydmFiaWxpdHkudjEuT2JzZXJ2YWJpbGl0eU1ldHJpYxI/CgxhY3RpdmVfcXVlcnkYBSABKAsyJy5vYnNlcnZhYmlsaXR5LnYxLkFjdGl2ZVF1ZXJ5Q29sbGVjdGlvbkgAEkgKDHBhc3NpdmVfaHR0cBgGIAEoCzIwLm9ic2VydmFiaWxpdHkudjEuUGFzc2l2ZUh0dHBUZWxlbWV0cnlDb2xsZWN0aW9uSAASNQoObWV0cmljX3F1ZXJpZXMYByADKAsyHS5vYnNlcnZhYmlsaXR5LnYxLk1ldHJpY1F1ZXJ5EkUKFWF2YWlsYWJpbGl0eV9qdWRnbWVudBgIIAEoCzImLm9ic2VydmFiaWxpdHkudjEuQXZhaWxhYmlsaXR5SnVkZ21lbnRCDAoKY29sbGVjdGlvbiKEAgoTT2JzZXJ2YWJpbGl0eU1ldHJpYxIMCgRuYW1lGAEgASgJEhMKC2Rlc2NyaXB0aW9uGAIgASgJEgwKBHVuaXQYAyABKAkSNwoEa2luZBgEIAEoDjIpLm9ic2VydmFiaWxpdHkudjEuT2JzZXJ2YWJpbGl0eU1ldHJpY0tpbmQSPwoIY2F0ZWdvcnkYBSABKA4yLS5vYnNlcnZhYmlsaXR5LnYxLk9ic2VydmFiaWxpdHlNZXRyaWNDYXRlZ29yeRJCCgphdHRyaWJ1dGVzGAYgAygLMi4ub2JzZXJ2YWJpbGl0eS52MS5PYnNlcnZhYmlsaXR5TWV0cmljQXR0cmlidXRlIpYBChxPYnNlcnZhYmlsaXR5TWV0cmljQXR0cmlidXRlEgwKBG5hbWUYASABKAkSEwoLZGVzY3JpcHRpb24YAiABKAkSUwoRcmVxdWlyZW1lbnRfbGV2ZWwYAyABKA4yOC5vYnNlcnZhYmlsaXR5LnYxLk9ic2VydmFiaWxpdHlBdHRyaWJ1dGVSZXF1aXJlbWVudExldmVsItMCChVBY3RpdmVRdWVyeUNvbGxlY3Rpb24SOAoVbWluaW11bV9wb2xsX2ludGVydmFsGAEgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uEkgKEmR5bmFtaWNfcGFyYW1ldGVycxgCIAMoCzIsLm9ic2VydmFiaWxpdHkudjEuRHluYW1pY1BhcmFtZXRlckRlZmluaXRpb24SFAoMY29sbGVjdG9yX2lkGAMgASgJEkYKFGNyZWRlbnRpYWxfYmFja2ZpbGxzGAQgAygLMigub2JzZXJ2YWJpbGl0eS52MS5DcmVkZW50aWFsQmFja2ZpbGxSdWxlEjoKCmlucHV0X2Zvcm0YBSABKAsyJi5vYnNlcnZhYmlsaXR5LnYxLkFjdGl2ZVF1ZXJ5SW5wdXRGb3JtEhwKFG1hdGVyaWFsX3JlYWRfZmllbGRzGAYgAygJIn8KGkR5bmFtaWNQYXJhbWV0ZXJEZWZpbml0aW9uEhQKDHBhcmFtZXRlcl9pZBgBIAEoCRIUCgxkaXNwbGF5X25hbWUYAiABKAkSEwoLZGVzY3JpcHRpb24YAyABKAkSEAoIcmVxdWlyZWQYBCABKAgSDgoGc2VjcmV0GAUgASgIIpwBChRBY3RpdmVRdWVyeUlucHV0Rm9ybRIRCglzY2hlbWFfaWQYASABKAkSDQoFdGl0bGUYAiABKAkSFAoMYWN0aW9uX2xhYmVsGAMgASgJEhMKC2Rlc2NyaXB0aW9uGAQgASgJEjcKBmZpZWxkcxgFIAMoCzInLm9ic2VydmFiaWxpdHkudjEuQWN0aXZlUXVlcnlJbnB1dEZpZWxkIvwCChVBY3RpdmVRdWVyeUlucHV0RmllbGQSEAoIZmllbGRfaWQYASABKAkSDQoFbGFiZWwYAiABKAkSEwoLZGVzY3JpcHRpb24YAyABKAkSEwoLcGxhY2Vob2xkZXIYBCABKAkSEAoIcmVxdWlyZWQYBSABKAgSEQoJc2Vuc2l0aXZlGAYgASgIEjoKB2NvbnRyb2wYByABKA4yKS5vYnNlcnZhYmlsaXR5LnYxLkFjdGl2ZVF1ZXJ5SW5wdXRDb250cm9sEkIKC3BlcnNpc3RlbmNlGAggASgOMi0ub2JzZXJ2YWJpbGl0eS52MS5BY3RpdmVRdWVyeUlucHV0UGVyc2lzdGVuY2USFwoPdGFyZ2V0X2ZpZWxkX2lkGAkgASgJEkMKCXRyYW5zZm9ybRgKIAEoDjIwLm9ic2VydmFiaWxpdHkudjEuQWN0aXZlUXVlcnlJbnB1dFZhbHVlVHJhbnNmb3JtEhUKDWRlZmF1bHRfdmFsdWUYCyABKAkigwEKFkNyZWRlbnRpYWxCYWNrZmlsbFJ1bGUSDwoHcnVsZV9pZBgBIAEoCRIXCg9vdXRwdXRfZmllbGRfaWQYAiABKAkSGwoTdGFyZ2V0X21hdGVyaWFsX2tleRgDIAEoCRIQCghyZXF1aXJlZBgEIAEoCBIQCghyZWFkYWJsZRgFIAEoCCK1AgoeUGFzc2l2ZUh0dHBUZWxlbWV0cnlDb2xsZWN0aW9uEj4KDWNhcHR1cmVfcG9pbnQYASABKA4yJy5vYnNlcnZhYmlsaXR5LnYxLlRlbGVtZXRyeUNhcHR1cmVQb2ludBI6CglzZWxlY3RvcnMYAiADKAsyJy5vYnNlcnZhYmlsaXR5LnYxLkh0dHBUZWxlbWV0cnlTZWxlY3RvchJCCgp0cmFuc2Zvcm1zGAMgAygLMi4ub2JzZXJ2YWJpbGl0eS52MS5IdHRwSGVhZGVyVGVsZW1ldHJ5VHJhbnNmb3JtEjoKCXJlZGFjdGlvbhgEIAEoCzInLm9ic2VydmFiaWxpdHkudjEuSGVhZGVyUmVkYWN0aW9uUG9saWN5EhcKD2VtaXRfYWNjZXNzX2xvZxgFIAEoCCJoChVIdHRwVGVsZW1ldHJ5U2VsZWN0b3ISEQoJaG9zdG5hbWVzGAEgAygJEhUKDXBhdGhfcHJlZml4ZXMYAiADKAkSDwoHbWV0aG9kcxgDIAMoCRIUCgxzdGF0dXNfY29kZXMYBCADKA0i6wEKHEh0dHBIZWFkZXJUZWxlbWV0cnlUcmFuc2Zvcm0SMgoGc291cmNlGAEgASgOMiIub2JzZXJ2YWJpbGl0eS52MS5IdHRwSGVhZGVyU291cmNlEhMKC2hlYWRlcl9uYW1lGAIgASgJEhMKC21ldHJpY19uYW1lGAMgASgJEjUKCnZhbHVlX3R5cGUYBCABKA4yIS5vYnNlcnZhYmlsaXR5LnYxLkhlYWRlclZhbHVlVHlwZRI2CgZsYWJlbHMYBSADKAsyJi5vYnNlcnZhYmlsaXR5LnYxLlRlbGVtZXRyeU1ldHJpY0xhYmVsIjMKFFRlbGVtZXRyeU1ldHJpY0xhYmVsEgwKBG5hbWUYASABKAkSDQoFdmFsdWUYAiABKAkiXwoVSGVhZGVyUmVkYWN0aW9uUG9saWN5EhgKEGRyb3BfcmF3X2hlYWRlcnMYASABKAgSFAoMaGFzaF9oZWFkZXJzGAIgAygJEhYKDnJlZGFjdF9oZWFkZXJzGAMgAygJItUBCgtNZXRyaWNRdWVyeRIQCghxdWVyeV9pZBgBIAEoCRIUCgxkaXNwbGF5X25hbWUYAiABKAkSNwoIbGFuZ3VhZ2UYAyABKA4yJS5vYnNlcnZhYmlsaXR5LnYxLk1ldHJpY1F1ZXJ5TGFuZ3VhZ2USEQoJc3RhdGVtZW50GAQgASgJEhQKDG1ldHJpY19uYW1lcxgFIAMoCRI8CgtyZXN1bHRfa2luZBgGIAEoDjInLm9ic2VydmFiaWxpdHkudjEuTWV0cmljUXVlcnlSZXN1bHRLaW5kIrgBChRBdmFpbGFiaWxpdHlKdWRnbWVudBI/CgxzdWJqZWN0X2tpbmQYASABKA4yKS5vYnNlcnZhYmlsaXR5LnYxLkF2YWlsYWJpbGl0eVN1YmplY3RLaW5kEhkKEXN1YmplY3RfbGFiZWxfa2V5GAIgASgJEhEKCXF1ZXJ5X2lkcxgDIAMoCRIxCgVydWxlcxgEIAMoCzIiLm9ic2VydmFiaWxpdHkudjEuQXZhaWxhYmlsaXR5UnVsZSKmAQoQQXZhaWxhYmlsaXR5UnVsZRIPCgdydWxlX2lkGAEgASgJEhQKDGRpc3BsYXlfbmFtZRgCIAEoCRI3CgZhbGxfb2YYAyADKAsyJy5vYnNlcnZhYmlsaXR5LnYxLkF2YWlsYWJpbGl0eVByZWRpY2F0ZRIyCgVzdGF0ZRgEIAEoDjIjLm9ic2VydmFiaWxpdHkudjEuQXZhaWxhYmlsaXR5U3RhdGUidAoVQXZhaWxhYmlsaXR5UHJlZGljYXRlEhAKCHF1ZXJ5X2lkGAEgASgJEjYKCG9wZXJhdG9yGAIgASgOMiQub2JzZXJ2YWJpbGl0eS52MS5Db21wYXJpc29uT3BlcmF0b3ISEQoJdGhyZXNob2xkGAMgASgBKrkBChdPYnNlcnZhYmlsaXR5TWV0cmljS2luZBIpCiVPQlNFUlZBQklMSVRZX01FVFJJQ19LSU5EX1VOU1BFQ0lGSUVEEAASIwofT0JTRVJWQUJJTElUWV9NRVRSSUNfS0lORF9HQVVHRRABEiUKIU9CU0VSVkFCSUxJVFlfTUVUUklDX0tJTkRfQ09VTlRFUhACEicKI09CU0VSVkFCSUxJVFlfTUVUUklDX0tJTkRfSElTVE9HUkFNEAMqzAEKG09ic2VydmFiaWxpdHlNZXRyaWNDYXRlZ29yeRItCilPQlNFUlZBQklMSVRZX01FVFJJQ19DQVRFR09SWV9VTlNQRUNJRklFRBAAEicKI09CU0VSVkFCSUxJVFlfTUVUUklDX0NBVEVHT1JZX1FVT1RBEAESJwojT0JTRVJWQUJJTElUWV9NRVRSSUNfQ0FURUdPUllfVVNBR0UQAhIsCihPQlNFUlZBQklMSVRZX01FVFJJQ19DQVRFR09SWV9SQVRFX0xJTUlUEAMq1gEKJk9ic2VydmFiaWxpdHlBdHRyaWJ1dGVSZXF1aXJlbWVudExldmVsEjkKNU9CU0VSVkFCSUxJVFlfQVRUUklCVVRFX1JFUVVJUkVNRU5UX0xFVkVMX1VOU1BFQ0lGSUVEEAASNgoyT0JTRVJWQUJJTElUWV9BVFRSSUJVVEVfUkVRVUlSRU1FTlRfTEVWRUxfUkVRVUlSRUQQARI5CjVPQlNFUlZBQklMSVRZX0FUVFJJQlVURV9SRVFVSVJFTUVOVF9MRVZFTF9SRUNPTU1FTkRFRBACKrwBChdBY3RpdmVRdWVyeUlucHV0Q29udHJvbBIqCiZBQ1RJVkVfUVVFUllfSU5QVVRfQ09OVFJPTF9VTlNQRUNJRklFRBAAEiMKH0FDVElWRV9RVUVSWV9JTlBVVF9DT05UUk9MX1RFWFQQARInCiNBQ1RJVkVfUVVFUllfSU5QVVRfQ09OVFJPTF9QQVNTV09SRBACEicKI0FDVElWRV9RVUVSWV9JTlBVVF9DT05UUk9MX1RFWFRBUkVBEAMqrwEKG0FjdGl2ZVF1ZXJ5SW5wdXRQZXJzaXN0ZW5jZRIuCipBQ1RJVkVfUVVFUllfSU5QVVRfUEVSU0lTVEVOQ0VfVU5TUEVDSUZJRUQQABIyCi5BQ1RJVkVfUVVFUllfSU5QVVRfUEVSU0lTVEVOQ0VfU1RPUkVEX01BVEVSSUFMEAESLAooQUNUSVZFX1FVRVJZX0lOUFVUX1BFUlNJU1RFTkNFX1RSQU5TSUVOVBACKr4BCh5BY3RpdmVRdWVyeUlucHV0VmFsdWVUcmFuc2Zvcm0SMgouQUNUSVZFX1FVRVJZX0lOUFVUX1ZBTFVFX1RSQU5TRk9STV9VTlNQRUNJRklFRBAAEi8KK0FDVElWRV9RVUVSWV9JTlBVVF9WQUxVRV9UUkFOU0ZPUk1fSURFTlRJVFkQARI3CjNBQ1RJVkVfUVVFUllfSU5QVVRfVkFMVUVfVFJBTlNGT1JNX01FUkdFX1NFVF9DT09LSUUQAiqWAQoVVGVsZW1ldHJ5Q2FwdHVyZVBvaW50EicKI1RFTEVNRVRSWV9DQVBUVVJFX1BPSU5UX1VOU1BFQ0lGSUVEEAASIgoeVEVMRU1FVFJZX0NBUFRVUkVfUE9JTlRfRUdSRVNTEAESMAosVEVMRU1FVFJZX0NBUFRVUkVfUE9JTlRfREVTVElOQVRJT05fV0FZUE9JTlQQAip3ChBIdHRwSGVhZGVyU291cmNlEiIKHkhUVFBfSEVBREVSX1NPVVJDRV9VTlNQRUNJRklFRBAAEh4KGkhUVFBfSEVBREVSX1NPVVJDRV9SRVFVRVNUEAESHwobSFRUUF9IRUFERVJfU09VUkNFX1JFU1BPTlNFEAIqXgoTTWV0cmljUXVlcnlMYW5ndWFnZRIlCiFNRVRSSUNfUVVFUllfTEFOR1VBR0VfVU5TUEVDSUZJRUQQABIgChxNRVRSSUNfUVVFUllfTEFOR1VBR0VfUFJPTVFMEAEqtgEKFU1ldHJpY1F1ZXJ5UmVzdWx0S2luZBIoCiRNRVRSSUNfUVVFUllfUkVTVUxUX0tJTkRfVU5TUEVDSUZJRUQQABIjCh9NRVRSSUNfUVVFUllfUkVTVUxUX0tJTkRfU0NBTEFSEAESIwofTUVUUklDX1FVRVJZX1JFU1VMVF9LSU5EX1ZFQ1RPUhACEikKJU1FVFJJQ19RVUVSWV9SRVNVTFRfS0lORF9SQU5HRV9WRUNUT1IQAyppChdBdmFpbGFiaWxpdHlTdWJqZWN0S2luZBIpCiVBVkFJTEFCSUxJVFlfU1VCSkVDVF9LSU5EX1VOU1BFQ0lGSUVEEAASIwofQVZBSUxBQklMSVRZX1NVQkpFQ1RfS0lORF9NT0RFTBABKp4BChFBdmFpbGFiaWxpdHlTdGF0ZRIiCh5BVkFJTEFCSUxJVFlfU1RBVEVfVU5TUEVDSUZJRUQQABIgChxBVkFJTEFCSUxJVFlfU1RBVEVfQVZBSUxBQkxFEAESHwobQVZBSUxBQklMSVRZX1NUQVRFX0RFR1JBREVEEAISIgoeQVZBSUxBQklMSVRZX1NUQVRFX1VOQVZBSUxBQkxFEAMq5AEKEkNvbXBhcmlzb25PcGVyYXRvchIjCh9DT01QQVJJU09OX09QRVJBVE9SX1VOU1BFQ0lGSUVEEAASGgoWQ09NUEFSSVNPTl9PUEVSQVRPUl9MVBABEhsKF0NPTVBBUklTT05fT1BFUkFUT1JfTFRFEAISGgoWQ09NUEFSSVNPTl9PUEVSQVRPUl9HVBADEhsKF0NPTVBBUklTT05fT1BFUkFUT1JfR1RFEAQSGgoWQ09NUEFSSVNPTl9PUEVSQVRPUl9FURAFEhsKF0NPTVBBUklTT05fT1BFUkFUT1JfTkVREAYq5AEKD0hlYWRlclZhbHVlVHlwZRIhCh1IRUFERVJfVkFMVUVfVFlQRV9VTlNQRUNJRklFRBAAEhsKF0hFQURFUl9WQUxVRV9UWVBFX0lOVDY0EAESHAoYSEVBREVSX1ZBTFVFX1RZUEVfRE9VQkxFEAISJgoiSEVBREVSX1ZBTFVFX1RZUEVfRFVSQVRJT05fU0VDT05EUxADEiIKHkhFQURFUl9WQUxVRV9UWVBFX1VOSVhfU0VDT05EUxAEEicKI0hFQURFUl9WQUxVRV9UWVBFX1JGQzMzMzlfVElNRVNUQU1QEAVCQVo/Y29kZS1jb2RlLmludGVybmFsL2dvLWNvbnRyYWN0L29ic2VydmFiaWxpdHkvdjE7b2JzZXJ2YWJpbGl0eXYxYgZwcm90bzM", [file_google_protobuf_duration]);
+  fileDesc("CiRvYnNlcnZhYmlsaXR5L3YxL29ic2VydmFiaWxpdHkucHJvdG8SEG9ic2VydmFiaWxpdHkudjEiUwoXT2JzZXJ2YWJpbGl0eUNhcGFiaWxpdHkSOAoIcHJvZmlsZXMYASADKAsyJi5vYnNlcnZhYmlsaXR5LnYxLk9ic2VydmFiaWxpdHlQcm9maWxlIqADChRPYnNlcnZhYmlsaXR5UHJvZmlsZRISCgpwcm9maWxlX2lkGAEgASgJEhQKDGRpc3BsYXlfbmFtZRgCIAEoCRIRCglzY29wZV9pZHMYAyADKAkSNgoHbWV0cmljcxgEIAMoCzIlLm9ic2VydmFiaWxpdHkudjEuT2JzZXJ2YWJpbGl0eU1ldHJpYxI9CgtxdW90YV9xdWVyeRgFIAEoCzImLm9ic2VydmFiaWxpdHkudjEuUXVvdGFRdWVyeUNvbGxlY3Rpb25IABJICgxwYXNzaXZlX2h0dHAYBiABKAsyMC5vYnNlcnZhYmlsaXR5LnYxLlBhc3NpdmVIdHRwVGVsZW1ldHJ5Q29sbGVjdGlvbkgAEjUKDm1ldHJpY19xdWVyaWVzGAcgAygLMh0ub2JzZXJ2YWJpbGl0eS52MS5NZXRyaWNRdWVyeRJFChVhdmFpbGFiaWxpdHlfanVkZ21lbnQYCCABKAsyJi5vYnNlcnZhYmlsaXR5LnYxLkF2YWlsYWJpbGl0eUp1ZGdtZW50QgwKCmNvbGxlY3Rpb24ihAIKE09ic2VydmFiaWxpdHlNZXRyaWMSDAoEbmFtZRgBIAEoCRITCgtkZXNjcmlwdGlvbhgCIAEoCRIMCgR1bml0GAMgASgJEjcKBGtpbmQYBCABKA4yKS5vYnNlcnZhYmlsaXR5LnYxLk9ic2VydmFiaWxpdHlNZXRyaWNLaW5kEj8KCGNhdGVnb3J5GAUgASgOMi0ub2JzZXJ2YWJpbGl0eS52MS5PYnNlcnZhYmlsaXR5TWV0cmljQ2F0ZWdvcnkSQgoKYXR0cmlidXRlcxgGIAMoCzIuLm9ic2VydmFiaWxpdHkudjEuT2JzZXJ2YWJpbGl0eU1ldHJpY0F0dHJpYnV0ZSKWAQocT2JzZXJ2YWJpbGl0eU1ldHJpY0F0dHJpYnV0ZRIMCgRuYW1lGAEgASgJEhMKC2Rlc2NyaXB0aW9uGAIgASgJElMKEXJlcXVpcmVtZW50X2xldmVsGAMgASgOMjgub2JzZXJ2YWJpbGl0eS52MS5PYnNlcnZhYmlsaXR5QXR0cmlidXRlUmVxdWlyZW1lbnRMZXZlbCL0AgoUUXVvdGFRdWVyeUNvbGxlY3Rpb24SOAoVbWluaW11bV9wb2xsX2ludGVydmFsGAEgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uEkgKEmR5bmFtaWNfcGFyYW1ldGVycxgCIAMoCzIsLm9ic2VydmFiaWxpdHkudjEuRHluYW1pY1BhcmFtZXRlckRlZmluaXRpb24SFAoMY29sbGVjdG9yX2lkGAMgASgJEkYKFGNyZWRlbnRpYWxfYmFja2ZpbGxzGAQgAygLMigub2JzZXJ2YWJpbGl0eS52MS5DcmVkZW50aWFsQmFja2ZpbGxSdWxlEjkKCmlucHV0X2Zvcm0YBSABKAsyJS5vYnNlcnZhYmlsaXR5LnYxLlF1b3RhUXVlcnlJbnB1dEZvcm0SHAoUbWF0ZXJpYWxfcmVhZF9maWVsZHMYBiADKAkSIQoZcmVxdWlyZXNfcXVvdGFfY3JlZGVudGlhbBgHIAEoCCJ/ChpEeW5hbWljUGFyYW1ldGVyRGVmaW5pdGlvbhIUCgxwYXJhbWV0ZXJfaWQYASABKAkSFAoMZGlzcGxheV9uYW1lGAIgASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJEhAKCHJlcXVpcmVkGAQgASgIEg4KBnNlY3JldBgFIAEoCCKaAQoTUXVvdGFRdWVyeUlucHV0Rm9ybRIRCglzY2hlbWFfaWQYASABKAkSDQoFdGl0bGUYAiABKAkSFAoMYWN0aW9uX2xhYmVsGAMgASgJEhMKC2Rlc2NyaXB0aW9uGAQgASgJEjYKBmZpZWxkcxgFIAMoCzImLm9ic2VydmFiaWxpdHkudjEuUXVvdGFRdWVyeUlucHV0RmllbGQi+AIKFFF1b3RhUXVlcnlJbnB1dEZpZWxkEhAKCGZpZWxkX2lkGAEgASgJEg0KBWxhYmVsGAIgASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJEhMKC3BsYWNlaG9sZGVyGAQgASgJEhAKCHJlcXVpcmVkGAUgASgIEhEKCXNlbnNpdGl2ZRgGIAEoCBI5Cgdjb250cm9sGAcgASgOMigub2JzZXJ2YWJpbGl0eS52MS5RdW90YVF1ZXJ5SW5wdXRDb250cm9sEkEKC3BlcnNpc3RlbmNlGAggASgOMiwub2JzZXJ2YWJpbGl0eS52MS5RdW90YVF1ZXJ5SW5wdXRQZXJzaXN0ZW5jZRIXCg90YXJnZXRfZmllbGRfaWQYCSABKAkSQgoJdHJhbnNmb3JtGAogASgOMi8ub2JzZXJ2YWJpbGl0eS52MS5RdW90YVF1ZXJ5SW5wdXRWYWx1ZVRyYW5zZm9ybRIVCg1kZWZhdWx0X3ZhbHVlGAsgASgJIoMBChZDcmVkZW50aWFsQmFja2ZpbGxSdWxlEg8KB3J1bGVfaWQYASABKAkSFwoPb3V0cHV0X2ZpZWxkX2lkGAIgASgJEhsKE3RhcmdldF9tYXRlcmlhbF9rZXkYAyABKAkSEAoIcmVxdWlyZWQYBCABKAgSEAoIcmVhZGFibGUYBSABKAgitQIKHlBhc3NpdmVIdHRwVGVsZW1ldHJ5Q29sbGVjdGlvbhI+Cg1jYXB0dXJlX3BvaW50GAEgASgOMicub2JzZXJ2YWJpbGl0eS52MS5UZWxlbWV0cnlDYXB0dXJlUG9pbnQSOgoJc2VsZWN0b3JzGAIgAygLMicub2JzZXJ2YWJpbGl0eS52MS5IdHRwVGVsZW1ldHJ5U2VsZWN0b3ISQgoKdHJhbnNmb3JtcxgDIAMoCzIuLm9ic2VydmFiaWxpdHkudjEuSHR0cEhlYWRlclRlbGVtZXRyeVRyYW5zZm9ybRI6CglyZWRhY3Rpb24YBCABKAsyJy5vYnNlcnZhYmlsaXR5LnYxLkhlYWRlclJlZGFjdGlvblBvbGljeRIXCg9lbWl0X2FjY2Vzc19sb2cYBSABKAgiaAoVSHR0cFRlbGVtZXRyeVNlbGVjdG9yEhEKCWhvc3RuYW1lcxgBIAMoCRIVCg1wYXRoX3ByZWZpeGVzGAIgAygJEg8KB21ldGhvZHMYAyADKAkSFAoMc3RhdHVzX2NvZGVzGAQgAygNIusBChxIdHRwSGVhZGVyVGVsZW1ldHJ5VHJhbnNmb3JtEjIKBnNvdXJjZRgBIAEoDjIiLm9ic2VydmFiaWxpdHkudjEuSHR0cEhlYWRlclNvdXJjZRITCgtoZWFkZXJfbmFtZRgCIAEoCRITCgttZXRyaWNfbmFtZRgDIAEoCRI1Cgp2YWx1ZV90eXBlGAQgASgOMiEub2JzZXJ2YWJpbGl0eS52MS5IZWFkZXJWYWx1ZVR5cGUSNgoGbGFiZWxzGAUgAygLMiYub2JzZXJ2YWJpbGl0eS52MS5UZWxlbWV0cnlNZXRyaWNMYWJlbCIzChRUZWxlbWV0cnlNZXRyaWNMYWJlbBIMCgRuYW1lGAEgASgJEg0KBXZhbHVlGAIgASgJIl8KFUhlYWRlclJlZGFjdGlvblBvbGljeRIYChBkcm9wX3Jhd19oZWFkZXJzGAEgASgIEhQKDGhhc2hfaGVhZGVycxgCIAMoCRIWCg5yZWRhY3RfaGVhZGVycxgDIAMoCSLVAQoLTWV0cmljUXVlcnkSEAoIcXVlcnlfaWQYASABKAkSFAoMZGlzcGxheV9uYW1lGAIgASgJEjcKCGxhbmd1YWdlGAMgASgOMiUub2JzZXJ2YWJpbGl0eS52MS5NZXRyaWNRdWVyeUxhbmd1YWdlEhEKCXN0YXRlbWVudBgEIAEoCRIUCgxtZXRyaWNfbmFtZXMYBSADKAkSPAoLcmVzdWx0X2tpbmQYBiABKA4yJy5vYnNlcnZhYmlsaXR5LnYxLk1ldHJpY1F1ZXJ5UmVzdWx0S2luZCK4AQoUQXZhaWxhYmlsaXR5SnVkZ21lbnQSPwoMc3ViamVjdF9raW5kGAEgASgOMikub2JzZXJ2YWJpbGl0eS52MS5BdmFpbGFiaWxpdHlTdWJqZWN0S2luZBIZChFzdWJqZWN0X2xhYmVsX2tleRgCIAEoCRIRCglxdWVyeV9pZHMYAyADKAkSMQoFcnVsZXMYBCADKAsyIi5vYnNlcnZhYmlsaXR5LnYxLkF2YWlsYWJpbGl0eVJ1bGUipgEKEEF2YWlsYWJpbGl0eVJ1bGUSDwoHcnVsZV9pZBgBIAEoCRIUCgxkaXNwbGF5X25hbWUYAiABKAkSNwoGYWxsX29mGAMgAygLMicub2JzZXJ2YWJpbGl0eS52MS5BdmFpbGFiaWxpdHlQcmVkaWNhdGUSMgoFc3RhdGUYBCABKA4yIy5vYnNlcnZhYmlsaXR5LnYxLkF2YWlsYWJpbGl0eVN0YXRlInQKFUF2YWlsYWJpbGl0eVByZWRpY2F0ZRIQCghxdWVyeV9pZBgBIAEoCRI2CghvcGVyYXRvchgCIAEoDjIkLm9ic2VydmFiaWxpdHkudjEuQ29tcGFyaXNvbk9wZXJhdG9yEhEKCXRocmVzaG9sZBgDIAEoASq5AQoXT2JzZXJ2YWJpbGl0eU1ldHJpY0tpbmQSKQolT0JTRVJWQUJJTElUWV9NRVRSSUNfS0lORF9VTlNQRUNJRklFRBAAEiMKH09CU0VSVkFCSUxJVFlfTUVUUklDX0tJTkRfR0FVR0UQARIlCiFPQlNFUlZBQklMSVRZX01FVFJJQ19LSU5EX0NPVU5URVIQAhInCiNPQlNFUlZBQklMSVRZX01FVFJJQ19LSU5EX0hJU1RPR1JBTRADKswBChtPYnNlcnZhYmlsaXR5TWV0cmljQ2F0ZWdvcnkSLQopT0JTRVJWQUJJTElUWV9NRVRSSUNfQ0FURUdPUllfVU5TUEVDSUZJRUQQABInCiNPQlNFUlZBQklMSVRZX01FVFJJQ19DQVRFR09SWV9RVU9UQRABEicKI09CU0VSVkFCSUxJVFlfTUVUUklDX0NBVEVHT1JZX1VTQUdFEAISLAooT0JTRVJWQUJJTElUWV9NRVRSSUNfQ0FURUdPUllfUkFURV9MSU1JVBADKtYBCiZPYnNlcnZhYmlsaXR5QXR0cmlidXRlUmVxdWlyZW1lbnRMZXZlbBI5CjVPQlNFUlZBQklMSVRZX0FUVFJJQlVURV9SRVFVSVJFTUVOVF9MRVZFTF9VTlNQRUNJRklFRBAAEjYKMk9CU0VSVkFCSUxJVFlfQVRUUklCVVRFX1JFUVVJUkVNRU5UX0xFVkVMX1JFUVVJUkVEEAESOQo1T0JTRVJWQUJJTElUWV9BVFRSSUJVVEVfUkVRVUlSRU1FTlRfTEVWRUxfUkVDT01NRU5ERUQQAiq3AQoWUXVvdGFRdWVyeUlucHV0Q29udHJvbBIpCiVRVU9UQV9RVUVSWV9JTlBVVF9DT05UUk9MX1VOU1BFQ0lGSUVEEAASIgoeUVVPVEFfUVVFUllfSU5QVVRfQ09OVFJPTF9URVhUEAESJgoiUVVPVEFfUVVFUllfSU5QVVRfQ09OVFJPTF9QQVNTV09SRBACEiYKIlFVT1RBX1FVRVJZX0lOUFVUX0NPTlRST0xfVEVYVEFSRUEQAyqrAQoaUXVvdGFRdWVyeUlucHV0UGVyc2lzdGVuY2USLQopUVVPVEFfUVVFUllfSU5QVVRfUEVSU0lTVEVOQ0VfVU5TUEVDSUZJRUQQABIxCi1RVU9UQV9RVUVSWV9JTlBVVF9QRVJTSVNURU5DRV9TVE9SRURfTUFURVJJQUwQARIrCidRVU9UQV9RVUVSWV9JTlBVVF9QRVJTSVNURU5DRV9UUkFOU0lFTlQQAiq6AQodUXVvdGFRdWVyeUlucHV0VmFsdWVUcmFuc2Zvcm0SMQotUVVPVEFfUVVFUllfSU5QVVRfVkFMVUVfVFJBTlNGT1JNX1VOU1BFQ0lGSUVEEAASLgoqUVVPVEFfUVVFUllfSU5QVVRfVkFMVUVfVFJBTlNGT1JNX0lERU5USVRZEAESNgoyUVVPVEFfUVVFUllfSU5QVVRfVkFMVUVfVFJBTlNGT1JNX01FUkdFX1NFVF9DT09LSUUQAiqWAQoVVGVsZW1ldHJ5Q2FwdHVyZVBvaW50EicKI1RFTEVNRVRSWV9DQVBUVVJFX1BPSU5UX1VOU1BFQ0lGSUVEEAASIgoeVEVMRU1FVFJZX0NBUFRVUkVfUE9JTlRfRUdSRVNTEAESMAosVEVMRU1FVFJZX0NBUFRVUkVfUE9JTlRfREVTVElOQVRJT05fV0FZUE9JTlQQAip3ChBIdHRwSGVhZGVyU291cmNlEiIKHkhUVFBfSEVBREVSX1NPVVJDRV9VTlNQRUNJRklFRBAAEh4KGkhUVFBfSEVBREVSX1NPVVJDRV9SRVFVRVNUEAESHwobSFRUUF9IRUFERVJfU09VUkNFX1JFU1BPTlNFEAIqXgoTTWV0cmljUXVlcnlMYW5ndWFnZRIlCiFNRVRSSUNfUVVFUllfTEFOR1VBR0VfVU5TUEVDSUZJRUQQABIgChxNRVRSSUNfUVVFUllfTEFOR1VBR0VfUFJPTVFMEAEqtgEKFU1ldHJpY1F1ZXJ5UmVzdWx0S2luZBIoCiRNRVRSSUNfUVVFUllfUkVTVUxUX0tJTkRfVU5TUEVDSUZJRUQQABIjCh9NRVRSSUNfUVVFUllfUkVTVUxUX0tJTkRfU0NBTEFSEAESIwofTUVUUklDX1FVRVJZX1JFU1VMVF9LSU5EX1ZFQ1RPUhACEikKJU1FVFJJQ19RVUVSWV9SRVNVTFRfS0lORF9SQU5HRV9WRUNUT1IQAyppChdBdmFpbGFiaWxpdHlTdWJqZWN0S2luZBIpCiVBVkFJTEFCSUxJVFlfU1VCSkVDVF9LSU5EX1VOU1BFQ0lGSUVEEAASIwofQVZBSUxBQklMSVRZX1NVQkpFQ1RfS0lORF9NT0RFTBABKp4BChFBdmFpbGFiaWxpdHlTdGF0ZRIiCh5BVkFJTEFCSUxJVFlfU1RBVEVfVU5TUEVDSUZJRUQQABIgChxBVkFJTEFCSUxJVFlfU1RBVEVfQVZBSUxBQkxFEAESHwobQVZBSUxBQklMSVRZX1NUQVRFX0RFR1JBREVEEAISIgoeQVZBSUxBQklMSVRZX1NUQVRFX1VOQVZBSUxBQkxFEAMq5AEKEkNvbXBhcmlzb25PcGVyYXRvchIjCh9DT01QQVJJU09OX09QRVJBVE9SX1VOU1BFQ0lGSUVEEAASGgoWQ09NUEFSSVNPTl9PUEVSQVRPUl9MVBABEhsKF0NPTVBBUklTT05fT1BFUkFUT1JfTFRFEAISGgoWQ09NUEFSSVNPTl9PUEVSQVRPUl9HVBADEhsKF0NPTVBBUklTT05fT1BFUkFUT1JfR1RFEAQSGgoWQ09NUEFSSVNPTl9PUEVSQVRPUl9FURAFEhsKF0NPTVBBUklTT05fT1BFUkFUT1JfTkVREAYq5AEKD0hlYWRlclZhbHVlVHlwZRIhCh1IRUFERVJfVkFMVUVfVFlQRV9VTlNQRUNJRklFRBAAEhsKF0hFQURFUl9WQUxVRV9UWVBFX0lOVDY0EAESHAoYSEVBREVSX1ZBTFVFX1RZUEVfRE9VQkxFEAISJgoiSEVBREVSX1ZBTFVFX1RZUEVfRFVSQVRJT05fU0VDT05EUxADEiIKHkhFQURFUl9WQUxVRV9UWVBFX1VOSVhfU0VDT05EUxAEEicKI0hFQURFUl9WQUxVRV9UWVBFX1JGQzMzMzlfVElNRVNUQU1QEAVCQVo/Y29kZS1jb2RlLmludGVybmFsL2dvLWNvbnRyYWN0L29ic2VydmFiaWxpdHkvdjE7b2JzZXJ2YWJpbGl0eXYxYgZwcm90bzM", [file_google_protobuf_duration]);
 
 /**
  * ObservabilityCapability describes a reusable observability capability block
@@ -68,10 +68,10 @@ export type ObservabilityProfile = Message<"observability.v1.ObservabilityProfil
    */
   collection: {
     /**
-     * @generated from field: observability.v1.ActiveQueryCollection active_query = 5;
+     * @generated from field: observability.v1.QuotaQueryCollection quota_query = 5;
      */
-    value: ActiveQueryCollection;
-    case: "activeQuery";
+    value: QuotaQueryCollection;
+    case: "quotaQuery";
   } | {
     /**
      * @generated from field: observability.v1.PassiveHttpTelemetryCollection passive_http = 6;
@@ -176,11 +176,11 @@ export const ObservabilityMetricAttributeSchema: GenMessage<ObservabilityMetricA
   messageDesc(file_observability_v1_observability, 3);
 
 /**
- * ActiveQueryCollection declares an active query collection policy.
+ * QuotaQueryCollection declares an quota query collection policy.
  *
- * @generated from message observability.v1.ActiveQueryCollection
+ * @generated from message observability.v1.QuotaQueryCollection
  */
-export type ActiveQueryCollection = Message<"observability.v1.ActiveQueryCollection"> & {
+export type QuotaQueryCollection = Message<"observability.v1.QuotaQueryCollection"> & {
   /**
    * @generated from field: google.protobuf.Duration minimum_poll_interval = 1;
    */
@@ -196,7 +196,7 @@ export type ActiveQueryCollection = Message<"observability.v1.ActiveQueryCollect
 
   /**
    * Optional collector implementation key resolved by the host package.
-   * Empty means host-default active query execution.
+   * Empty means host-default quota query execution.
    *
    * @generated from field: string collector_id = 3;
    */
@@ -213,11 +213,11 @@ export type ActiveQueryCollection = Message<"observability.v1.ActiveQueryCollect
 
   /**
    * Optional schema-driven form used to collect management-plane credential
-   * inputs required by this active query.
+   * inputs required by this quota query.
    *
-   * @generated from field: observability.v1.ActiveQueryInputForm input_form = 5;
+   * @generated from field: observability.v1.QuotaQueryInputForm input_form = 5;
    */
-  inputForm?: ActiveQueryInputForm;
+  inputForm?: QuotaQueryInputForm;
 
   /**
    * Explicit non-secret material keys the collector may read back on later
@@ -227,13 +227,22 @@ export type ActiveQueryCollection = Message<"observability.v1.ActiveQueryCollect
    * @generated from field: repeated string material_read_fields = 6;
    */
   materialReadFields: string[];
+
+  /**
+   * True when this quota query requires a dedicated management-plane quota
+   * credential. Leave false when the provider data-plane credential is enough
+   * to query quota data.
+   *
+   * @generated from field: bool requires_quota_credential = 7;
+   */
+  requiresQuotaCredential: boolean;
 };
 
 /**
- * Describes the message observability.v1.ActiveQueryCollection.
- * Use `create(ActiveQueryCollectionSchema)` to create a new message.
+ * Describes the message observability.v1.QuotaQueryCollection.
+ * Use `create(QuotaQueryCollectionSchema)` to create a new message.
  */
-export const ActiveQueryCollectionSchema: GenMessage<ActiveQueryCollection> = /*@__PURE__*/
+export const QuotaQueryCollectionSchema: GenMessage<QuotaQueryCollection> = /*@__PURE__*/
   messageDesc(file_observability_v1_observability, 4);
 
 /**
@@ -276,13 +285,13 @@ export const DynamicParameterDefinitionSchema: GenMessage<DynamicParameterDefini
   messageDesc(file_observability_v1_observability, 5);
 
 /**
- * ActiveQueryInputForm describes provider-owned credential inputs needed by one
- * active query. UI clients render this schema instead of hard-coding per-vendor
+ * QuotaQueryInputForm describes provider-owned credential inputs needed by one
+ * quota query. UI clients render this schema instead of hard-coding per-vendor
  * fields.
  *
- * @generated from message observability.v1.ActiveQueryInputForm
+ * @generated from message observability.v1.QuotaQueryInputForm
  */
-export type ActiveQueryInputForm = Message<"observability.v1.ActiveQueryInputForm"> & {
+export type QuotaQueryInputForm = Message<"observability.v1.QuotaQueryInputForm"> & {
   /**
    * @generated from field: string schema_id = 1;
    */
@@ -304,24 +313,24 @@ export type ActiveQueryInputForm = Message<"observability.v1.ActiveQueryInputFor
   description: string;
 
   /**
-   * @generated from field: repeated observability.v1.ActiveQueryInputField fields = 5;
+   * @generated from field: repeated observability.v1.QuotaQueryInputField fields = 5;
    */
-  fields: ActiveQueryInputField[];
+  fields: QuotaQueryInputField[];
 };
 
 /**
- * Describes the message observability.v1.ActiveQueryInputForm.
- * Use `create(ActiveQueryInputFormSchema)` to create a new message.
+ * Describes the message observability.v1.QuotaQueryInputForm.
+ * Use `create(QuotaQueryInputFormSchema)` to create a new message.
  */
-export const ActiveQueryInputFormSchema: GenMessage<ActiveQueryInputForm> = /*@__PURE__*/
+export const QuotaQueryInputFormSchema: GenMessage<QuotaQueryInputForm> = /*@__PURE__*/
   messageDesc(file_observability_v1_observability, 6);
 
 /**
- * ActiveQueryInputField describes one operator-supplied input field.
+ * QuotaQueryInputField describes one operator-supplied input field.
  *
- * @generated from message observability.v1.ActiveQueryInputField
+ * @generated from message observability.v1.QuotaQueryInputField
  */
-export type ActiveQueryInputField = Message<"observability.v1.ActiveQueryInputField"> & {
+export type QuotaQueryInputField = Message<"observability.v1.QuotaQueryInputField"> & {
   /**
    * @generated from field: string field_id = 1;
    */
@@ -353,14 +362,14 @@ export type ActiveQueryInputField = Message<"observability.v1.ActiveQueryInputFi
   sensitive: boolean;
 
   /**
-   * @generated from field: observability.v1.ActiveQueryInputControl control = 7;
+   * @generated from field: observability.v1.QuotaQueryInputControl control = 7;
    */
-  control: ActiveQueryInputControl;
+  control: QuotaQueryInputControl;
 
   /**
-   * @generated from field: observability.v1.ActiveQueryInputPersistence persistence = 8;
+   * @generated from field: observability.v1.QuotaQueryInputPersistence persistence = 8;
    */
-  persistence: ActiveQueryInputPersistence;
+  persistence: QuotaQueryInputPersistence;
 
   /**
    * @generated from field: string target_field_id = 9;
@@ -368,9 +377,9 @@ export type ActiveQueryInputField = Message<"observability.v1.ActiveQueryInputFi
   targetFieldId: string;
 
   /**
-   * @generated from field: observability.v1.ActiveQueryInputValueTransform transform = 10;
+   * @generated from field: observability.v1.QuotaQueryInputValueTransform transform = 10;
    */
-  transform: ActiveQueryInputValueTransform;
+  transform: QuotaQueryInputValueTransform;
 
   /**
    * @generated from field: string default_value = 11;
@@ -379,15 +388,15 @@ export type ActiveQueryInputField = Message<"observability.v1.ActiveQueryInputFi
 };
 
 /**
- * Describes the message observability.v1.ActiveQueryInputField.
- * Use `create(ActiveQueryInputFieldSchema)` to create a new message.
+ * Describes the message observability.v1.QuotaQueryInputField.
+ * Use `create(QuotaQueryInputFieldSchema)` to create a new message.
  */
-export const ActiveQueryInputFieldSchema: GenMessage<ActiveQueryInputField> = /*@__PURE__*/
+export const QuotaQueryInputFieldSchema: GenMessage<QuotaQueryInputField> = /*@__PURE__*/
   messageDesc(file_observability_v1_observability, 7);
 
 /**
  * CredentialBackfillRule declares one credential value that may be persisted
- * from structured active query output.
+ * from structured quota query output.
  *
  * @generated from message observability.v1.CredentialBackfillRule
  */
@@ -415,7 +424,7 @@ export type CredentialBackfillRule = Message<"observability.v1.CredentialBackfil
   required: boolean;
 
   /**
-   * If true, this persisted value may be read back by the same active query
+   * If true, this persisted value may be read back by the same quota query
    * collector on later runs. Leave false for token/cookie/session material that
    * should remain write-only outside authservice.
    *
@@ -837,94 +846,94 @@ export const ObservabilityAttributeRequirementLevelSchema: GenEnum<Observability
   enumDesc(file_observability_v1_observability, 2);
 
 /**
- * ActiveQueryInputControl identifies the preferred UI control for one input.
+ * QuotaQueryInputControl identifies the preferred UI control for one input.
  *
- * @generated from enum observability.v1.ActiveQueryInputControl
+ * @generated from enum observability.v1.QuotaQueryInputControl
  */
-export enum ActiveQueryInputControl {
+export enum QuotaQueryInputControl {
   /**
-   * @generated from enum value: ACTIVE_QUERY_INPUT_CONTROL_UNSPECIFIED = 0;
+   * @generated from enum value: QUOTA_QUERY_INPUT_CONTROL_UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: ACTIVE_QUERY_INPUT_CONTROL_TEXT = 1;
+   * @generated from enum value: QUOTA_QUERY_INPUT_CONTROL_TEXT = 1;
    */
   TEXT = 1,
 
   /**
-   * @generated from enum value: ACTIVE_QUERY_INPUT_CONTROL_PASSWORD = 2;
+   * @generated from enum value: QUOTA_QUERY_INPUT_CONTROL_PASSWORD = 2;
    */
   PASSWORD = 2,
 
   /**
-   * @generated from enum value: ACTIVE_QUERY_INPUT_CONTROL_TEXTAREA = 3;
+   * @generated from enum value: QUOTA_QUERY_INPUT_CONTROL_TEXTAREA = 3;
    */
   TEXTAREA = 3,
 }
 
 /**
- * Describes the enum observability.v1.ActiveQueryInputControl.
+ * Describes the enum observability.v1.QuotaQueryInputControl.
  */
-export const ActiveQueryInputControlSchema: GenEnum<ActiveQueryInputControl> = /*@__PURE__*/
+export const QuotaQueryInputControlSchema: GenEnum<QuotaQueryInputControl> = /*@__PURE__*/
   enumDesc(file_observability_v1_observability, 3);
 
 /**
- * ActiveQueryInputPersistence describes whether a submitted field is persisted
+ * QuotaQueryInputPersistence describes whether a submitted field is persisted
  * into provider observability credential material.
  *
- * @generated from enum observability.v1.ActiveQueryInputPersistence
+ * @generated from enum observability.v1.QuotaQueryInputPersistence
  */
-export enum ActiveQueryInputPersistence {
+export enum QuotaQueryInputPersistence {
   /**
-   * @generated from enum value: ACTIVE_QUERY_INPUT_PERSISTENCE_UNSPECIFIED = 0;
+   * @generated from enum value: QUOTA_QUERY_INPUT_PERSISTENCE_UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: ACTIVE_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL = 1;
+   * @generated from enum value: QUOTA_QUERY_INPUT_PERSISTENCE_STORED_MATERIAL = 1;
    */
   STORED_MATERIAL = 1,
 
   /**
-   * @generated from enum value: ACTIVE_QUERY_INPUT_PERSISTENCE_TRANSIENT = 2;
+   * @generated from enum value: QUOTA_QUERY_INPUT_PERSISTENCE_TRANSIENT = 2;
    */
   TRANSIENT = 2,
 }
 
 /**
- * Describes the enum observability.v1.ActiveQueryInputPersistence.
+ * Describes the enum observability.v1.QuotaQueryInputPersistence.
  */
-export const ActiveQueryInputPersistenceSchema: GenEnum<ActiveQueryInputPersistence> = /*@__PURE__*/
+export const QuotaQueryInputPersistenceSchema: GenEnum<QuotaQueryInputPersistence> = /*@__PURE__*/
   enumDesc(file_observability_v1_observability, 4);
 
 /**
- * ActiveQueryInputValueTransform describes a built-in normalization applied to
+ * QuotaQueryInputValueTransform describes a built-in normalization applied to
  * an input value before it is persisted.
  *
- * @generated from enum observability.v1.ActiveQueryInputValueTransform
+ * @generated from enum observability.v1.QuotaQueryInputValueTransform
  */
-export enum ActiveQueryInputValueTransform {
+export enum QuotaQueryInputValueTransform {
   /**
-   * @generated from enum value: ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED = 0;
+   * @generated from enum value: QUOTA_QUERY_INPUT_VALUE_TRANSFORM_UNSPECIFIED = 0;
    */
   UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY = 1;
+   * @generated from enum value: QUOTA_QUERY_INPUT_VALUE_TRANSFORM_IDENTITY = 1;
    */
   IDENTITY = 1,
 
   /**
-   * @generated from enum value: ACTIVE_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE = 2;
+   * @generated from enum value: QUOTA_QUERY_INPUT_VALUE_TRANSFORM_MERGE_SET_COOKIE = 2;
    */
   MERGE_SET_COOKIE = 2,
 }
 
 /**
- * Describes the enum observability.v1.ActiveQueryInputValueTransform.
+ * Describes the enum observability.v1.QuotaQueryInputValueTransform.
  */
-export const ActiveQueryInputValueTransformSchema: GenEnum<ActiveQueryInputValueTransform> = /*@__PURE__*/
+export const QuotaQueryInputValueTransformSchema: GenEnum<QuotaQueryInputValueTransform> = /*@__PURE__*/
   enumDesc(file_observability_v1_observability, 5);
 
 /**
