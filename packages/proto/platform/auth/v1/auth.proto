@@ -120,13 +120,13 @@ message ReadCredentialMaterialFieldsResponse {
 
 message CredentialMaterialReadPolicyRef {
   CredentialMaterialReadPolicyKind kind = 1;
-  // owner_id is the support-owned policy subject. For CLI active queries this is
-  // cli_id; for vendor active queries this is vendor_id.
+  // owner_id is the support-owned policy subject. For CLI quota queries this is
+  // cli_id; for vendor quota queries this is vendor_id.
   string owner_id = 2;
-  // surface_id narrows vendor active query policy to one provider surface
-  // binding. CLI active queries may leave this empty.
+  // surface_id narrows vendor quota query policy to one provider surface.
+  // CLI quota queries may leave this empty.
   string surface_id = 3;
-  // collector_id is the active query collector implementation that is requesting
+  // collector_id is the quota query collector implementation that is requesting
   // material readback. When set, authservice verifies it matches the support
   // policy before releasing material values.
   string collector_id = 4;
@@ -134,8 +134,8 @@ message CredentialMaterialReadPolicyRef {
 
 enum CredentialMaterialReadPolicyKind {
   CREDENTIAL_MATERIAL_READ_POLICY_KIND_UNSPECIFIED = 0;
-  CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_ACTIVE_QUERY = 1;
-  CREDENTIAL_MATERIAL_READ_POLICY_KIND_VENDOR_ACTIVE_QUERY = 2;
+  CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_QUOTA_QUERY = 1;
+  CREDENTIAL_MATERIAL_READ_POLICY_KIND_VENDOR_QUOTA_QUERY = 2;
 }
 
 message CreateOAuthCredentialRequest {

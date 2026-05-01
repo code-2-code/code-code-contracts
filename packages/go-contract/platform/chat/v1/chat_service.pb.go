@@ -175,9 +175,10 @@ func (x *SessionRuntimeProviderOption) GetSurfaces() []*SessionRuntimeSurfaceOpt
 
 type SessionRuntimeSurfaceOption struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	ProviderId    string                 `protobuf:"bytes,1,opt,name=provider_id,json=providerId,proto3" json:"provider_id,omitempty"`
 	Label         string                 `protobuf:"bytes,2,opt,name=label,proto3" json:"label,omitempty"`
+	Endpoint      *v1.ProviderEndpoint   `protobuf:"bytes,3,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
 	Models        []string               `protobuf:"bytes,5,rep,name=models,proto3" json:"models,omitempty"`
-	RuntimeRef    *v1.ProviderRuntimeRef `protobuf:"bytes,6,opt,name=runtime_ref,json=runtimeRef,proto3" json:"runtime_ref,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -212,6 +213,13 @@ func (*SessionRuntimeSurfaceOption) Descriptor() ([]byte, []int) {
 	return file_platform_chat_v1_chat_service_proto_rawDescGZIP(), []int{3}
 }
 
+func (x *SessionRuntimeSurfaceOption) GetProviderId() string {
+	if x != nil {
+		return x.ProviderId
+	}
+	return ""
+}
+
 func (x *SessionRuntimeSurfaceOption) GetLabel() string {
 	if x != nil {
 		return x.Label
@@ -219,16 +227,16 @@ func (x *SessionRuntimeSurfaceOption) GetLabel() string {
 	return ""
 }
 
-func (x *SessionRuntimeSurfaceOption) GetModels() []string {
+func (x *SessionRuntimeSurfaceOption) GetEndpoint() *v1.ProviderEndpoint {
 	if x != nil {
-		return x.Models
+		return x.Endpoint
 	}
 	return nil
 }
 
-func (x *SessionRuntimeSurfaceOption) GetRuntimeRef() *v1.ProviderRuntimeRef {
+func (x *SessionRuntimeSurfaceOption) GetModels() []string {
 	if x != nil {
-		return x.RuntimeRef
+		return x.Models
 	}
 	return nil
 }
@@ -1034,12 +1042,13 @@ const file_platform_chat_v1_chat_service_proto_rawDesc = "" +
 	"providerId\x12\x14\n" +
 	"\x05label\x18\x02 \x01(\tR\x05label\x12+\n" +
 	"\x11execution_classes\x18\x03 \x03(\tR\x10executionClasses\x12I\n" +
-	"\bsurfaces\x18\x04 \x03(\v2-.platform.chat.v1.SessionRuntimeSurfaceOptionR\bsurfaces\"\xc8\x01\n" +
-	"\x1bSessionRuntimeSurfaceOption\x12\x14\n" +
-	"\x05label\x18\x02 \x01(\tR\x05label\x12\x16\n" +
-	"\x06models\x18\x05 \x03(\tR\x06models\x12@\n" +
-	"\vruntime_ref\x18\x06 \x01(\v2\x1f.provider.v1.ProviderRuntimeRefR\n" +
-	"runtimeRefJ\x04\b\x01\x10\x02J\x04\b\x03\x10\x04J\x04\b\x04\x10\x05R\n" +
+	"\bsurfaces\x18\x04 \x03(\v2-.platform.chat.v1.SessionRuntimeSurfaceOptionR\bsurfaces\"\xd6\x01\n" +
+	"\x1bSessionRuntimeSurfaceOption\x12\x1f\n" +
+	"\vprovider_id\x18\x01 \x01(\tR\n" +
+	"providerId\x12\x14\n" +
+	"\x05label\x18\x02 \x01(\tR\x05label\x129\n" +
+	"\bendpoint\x18\x03 \x01(\v2\x1d.provider.v1.ProviderEndpointR\bendpoint\x12\x16\n" +
+	"\x06models\x18\x05 \x03(\tR\x06modelsJ\x04\b\x04\x10\x05R\n" +
 	"surface_idR\tvendor_idR\x10default_model_id\"\\\n" +
 	"\x19ValidateInlineSpecRequest\x12?\n" +
 	"\x04spec\x18\x01 \x01(\v2+.platform.agent_session.v1.AgentSessionSpecR\x04spec\"\x1c\n" +
@@ -1137,7 +1146,7 @@ var file_platform_chat_v1_chat_service_proto_goTypes = []any{
 	(*ListChatsResponse)(nil),                // 16: platform.chat.v1.ListChatsResponse
 	(*ListChatMessagesRequest)(nil),          // 17: platform.chat.v1.ListChatMessagesRequest
 	(*ListChatMessagesResponse)(nil),         // 18: platform.chat.v1.ListChatMessagesResponse
-	(*v1.ProviderRuntimeRef)(nil),            // 19: provider.v1.ProviderRuntimeRef
+	(*v1.ProviderEndpoint)(nil),              // 19: provider.v1.ProviderEndpoint
 	(*v11.AgentSessionSpec)(nil),             // 20: platform.agent_session.v1.AgentSessionSpec
 	(*v11.AgentSessionState)(nil),            // 21: platform.agent_session.v1.AgentSessionState
 	(*timestamppb.Timestamp)(nil),            // 22: google.protobuf.Timestamp
@@ -1146,7 +1155,7 @@ var file_platform_chat_v1_chat_service_proto_goTypes = []any{
 var file_platform_chat_v1_chat_service_proto_depIdxs = []int32{
 	2,  // 0: platform.chat.v1.GetSessionRuntimeOptionsResponse.items:type_name -> platform.chat.v1.SessionRuntimeProviderOption
 	3,  // 1: platform.chat.v1.SessionRuntimeProviderOption.surfaces:type_name -> platform.chat.v1.SessionRuntimeSurfaceOption
-	19, // 2: platform.chat.v1.SessionRuntimeSurfaceOption.runtime_ref:type_name -> provider.v1.ProviderRuntimeRef
+	19, // 2: platform.chat.v1.SessionRuntimeSurfaceOption.endpoint:type_name -> provider.v1.ProviderEndpoint
 	20, // 3: platform.chat.v1.ValidateInlineSpecRequest.spec:type_name -> platform.agent_session.v1.AgentSessionSpec
 	21, // 4: platform.chat.v1.Chat.session_state:type_name -> platform.agent_session.v1.AgentSessionState
 	22, // 5: platform.chat.v1.Chat.created_at:type_name -> google.protobuf.Timestamp

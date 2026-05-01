@@ -28,22 +28,22 @@ const (
 type CredentialMaterialReadPolicyKind int32
 
 const (
-	CredentialMaterialReadPolicyKind_CREDENTIAL_MATERIAL_READ_POLICY_KIND_UNSPECIFIED            CredentialMaterialReadPolicyKind = 0
-	CredentialMaterialReadPolicyKind_CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_ACTIVE_QUERY CredentialMaterialReadPolicyKind = 1
-	CredentialMaterialReadPolicyKind_CREDENTIAL_MATERIAL_READ_POLICY_KIND_VENDOR_ACTIVE_QUERY    CredentialMaterialReadPolicyKind = 2
+	CredentialMaterialReadPolicyKind_CREDENTIAL_MATERIAL_READ_POLICY_KIND_UNSPECIFIED           CredentialMaterialReadPolicyKind = 0
+	CredentialMaterialReadPolicyKind_CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_QUOTA_QUERY CredentialMaterialReadPolicyKind = 1
+	CredentialMaterialReadPolicyKind_CREDENTIAL_MATERIAL_READ_POLICY_KIND_VENDOR_QUOTA_QUERY    CredentialMaterialReadPolicyKind = 2
 )
 
 // Enum value maps for CredentialMaterialReadPolicyKind.
 var (
 	CredentialMaterialReadPolicyKind_name = map[int32]string{
 		0: "CREDENTIAL_MATERIAL_READ_POLICY_KIND_UNSPECIFIED",
-		1: "CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_ACTIVE_QUERY",
-		2: "CREDENTIAL_MATERIAL_READ_POLICY_KIND_VENDOR_ACTIVE_QUERY",
+		1: "CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_QUOTA_QUERY",
+		2: "CREDENTIAL_MATERIAL_READ_POLICY_KIND_VENDOR_QUOTA_QUERY",
 	}
 	CredentialMaterialReadPolicyKind_value = map[string]int32{
-		"CREDENTIAL_MATERIAL_READ_POLICY_KIND_UNSPECIFIED":            0,
-		"CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_ACTIVE_QUERY": 1,
-		"CREDENTIAL_MATERIAL_READ_POLICY_KIND_VENDOR_ACTIVE_QUERY":    2,
+		"CREDENTIAL_MATERIAL_READ_POLICY_KIND_UNSPECIFIED":           0,
+		"CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_QUOTA_QUERY": 1,
+		"CREDENTIAL_MATERIAL_READ_POLICY_KIND_VENDOR_QUOTA_QUERY":    2,
 	}
 )
 
@@ -917,13 +917,13 @@ func (x *ReadCredentialMaterialFieldsResponse) GetValues() map[string]string {
 type CredentialMaterialReadPolicyRef struct {
 	state protoimpl.MessageState           `protogen:"open.v1"`
 	Kind  CredentialMaterialReadPolicyKind `protobuf:"varint,1,opt,name=kind,proto3,enum=platform.auth.v1.CredentialMaterialReadPolicyKind" json:"kind,omitempty"`
-	// owner_id is the support-owned policy subject. For CLI active queries this is
-	// cli_id; for vendor active queries this is vendor_id.
+	// owner_id is the support-owned policy subject. For CLI quota queries this is
+	// cli_id; for vendor quota queries this is vendor_id.
 	OwnerId string `protobuf:"bytes,2,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`
-	// surface_id narrows vendor active query policy to one provider surface
-	// binding. CLI active queries may leave this empty.
+	// surface_id narrows vendor quota query policy to one provider surface.
+	// CLI quota queries may leave this empty.
 	SurfaceId string `protobuf:"bytes,3,opt,name=surface_id,json=surfaceId,proto3" json:"surface_id,omitempty"`
-	// collector_id is the active query collector implementation that is requesting
+	// collector_id is the quota query collector implementation that is requesting
 	// material readback. When set, authservice verifies it matches the support
 	// policy before releasing material values.
 	CollectorId   string `protobuf:"bytes,4,opt,name=collector_id,json=collectorId,proto3" json:"collector_id,omitempty"`
@@ -2885,11 +2885,11 @@ const file_platform_auth_v1_auth_proto_rawDesc = "" +
 	"\x16EgressAuthPolicyTarget\x12\x14\n" +
 	"\x05hosts\x18\x01 \x03(\tR\x05hosts\x12#\n" +
 	"\rpath_prefixes\x18\x02 \x03(\tR\fpathPrefixes\x12\x18\n" +
-	"\amethods\x18\x03 \x03(\tR\amethods*\xd7\x01\n" +
+	"\amethods\x18\x03 \x03(\tR\amethods*\xd5\x01\n" +
 	" CredentialMaterialReadPolicyKind\x124\n" +
-	"0CREDENTIAL_MATERIAL_READ_POLICY_KIND_UNSPECIFIED\x10\x00\x12?\n" +
-	";CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_ACTIVE_QUERY\x10\x01\x12<\n" +
-	"8CREDENTIAL_MATERIAL_READ_POLICY_KIND_VENDOR_ACTIVE_QUERY\x10\x022\xc9\x14\n" +
+	"0CREDENTIAL_MATERIAL_READ_POLICY_KIND_UNSPECIFIED\x10\x00\x12>\n" +
+	":CREDENTIAL_MATERIAL_READ_POLICY_KIND_CLI_OAUTH_QUOTA_QUERY\x10\x01\x12;\n" +
+	"7CREDENTIAL_MATERIAL_READ_POLICY_KIND_VENDOR_QUOTA_QUERY\x10\x022\xc9\x14\n" +
 	"\vAuthService\x12f\n" +
 	"\x0fListCredentials\x12(.platform.auth.v1.ListCredentialsRequest\x1a).platform.auth.v1.ListCredentialsResponse\x12{\n" +
 	"\x16CreateAPIKeyCredential\x12/.platform.auth.v1.CreateAPIKeyCredentialRequest\x1a0.platform.auth.v1.CreateAPIKeyCredentialResponse\x12{\n" +
